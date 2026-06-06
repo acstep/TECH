@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-06 每日 AI 新聞中文整理 · TechCrunch</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080810;
+  --panel: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --accent: #00d4ff;
+  --accent2: #00ff88;
+  --text: #e8e8f0;
+  --muted: #888;
+  --warn: #ffb84d;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 0 20px 60px;
+  min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+header.hero {
+  text-align: center;
+  padding: 50px 20px 30px;
+  margin-bottom: 30px;
+}
+header.hero h1 {
+  font-size: 2.6em;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+header.hero .date { color: #aaa; font-size: 1.05em; margin-bottom: 6px; }
+header.hero .meta { color: #888; font-size: 0.95em; }
+.meta-stats {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 14px;
+  margin-top: 18px;
+}
+.meta-stats span {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 6px 14px; border-radius: 99px;
+  font-size: 0.85em; color: #cfd0e0;
+}
+.meta-stats span b { color: var(--accent); font-weight: 700; }
+
+section { margin-bottom: 50px; }
+h2.section-title {
+  color: var(--accent2);
+  font-size: 1.6em;
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0,255,136,0.18);
+}
+
+.top3 {
+  display: grid; gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+.top3 .card.feature {
+  background: linear-gradient(135deg, rgba(0,212,255,0.10), rgba(0,255,136,0.06));
+  border: 1px solid rgba(0,212,255,0.35);
+  padding: 28px;
+  border-radius: 16px;
+}
+.top3 .badge {
+  display: inline-block; font-size: 0.75em; font-weight: 700;
+  background: linear-gradient(90deg,#00d4ff,#00ff88);
+  color: #04121a; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.top3 h3 { color: #fff; font-size: 1.3em; margin-bottom: 10px; line-height: 1.4; }
+.top3 p.lead { color: #c8cad8; font-size: 0.96em; }
+.top3 a { color: var(--accent); text-decoration: none; }
+.top3 a:hover { text-decoration: underline; }
+.top3 .link { display: inline-block; margin-top: 14px; color: var(--accent2); font-size: 0.88em; }
+
+.radar {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.radar .tile {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all .25s;
+}
+.radar .tile:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-3px); }
+.radar .tile .icon { font-size: 1.6em; margin-bottom: 8px; }
+.radar .tile h4 { color: #fff; margin-bottom: 4px; font-size: 1.05em; }
+.radar .tile .count { color: var(--accent); font-size: 0.85em; font-weight: 700; }
+.radar .tile .rep { color: #aaa; font-size: 0.83em; margin-top: 8px; line-height: 1.45; }
+
+.news-list { display: flex; flex-direction: column; gap: 18px; }
+.news-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.news-card .meta-line {
+  font-size: 0.78em; color: #888;
+  display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px;
+}
+.news-card .meta-line .source { color: var(--accent); font-weight: 600; }
+.news-card h3 { color: #fff; font-size: 1.18em; line-height: 1.4; margin-bottom: 8px; }
+.news-card h3 a { color: #fff; text-decoration: none; }
+.news-card h3 a:hover { color: var(--accent); }
+.news-card .summary { color: #c8cad8; font-size: 0.95em; line-height: 1.7; margin-bottom: 12px; }
+.news-card .why { color: var(--accent2); font-size: 0.9em; line-height: 1.65; padding: 10px 12px; background: rgba(0,255,136,0.05); border-radius: 8px; margin-bottom: 10px; }
+.news-card .why b { color: var(--accent2); }
+.news-card .row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  font-size: 0.82em;
+}
+.news-card .row .label { color: #888; margin-right: 4px; }
+.news-card .row .tag {
+  background: rgba(0,212,255,0.10);
+  border: 1px solid rgba(0,212,255,0.25);
+  color: #cfeeff;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.news-card .row .stock {
+  background: rgba(255,184,77,0.10);
+  border: 1px solid rgba(255,184,77,0.30);
+  color: #ffe0b3;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.tags-cloud {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  padding: 20px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.tags-cloud .tag {
+  background: linear-gradient(90deg, rgba(0,212,255,0.10), rgba(0,255,136,0.10));
+  border: 1px solid rgba(0,212,255,0.25);
+  color: #e0f7ff;
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-size: 0.88em;
+}
+.tags-cloud .tag b { color: var(--accent); }
+
+.tomorrow {
+  background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(0,255,136,0.05));
+  border: 1px dashed rgba(0,212,255,0.4);
+  border-radius: 12px;
+  padding: 24px;
+}
+.tomorrow ul { list-style: none; padding-left: 0; }
+.tomorrow li {
+  padding: 8px 0 8px 24px; position: relative;
+  color: #d6d8e6;
+  font-size: 0.95em;
+  border-bottom: 1px dashed rgba(255,255,255,0.06);
+}
+.tomorrow li:last-child { border-bottom: 0; }
+.tomorrow li::before {
+  content: "→"; position: absolute; left: 0;
+  color: var(--accent2); font-weight: 700;
+}
+
+footer {
+  text-align: center; color: #555; font-size: 0.9em;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 60px;
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 700px) {
+  header.hero h1 { font-size: 1.9em; }
+  .top3 .card.feature { padding: 20px; }
+  .news-card { padding: 18px; }
+  h2.section-title { font-size: 1.3em; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="hero">
+  <h1>📰 2026-06-06 AI 新聞日報</h1>
+  <p class="date">2026 年 6 月 6 日（週六）· 台北時間</p>
+  <p class="meta">資料來源：TechCrunch · 自動抓取 + AI 編譯摘要</p>
+  <div class="meta-stats">
+    <span>📊 共 <b>30</b> 則新聞</span>
+    <span>📁 <b>8</b> 個主題分類</span>
+    <span>⏱️ 涵蓋過去 <b>24-72</b> 小時</span>
+    <span>🇹🇼 繁體中文（台灣用語）</span>
+  </div>
+</header>
+
+<!-- ============== 每日 3 大頭條 ============== -->
+<section>
+  <h2 class="section-title">🔥 每日 3 大頭條</h2>
+  <div class="top3">
+    <div class="card feature">
+      <span class="badge">頭條 1 · 算力軍備</span>
+      <h3>Google 將向 SpaceX 支付每月 9.2 億美元租算力</h3>
+      <p class="lead">Google 與 SpaceX 簽下為期近三年（2026/10–2029/6）的合約，每月支付 9.2 億美元取得約 11 萬顆 NVIDIA GPU、CPU、記憶體等運算資源。Alphabet 已宣示今年資本支出將超過 1,800 億美元，凸顯超大型雲端商對 AI 算力的「飢渴」。</p>
+      <a class="link" href="https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/" target="_blank">閱讀原文 →</a>
+    </div>
+    <div class="card feature">
+      <span class="badge">頭條 2 · Token 經濟</span>
+      <h3>AI 帳單失控：企業全面緊縮 token 支出</h3>
+      <p class="lead">Uber 四個月燒光一整年 AI 預算、Priceline 的 Cursor 合約漲價 4–5 倍、微軟撤回 Claude Code 授權。Linux 基金會本週成立「Tokenomics Foundation」標準組織，要為 AI token 建立類似 FinOps 對雲端支出的紀律。</p>
+      <a class="link" href="https://techcrunch.com/2026/06/05/the-token-bill-comes-due-inside-the-industry-scramble-to-manage-ais-runaway-costs/" target="_blank">閱讀原文 →</a>
+    </div>
+    <div class="card feature">
+      <span class="badge">頭條 3 · 人物動向</span>
+      <h3>Reid Hoffman 離開微軟董事會，回頭「founder mode」衝刺 AI 製藥新創 Manus</h3>
+      <p class="lead">LinkedIn 創辦人 Hoffman 結束在微軟董事會的十年任期，要把重心放回他共同創辦、AI 製藥公司 Manus（已融資逾 5,000 萬美元，目標是所謂的「Move 37 AI」化學突破）。</p>
+      <a class="link" href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">閱讀原文 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 主題雷達 ============== -->
+<section>
+  <h2 class="section-title">🛰️ 主題雷達</h2>
+  <div class="radar">
+    <div class="tile">
+      <div class="icon">💾</div>
+      <h4>AI 晶片與硬體</h4>
+      <div class="count">3 則</div>
+      <div class="rep">代表：Google 每月 9.2 億美元向 SpaceX 租 11 萬顆 NVIDIA GPU</div>
+    </div>
+    <div class="tile">
+      <div class="icon">🧠</div>
+      <h4>AI 模型與研究</h4>
+      <div class="count">2 則</div>
+      <div class="rep">代表：Mira Murati 端出 Thinking Machines「互動模型」</div>
+    </div>
+    <div class="tile">
+      <div class="icon">🤖</div>
+      <h4>AI 產品與應用</h4>
+      <div class="count">10 則</div>
+      <div class="rep">代表：Microsoft Scout、Apple Poke 上 iMessage、WWDC 2026 Siri 大改版</div>
+    </div>
+    <div class="tile">
+      <div class="icon">🏢</div>
+      <h4>企業 AI 動態</h4>
+      <div class="count">4 則</div>
+      <div class="rep">代表：Anthropic 上市前夜喊話企業 AI 回報</div>
+    </div>
+    <div class="tile">
+      <div class="icon">💰</div>
+      <h4>AI 投融資與併購</h4>
+      <div class="count">4 則</div>
+      <div class="rep">代表：Alphabet 創紀錄 850 億美元增資</div>
+    </div>
+    <div class="tile">
+      <div class="icon">🏛️</div>
+      <h4>AI 政策與監管</h4>
+      <div class="count">3 則</div>
+      <div class="rep">代表：英國強制 Google 給出版方 AI 搜尋退出權</div>
+    </div>
+    <div class="tile">
+      <div class="icon">👥</div>
+      <h4>AI 人事與組織</h4>
+      <div class="count">2 則</div>
+      <div class="rep">代表：Mira Murati 18 個月來首度接受主流媒體專訪</div>
+    </div>
+    <div class="tile">
+      <div class="icon">🌍</div>
+      <h4>AI 國際與地緣政治</h4>
+      <div class="count">2 則</div>
+      <div class="rep">代表：AirTrunk 砸 300 億美元在印度建 5GW AI 資料中心</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 完整新聞清單 ============== -->
+<section>
+  <h2 class="section-title">📑 完整新聞清單（依主題）</h2>
+
+  <!-- 💾 AI 晶片與硬體 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">💾 AI 晶片與硬體</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 11:57 PDT · Sean O'Kane</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/" target="_blank">Google 將向 SpaceX 每月支付 9.2 億美元租用 AI 算力</a></h3>
+      <p class="summary">Google 與 SpaceX 簽下為期近三年（2026 年 10 月至 2029 年 6 月）的合約，每月支付 9.2 億美元取得約 11 萬顆 NVIDIA GPU、CPU、記憶體等運算資源。SpaceX 已在 SEC 申報文件中揭露此交易，與 5 月底和 Anthropic 簽下的每月 12.5 億美元合約規模約略相當。Google 表示這是「短期、及時的橋接容量」協議，因 Gemini Enterprise 企業代理平台需求「比預期更高」。Alphabet 今年資本支出已超過 1,800 億美元，並宣布另將增資 800 億美元。雙方有 90 天通知的解約條款，9 月底前若 SpaceX 未能交付承諾的 GPU 數量，Google 可立即終止合約。</p>
+      <div class="why"><b>為什麼重要：</b>這是 Google 罕見必須「向外租算力」的訊號，凸顯超大型雲端商即便自擁龐大資料中心，也難追上企業對 AI 代理的爆量需求；同時 SpaceX（合併 xAI 後）已成為全球最具規模的 AI 算力二房東之一。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Google</span><span class="tag">Alphabet</span><span class="tag">SpaceX</span><span class="tag">xAI</span><span class="tag">Anthropic</span><span class="tag">NVIDIA</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">GOOGL</span><span class="stock">NVDA</span><span class="stock">台積電 2330</span><span class="stock">鴻海 2317</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 06:03 PDT · Jagmeet Singh</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/airtrunk-commits-30b-to-build-5gw-of-ai-data-centers-in-india/" target="_blank">AirTrunk 承諾 300 億美元在印度建置 5GW AI 資料中心</a></h3>
+      <p class="summary">Blackstone 投資的澳洲資料中心商 AirTrunk 宣布 2030 年前將在印度投資 300 億美元，打造 5GW 容量。其中在馬哈拉施特拉邦 Raigad Pen 將建置 3GW 容量，投資金額約 2 兆盧比（約 210 億美元）。AirTrunk 已透過收購 Lumina CloudInfra 進入印度市場，現有 600MW 開發案分布於孟買、清奈、海得拉巴。印度政府為吸引外國雲端業者，提供至 2047 年的稅負豁免。</p>
+      <div class="why"><b>為什麼重要：</b>印度正成為全球 AI 基礎設施競賽的新戰場，Bernstein 預估印度資料中心容量將由目前約 1.5GW 增至 2030 年的 8GW，AirTrunk 此舉是其中最大手筆承諾之一。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">AirTrunk</span><span class="tag">Blackstone</span><span class="tag">印度政府</span><span class="tag">Reliance</span><span class="tag">Adani</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">台積電 2330</span><span class="stock">緯穎 6669</span><span class="stock">鴻海 2317</span><span class="stock">印度 IT 類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 12:33 PDT · Tim De Chant</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/meta-steals-a-tactic-from-tesla-and-builds-data-centers-in-tents/" target="_blank">Meta 學特斯拉一招：在帳篷裡蓋資料中心</a></h3>
+      <p class="summary">Meta 為壓縮一半施工時間，在俄亥俄州 New Albany 蓋了六座「快速部署結構」（rapid deployment structures）帳篷，每個 12.5 萬平方呎，現場搭配 200MW 模組化燃氣渦輪機供電。帳篷內將部署價值數十億美元的 AI 晶片。Meta 已是繼特斯拉、xAI 之後第三家以「瘋狂施工法」搶時間的業者。</p>
+      <div class="why"><b>為什麼重要：</b>AI 軍備競賽已進入「瘋狂麥克斯」階段，連最傳統的科技巨頭都不惜犧牲工程品質換取上線速度，這同時也帶來土地、電力、用水等外部成本壓力。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Meta</span><span class="tag">Mark Zuckerberg</span><span class="tag">Tesla</span><span class="tag">xAI</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">META</span><span class="stock">TSLA</span><span class="stock">NVDA</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🧠 AI 模型與研究 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">🧠 AI 模型與研究</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 22:06 PDT · Connie Loizos</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/mira-murati-steps-back-into-the-spotlight-carefully/" target="_blank">Mira Murati 18 個月來首度接受主流媒體專訪，端出 Thinking Machines「互動模型」</a></h3>
+      <p class="summary">前 OpenAI CTO、Thinking Machines Lab 創辦人 Mira Murati 在舊金山接受彭博專訪，預覽公司所謂的「互動模型」（interaction models），主打能以 200 毫秒為單位，持續同步處理音訊、文字、影像串流，捕捉人類溝通中的插話、修正、停頓等細節。Murati 也回顧 2023 年 OpenAI 董事會罷免 Sam Altman 那五天的「混亂」經歷，她說若不是她介入，公司會「崩解」，但也承認當時應該堅持取得更多資訊。Murati 同時淡化近期 Thinking Machines 一些高階研究員離職的傳聞。</p>
+      <div class="why"><b>為什麼重要：</b>在 OpenAI、Anthropic、xAI 各自搶盡媒體版面的同時，Murati 這次「小心翼翼」的回歸，是她個人與 Thinking Machines 在公開敘事上的重新定位；互動模型也代表 AI 介面從回合式 prompt 走向即時多模態的新方向。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Mira Murati</span><span class="tag">Thinking Machines Lab</span><span class="tag">OpenAI</span><span class="tag">Sam Altman</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">MSFT</span><span class="stock">NVDA</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-02 09:00 PDT · Russell Brandom</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/02/openai-launches-new-codex-tools-for-white-collar-work/" target="_blank">OpenAI 推出六款 Codex 白領工作插件，週活躍用戶突破 500 萬</a></h3>
+      <p class="summary">OpenAI 為 Codex 推出六款針對特定職業的插件：資料分析、創意製作、銷售、產品設計、股票投資、投銀業務；每個插件整合相關工具、提示與背景脈絡，讓 Codex 模擬特定工作角色。Codex 桌面 app 自 2 月推出以來，週活躍用戶已從個位數成長 6 倍至 500 萬以上。OpenAI 同時發布《知識工作的下一個時代》內部研究報告。</p>
+      <div class="why"><b>為什麼重要：</b>OpenAI 從「寫程式助手」轉向「通用白領代理」，正面對標 Anthropic 的 Claude for Work 與微軟 Copilot 商業版；500 萬週活躍用戶是 Codex 從開發者工具走向企業主流的關鍵指標。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">OpenAI</span><span class="tag">Codex</span><span class="tag">Anthropic</span><span class="tag">Microsoft Copilot</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">MSFT</span><span class="stock">CRM</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🤖 AI 產品與應用 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">🤖 AI 產品與應用</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 15:35 PDT · Julie Bort</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">Reid Hoffman 離開微軟董事會，回頭「founder mode」衝刺 AI 製藥新創 Manus</a></h3>
+      <p class="summary">LinkedIn 共同創辦人 Reid Hoffman 結束在微軟董事會的十年任期，宣布全心投入他共同創辦的 AI 製藥新創 Manus（拼法 Manus，但官方網址為 manasai.co）。Manus 去年透過兩輪種子輪募得超過 5,000 萬美元，投資人包括 General Catalyst。執行長為癌症專家、普立茲獎作家 Dr. Siddhartha Mukherjee。Hoffman 目標是讓 Manus 達到他所稱的「Move 37 AI」——在化學領域超越人類創造力的 AI。</p>
+      <div class="why"><b>為什麼重要：</b>Hoffman 是 OpenAI 早期投資人、2019 年見證微軟首次 10 億美元投資，他離開董事會象徵「AI 教父級」人物回歸創業一線；Manus 鎖定的「AI 製藥 + 化學生成」是 Opus 4.5、Gemini 3 Pro 之後下一波科研 AI 的高價值戰場。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Reid Hoffman</span><span class="tag">Microsoft</span><span class="tag">LinkedIn</span><span class="tag">Manus</span><span class="tag">OpenAI</span><span class="tag">General Catalyst</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">MSFT</span><span class="stock">AI 製藥類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 12:20 PDT · Sarah Perez</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/apple-approves-poke-as-the-first-ai-agent-on-its-messages-for-business-platform/" target="_blank">Apple 核准 Poke 成為 Messages for Business 平台上首個 AI 代理</a></h3>
+      <p class="summary">Poke 是一款讓使用者透過「傳簡訊」就能用 AI 代理處理日常事務的服務（行程、行事曆、健康、智慧家庭、照片編輯等），已累計轉發 1 億則訊息。過去 Messages for Business 僅開放給企業內部使用，現 Apple 首度允許第三方 AI 代理接入 iMessage。Poke 原本已支援 SMS、Telegram、部分市場的 WhatsApp，新增多 iMessage 通路。</p>
+      <div class="why"><b>為什麼重要：</b>Apple 過去對第三方 AI 代理態度保守，這是 iMessage 生態首次接納獨立 AI 代理，為「簡訊即 AI 介面」這條新興賽道開了大門。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Apple</span><span class="tag">Poke</span><span class="tag">iMessage</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">AAPL</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 09:31 PDT · Lauren Forristal</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/what-to-expect-from-wwdc-2026-siris-highly-anticipated-revamp-and-apple-intelligence-updates/" target="_blank">WWDC 2026 預期重點：Siri 重大改版與 Apple Intelligence 升級</a></h3>
+      <p class="summary">Apple 全球開發者大會（WWDC 2026）將於 6 月 9 日（週一）上午 10 點（PT）開幕。重頭戲是 Siri 的大改版：可理解脈絡、處理多步任務、跨 App 自然互動，技術底層將串接 Google 的 Gemini。彭博也爆料 Apple 將推出獨立的 Siri App，要正面對決 ChatGPT。</p>
+      <div class="why"><b>為什麼重要：</b>Siri 多年來被視為「蘋果在 AI 競賽的最大弱點」，今年改版被視為 Apple 對 Google Gemini、OpenAI ChatGPT 的關鍵反擊；採用 Gemini 模型也代表 Apple 短期仍需借助外部模型補齊缺口。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Apple</span><span class="tag">Siri</span><span class="tag">Apple Intelligence</span><span class="tag">Google Gemini</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">AAPL</span><span class="stock">GOOGL</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 09:32 PDT · Aisha Malik</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/meta-rolls-out-a-new-ai-creator-assistant-on-facebook/" target="_blank">Meta 在 Facebook 推出 AI 創作者助理</a></h3>
+      <p class="summary">Facebook 為創作者推出 AI 助理，可根據其內容風格、表現、社群與目標給出個人化建議，回答「何時發文？」「網友在留言中說什麼？」之類的問題，並能做後續追問。助理還能根據熱門話題、流行音訊、文化時刻來發想新內容。已在美、加、印三國上線，未來將推廣更多市場。同步新增阿拉伯語等多語 AI 翻譯。</p>
+      <div class="why"><b>為什麼重要：</b>Meta 直接把 AI 助理嵌入 Facebook 生態，把創作者「黏在」平台內，避免他們外流到 ChatGPT 等外部工具；這也是對 YouTube、TikTok 爭奪創作者的即時反擊。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Meta</span><span class="tag">Facebook</span><span class="tag">Instagram</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">META</span><span class="stock">GOOGL</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 12:07 PDT · Lucas Ropek</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/googles-dreambeans-its-weirdest-named-ai-tool-to-date-will-turn-your-life-into-a-cartoon/" target="_blank">Google 推出「Dreambeans」：把你的個人生成 AI 漫畫</a></h3>
+      <p class="summary">Google Labs 推出一款 iOS / Android App「Dreambeans」，會串接使用者的 Gmail、Calendar、Photos、YouTube、Search 等個資（須授權），產出 AI 插畫風格的「故事」清單，推薦地點、想探索的主題、待嘗試的事物、即將到來的活動。產品負責人 Gozde Oznur 強調這是「個人化 AI 靈感」服務。</p>
+      <div class="why"><b>為什麼重要：</b>Google 把 AI「個人化」推到新極致——直接消化使用者多年數位足跡，主動生成生活提案；同時也勢必引發新的隱私爭議（個資全進入 AI 內容生成）。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Google Labs</span><span class="tag">Personal Intelligence</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">GOOGL</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 08:50 PDT · Sarah Perez</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/amazon-will-show-ai-product-images-when-you-search-for-some-reason/" target="_blank">Amazon 搜尋結果將顯示 AI 生成的「產品圖」</a></h3>
+      <p class="summary">Amazon 在購物 App 推出一項新功能：當使用者搜尋某種風格（如「cowl neck」襯衫）但不知怎麼描述時，系統會用 AI 生成對應風格的產品圖片，引導使用者找到真實商品。Amazon 強調這是視覺搜尋輔助，但市場質疑在一個買實體商品的平台放「假照片」可能誤導消費者。</p>
+      <div class="why"><b>為什麼重要：</b>這是生成式 AI 進入電商主流入口的典型案例；也凸顯當前 AI 應用「為 AI 而 AI」的爭議——當假圖進入購物決策，信任成本由誰承擔？</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Amazon</span><span class="tag">視覺搜尋</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">AMZN</span><span class="stock">電商類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 06:40 PDT · Ivan Mehta</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/metas-ai-agent-for-whatsapp-business-is-now-available-globally/" target="_blank">Meta 將 WhatsApp Business 的 AI 代理推向全球</a></h3>
+      <p class="summary">經過近兩年在印度、墨西哥的測試，Meta Business Agent 現已在全球 WhatsApp 上線，可自動回覆問題、推薦商品、預約會議、篩選潛在客戶、複雜案件轉真人。同步在 Instagram DM 上推出，並測試每日聊天摘要簡報。WhatsApp 將依「token 使用量」向企業收費。</p>
+      <div class="why"><b>為什麼重要：</b>WhatsApp 是許多新興市場中小企業的核心營運工具，AI 代理 + token 計費讓 Meta 直接把「AI 即服務」賣給全球數億商家，是 AI 商業化最被低估的管道之一。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Meta</span><span class="tag">WhatsApp Business</span><span class="tag">Instagram</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">META</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 08:00 PDT · Ivan Mehta</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/these-two-founders-left-goldman-and-meta-to-build-voice-ai-for-markets-everyone-else-overlooked/" target="_blank">兩位前 Goldman、Meta 工程師創業：為非洲、中東打造在地化語音 AI</a></h3>
+      <p class="summary">aethexai 兩位創辦人分別來自 Goldman Sachs 與 Meta，專門為非洲、中東等被主流忽略的市場做語音 AI 客服平台；自家堆疊在非洲、中東每日處理超過 17,000 通來電，支援多種在地語言、方言與低頻寬環境。</p>
+      <div class="why"><b>為什麼重要：</b>主流客服語音 AI 多為英語優化，這家公司用「在地化 + 邊緣部署」切入高成長、語言破碎的市場，是「語音 AI 普惠化」的早期代表。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">aethexai</span><span class="tag">Goldman Sachs</span><span class="tag">Meta</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">語音 AI 類股</span><span class="stock">新興市場 AI</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 08:05 PDT · Tim Fernholz</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/is-silicon-valley-ready-to-put-robots-in-peoples-homes-hello-robot-is/" target="_blank">Hello Robot 推出第四代家用機器人 Stretch</a></h3>
+      <p class="summary">位於加州 Martinez 的 Hello Robot 釋出第四代家用輔助機器人 Stretch。Stretch 並非「人形機器人」，而是擁有可伸縮機械手臂、夾爪、全向輪底盤與感測頭的「實用型家用機器人」。公司由前 Google 機器人總監 Aaron Edsinger 與喬治亞理工教授 Charlie Kemp 於 2017 年共同創辦，強調「在真實家庭、與真實的人共事」的部署資料價值。</p>
+      <div class="why"><b>為什麼重要：</b>在 Figure、Apptronik、1X 等人形機器人公司搶盡頭條的同時，Hello Robot 走「非人形的實用型」路線，主打早期場域部署資料，正是 Bullhound Capital 等投資人最看重的「真實場景飛輪」。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Hello Robot</span><span class="tag">Aaron Edsinger</span><span class="tag">Charlie Kemp</span><span class="tag">Google</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">機器人概念股</span><span class="stock">鴻海 2317</span><span class="stock">上銀 2049</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-02 11:00 PDT · Aisha Malik</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/02/google-rolls-out-fake-call-detection-to-protect-against-ai-deepfake-impersonation-scams/" target="_blank">Android 推出 AI 來電偵測功能，攔截深偽詐騙</a></h3>
+      <p class="summary">Google 為 Android 推出 AI 來電偵測（fake call detection），可即時分析通話內容，辨識是否為仿造親友、雇主或政府官員的 AI 深偽語音詐騙。這項功能對應「現代人不接陌生電話 → 詐騙集團改用 spoofing 偽造信任門號」的新興犯罪手法。</p>
+      <div class="why"><b>為什麼重要：</b>當 AI 成為詐騙工具，AI 也成為唯一可規模化、即時反制的防禦機制；Android 全球用戶數十億，這類內建防護會快速成為「業界基本款」。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Google</span><span class="tag">Android</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">GOOGL</span><span class="stock">資安類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-02 11:02 PDT · Russell Brandom</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/02/microsoft-launches-scout-an-openclaw-inspired-personal-assistant/" target="_blank">微軟推出 Scout：OpenClaw 風格的個人 AI 助理，進駐 M365</a></h3>
+      <p class="summary">微軟在 Build 大會上推出個人 AI 助理 Scout，底層採用 OpenClaw 框架，定位為「常駐、與用戶並肩工作」的代理型助理，要把 OpenClaw 的強大與彈性帶進 Microsoft 365 生態。Scout 強調跨 App、跨工作流的主動協作能力。</p>
+      <div class="why"><b>為什麼重要：</b>這是微軟正式把「OpenClaw 風格」AI 代理納入企業核心工作流，與 OpenAI ChatGPT、Anthropic Claude 在「代理工作」市場正面交鋒。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Microsoft</span><span class="tag">Scout</span><span class="tag">Microsoft 365</span><span class="tag">OpenAI</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">MSFT</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🏢 企業 AI 動態 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">🏢 企業 AI 動態</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 07:49 PDT · Rebecca Bellan</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/the-token-bill-comes-due-inside-the-industry-scramble-to-manage-ais-runaway-costs/" target="_blank">Token 帳單到期：企業全面緊縮 AI 支出</a></h3>
+      <p class="summary">企業開始正視 AI 成本失控問題：Uber 4 個月燒光一整年 AI 預算、微軟撤回員工 Claude Code 授權、Priceline 的 Cursor 合約漲價 4–5 倍。Linux 基金會本週宣布成立「Tokenomics Foundation」，要把 FinOps 對雲端支出的紀律移植到 AI token 上。OpenAI 企業端主管 Alexander Embiricos 指出，企業對話重心已從「能做什麼」轉向「要花多少、可不可以看到」。一家公司傳出因沒設使用上限而收到 5 億美元的 Claude 帳單。</p>
+      <div class="why"><b>為什麼重要：</b>這是 2026 年 AI 產業最關鍵的轉折訊號：企業從「盡量用」轉向「管控成本」，將直接影響模型廠商營收節奏，並催生 AI FinOps 這個新興基礎設施賽道。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">OpenAI</span><span class="tag">Anthropic</span><span class="tag">Linux Foundation</span><span class="tag">Uber</span><span class="tag">Microsoft</span><span class="tag">Priceline</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">MSFT</span><span class="stock">UBER</span><span class="stock">AI FinOps 概念股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 15:43 PDT · Marina Temkin</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/ahead-of-its-ipo-anthropics-daniela-amodei-shrugs-off-doubts-about-ais-returns/" target="_blank">Anthropic 上市前夜，Daniela Amodei 對 AI 投資回報質疑輕鬆以對</a></h3>
+      <p class="summary">在彭博科技大會上，Anthropic 共同創辦人 Daniela Amodei 表示，Anthropic 5 月年化營收已突破 470 億美元，遠高於 2025 年底的 90 億美元，公司 6 月初已秘密申請 IPO。她強調「前沿模型研發的資本門檻太高，只有公開市場能支撐」。至於 Uber 等公司開始質疑 AI 投資回報，Amodei 認為「企業仍在摸索 AI 應用的初期」。Anthropic 5 月與 xAI 簽下每月 12.5 億美元算力合約，她解釋是「寧可供給略不足，也不要過度擴張」。</p>
+      <div class="why"><b>為什麼重要：</b>Anthropic 已進入上市前最關鍵的「敘事戰」，要在企業 AI 投資回報質疑聲中維持估值（傳聞達 1 兆美元）並完成史上最大 AI IPO 之一。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Anthropic</span><span class="tag">Daniela Amodei</span><span class="tag">SpaceX</span><span class="tag">xAI</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">AI 軟體類股</span><span class="stock">雲端服務類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 15:29 PDT · Tim Fernholz</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/airbnbs-brian-chesky-plans-to-launch-a-new-ai-lab/" target="_blank">Airbnb 執行長 Brian Chesky 計畫自建新 AI 實驗室</a></h3>
+      <p class="summary">Airbnb 創辦人 Brian Chesky 不滿足於只當「AI 造王者」，決定親自投資成立一家 AI 實驗室（產品方向聚焦於使用者互動與設計，類似 Brett Adcock 的 Hark）。Chesky 將續任 Airbnb CEO，新實驗室另找 CEO。Chesky 是 Sam Altman 2006 年 Y Combinator 起就認識的舊識，OpenAI 罷免風波中他居中協調、幫 Altman 回鍋，現在要與他「徒弟的公司」競爭。</p>
+      <div class="why"><b>為什麼重要：</b>當前矽谷一線 CEO 親自跳下來做 AI 實驗室已成為新潮流，Chesky 的舉動代表「應用層 AI 還沒被滿足」的市場判斷。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Airbnb</span><span class="tag">Brian Chesky</span><span class="tag">Sam Altman</span><span class="tag">Hark</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">ABNB</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 15:56 PDT · Julie Bort</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/lovable-signs-multi-year-deal-with-google-cloud-to-up-usage-5x-source-says/" target="_blank">Lovable 與 Google Cloud 簽多年合約，雲端用量將擴大 5 倍</a></h3>
+      <p class="summary">斯德哥爾摩 vibe-coding 新創 Lovable 與 Google 簽下擴大多年合作協議，Google Cloud 上的用量將擴張 5 倍，並取得 Anthropic Claude 與 Google Gemini 的更大額度。Lovable 2 月已達 4 億美元年化營收。Google 4 月已對 Anthropic 投入 100 億美元現金 + 算力額度，並承諾若達標再投 300 億美元，此交易有助 Anthropic 達標。</p>
+      <div class="why"><b>為什麼重要：</b>Google 透過投資 Anthropic + 雲端客戶搭售，同時推進自己的雲端、AI 算力、Anthropic 股權三條戰線；Lovable 的「vibe coding」是當前成長最快的 AI 應用類別之一。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Lovable</span><span class="tag">Google Cloud</span><span class="tag">Anthropic</span><span class="tag">Claude</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">GOOGL</span><span class="stock">雲端概念股</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 💰 AI 投融資與併購 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">💰 AI 投融資與併購</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 21h ago · Julie Bort</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/" target="_blank">Supabase 8 個月內估值翻倍至 100 億美元</a></h3>
+      <p class="summary">開源資料庫後端平台 Supabase 完成新一輪融資，估值由 8 個月前的 50 億美元翻倍至 100 億美元，成為本週最受矚目的 AI 基礎設施融資案之一。</p>
+      <div class="why"><b>為什麼重要：</b>Supabase 是 Postgres 生態最重要新創，與 Vercel、Replit 等同屬「AI 時代後端三巨頭」；估值翻倍顯示 VC 仍願意為「AI 開發者基礎設施」付出高溢價。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Supabase</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">資料庫類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 12:38 PDT · Julie Bort</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/alphabets-record-breaking-85b-raise-for-googles-ai-business-is-a-helluva-good-signal/" target="_blank">Alphabet 創紀錄 850 億美元增資，Berkshire 也加碼 100 億</a></h3>
+      <p class="summary">Alphabet 原定增資 400 億美元，因超額認購擴大至 450 億美元；下季再發 400 億美元，合計 850 億美元，超越 2010 年巴西國家石油的 700 億美元紀錄。連「價值投資」代表的波克夏（Berkshire Hathaway）也下注 100 億美元。執行長 Sundar Pichai 在 X 發文證實。</p>
+      <div class="why"><b>為什麼重要：</b>這是史上最大規模的 AI 相關股權增資案；連一向保守的波克夏都大手筆進場，等同為整個 AI 板塊「蓋章認證」。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Alphabet</span><span class="tag">Google</span><span class="tag">Sundar Pichai</span><span class="tag">Berkshire Hathaway</span><span class="tag">Warren Buffett</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">GOOGL</span><span class="stock">BRK.B</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 06:02 PDT · Jagmeet Singh</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/coralogix-raises-200m-in-race-to-build-the-monitoring-layer-for-ai-agents/" target="_blank">Coralogix 融資 2 億美元，做 AI 代理的「監控層」</a></h3>
+      <p class="summary">以色列起家、總部波士頓的軟體監控新創 Coralogix 完成 2 億美元 F 輪，押注「AI 代理進入生產環境後，需要新一代監控、故障排除、營運管理工具」。</p>
+      <div class="why"><b>為什麼重要：</b>這與「AI FinOps」是同一波浪潮：當企業把 AI 代理放上生產線，傳統監控工具已不足，新一代可觀測性（observability）平台是新藍海。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Coralogix</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">可觀測性類股</span><span class="stock">DDOG</span><span class="stock">DT</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-02 15:50 PDT · Marina Temkin</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/02/cyera-eyes-12b-valuation-at-80x-arr-multiple-despite-operating-losses/" target="_blank">Cyera 拚 120 億美元估值，80 倍 ARR 倍數仍處於虧損</a></h3>
+      <p class="summary">資料儲存安全公司 Cyera 即將完成由 Evolution Equity Partners 領投、規模至少 3 億美元的新一輪融資，估值上看 120 億美元，相當於 80 倍 ARR（年化經常性營收）。公司 ARR 已突破 1.5 億美元，但仍遠未獲利。</p>
+      <div class="why"><b>為什麼重要：</b>80 倍 ARR 倍數比多數快速成長 AI 新創更高，反映「AI 帶動的資安需求」已成為新一輪估值溢價主軸；同時也凸顯市場對「獲利」容忍度已到極端。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Cyera</span><span class="tag">Evolution Equity Partners</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">資安類股</span><span class="stock">PANW</span><span class="stock">CRWD</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🏛️ AI 政策與監管 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">🏛️ AI 政策與監管</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 07:32 PDT · Zack Whittaker</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/nsa-said-to-be-readying-anthropics-mythos-for-use-in-cyber-operations/" target="_blank">傳 NSA 準備將 Anthropic 的 Mythos 投入網路作戰</a></h3>
+      <p class="summary">金融時報引述匿名消息指出，Anthropic 已派出約六名工程師進駐美國國家安全局（NSA），協助其運用 Anthropic 旗艦資安 AI 模型 Mythos。雖不清楚 Mythos 是否已實際投入攻擊行動，但凸顯政府機關對 Mythos 資安能力的高度興趣。值得注意的是，國防部先前因 Anthropic 拒絕讓其模型用於大規模國內監控和自主武器，曾將其列為「供應鏈風險」。</p>
+      <div class="why"><b>為什麼重要：</b>當 AI 達到「網路武器」等級，民主國家政府面臨雙重壓力：既要靠它強化國安，又受限於自家對 AI 供應商的禁令；Mythos 成為這場「管控矛盾」的最新指標。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">NSA</span><span class="tag">Anthropic</span><span class="tag">Mythos</span><span class="tag">美國國防部</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">國防 AI 類股</span><span class="stock">PLTR</span><span class="stock">資安類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 07:58 PDT · Sarah Perez</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/publishers-will-be-able-to-opt-out-of-ai-search-thanks-to-new-regulation/" target="_blank">英國新規：Google 須讓出版方退出 AI 搜尋摘要</a></h3>
+      <p class="summary">英國監管機構要求 Google 為出版方提供「不被收進 AI 搜尋」的工具。Google 將在 Search Console 新增開關，先於英國試行，之後推全球。這是全球首例「強制 AI 搜尋退出權」規定。</p>
+      <div class="why"><b>為什麼重要：</b>AI 搜尋對出版業造成「零點擊危機」已是各國監管焦點；英國此例極可能成為歐盟、美國的立法範本，是 AI 內容版權戰的關鍵節點。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Google</span><span class="tag">英國監管機構</span><span class="tag">出版業</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">GOOGL</span><span class="stock">媒體類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 09:12 PDT · Lorenzo Franceschi-Bicchierai</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/instagram-is-alerting-users-who-were-targeted-by-hackers-during-ai-chatbot-attacks/" target="_blank">Instagram 通知被 AI 客服代理攻擊的受害者</a></h3>
+      <p class="summary">駭客透過「直接請 Meta AI 客服 chatbot 接管受害者帳號」的簡單手法，已在 Meta 宣稱修復漏洞後繼續得逞。Instagram 開始主動通知受害者帳號已被接管。</p>
+      <div class="why"><b>為什麼重要：</b>這是首起「AI 客服本身被當成攻擊武器」的大規模事件，凸顯企業把 LLM 對外服務時的安全設計漏洞；對所有部署 AI 客服的公司都是警鐘。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Meta</span><span class="tag">Instagram</span><span class="tag">Meta AI</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">META</span><span class="stock">資安類股</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 👥 AI 人事與組織 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">👥 AI 人事與組織</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-04 22:06 PDT · Connie Loizos</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/04/mira-murati-steps-back-into-the-spotlight-carefully/" target="_blank">Mira Murati 重返鎂光燈下，呼籲業界關注「治理」勝過「美德」</a></h3>
+      <p class="summary">Murati 在彭博專訪中表示，她擔心的是「重大決策過度集中在少數人手中」，無論是在 OpenAI 或整個 AI 產業。她強調結構性監督比個人品德更重要，避談是否仍信任 Sam Altman。同期她也淡化了 Thinking Machines 近期研究員離職潮。</p>
+      <div class="why"><b>為什麼重要：</b>Murati 是 OpenAI 治理危機的核心當事人，這次她提出「治理 vs 美德」的論述，可能成為未來 AI 公司治理改革的指標性意見。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Mira Murati</span><span class="tag">Thinking Machines Lab</span><span class="tag">OpenAI</span><span class="tag">Sam Altman</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">AI 治理類股</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 15:35 PDT · Julie Bort</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/reid-hoffman-is-leaving-microsofts-board-to-go-founder-mode-with-startup-manus/" target="_blank">Reid Hoffman 離開微軟董事會</a></h3>
+      <p class="summary">LinkedIn 創辦人 Hoffman 結束微軟董事的十年任期，全力投入 AI 製藥新創 Manus。Hoffman 是 2019 年微軟首次投資 OpenAI 10 億美元時的董事之一，也是 Inflection AI 創辦人、微軟當年以 6.5 億美元「非收購式 acqui-hire」引進 Mustafa Suleyman 的核心人物。</p>
+      <div class="why"><b>為什麼重要：</b>微軟董事會將失去一位「AI + 創投 + 創業」三棲高手；Hoffman 重新創業也意味著「AI 製藥」正式成為頂級創投的新主戰場。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">Reid Hoffman</span><span class="tag">Microsoft</span><span class="tag">Manus</span><span class="tag">Inflection AI</span><span class="tag">Mustafa Suleyman</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">MSFT</span><span class="stock">AI 製藥類股</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 🌍 AI 國際與地緣政治 -->
+  <h3 style="color:#00d4ff;margin:30px 0 16px;font-size:1.25em;">🌍 AI 國際與地緣政治</h3>
+  <div class="news-list">
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-05 06:03 PDT · Jagmeet Singh</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/05/airtrunk-commits-30b-to-build-5gw-of-ai-data-centers-in-india/" target="_blank">AirTrunk 300 億美元印度 AI 資料中心計畫</a></h3>
+      <p class="summary">（同硬體類，已收錄）本條重點在國際面向：AirTrunk CEO Robin Khuda 與印度總理 Modi 會面，確認投資案。亞馬遜、Google、Microsoft、OpenAI、Uber、Reliance、Adani、TCS 都在印度大舉布局。</p>
+      <div class="why"><b>為什麼重要：</b>印度正成為美中 AI 角力之外的「第三極」；印度政府用 2047 年前免稅等政策吸引外國雲端，是「AI 主權」與「AI 國際化」交織的最新示範。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">AirTrunk</span><span class="tag">印度政府</span><span class="tag">Amazon</span><span class="tag">Google</span><span class="tag">Microsoft</span><span class="tag">OpenAI</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">印度 IT 類股</span><span class="stock">台積電 2330</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="meta-line">
+        <span class="source">TechCrunch</span>
+        <span>2026-06-03 08:00 PDT · Ivan Mehta</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/03/these-two-founders-left-goldman-and-meta-to-build-voice-ai-for-markets-everyone-else-overlooked/" target="_blank">aethexai：為非洲、中東打造在地化語音 AI</a></h3>
+      <p class="summary">（同產品類，已收錄）本條強調國際面向：在地語言、方言、低頻寬優化的語音 AI，是「全球南方 AI 普及化」的早期典範。</p>
+      <div class="why"><b>為什麼重要：</b>當歐美 AI 公司多為「英語優先」優化，這類服務是在「AI 紅利普惠化」上的關鍵補強，也是中國、印度的 AI 輸出戰略外，少數由西方創業團隊主導的南方市場新方案。</div>
+      <div class="row">
+        <span class="label">關鍵實體：</span>
+        <span class="tag">aethexai</span>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="label">相關概念股：</span>
+        <span class="stock">語音 AI 類股</span><span class="stock">新興市場 AI</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ============== 今日關鍵詞 ============== -->
+<section>
+  <h2 class="section-title">🔑 今日關鍵詞</h2>
+  <div class="tags-cloud">
+    <span class="tag"><b>Token 帳單失控</b> · Tokenomics Foundation</span>
+    <span class="tag"><b>SpaceX</b> · 算力二房東</span>
+    <span class="tag"><b>Anthropic</b> · IPO / Mythos / 470 億 ARR</span>
+    <span class="tag"><b>Google × SpaceX</b> · 9.2 億美元/月</span>
+    <span class="tag"><b>Reid Hoffman</b> · Manus / 製藥 AI</span>
+    <span class="tag"><b>Mira Murati</b> · Thinking Machines / 互動模型</span>
+    <span class="tag"><b>Alphabet 850 億</b> · Berkshire 100 億</span>
+    <span class="tag"><b>WWDC 2026</b> · Siri × Gemini</span>
+    <span class="tag"><b>Microsoft Scout</b> · OpenClaw 框架</span>
+    <span class="tag"><b>Meta 帳篷資料中心</b> · Mad Max 階段</span>
+    <span class="tag"><b>AirTrunk</b> · 印度 5GW / 300 億美元</span>
+    <span class="tag"><b>Brian Chesky</b> · AI 實驗室</span>
+    <span class="tag"><b>Poke</b> · iMessage AI 代理</span>
+    <span class="tag"><b>Cyera 80x ARR</b> · 資安泡沫？</span>
+    <span class="tag"><b>NSA × Mythos</b> · 網路作戰</span>
+    <span class="tag"><b>英國 AI 搜尋退出權</b> · 出版方保護</span>
+  </div>
+</section>
+
+<!-- ============== 明日觀察 ============== -->
+<section>
+  <h2 class="section-title">🔭 明日觀察（AI 預測）</h2>
+  <div class="tomorrow">
+    <ul>
+      <li><b>WWDC 2026 開幕（6/9 台北凌晨）：</b>Apple 將端出 Siri 大改版與獨立 Siri App，市場將立即比對 Gemini 整合效果，可能影響 AAPL 與 GOOGL 短線走勢。</li>
+      <li><b>SpaceX IPO（傳 6/12 上市）：</b>隨 Google、Anthropic 兩個超大算力合約接連揭露，SpaceX 估值可能上看 1.75 兆美元，成為史上最大 IPO。</li>
+      <li><b>AI 算力泡沫論 vs 企業 ROI 之爭：</b>Token 帳單失控已成主流敘事，預期更多企業（金融、零售）將在本週公開喊出 AI 預算緊縮，可能拉動 AI FinOps 與可觀測性類股（Coralogix、DDOG、Datadog）逆勢走強。</li>
+      <li><b>Anthropic IPO 進度：</b>Daniela Amodei 公開談話後，市場將密切關注 SEC 公開申文件，預期 9 月掛牌傳聞升溫。</li>
+      <li><b>印度 AI 基建熱：</b>繼 AirTrunk 300 億美元後，預期 Reliance、Adani 將有對應加碼動作，連帶受惠台系供應鏈（散熱、機櫃、電源）。</li>
+      <li><b>AI 安全監管：</b>NSA × Mythos 案將引發美國會新一波質詢；歐盟、英國、澳洲可能同步加碼 AI 模型出口與資安應用管制。</li>
+      <li><b>人形機器人 vs 實用機器人：</b>Hello Robot 第四代家用機器人若能在實際家庭回傳有效資料，將讓投資人重新評估 Figure、1X 等「人形優先」路線的時程風險。</li>
+      <li><b>「簡訊即 AI 介面」趨勢：</b>Poke 進 iMessage + aethexai 非洲中東 + WhatsApp Business Agent 全球上線，預期引發「不需 App 也能用 AI」的新一波應用爆發。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>由 OpenClaw 自動生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p style="margin-top:10px;">© 2026 acstep · 同步發布於 <a href="../index.html">歷史報告列表</a></p>
+</footer>
+
+</div>
+</body>
+</html>
