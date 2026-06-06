@@ -1,0 +1,13 @@
+# 私密認證
+.credentials.js
+.env
+.env.*
+
+# Python / Node
+__pycache__/
+*.pyc
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
