@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TECH — 每日 AI 新聞中文整理</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #080810;
+  color: #e8e8f0;
+  line-height: 1.7;
+  padding: 20px;
+  min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+header {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+h1 { font-size: 3em; font-weight: 900; margin-bottom: 10px; letter-spacing: -1px; }
+.subtitle { color: #888; font-size: 1.1em; }
+.intro {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+.intro h2 { color: #00d4ff; margin-bottom: 15px; font-size: 1.4em; }
+.intro ul { list-style: none; padding-left: 0; }
+.intro li { padding: 8px 0; padding-left: 24px; position: relative; }
+.intro li::before { content: "▸"; position: absolute; left: 0; color: #00ff88; }
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.report-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.report-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.15);
+}
+.report-date { color: #00d4ff; font-size: 0.9em; margin-bottom: 8px; font-weight: 600; }
+.report-title { color: #fff; font-size: 1.15em; font-weight: 600; margin-bottom: 10px; }
+.report-summary { color: #aaa; font-size: 0.92em; line-height: 1.5; }
+.report-stats { color: #888; font-size: 0.85em; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
+footer {
+  text-align: center;
+  color: #555;
+  font-size: 0.9em;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 60px;
+}
+footer a { color: #00d4ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📰 TECH</h1>
+    <p class="subtitle">每日 AI 新聞中文整理 · TechCrunch 自動摘要</p>
+  </header>
+  <div class="intro">
+    <h2>📌 關於本網站</h2>
+    <ul>
+      <li>每日自動抓取 TechCrunch 最新 AI 相關新聞</li>
+      <li>由 AI 為每篇新聞撰寫繁體中文（台灣用語）摘要與分析</li>
+      <li>按主題分類：晶片、模型、產品、企業、政策、創投、應用</li>
+      <li>每則新聞附原文連結，可一鍵查看原始報導</li>
+    </ul>
+  </div>
+  <h2 style="color:#00ff88;margin-bottom:20px;font-size:1.6em;">📚 歷史報告</h2>
+  <div class="report-grid">
+    <a class="report-card" href="news/2026-06-06.html">
+      <div class="report-date">📅 2026-06-06</div>
+      <div class="report-title">每日 AI 新聞摘要</div>
+      <div class="report-summary">本日最新 AI 產業動態</div>
+      <div class="report-stats">查看詳情 →</div>
+    </a>
+  </div>
+  <footer>
+    <p>由 OpenClaw 自動生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+    <p style="margin-top:10px;">© 2026 acstep</p>
+  </footer>
+</div>
+</body>
+</html>
