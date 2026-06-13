@@ -1,189 +1,298 @@
 #!/usr/bin/env python3
 """
-TECH 每日 AI 新聞 - Streamlit 版
-讀取 news/*.html 與 index.html，顯示為互動式新聞瀏覽器
+AI 雙驅動站 — 統一入口
+- 📰 TECH：每日 AI 新聞中文整理（TechCrunch 自動摘要）
+- 📊 AI 股票：AI 基礎建設美股研究報告（嵌入 stock-reports GitHub Pages）
 """
 import streamlit as st
 from bs4 import BeautifulSoup
 from pathlib import Path
 import re
-from datetime import datetime
 
 # ---- 設定 ----
 st.set_page_config(
-    page_title="TECH — 每日 AI 新聞中文整理",
-    page_icon="📰",
+    page_title="AI 雙驅動站",
+    page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# 自訂 CSS（移植原本的 #080810 深色主題）
+TECH_DIR = Path(__file__).parent
+NEWS_DIR = TECH_DIR / "news"
+INDEX_HTML = TECH_DIR / "index.html"
+STOCK_REPORTS_URL = "https://acstep.github.io/stock-reports/"
+
+# ---- 自訂 CSS（深色主題）----
 st.markdown("""
 <style>
 .stApp { background: #080810; }
 [data-testid="stSidebar"] { background: #0a0a18; }
+[data-testid="stHeader"] { background: rgba(8,8,16,0.7); backdrop-filter: blur(10px); }
 h1, h2, h3, h4 { color: #e8e8f0 !important; }
-.news-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(0, 212, 255, 0.15);
-    border-radius: 12px;
-    padding: 18px 20px;
-    margin-bottom: 14px;
-    transition: all 0.2s;
-}
-.news-card:hover {
-    border-color: rgba(0,212,255,0.4);
-    transform: translateY(-2px);
-}
-.news-date { color: #00d4ff; font-size: 0.9em; font-weight: 600; }
-.news-title { color: #fff; font-size: 1.15em; font-weight: 700; margin: 6px 0; }
-.news-summary { color: #aaa; font-size: 0.92em; line-height: 1.5; }
-.hero-header {
+
+.hero {
     text-align: center;
-    padding: 30px 20px 20px;
-    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+    padding: 40px 20px 20px;
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 50%, #00ff88 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
-.hero-header h1 { font-size: 2.6em; font-weight: 900; margin: 0; letter-spacing: -1px; }
-.hero-header p { color: #888; margin: 4px 0 0; }
-.stButton button { background: rgba(0,212,255,0.15); border: 1px solid #00d4ff; color: #00d4ff; }
-.stButton button:hover { background: rgba(0,212,255,0.25); border-color: #00ff88; color: #00ff88; }
+.hero h1 { font-size: 2.8em; font-weight: 900; margin: 0; letter-spacing: -1px; }
+.hero p { color: #888; margin: 8px 0 0; font-size: 1.1em; }
+
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 16px;
+    padding: 36px 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s;
+}
+.card-tech { border-color: rgba(0, 212, 255, 0.3); }
+.card-tech:hover { border-color: #00d4ff; box-shadow: 0 8px 24px rgba(0,212,255,0.2); }
+.card-stock { border-color: rgba(168, 85, 247, 0.3); }
+.card-stock:hover { border-color: #a855f7; box-shadow: 0 8px 24px rgba(168,85,247,0.2); }
+
+.card-icon { font-size: 3.5em; margin-bottom: 12px; }
+.card-title { color: #fff; font-size: 1.4em; font-weight: 700; margin-bottom: 8px; }
+.card-desc { color: #aaa; font-size: 0.95em; line-height: 1.5; }
+
+.stButton button {
+    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+    color: #080810;
+    font-weight: 700;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+}
+.stButton button:hover {
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    transform: translateY(-1px);
+}
+
 [data-testid="stMetricValue"] { color: #00d4ff; }
+.nav-radio label { color: #e8e8f0 !important; }
 </style>
 """, unsafe_allow_html=True)
 
+# ---- Session state 預設 ----
+if "section" not in st.session_state:
+    st.session_state.section = "home"
 
-# ---- 路徑 ----
-TECH_DIR = Path(__file__).parent
-NEWS_DIR = TECH_DIR / "news"
-INDEX_HTML = TECH_DIR / "index.html"
+# ---- 側邊欄導航 ----
+with st.sidebar:
+    st.markdown("### 🚀 AI 雙驅動站")
+    st.caption("每日自動更新")
+    st.markdown("---")
+
+    if st.button("🏠 首頁", use_container_width=True):
+        st.session_state.section = "home"
+        st.rerun()
+    if st.button("📰 TECH 新聞", use_container_width=True):
+        st.session_state.section = "tech"
+        st.rerun()
+    if st.button("📊 AI 股票", use_container_width=True):
+        st.session_state.section = "stock"
+        st.rerun()
+    st.markdown("---")
+    st.markdown("### 📅 TECH 日期")
+    if (INDEX_HTML).exists():
+        soup = BeautifulSoup(INDEX_HTML.read_text(encoding="utf-8"), "lxml")
+        dates = []
+        for card in soup.select("a.report-card"):
+            m = re.search(r"(\d{4}-\d{2}-\d{2})", card.get("href", ""))
+            if m:
+                dates.append(m.group(1))
+        if dates:
+            st.metric("歷史日報", len(dates))
+            st.metric("最新", dates[0])
+    st.markdown("---")
+    st.caption("""
+    📡 來源：TechCrunch / Yahoo Finance  
+    🌐 主站：[acstep.github.io/TECH](https://acstep.github.io/TECH/)
+    """)
 
 
+# ===========================================================
+# 載入資料函式（caching）
+# ===========================================================
 @st.cache_data(ttl=300)
 def load_news_index():
-    """從 index.html 解析每日新聞清單（日期、標題、摘要、連結）"""
     if not INDEX_HTML.exists():
         return []
     soup = BeautifulSoup(INDEX_HTML.read_text(encoding="utf-8"), "lxml")
     items = []
     for card in soup.select("a.report-card"):
-        date_el = card.select_one(".report-date")
+        m = re.search(r"(\d{4}-\d{2}-\d{2})", card.get("href", ""))
+        date = m.group(1) if m else ""
         title_el = card.select_one(".report-title")
         summary_el = card.select_one(".report-summary")
-        stats_el = card.select_one(".report-stats")
-        href = card.get("href", "")
-        # 從 href 抽出日期：news/2026-06-13.html
-        m = re.search(r"(\d{4}-\d{2}-\d{2})", href)
-        date = m.group(1) if m else ""
+        date_el = card.select_one(".report-date")
         items.append({
             "date": date,
             "title": title_el.get_text(strip=True) if title_el else "",
             "summary": summary_el.get_text(strip=True) if summary_el else "",
-            "stats": stats_el.get_text(strip=True) if stats_el else "",
-            "href": href,
+            "date_label": date_el.get_text(strip=True) if date_el else date,
         })
     return items
 
 
 @st.cache_data(ttl=300)
 def load_news_detail(date_str):
-    """讀取指定日期的新聞 HTML，解析成結構化資料"""
     fpath = NEWS_DIR / f"{date_str}.html"
     if not fpath.exists():
         return None
-    soup = BeautifulSoup(fpath.read_text(encoding="utf-8"), "lxml")
-    # 標題
-    title = soup.find("h1").get_text(strip=True) if soup.find("h1") else date_str
-    # 內文（拿 hero 之後的部分）
-    body = soup.find("body")
-    if not body:
-        return {"title": title, "items": []}
-    # 抓所有 .news-item 或 article 區塊
-    news_items = []
-    for item in body.find_all(["article", "div"], class_=re.compile(r"news|item|card")):
-        heading = item.find(["h2", "h3"])
-        if heading:
-            news_items.append({
-                "heading": heading.get_text(strip=True),
-                "body": item.get_text("\n", strip=True)[:2000],
-            })
-    # 簡化版：把所有文字段落抓出來
-    paragraphs = []
-    for p in body.find_all(["p", "li"]):
-        text = p.get_text(strip=True)
-        if text and len(text) > 20:
-            paragraphs.append(text)
-    return {
-        "title": title,
-        "paragraphs": paragraphs,
-        "raw_html": str(body),
-    }
+    return fpath.read_text(encoding="utf-8")
 
 
-# ---- 主介面 ----
-st.markdown("""
-<div class="hero-header">
-    <h1>📰 TECH</h1>
-    <p>每日 AI 新聞中文整理 · TechCrunch 自動摘要</p>
-</div>
-""", unsafe_allow_html=True)
+# ===========================================================
+# 視圖 1：首頁
+# ===========================================================
+if st.session_state.section == "home":
+    st.markdown("""
+    <div class="hero">
+        <h1>🚀 AI 雙驅動站</h1>
+        <p>每日 AI 新聞 × AI 基建選股 · 全自動更新</p>
+    </div>
+    """, unsafe_allow_html=True)
 
-news_index = load_news_index()
+    st.markdown("")  # 間距
 
-# 側邊欄
-with st.sidebar:
-    st.markdown("### 📅 歷史日報")
-    if news_index:
+    col1, col2 = st.columns(2, gap="large")
+
+    with col1:
+        st.markdown("""
+        <div class="card card-tech">
+            <div class="card-icon">📰</div>
+            <div class="card-title">TECH 新聞</div>
+            <div class="card-desc">
+                每日 AI 新聞中文整理<br>
+                TechCrunch 自動摘要<br>
+                11 大主題追蹤 + 個股情報
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("📰 進入 TECH 新聞", key="btn_tech", use_container_width=True):
+            st.session_state.section = "tech"
+            st.rerun()
+
+    with col2:
+        st.markdown("""
+        <div class="card card-stock">
+            <div class="card-icon">📊</div>
+            <div class="card-title">AI 股票研究</div>
+            <div class="card-desc">
+                AI 基礎建設美股研究<br>
+                每日精選 50+ 檔<br>
+                完整進出場價 + 深度分析
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("📊 進入 AI 股票", key="btn_stock", use_container_width=True):
+            st.session_state.section = "stock"
+            st.rerun()
+
+    st.markdown("---")
+
+    # 快速統計
+    news_index = load_news_index()
+    n1, n2, n3 = st.columns(3)
+    with n1:
+        st.metric("📰 TECH 日報數", len(news_index))
+    with n2:
+        if news_index:
+            st.metric("📅 最新日報", news_index[0]["date"])
+    with n3:
+        st.metric("🤖 更新頻率", "每日 12:30")
+
+    st.caption("👉 從上方選單或首頁卡片選擇想看的服務")
+
+
+# ===========================================================
+# 視圖 2：TECH 新聞
+# ===========================================================
+elif st.session_state.section == "tech":
+    st.markdown("""
+    <div class="hero">
+        <h1>📰 TECH 每日 AI 新聞</h1>
+        <p>TechCrunch 自動摘要 · 繁體中文整理</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    news_index = load_news_index()
+
+    if not news_index:
+        st.warning("找不到新聞")
+    else:
         dates = [item["date"] for item in news_index if item["date"]]
         selected = st.selectbox(
-            "選擇日期",
+            "📅 選擇日期",
             options=dates,
-            format_func=lambda d: f"{d}  {dict(zip(dates, [n['title'][:25] for n in news_index])).get(d, '')}",
+            index=0,
+            format_func=lambda d: next(
+                (f"{d}  {it['title'][:50]}" for it in news_index if it["date"] == d),
+                d,
+            ),
         )
-    else:
-        st.warning("找不到新聞")
-        selected = None
-    st.markdown("---")
-    st.markdown("### 📊 統計")
-    st.metric("總日報數", len(news_index))
-    if news_index:
-        latest = news_index[0]
-        st.metric("最新更新", latest["date"])
 
-# 主要內容
-if not selected:
-    st.info("👈 從側邊欄選擇日期")
-elif selected:
-    st.markdown(f"## 📅 {selected} AI 新聞日報")
-    detail = load_news_detail(selected)
-    if not detail:
-        st.error(f"找不到 {selected}.html")
-    else:
-        # 找對應的 index 摘要
-        meta = next((n for n in news_index if n["date"] == selected), None)
-        if meta:
-            st.markdown(f"**{meta['title']}**")
-            st.markdown(f"*{meta['summary']}*")
-            if meta.get("stats"):
-                st.caption(meta["stats"])
-        st.markdown("---")
-        # 顯示原始 HTML 內容（保留樣式）
-        if detail.get("raw_html"):
-            st.components.v1.html(detail["raw_html"], height=2000, scrolling=True)
-        # 同步顯示純文字版本
-        with st.expander("📝 純文字版本"):
-            if detail.get("paragraphs"):
-                for p in detail["paragraphs"][:50]:
-                    st.markdown(f"- {p}")
+        if selected:
+            meta = next((it for it in news_index if it["date"] == selected), None)
+            if meta:
+                st.markdown(f"### {meta['title']}")
+                st.caption(f"📅 {meta['date_label']}")
+                if meta.get("summary"):
+                    st.markdown(f"*{meta['summary']}*")
+
+            html_content = load_news_detail(selected)
+            if html_content:
+                st.components.v1.html(html_content, height=1800, scrolling=True)
             else:
-                st.write(detail.get("body", "（無內容）"))
+                st.error(f"找不到 {selected}.html")
 
-# 頁尾
+
+# ===========================================================
+# 視圖 3：AI 股票（嵌入 stock-reports GitHub Pages）
+# ===========================================================
+elif st.session_state.section == "stock":
+    st.markdown("""
+    <div class="hero">
+        <h1>📊 AI 股票研究</h1>
+        <p>AI 基礎建設美股每日研究報告</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.info("💡 嵌入自 [acstep.github.io/stock-reports](https://acstep.github.io/stock-reports/) · 每日 12:00 自動更新")
+
+    # 嵌入 stock-reports
+    st.components.v1.html(
+        f"""
+        <iframe
+            src="{STOCK_REPORTS_URL}"
+            width="100%"
+            height="2400"
+            frameborder="0"
+            style="border-radius: 12px; background: #080810;"
+            loading="lazy"
+        ></iframe>
+        """,
+        height=2450,
+        scrolling=False,
+    )
+
+    st.markdown("---")
+    st.caption("👆 完整功能請在 [stock-reports 主站](https://acstep.github.io/stock-reports/) 瀏覽")
+
+
+# ---- 頁尾 ----
 st.markdown("---")
 st.caption("""
-📡 資料來源：TechCrunch（每日自動摘要） · 🤖 由 AI 整理
-🌐 原始 HTML 版本：<https://acstep.github.io/TECH/>
-""", unsafe_allow_html=True)
+🚀 AI 雙驅動站 · 自動部署於 [share.streamlit.io](https://share.streamlit.io)  
+📡 資料來源：TechCrunch（每日自動摘要）· Yahoo Finance（即時報價）· Barchart（技術信號）
+""")
