@@ -71,6 +71,17 @@ footer {
   margin-top: 60px;
 }
 footer a { color: #00d4ff; text-decoration: none; }
+
+/* 站台導覽 */
+.portal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }
+@media (max-width: 600px) { .portal { grid-template-columns: 1fr; } }
+.portal a { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; text-decoration: none; color: #e8e8f0; transition: all 0.25s; text-align: center; }
+.portal a:hover { transform: translateY(-2px); border-color: rgba(0,212,255,0.4); }
+.portal a.active { border-color: rgba(0,255,136,0.5); background: linear-gradient(135deg, rgba(0,255,136,0.06), rgba(0,212,255,0.04)); }
+.portal .ico { font-size: 1.6rem; margin-bottom: 4px; }
+.portal .ttl { font-weight: 700; font-size: 0.95rem; }
+.portal a.active .ttl { color: #00ff88; }
+.portal .desc { font-size: 0.72rem; color: #888; margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -79,6 +90,23 @@ footer a { color: #00d4ff; text-decoration: none; }
     <h1>📰 TECH</h1>
     <p class="subtitle">每日 AI 新聞中文整理 · TechCrunch 自動摘要</p>
   </header>
+  <nav class="portal">
+    <a href="https://acstep.github.io/stock-reports/" target="_blank">
+      <div class="ico">📑</div>
+      <div class="ttl">研究報告</div>
+      <div class="desc">每日選股分析</div>
+    </a>
+    <a href="https://acstep.github.io/stock-charts/" target="_blank">
+      <div class="ico">📊</div>
+      <div class="ttl">K 線圖庫</div>
+      <div class="desc">120 個交易日</div>
+    </a>
+    <a href="index.html" class="active">
+      <div class="ico">📰</div>
+      <div class="ttl">AI 新聞</div>
+      <div class="desc">TechCrunch 中文</div>
+    </a>
+  </nav>
   <div class="intro">
     <h2>📌 關於本網站</h2>
     <ul>
