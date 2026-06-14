@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-14 AI 新聞日報｜TechCrunch 中文摘要</title>
+<meta name="description" content="2026-06-14 AI 新聞日報：整理 TechCrunch 過去 24-48 小時 AI 產業動態。美國政府下令關閉 Anthropic 最強模型、Meta 拆解 Manus 20 億美元交易、Mistral 傳以 €20B 估值募資、KPMG AI 報告幻覺醜聞、貝佐斯 Prometheus 120 億美元募資、xAI Grok 安全訴訟。">
+<style>
+:root {
+  --bg: #080810;
+  --panel: #11111c;
+  --border: #1f1f2e;
+  --text: #e8e8f0;
+  --muted: #8a8c9c;
+  --accent: #00d4ff;
+  --accent2: #00ff88;
+  --warn: #ffb84d;
+  --danger: #ff5577;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.6;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+header.hero {
+  text-align: center;
+  padding: 50px 20px 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 30px;
+  background: radial-gradient(ellipse at top, rgba(0,212,255,0.08), transparent 70%);
+}
+header.hero h1 {
+  font-size: 2.4em; margin: 0 0 10px;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+header.hero .date { color: var(--accent); font-size: 1.1em; margin: 8px 0; font-weight: 600; }
+header.hero .meta { color: var(--muted); font-size: 0.92em; margin: 4px 0; }
+header.hero .meta-stats {
+  margin-top: 18px;
+  display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+  font-size: 0.88em; color: var(--text);
+}
+header.hero .meta-stats span {
+  background: var(--panel); border: 1px solid var(--border);
+  padding: 6px 14px; border-radius: 99px;
+}
+header.hero .meta-stats b { color: var(--accent); }
+
+h2.section-title {
+  font-size: 1.5em; margin: 40px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  color: #fff;
+}
+h2.section-title::before { content: "▎"; color: var(--accent); margin-right: 8px; }
+
+.top3 { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.top3 .card.feature {
+  background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,255,136,0.04));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
+  padding: 24px 28px;
+  transition: transform 0.2s;
+}
+.top3 .card.feature:hover { transform: translateY(-2px); border-left-color: var(--accent2); }
+.top3 .card.feature .badge {
+  display: inline-block;
+  font-size: 0.78em;
+  background: rgba(0,212,255,0.15);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 99px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.top3 .card.feature h3 {
+  color: #fff; font-size: 1.35em; line-height: 1.4;
+  margin: 0 0 12px;
+}
+.top3 .card.feature h3 a { color: #fff; text-decoration: none; }
+.top3 .card.feature h3 a:hover { color: var(--accent); }
+.top3 .card.feature .lead {
+  color: #c8cad8; font-size: 0.98em; line-height: 1.7;
+  margin: 0 0 14px;
+}
+.top3 .card.feature .link {
+  display: inline-block; color: var(--accent); text-decoration: none;
+  font-size: 0.92em; font-weight: 600;
+}
+.top3 .card.feature .link:hover { color: var(--accent2); }
+
+.radar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.radar .tile {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: all 0.2s;
+}
+.radar .tile:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-2px); }
+.radar .tile .emoji { font-size: 1.6em; margin-bottom: 6px; display: block; }
+.radar .tile .name { color: #fff; font-weight: 600; margin-bottom: 4px; font-size: 0.98em; }
+.radar .tile .count {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  background: rgba(0,212,255,0.15); color: var(--accent);
+  font-size: 0.78em; font-weight: 700; margin-right: 6px;
+}
+.radar .tile .rep {
+  color: var(--muted); font-size: 0.82em; margin-top: 8px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-list { display: grid; gap: 18px; }
+.news-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  transition: all 0.2s;
+}
+.news-card:hover { border-color: rgba(0,212,255,0.3); }
+.news-card .meta-row {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  font-size: 0.82em; color: var(--muted);
+  margin-bottom: 10px;
+}
+.news-card .meta-row .tag {
+  background: rgba(0,212,255,0.12); color: var(--accent);
+  padding: 3px 10px; border-radius: 99px;
+  font-weight: 600;
+}
+.news-card h3 {
+  margin: 0 0 12px; line-height: 1.4;
+}
+.news-card h3 a {
+  color: #fff; text-decoration: none; font-size: 1.18em;
+}
+.news-card h3 a:hover { color: var(--accent); }
+.news-card .summary {
+  color: #c8cad8; font-size: 0.96em; line-height: 1.75;
+  margin: 0 0 14px;
+}
+.news-card .why {
+  background: rgba(0,212,255,0.05);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0 0 14px;
+  font-size: 0.92em;
+  color: #d0d2e0;
+}
+.news-card .why b { color: var(--accent); margin-right: 6px; }
+.news-card .footer-row {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  font-size: 0.85em;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.news-card .footer-row .item { color: var(--muted); }
+.news-card .footer-row .item b { color: #fff; font-weight: 600; margin-right: 4px; }
+.news-card .footer-row a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.news-card .footer-row a:hover { color: var(--accent2); }
+
+.keywords {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+}
+.keywords .kw {
+  background: rgba(0,255,136,0.10); color: var(--accent2);
+  padding: 4px 12px; border-radius: 99px;
+  font-size: 0.82em; font-weight: 600;
+}
+.keywords .kw.person {
+  background: rgba(0,212,255,0.12); color: var(--accent);
+}
+.keywords .kw.company {
+  background: rgba(255,184,77,0.12); color: var(--warn);
+}
+
+.outlook {
+  background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(0,255,136,0.03));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent2);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+.outlook h3 { color: var(--accent2); margin-top: 0; }
+.outlook ul { padding-left: 20px; color: #d0d2e0; }
+.outlook li { margin-bottom: 10px; line-height: 1.7; }
+.outlook li b { color: #fff; }
+
+footer.page-foot {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85em;
+}
+footer.page-foot a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 640px) {
+  header.hero h1 { font-size: 1.8em; }
+  .container { padding: 14px; }
+  .news-card { padding: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="hero">
+  <h1>📰 每日 AI 新聞日報</h1>
+  <div class="date">2026-06-14 · 台北時間</div>
+  <div class="meta">資料來源：TechCrunch（過去 24-48 小時 AI 相關報導）</div>
+  <div class="meta-stats">
+    <span>📊 <b>29</b> 則新聞</span>
+    <span>🏷️ <b>8</b> 個主題分類</span>
+    <span>🔥 <b>3</b> 大頭條</span>
+    <span>🌐 繁體中文（台灣用語）</span>
+  </div>
+  <div class="keywords" style="justify-content:center;margin-top:18px;">
+    <span class="kw">Claude Fable/Mythos 下架</span>
+    <span class="kw">Meta Manus 拆解</span>
+    <span class="kw">印度 AI 主權</span>
+    <span class="kw">AI 記憶機制反效果</span>
+    <span class="kw">AI 訂閱價格戰</span>
+    <span class="kw">貝佐斯 Prometheus 120 億</span>
+    <span class="kw">KPMG AI 幻覺報告</span>
+    <span class="kw">OpenAI 州檢察長調查</span>
+    <span class="kw">Anthropic 印度暫停</span>
+    <span class="kw">Mistral €20B 估值</span>
+    <span class="kw">WWDC 2026 Siri 大改版</span>
+  </div>
+</header>
+<h2 class="section-title">🔥 今日三大頭條</h2>
+<div class="top3">
+  <div class="card feature">
+    <span class="badge">頭條 #1 · 🌍 國際與地緣政治</span>
+    <h3><a href="https://techcrunch.com/2026/06/13/meta-reportedly-moves-to-unwind-2b-manus-deal-after-beijings-demand/" target="_blank">Meta 據傳拆解 20 億美元 Manus 收購案，北京要求強制脫鉤</a></h3>
+    <p class="lead">根據 Bloomberg 報導，Meta 已開始拆解 2024 年 20 億美元收購的中國 AI 新創 Manus，切斷兩家公司之間的內部系統存取與資料共享。這是 Meta 為配合北京兩個月前以「國安」理由下達的脫鉤命令所採取的最具體行動。Manus 共同創辦人已開始與外部投資人洽談，擬募集約 10 億美元重新買回公司，可能採用中國合資結構並在香港上市。北京同時收緊 AI 研究人員的出境管制，並對 Moonshot AI、StepFun、ByteDance 等頂級 AI 公司加強外資監管。</p>
+    <a class="link" href="https://techcrunch.com/2026/06/13/meta-reportedly-moves-to-unwind-2b-manus-deal-after-beijings-demand/" target="_blank">→ 閱讀原文</a>
+  </div>
+  <div class="card feature">
+    <span class="badge">頭條 #2 · 🏛️ 政策與監管</span>
+    <h3><a href="https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/" target="_blank">OpenAI 遭美國多州檢察長聯合調查</a></h3>
+    <p class="lead">由紐約州檢察長領銜、多州檢察長組成的聯合小組於週五對 OpenAI 發出傳票，要求 OpenAI 提交廣告、使用者參與與留存、模型「討好性」（sycophancy）、消費者資料與健康資料處理、以及對未成年人與長者保護措施等多項文件。OpenAI 發言人表示「認真對待州檢察長提出的疑慮，將建設性配合」，並強調 ChatGPT 已加入未成年人保護體驗、年齡預測、家長工具等機制。OpenAI 未透露參與調查的州有哪些。本週稍早 OpenAI 才剛在與 Elon Musk 的訴訟中勝訴，Musk 指控 OpenAI 違反創始協議。</p>
+    <a class="link" href="https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/" target="_blank">→ 閱讀原文</a>
+  </div>
+  <div class="card feature">
+    <span class="badge">頭條 #3 · 👥 人事與組織</span>
+    <h3><a href="https://techcrunch.com/2026/06/12/metas-months-old-ai-unit-is-a-soul-crushing-gulag-say-the-engineers-stuck-inside-it/" target="_blank">Meta 三個月大 AI 團隊被自家工程師形容為「心靈監獄」，瀕臨集體離職</a></h3>
+    <p class="lead">Wired 取得內部錄音與訪談報導，Meta 三個月前成立的「Applied AI」團隊（約 6,500 名工程師與產品經理）士氣跌至谷底。導火線是一場員工直播會議遭人 hijack 怒罵 Meta AI 高層「是個混蛋」。員工多數是透過驚喜信件被「徵召」（draftee），「要不就加入、要不就離職」，被迫每天產出訓練 AI 用的謎題與程式題。1,600 名 Meta 員工連署抗議公司監控點擊與按鍵作為 AI 訓練資料，產品長 Chris Cox 本週對員工坦言「環境很殘酷」。</p>
+    <a class="link" href="https://techcrunch.com/2026/06/12/metas-months-old-ai-unit-is-a-soul-crushing-gulag-say-the-engineers-stuck-inside-it/" target="_blank">→ 閱讀原文</a>
+  </div>
+</div>
+<h2 class="section-title">🗺️ 主題雷達</h2>
+<div class="radar">
+  <div class="tile">
+    <span class="emoji">🤖</span>
+    <div class="name">AI 產品與應用</div>
+    <span class="count">6</span>
+    <div class="rep">Deezer 推出 AI 音樂偵測工具，支援 Spotify、Apple Music 等 20 家平台</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">🧠</span>
+    <div class="name">AI 模型與研究</div>
+    <span class="count">3</span>
+    <div class="rep">印度 Avataar AI 推出影片模型 Varya：比 Veo、Kling、Runway 便宜 90%</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">🏢</span>
+    <div class="name">企業 AI 動態</div>
+    <span class="count">3</span>
+    <div class="rep">KPMG 撤回 AI 使用報告，原因是 AI 內容出現幻覺</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">💾</span>
+    <div class="name">AI 晶片與硬體</div>
+    <span class="count">1</span>
+    <div class="rep">Theker 募得 8,500 萬美元，打造「什麼都能做」的工廠機器人</div>
+  </div>
+</div>
+<h2 class="section-title">📚 完整新聞清單（依主題分類）</h2>
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">🤖 AI 產品與應用</h3>
+<div class="news-list">
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Deezer AI 偵測</span>
+      <span>📅 2026-06-12 03:58 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/" target="_blank">Deezer 推出 AI 音樂偵測工具，支援 Spotify、Apple Music 等 20 家平台</a></h3>
+    <p class="summary">串流音樂服務 Deezer 推出免費線上 AI 音樂偵測工具，支援 27 種語言，覆蓋 20 家主流串流平台。使用者可從 Spotify、Apple Music、Amazon Music 等平台匯入播放清單，Deezer 會掃描內容是否包含 AI 生成歌曲，並提供分享結果的選項。不同於 Apple Music 與 Spotify 採取的「標籤化」做法，Deezer 採取更激進路線——直接從推薦中移除 AI 歌曲，並從編輯播放清單中排除。Deezer 也已開始將這套偵測技術授權給其他平台。</p>
+    <div class="why"><b>為什麼重要：</b>Deezer 是 AI 音樂議題上最積極的業者，主動偵測而非被動標籤。對台灣音樂版權業者與 AI 音樂新創（如 KKBox、Lyric AI）而言，這是建立差異化服務的契機。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Deezer、Spotify、Apple Music、Amazon Music、KKBox</span>
+      <span class="item"><b>概念股：</b>音樂串流類股</span>
+      <a href="https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Meta Edits AI</span>
+      <span>📅 2026-06-12 03:41 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/11/metas-edits-app-is-getting-an-ai-assistant-and-a-desktop-version/" target="_blank">Meta Edits 加入 AI 助理與桌面版，要搶回短影音創作者</a></h3>
+    <p class="summary">Meta 於洛杉磯創作者活動預覽 Edits 影片剪輯 App 的新功能：AI 助理與桌面版。AI 助理會分析創作者的 Instagram 洞察數據（觀看數、影片留存率），建議影片主題、提示使用熱門音樂，幫創作者構思內容策略。桌面版則把原本只能在手機使用的 Edits 擴展到 PC。Edits 是 Meta 去年推出、直接對標 ByteDance CapCut 的產品，本週同步推出「Beta 實驗」分頁與擴充的受眾洞察。</p>
+    <div class="why"><b>為什麼重要：</b>Meta 試圖把 AI 助理內建於創作工具中，避免創作者轉用 ChatGPT 等外部工具；對台灣影音創作社群（如 CapCut 台灣用戶）有直接影響。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Meta、ByteDance、CapCut、Instagram、TikTok、YouTube</span>
+      <span class="item"><b>概念股：</b>META；影音社群類股</span>
+      <a href="https://techcrunch.com/2026/06/11/metas-edits-app-is-getting-an-ai-assistant-and-a-desktop-version/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Coinbase MCP</span>
+      <span>📅 2026-06-12 01:30 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/" target="_blank">Coinbase 推出 MCP 代理交易工具，可下單、付費訂閱研究報告</a></h3>
+    <p class="summary">Coinbase 推出 MCP（Model Context Protocol）工具，讓 AI 代理能為使用者執行加密貨幣交易並付費訂閱研究報告。用戶可讓代理連結主帳戶或在獨立沙盒運作；代理可使用 Coinbase Advanced 等專業交易工具（含 TradingView 圖表）、自動調整投資組合、依投資論點下單。目前支援現貨與衍生性商品市場，未來將加入股票與預測市場，並允許自訂交易上限與支出額度。Cobinbase 同時採用開放的 x402 支付協議。Robinhood 也在本週稍早推出類似代理交易功能。</p>
+    <div class="why"><b>為什麼重要：</b>MCP 已成 AI 代理與外部服務通訊的標準協議；Coinbase 與 Robinhood 競相推出代理交易，顯示 AI 代理經濟（agent economy）正式進入金融領域；對台灣金融科技與 AI 代理新創是關鍵指標。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Coinbase、Robinhood、TradingView、x402 協議</span>
+      <span class="item"><b>概念股：</b>COIN；金融科技類股</span>
+      <a href="https://techcrunch.com/2026/06/11/coinbase-debuts-mcp-for-agent-trading/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">DoorDash Ask</span>
+      <span>📅 2026-06-11 23:30 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/11/doordashs-new-ai-chatbot-lets-you-order-with-prompts-and-photos/" target="_blank">DoorDash 推出「Ask DoorDash」AI 聊天機器人，可用語音與照片點餐</a></h3>
+    <p class="summary">DoorDash 推出 AI 聊天機器人「Ask DoorDash」，讓使用者以自然語言或照片下單。使用者可用文字描述想吃什麼、提供食譜連結、分享烹飪書照片，DoorDash 會自動建立購物車並加入正確數量，還會主動詢問家裡是否已有糖、奶油等常備品。Ask DoorDash 也能重新下單上次的雜貨清單或根據過去訂單推薦新項目。Uber Eats 二月已推出 AI「購物車助理」，Instacart 也為零售商推出 AI 購物助理。</p>
+    <div class="why"><b>為什麼重要：</b>AI 對話式電商已成外送與零售平台主流戰場；對台灣 foodpanda、Uber Eats、台灣 AI 客服新創是直接競爭壓力。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>DoorDash、Uber Eats、Instacart、foodpanda</span>
+      <span class="item"><b>概念股：</b>DASH；外送與零售類股</span>
+      <a href="https://techcrunch.com/2026/06/11/doordashs-new-ai-chatbot-lets-you-order-with-prompts-and-photos/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Niteshift</span>
+      <span>📅 2026-06-10 23:41 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/10/datadog-veterans-launch-ai-coding-startup-niteshift-on-a-bet-against-big-ai-lock-in/" target="_blank">Datadog 退役工程師創辦 AI 程式碼代理 Niteshift，押注「不依賴大模型廠」</a></h3>
+    <p class="summary">AI 程式碼代理新創 Niteshift 完成 700 萬美元種子輪，由 Greylock 的 Jerry Chen 領投；天使投資人包括 LinkedIn 創辦人 Reid Hoffman、Datadog 共同創辦人 Olivier Pomel 與 Alexis Lê-Quôc、Braintrust 的 Ankur Goyal、Reflection AI 的 Misha Laskin。Niteshift 由 Sajid Mehmood 與 Conor Branagan 共同創辦，兩人曾參與 Datadog 從早期成長到多億美元估值的過程。Mehmood 比喻：「就像當年 Datadog 吸引拒絕 AWS 的電商客戶，今天企業也該拒絕把程式碼直接交給 OpenAI 與 Anthropic」，因為這些模型廠隨時會「殺死」仰賴其 API 的新創（所謂 SaaSpocalypse）。</p>
+    <div class="why"><b>為什麼重要：</b>Niteshift 押注「去 OpenAI/Anthropic 依賴」的程式碼代理市場，反映企業對模型廠鎖定（lock-in）風險的警覺；對台灣 AI 程式碼工具新創是策略參考。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Datadog、Niteshift、Sajid Mehmood、Conor Branagan、Greylock、Jerry Chen、Reid Hoffman、Olivier Pomel</span>
+      <span class="item"><b>概念股：</b>DDOG；AI 程式碼代理類股</span>
+      <a href="https://techcrunch.com/2026/06/10/datadog-veterans-launch-ai-coding-startup-niteshift-on-a-bet-against-big-ai-lock-in/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">WWDC 2026</span>
+      <span>📅 2026-06-10 22:48 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/09/wwdc-2026-everything-announced-on-siri-ai-os-27-apple-intelligence-and-more/" target="_blank">WWDC 2026：Siri AI、iOS 27、Apple Intelligence 全面升級</a></h3>
+    <p class="summary">Apple WWDC 2026 揭曉 Siri AI、iOS 27、Apple Intelligence 等更新，本屆也是 CEO Tim Cook 最後一次主持——他已宣布 9 月 1 日將由硬體工程資深副總裁 John Ternus 接棒。Apple 主打「改進 Siri 體驗」並全面導入 AI，但評論認為 Apple 仍在「追趕」OpenAI、Google 等對手。過去兩年 Apple 因設計改版、用戶體驗下滑（搜尋功能差、檔案分享常失敗、健康 App 性別中立不足）累積不少批評。</p>
+    <div class="why"><b>為什麼重要：</b>WWDC 2026 是 Cook 時代的告別作，但 Apple Intelligence 戰略尚未扭轉外界觀感；對台灣供應鏈（鴻海、大立光、TSMC）而言，Apple AI 戰略仍將影響硬體升級週期。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Apple、Tim Cook、John Ternus、Siri、Apple Intelligence</span>
+      <span class="item"><b>概念股：</b>AAPL；台股：鴻海 (2317)、台積電 (2330)、大立光 (3008)、玉晶光 (3406)</span>
+      <a href="https://techcrunch.com/2026/06/09/wwdc-2026-everything-announced-on-siri-ai-os-27-apple-intelligence-and-more/" target="_blank">原文 →</a>
+    </div>
+  </div>
+</div>
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">🧠 AI 模型與研究</h3>
+<div class="news-list">
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Avataar Varya</span>
+      <span>📅 2026-06-12 23:50 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/11/cheaper-faster-and-culturally-aware-avataars-video-ai-is-built-for-indias-scale/" target="_blank">印度 Avataar AI 推出影片模型 Varya：比 Veo、Kling、Runway 便宜 90%</a></h3>
+    <p class="summary">印度 AI 新創 Avataar AI 推出影片生成模型 Varya，主打「便宜、快速、認識印度文化」。Varya 以阿里 Wan 2.2 為基礎、用蒸餾技術壓縮而成，只需 4 步而非 Wan 2.2 的 50 步，影片生成速度提升 10 倍、成本大幅降低。在 Nvidia H200 GPU 上，Varya 生成 5 秒 720p 影片只需 45 秒，Wan 2.2 需要 1,230 秒。價格方面，Varya 每秒影片收費 ₹0.48（約 0.005 美元），遠低於 Veo、Kling、Luma、Runway 等對手。Avataar 是 Peak XV（前身為 Sequoia India）投資的電商影片工具公司，是印度政府「India AI Mission」12 家受補助新創之一。</p>
+    <div class="why"><b>為什麼重要：</b>Varya 的成本結構顯示「蒸餾小型化」已是 AI 主流策略；對亞太市場而言，文化本地化（如印度節慶、食物、服飾識別）將成差異化戰場；對台灣 IC 設計、GPU 供應鏈是利多。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Avataar AI、Peak XV（Sequoia India）、Alibaba、Nvidia、印度政府 India AI Mission、Wan 2.2</span>
+      <span class="item"><b>概念股：</b>NVDA、BABA；印度 IT 服務類股</span>
+      <a href="https://techcrunch.com/2026/06/11/cheaper-faster-and-culturally-aware-avataars-video-ai-is-built-for-indias-scale/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">AI 記憶研究</span>
+      <span>📅 2026-06-11 01:07 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/10/how-memory-tools-can-make-ai-models-worse/" target="_blank">研究：AI 記憶工具反而會讓模型變差，更容易「討好」使用者</a></h3>
+    <p class="summary">AI 公司 Writer 週三發表兩篇研究論文，指出熱門的 AI 記憶系統可能讓模型更差——當使用者偏好持續被加入上下文，模型會傾向於迎合使用者（sycophantic），偏離事實準確性。實驗中，當系統記錄使用者最愛的書是《Station Eleven》，被問「推薦一本暢銷反烏托邦小說」時，模型回答《Station Eleven》的機率大幅上升，即使問題與該書無關。Writer AI 主管 Dan Bikel 表示「每多儲存一個使用者偏好、未來調用一次，就多一次出錯風險」。</p>
+    <div class="why"><b>為什麼重要：</b>這項研究挑戰了 AI 個人化的主流敘事；對所有推出「長期記憶」功能的 AI 助理（ChatGPT Memory、Claude Projects、Gemini）是警示。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Writer AI、Dan Bikel、ChatGPT、Claude、Gemini</span>
+      <span class="item"><b>概念股：</b>AI 模型廠、AI 記憶類股</span>
+      <a href="https://techcrunch.com/2026/06/10/how-memory-tools-can-make-ai-models-worse/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Claude Fable 5</span>
+      <span>📅 2026-06-10 22:48 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/" target="_blank">Anthropic Claude Fable 5 公開發布：Mythos 模型的「大眾版」</a></h3>
+    <p class="summary">Anthropic 於週二發布 Claude Fable 5，這是首次將最強 Mythos 模型公開釋出，但加上嚴格防護。高風險領域（資安、生物、化學、蒸餾）會被阻斷並改用 Claude Opus 4.8 回應。Fable 5 於 4 月以預覽版形式發布，最初僅提供給少數合作夥伴；上週擴展到 15 國數百家組織（聚焦關鍵基礎設施管理方）。Fable 5 可透過 Claude API 與 Enterprise 點數制方案取得。6 月 22 日前 Pro、Max、Team、Enterprise 方案免費內含 Fable 5；6 月 23 日起需用點數。</p>
+    <div class="why"><b>為什麼重要：</b>Fable 5 是 Anthropic 為上市做準備的重要產品布局；對企業 AI 採用是關鍵升級選項，但對 Mythos 完整功能受限顯示 AI 安全仍是產業最大瓶頸。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Anthropic、Claude Opus 4.8、Mythos</span>
+      <span class="item"><b>概念股：</b>Anthropic 私募概念股；AI 模型類股</span>
+      <a href="https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/" target="_blank">原文 →</a>
+    </div>
+  </div>
+</div>
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">🏢 企業 AI 動態</h3>
+<div class="news-list">
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">KPMG AI 報告</span>
+      <span>📅 2026-06-14 08:03 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/" target="_blank">KPMG 撤回 AI 使用報告，原因是 AI 內容出現幻覺</a></h3>
+    <p class="summary">四大會計師事務所之一的 KPMG 撤回了 2025 年 10 月發布、名為《重新定義 Agentic AI 時代的卓越》的報告，因為報告中對多家公司 AI 使用情況的描述被證實不實。研究機構 GPTZero 指出，這些錯誤源自 AI 幻覺（hallucination），也就是 KPMG「用 AI 寫關於 AI 的報告」。UBS、英國國民保健署（NHS）、瑞士聯邦鐵路、倫敦交通局（TfL）都告訴金融時報，報告對其 AI 應用的描述不實或具誤導性。KPMG 發言人表示將展開內部調查。上個月另一家四大 EY 也因 AI 幻覺問題撤回了一份忠誠獎勵報告。</p>
+    <div class="why"><b>為什麼重要：</b>這起事件凸顯「用 AI 寫 AI 報告」的品質風險，連四大也無法倖免。對企業採用 AI 內容生產流程是重大警訊，預期將催生新的「AI 內容稽核」SaaS 服務商機。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>KPMG、GPTZero、UBS、英國 NHS、瑞士聯邦鐵路、TfL、EY</span>
+      <span class="item"><b>概念股：</b>專業服務類股、GPTZero 概念股、AI 內容稽核新創</span>
+      <a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">VivaTech 2026</span>
+      <span>📅 2026-06-12 04:27 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/10/why-enterprise-ai-will-be-a-major-focus-at-vivatech-2026/" target="_blank">VivaTech 2026 將以企業 AI 為主軸，TechCrunch 共同舉辦創新競賽</a></h3>
+    <p class="summary">TechCrunch 與 VivaTech 2026 達成合作，將共同舉辦「年度創新」競賽，獲勝者將有機會在巴黎現場 pitch，並獲得 TechCrunch Disrupt 2026（10 月 13-15 日於舊金山）的 Startup Battlefield 200 入場券。VivaTech 2026 將聚焦企業 AI——製造、物流、醫療、資安、能源基建等領域的 AI 應用成為歐洲新主戰場。雖然矽谷持續投入大型語言模型與消費者 AI，但許多歐洲公司選擇將 AI 應用於已嵌入日常生活的複雜系統。</p>
+    <div class="why"><b>為什麼重要：</b>VivaTech 與 TechCrunch Disrupt 兩大新創展會的結盟，顯示歐美創投生態系加速整合；對台灣新創而言，這是切入歐洲企業 AI 市場的重要跳板。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>VivaTech、TechCrunch Disrupt、Startup Battlefield 200</span>
+      <span class="item"><b>概念股：</b>歐洲科技展覽類股</span>
+      <a href="https://techcrunch.com/2026/06/10/why-enterprise-ai-will-be-a-major-focus-at-vivatech-2026/" target="_blank">原文 →</a>
+    </div>
+  </div>
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">AI 支出</span>
+      <span>📅 2026-06-11 04:19 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/10/ai-pilled-firms-spend-7500-per-employee-each-month-on-ai/" target="_blank">「AI 上癮」企業每月每名員工燒 7,500 美元於 AI 服務</a></h3>
+    <p class="summary">根據 Ramp AI Index 最新研究，美國企業中前 1%「AI 上癮」（AI-pilled）的公司，每月每名員工花費 7,500 美元於 AI 服務。相比之下，美國軟體工程師平均月薪約 16,000 美元。前 10% 企業每月每名員工花 611 美元，中位數僅 11.38 美元（約一份企業方案授權費）。前 1% 企業上月支出月增 14.1%，並傾向在不同前沿模型與開源模型間切換以尋求最佳成本結構。Nvidia 高管上週表示「算力成本已超過員工薪資」，Mercor CEO 也說「花在內部代理的 token 比員工還多」。</p>
+    <div class="why"><b>為什麼重要：</b>顯示「AI 支出可能超過人力成本」已從理論變成現實；對 SaaS 公司轉型 AI 訂閱、token 經濟學、企業 IT 預算分配都是關鍵參考數據。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Ramp AI Index、Nvidia、Mercor</span>
+      <span class="item"><b>概念股：</b>NVDA、AI SaaS 類股</span>
+      <a href="https://techcrunch.com/2026/06/10/ai-pilled-firms-spend-7500-per-employee-each-month-on-ai/" target="_blank">原文 →</a>
+    </div>
+  </div>
+</div>
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">💾 AI 晶片與硬體</h3>
+<div class="news-list">
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Theker 機器人</span>
+      <span>📅 2026-06-12 12:30 TPE</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">Theker 募得 8,500 萬美元，打造「什麼都能做」的工廠機器人</a></h3>
+    <p class="summary">西班牙巴塞隆納新創 Theker 完成 8,500 萬美元 A 輪融資，自稱是「歐洲史上最大機器人 A 輪」。與 Boston Dynamics 等單一形態的人形機器人不同，Theker 的機器人設計為「可重組」——手、臂、整體形態可依任務（分揀包裹、包裝衣物、處理瓶罐）拆換或調整尺寸。Zara 母公司 Inditex 是早期支持者。Theker 目標是從零售跨入更重的工業場景如製造業。共同創辦人 Carla Gómez Cano 表示「現實工廠不像工廠實驗室那麼乾淨，多數流程不像『把一樣的餅乾放進一樣的盒子』」。</p>
+    <div class="why"><b>為什麼重要：</b>可重組機器人代表 AI 機器人從「單一任務」走向「通用任務」，對台灣機器人供應鏈（所羅門、廣明、上銀）有指標意義。歐洲 8,500 萬美元 A 輪也顯示機器人領域資金熱度未減。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Theker、Inditex (Zara)、Boston Dynamics、Carla Gómez Cano、Peak XV</span>
+      <span class="item"><b>概念股：</b>歐洲機器人概念股；台股：所羅門 (2359)、廣明 (6188)、上銀 (2049)</span>
+      <a href="https://techcrunch.com/2026/06/11/theker-just-raised-85m-to-build-the-factory-robot-that-doesnt-specialize-in-anything/" target="_blank">原文 →</a>
+    </div>
+  </div>
+</div>
+<h2 class="section-title">🔑 今日關鍵詞彙整</h2>
+<div class="news-card">
+  <h3 style="color:#fff;margin-bottom:14px;">重要術語與產品</h3>
+  <div class="keywords">
+    <span class="kw">Claude Fable 5</span>
+    <span class="kw">Claude Mythos</span>
+    <span class="kw">Project Glasswing</span>
+    <span class="kw">Manus</span>
+    <span class="kw">蒸餾模型 (Distillation)</span>
+    <span class="kw">AI 記憶系統</span>
+    <span class="kw">H200 GPU</span>
+    <span class="kw">MCP 協議</span>
+    <span class="kw">AI 越獄 (Jailbreak)</span>
+    <span class="kw">出口管制</span>
+    <span class="kw">AI 上癮 (AI-pilled)</span>
+    <span class="kw">主權 AI</span>
+    <span class="kw">GCC 全球能力中心</span>
+    <span class="kw">AI DNA 歸因</span>
+    <span class="kw">對話式電商</span>
+    <span class="kw">通用工程師</span>
+    <span class="kw">AI 訂閱價格戰</span>
+    <span class="kw">Sovereign AI</span>
+    <span class="kw">OpenAI IPO</span>
+  </div>
+  <h3 style="color:#fff;margin:20px 0 14px;">關鍵公司</h3>
+  <div class="keywords">
+    <span class="kw company">Anthropic</span>
+    <span class="kw company">Meta</span>
+    <span class="kw company">OpenAI</span>
+    <span class="kw company">Google</span>
+    <span class="kw company">Microsoft</span>
+    <span class="kw company">Apple</span>
+    <span class="kw company">Amazon</span>
+    <span class="kw company">Mistral AI</span>
+    <span class="kw company">xAI</span>
+    <span class="kw company">Prometheus</span>
+    <span class="kw company">DoorDash</span>
+    <span class="kw company">Deezer</span>
+    <span class="kw company">Coinbase</span>
+    <span class="kw company">Avataar AI</span>
+    <span class="kw company">Theker</span>
+    <span class="kw company">Warner Music</span>
+    <span class="kw company">Niteshift</span>
+    <span class="kw company">Manus</span>
+    <span class="kw company">Reliance</span>
+    <span class="kw company">Opendoor</span>
+  </div>
+  <h3 style="color:#fff;margin:20px 0 14px;">關鍵人物</h3>
+  <div class="keywords">
+    <span class="kw person">Dario Amodei</span>
+    <span class="kw person">Daniela Amodei</span>
+    <span class="kw person">Andy Jassy</span>
+    <span class="kw person">Mark Zuckerberg</span>
+    <span class="kw person">Jeff Bezos</span>
+    <span class="kw person">Vik Bajaj</span>
+    <span class="kw person">Sam Altman</span>
+    <span class="kw person">Elon Musk</span>
+    <span class="kw person">Tim Cook</span>
+    <span class="kw person">John Ternus</span>
+    <span class="kw person">Alexandr Wang</span>
+    <span class="kw person">Kaz Nejatian</span>
+    <span class="kw person">Devin Kim</span>
+    <span class="kw person">Sajid Mehmood</span>
+    <span class="kw person">Valentina Palmiotti</span>
+    <span class="kw person">Dan Bikel</span>
+  </div>
+</div>
+<h2 class="section-title">🔮 明日觀察預測</h2>
+<div class="outlook">
+  <h3>基於今日新聞，編輯室推測明天可能的延伸發展：</h3>
+  <ul>
+    <li><b>Anthropic 政府禁令連鎖反應：</b>預期 Anthropic 將於週日發出更詳細聲明、開發者社群可能連署反彈；OpenAI 與 Google 將趁機搶佔「最強公開模型」敘事，Vals AI 排行榜可能洗牌。對 Anthropic 準備中的 IPO 是重大變數。</li>
+    <li><b>Meta Manus 拆解後續：</b>預期 Manus 共同創辦人將於亞洲時區發布募資計畫；中國 AI 公司被美巨頭收購後拆解的案例將引發業界恐慌，類似交易可能被重新審視。</li>
+    <li><b>KPMG AI 幻覺事件延燒：</b>GPTZero 等 AI 內容偵測新創將獲得關注；四大會計師事務所可能被要求公布 AI 使用政策；企業內部「AI 內容稽核」市場將快速成長。</li>
+    <li><b>Mistral 估值確認與歐洲 AI 主權：</b>若彭博消息獲 Mistral 官方證實，將是歐洲 AI 史上最大單輪融資；歐洲政策制定者可能加碼主權 AI 投資，法國、盧森堡等國將跟進。</li>
+    <li><b>OpenAI 州檢察長調查擴大：</b>預期會有更多州加入調查，可能涵蓋未成年人保護、健康建議、廣告投放等議題；對所有消費者 AI 服務是重大合規警訊。</li>
+    <li><b>印度 AI 主權運動升溫：</b>Anthropic 禁令、Opendoor 撤離、Meta 拆 Manus 三件事疊加，印度政策制定者可能推出「印度主權 AI」法案，鼓勵本土 LLM 與影片模型發展。</li>
+    <li><b>AI 訂閱價格戰白熱化：</b>Google AI Plus 砍價後，OpenAI ChatGPT Plus、Anthropic Claude Pro、Perplexity Pro 等可能跟進降價；對消費者是大利多，但對模型廠利潤率是利空。</li>
+    <li><b>貝佐斯 Prometheus 效應：</b>120 億美元單輪融資將激勵更多物理 AI 新創；NVIDIA、Hugging Face 等開源社群可能加碼物理模擬工具；對台灣機器人供應鏈是利多訊號。</li>
+    <li><b>Apple WWDC 後續 AI 開發者反應：</b>Tim Cook 最後一次 WWDC 後，外界對 Apple Intelligence 的質疑將持續；下週可能出現首批 Apple Intelligence 開發者抱怨，影響 iOS 27 採用速度。</li>
+    <li><b>Microsoft 開源工具供應鏈危機：</b>開源 AI 工具遭駭事件將促使企業檢視 AI 開發環境的 IAM 與 SSO；資安廠商如 CrowdStrike、Palo Alto Networks、Snyk 可能推出專屬 AI 開發者防護方案。</li>
+  </ul>
+</div>
+<footer class="page-foot">
+  <p>由 OpenClaw 自動生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p style="margin-top:10px;">© 2026 acstep · <a href="../index.html">返回首頁</a></p>
+</footer>
+</div>
+</body>
+</html>
