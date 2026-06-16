@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-16 AI 新聞日報｜TechCrunch 中文摘要</title>
+<meta name="description" content="2026-06-16 AI 新聞日報：整理 TechCrunch AI 產業動態。Sundar Pichai 史丹佛演說遭抗議、Anthropic Fable/Mythos 下架事件餘波、Salesforce 36 億美元收購 Fin、Sarvam 印度新獨角獸 2.34 億美元、NewCore AI 代理身分管理、衛星首次自主找目標、SpaceX IPO 與 MANGOS 熱潮。">
+<style>
+:root {
+  --bg: #080810;
+  --panel: #11111c;
+  --border: #1f1f2e;
+  --text: #e8e8f0;
+  --muted: #8a8c9c;
+  --accent: #00d4ff;
+  --accent2: #00ff88;
+  --warn: #ffb84d;
+  --danger: #ff5577;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: var(--bg); color: var(--text);
+  line-height: 1.6;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+header.hero {
+  text-align: center;
+  padding: 50px 20px 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 30px;
+  background: radial-gradient(ellipse at top, rgba(0,212,255,0.08), transparent 70%);
+}
+header.hero h1 {
+  font-size: 2.4em; margin: 0 0 10px;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+header.hero .date { color: var(--accent); font-size: 1.1em; margin: 8px 0; font-weight: 600; }
+header.hero .meta { color: var(--muted); font-size: 0.92em; margin: 4px 0; }
+header.hero .meta-stats {
+  margin-top: 18px;
+  display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
+  font-size: 0.88em; color: var(--text);
+}
+header.hero .meta-stats span {
+  background: var(--panel); border: 1px solid var(--border);
+  padding: 6px 14px; border-radius: 99px;
+}
+header.hero .meta-stats b { color: var(--accent); }
+
+h2.section-title {
+  font-size: 1.5em; margin: 40px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  color: #fff;
+}
+h2.section-title::before { content: "▎"; color: var(--accent); margin-right: 8px; }
+
+.top3 { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.top3 .card.feature {
+  background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,255,136,0.04));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 14px;
+  padding: 24px 28px;
+  transition: transform 0.2s;
+}
+.top3 .card.feature:hover { transform: translateY(-2px); border-left-color: var(--accent2); }
+.top3 .card.feature .badge {
+  display: inline-block;
+  font-size: 0.78em;
+  background: rgba(0,212,255,0.15);
+  color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 99px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.top3 .card.feature h3 {
+  color: #fff; font-size: 1.35em; line-height: 1.4;
+  margin: 0 0 12px;
+}
+.top3 .card.feature h3 a { color: #fff; text-decoration: none; }
+.top3 .card.feature h3 a:hover { color: var(--accent); }
+.top3 .card.feature .lead {
+  color: #c8cad8; font-size: 0.98em; line-height: 1.7;
+  margin: 0 0 14px;
+}
+.top3 .card.feature .link {
+  display: inline-block; color: var(--accent); text-decoration: none;
+  font-size: 0.92em; font-weight: 600;
+}
+.top3 .card.feature .link:hover { color: var(--accent2); }
+
+.radar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.radar .tile {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  transition: all 0.2s;
+}
+.radar .tile:hover { border-color: rgba(0,212,255,0.4); transform: translateY(-2px); }
+.radar .tile .emoji { font-size: 1.6em; margin-bottom: 6px; display: block; }
+.radar .tile .name { color: #fff; font-weight: 600; margin-bottom: 4px; font-size: 0.98em; }
+.radar .tile .count {
+  display: inline-block; padding: 2px 8px; border-radius: 99px;
+  background: rgba(0,212,255,0.15); color: var(--accent);
+  font-size: 0.78em; font-weight: 700; margin-right: 6px;
+}
+.radar .tile .rep {
+  color: var(--muted); font-size: 0.82em; margin-top: 8px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-list { display: grid; gap: 18px; }
+.news-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  transition: all 0.2s;
+}
+.news-card:hover { border-color: rgba(0,212,255,0.3); }
+.news-card .meta-row {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  font-size: 0.82em; color: var(--muted);
+  margin-bottom: 10px;
+}
+.news-card .meta-row .tag {
+  background: rgba(0,212,255,0.12); color: var(--accent);
+  padding: 3px 10px; border-radius: 99px;
+  font-weight: 600;
+}
+.news-card .meta-row .tag.weekend {
+  background: rgba(255,184,77,0.12); color: var(--warn);
+}
+.news-card h3 {
+  margin: 0 0 12px; line-height: 1.4;
+}
+.news-card h3 a {
+  color: #fff; text-decoration: none; font-size: 1.18em;
+}
+.news-card h3 a:hover { color: var(--accent); }
+.news-card .summary {
+  color: #c8cad8; font-size: 0.96em; line-height: 1.75;
+  margin: 0 0 14px;
+}
+.news-card .why {
+  background: rgba(0,212,255,0.05);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin: 0 0 14px;
+  font-size: 0.92em;
+  color: #d0d2e0;
+}
+.news-card .why b { color: var(--accent); margin-right: 6px; }
+.news-card .footer-row {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  font-size: 0.85em;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.news-card .footer-row .item { color: var(--muted); }
+.news-card .footer-row .item b { color: #fff; font-weight: 600; margin-right: 4px; }
+.news-card .footer-row a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.news-card .footer-row a:hover { color: var(--accent2); }
+
+.keywords {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+}
+.keywords .kw {
+  background: rgba(0,255,136,0.10); color: var(--accent2);
+  padding: 4px 12px; border-radius: 99px;
+  font-size: 0.82em; font-weight: 600;
+}
+.keywords .kw.person {
+  background: rgba(0,212,255,0.12); color: var(--accent);
+}
+.keywords .kw.company {
+  background: rgba(255,184,77,0.12); color: var(--warn);
+}
+
+.outlook {
+  background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(0,255,136,0.03));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent2);
+  border-radius: 12px;
+  padding: 24px 28px;
+}
+.outlook h3 { color: var(--accent2); margin-top: 0; }
+.outlook ul { padding-left: 20px; color: #d0d2e0; }
+.outlook li { margin-bottom: 10px; line-height: 1.7; }
+.outlook li b { color: #fff; }
+
+footer.page-foot {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85em;
+}
+footer.page-foot a { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 640px) {
+  header.hero h1 { font-size: 1.8em; }
+  .container { padding: 14px; }
+  .news-card { padding: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header class="hero">
+  <h1>📰 每日 AI 新聞日報</h1>
+  <div class="date">2026-06-16 · 台北時間</div>
+  <div class="meta">資料來源：TechCrunch（過去 24-48 小時 AI 相關報導）</div>
+  <div class="meta-stats">
+    <span>📊 <b>20</b> 則新聞</span>
+    <span>🏷️ <b>8</b> 個主題分類</span>
+    <span>🔥 <b>3</b> 大頭條</span>
+    <span>🌐 繁體中文（台灣用語）</span>
+  </div>
+  <div class="keywords" style="justify-content:center;margin-top:18px;">
+    <span class="kw">Anthropic Fable/Mythos 下架</span>
+    <span class="kw">Salesforce 收購 Fin</span>
+    <span class="kw">Sarvam 印度獨角獸</span>
+    <span class="kw">NewCore AI 代理身分</span>
+    <span class="kw">Pichai 史丹佛遭抗議</span>
+    <span class="kw">衛星 AI 自主找目標</span>
+    <span class="kw">Meta Facebook AI Mode</span>
+    <span class="kw">SpaceX MANGOS IPO</span>
+    <span class="kw">AI 裁員怒火延燒</span>
+    <span class="kw">76 位資安專家連署</span>
+    <span class="kw">KPMG AI 幻覺</span>
+    <span class="kw">OpenAI 遭州檢察長調查</span>
+  </div>
+</header>
+
+<h2 class="section-title">🔥 今日三大頭條</h2>
+<div class="top3">
+
+  <div class="card feature">
+    <span class="badge">頭條 #1 · 🏛️ 政策與監管</span>
+    <h3><a href="https://techcrunch.com/2026/06/15/the-us-governments-anthropic-models-ban-was-never-about-an-ai-jailbreak/" target="_blank">美政府封殺 Anthropic 兩款模型，「從來就不是」AI 越獄問題</a></h3>
+    <p class="lead">美國商務部上週五援引冷門的出口管制指令，要求 Anthropic 將 Claude Fable 5 與 Claude Mythos 5 對「外國人」關閉，迫使 Anthropic 直接將兩款頂級模型從全球客戶端下架。TechCrunch 安全編輯 Zack Whittaker 指出，從週末 Axios 等媒體披露的訊息來看，白宮與 Anthropic 的「個性衝突」才是導火線，而非真正的技術越獄。報導並引述資安老兵 Katie Moussouris（Luta Security 創辦人）出示亞馬遜研究人員內部論文，認為所謂越獄不過是「把『請審視這段程式碼的安全性』改寫成『請修正這段程式碼』」，效果根本一樣。對此 Anthropic 表示已準備提訴或尋求救濟，Tech Policy Press 主編 Justin Hendrix 更直言：「外國政府會開始質疑美國 AI 在關鍵應用上的可靠性。」</p>
+    <a class="link" href="https://techcrunch.com/2026/06/15/the-us-governments-anthropic-models-ban-was-never-about-an-ai-jailbreak/" target="_blank">→ 閱讀原文</a>
+  </div>
+
+  <div class="card feature">
+    <span class="badge">頭條 #2 · 💰 投融資與併購</span>
+    <h3><a href="https://techcrunch.com/2026/06/15/salesforce-acquires-ai-customer-service-platform-fin-for-3-6b/" target="_blank">Salesforce 以 36 億美元收購 AI 客服平台 Fin，要把 Agentforce 推向代理經濟核心</a></h3>
+    <p class="lead">Salesforce 週一宣布以約 36 億美元收購 AI 客服新創 Fin（前身為 Intercom，2024 年改名），把 Fin 跨渠道（Live Chat、WhatsApp、SMS、電話、Slack）解決客戶查詢的 AI 代理整合進 Agentforce。Salesforce CEO Marc Benioff 表示 Fin 帶來「成熟的代理技術、深度客戶承諾、與一支與 Agentforce 互補的 AI 團隊」。Fin 共同創辦人 Eoghan McCabe 強調交易後他仍擔任 CEO、Des 仍領導 R&D。這筆交易預計在 Salesforce 2027 財年第四季（實際上是 2027 年初）完成。這是本週 AI 企業市場最大手筆收購之一，與 Salesforce 既有 Agentforce 平台定位高度互補。</p>
+    <a class="link" href="https://techcrunch.com/2026/06/15/salesforce-acquires-ai-customer-service-platform-fin-for-3-6b/" target="_blank">→ 閱讀原文</a>
+  </div>
+
+  <div class="card feature">
+    <span class="badge">頭條 #3 · 💰 投融資與併購</span>
+    <h3><a href="https://techcrunch.com/2026/06/15/sarvam-becomes-indias-newest-ai-unicorn-with-234-million-funding-round-led-by-hcltech/" target="_blank">Sarvam 募得 2.34 億美元成印度最新 AI 獨角獸，HCLTech 領投 1.5 億</a></h3>
+    <p class="lead">印度班加羅爾 AI 新創 Sarvam 完成 2.34 億美元融資，估值 15 億美元，正式成為印度最新 AI 獨角獸。印度 IT 服務巨頭 HCLTech 領投 1.5 億美元，Bessemer Venture Partners、Khosla Ventures、Peak XV Partners 等既有投資人跟投；本輪目標 3 億美元，Sarvam 還想再募 6,600 萬。Sarvam 走全端 AI 商業模式，涵蓋模型、推理基礎設施、企業應用；其模型為印度語言與在地場景設計，已部署於銀行、保險、政府服務、國防等領域。Sarvam 對話 AI 平台每日處理 200 萬次互動、API 呼叫 1,000 萬次，語音模型每月轉錄 50 萬小時音訊，文件 AI 系統已數位化超過 3,500 萬頁。HCLTech 帶來企業通路、工程人力與軟體資產，被視為 Sarvam 商業化的關鍵夥伴。</p>
+    <a class="link" href="https://techcrunch.com/2026/06/15/sarvam-becomes-indias-newest-ai-unicorn-with-234-million-funding-round-led-by-hcltech/" target="_blank">→ 閱讀原文</a>
+  </div>
+
+</div>
+
+<h2 class="section-title">🗺️ 主題雷達</h2>
+<div class="radar">
+  <div class="tile">
+    <span class="emoji">🏛️</span>
+    <div class="name">AI 政策與監管</div>
+    <span class="count">7</span>
+    <div class="rep">美政府封殺 Anthropic、76 位資安專家連署、OpenAI 遭州檢察長調查、Amazon CEO 舉報</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">💰</span>
+    <div class="name">AI 投融資與併購</div>
+    <span class="count">4</span>
+    <div class="rep">Salesforce 36 億美元收購 Fin、Sarvam 2.34 億美元獨角獸、SpaceX IPO 掀 MANGOS 熱潮</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">👥</span>
+    <div class="name">AI 人事與組織</div>
+    <span class="count">3</span>
+    <div class="rep">Pichai 史丹佛演說遭 200 人退場抗議、Meta 6,500 人 AI 團隊瀕離職、AI 裁員怒火延燒</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">🏢</span>
+    <div class="name">企業 AI 動態</div>
+    <span class="count">2</span>
+    <div class="rep">NewCore 6,600 萬美元為 AI 代理發身分、KPMG 撤回 AI 使用報告因幻覺</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">🤖</span>
+    <div class="name">AI 產品與應用</div>
+    <span class="count">1</span>
+    <div class="rep">Meta 在 Facebook 推出「AI Mode」，整合公開貼文、Reels 與社團內容</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">🌍</span>
+    <div class="name">AI 國際與地緣政治</div>
+    <span class="count">2</span>
+    <div class="rep">Meta 拆解 Manus 20 億美元收購、Anthropic 下架掀印度 AI 主權辯論</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">💾</span>
+    <div class="name">AI 晶片與硬體</div>
+    <span class="count">1</span>
+    <div class="rep">NASA JPL Gemma 3 視覺語言模型首次上軌道，自主標定地面目標</div>
+  </div>
+  <div class="tile">
+    <span class="emoji">🧠</span>
+    <div class="name">AI 模型與研究</div>
+    <span class="count">1</span>
+    <div class="rep">Gemma 3 視覺語言模型在 YAM-9 衛星上首次自主完成 Earth Observation 任務</div>
+  </div>
+</div>
+
+<h2 class="section-title">📚 完整新聞清單（依主題分類）</h2>
+
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">🏛️ AI 政策與監管</h3>
+<div class="news-list">
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">頭條延伸</span>
+      <span>📅 2026-06-16 05:50 TPE · 美東 06-15 17:50</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Zack Whittaker</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/the-us-governments-anthropic-models-ban-was-never-about-an-ai-jailbreak/" target="_blank">美政府封殺 Anthropic 兩款模型，「從來就不是」AI 越獄問題</a></h3>
+    <p class="summary">美國商務部上週五援引冷門的出口管制指令，要求 Anthropic 將 Claude Fable 5 與 Claude Mythos 5 對所有外國人關閉，迫使 Anthropic 直接將兩款頂級模型從全球客戶端下架。TechCrunch 安全編輯 Zack Whittaker 整理週末新訊息指出，白宮與 Anthropic 的「個性衝突」才是導火線，技術越獄只是表面理由。報導並引述資安老兵 Katie Moussouris（Luta Security 創辦人）出示亞馬遜研究人員內部論文，認為所謂越獄僅是把「請審視這段程式碼的安全性」改寫為「請修正這段程式碼」，效果根本一樣。Moussouris 與 76 位資安專家連署要求撤銷該指令。Tech Policy Press 主編 Justin Hendrix 認為，這會讓外國政府質疑美國 AI 在關鍵應用上的可靠性。</p>
+    <div class="why"><b>為什麼重要：</b>事件顯示 AI 廠商不只要面對市場競爭，還要承受地緣政治與政府監管的雙重壓力；Anthropic 與白宮的裂痕將影響其 IPO 與全球客戶信任。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Anthropic、美國商務部、Claude Fable 5、Claude Mythos 5、Trump Administration、Luta Security、Katie Moussouris、Tech Policy Press、Justin Hendrix</span>
+      <span class="item"><b>概念股：</b>AI 安全與資安類股</span>
+      <a href="https://techcrunch.com/2026/06/15/the-us-governments-anthropic-models-ban-was-never-about-an-ai-jailbreak/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">資安連署</span>
+      <span>📅 2026-06-15 23:29 TPE · 美東 06-15 11:29</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Lorenzo Franceschi-Bicchierai</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/cybersecurity-vets-protest-dangerous-us-government-ban-on-anthropics-most-powerful-models/" target="_blank">76 位資安專家連署抗議：美政府封殺 Anthropic 最強模型「很危險」</a></h3>
+    <p class="summary">76 位資安老兵聯合發表公開信，要求美國政府撤銷對 Anthropic Fable 5 與 Mythos 5 的出口管制命令，認為此舉「從防禦者手中奪走最好的模型」。連署名單包括前 Facebook 資安長 Alex Stamos、Bugcrowd 創辦人 Casey Ellis、知名密碼學家 Jon Callas、網路安全先驅 Paul Vixie、Block 前應用安全主管 Dino Dai Zovi、Luta Security 創辦人 Katie Moussouris、SocialProof Security CEO Rachel Tobac 等。連署信並指出論文中描述的能力「也可用於」OpenAI GPT-5.5、Anthropic 自家公開模型 Claude Opus 4.8 與 Sonnet，甚至是中國的 Kimi 2.7 模型。信中要求「以民主立法程序、依據產學研究的證據、以最小必要程度保障公眾安全」的透明法規。</p>
+    <div class="why"><b>為什麼重要：</b>這是首次由產業權威連署反對美國 AI 出口管制，對其他廠商（OpenAI、Google DeepMind）將產生寒蟬效應；對台灣 AI 資安廠商（如趨勢、奧義）也是關注焦點。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Anthropic、Claude Fable、Claude Mythos、Alex Stamos、Casey Ellis、Jon Callas、Paul Vixie、Dino Dai Zovi、Katie Moussouris、Rachel Tobac</span>
+      <span class="item"><b>概念股：</b>資安類股；台股：趨勢科技 (4704)、奧義智慧</span>
+      <a href="https://techcrunch.com/2026/06/15/cybersecurity-vets-protest-dangerous-us-government-ban-on-anthropics-most-powerful-models/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Pichai 史丹佛</span>
+      <span>📅 2026-06-16 07:51 TPE · 美東 06-15 19:51</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Lucas Ropek</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/sundar-pichai-faces-boos-walkout-at-stanford-graduation-ceremony-over-googles-israel-ice-ties/" target="_blank">Sundar Pichai 史丹佛畢業演說遭 200 名學生退場抗議，劍指 Google 國防合約</a></h3>
+    <p class="summary">Google CEO Sundar Pichai 上週末在史丹佛大學（其母校）畢業典禮上演說，遭到約 200 名學生退場抗議，其他學生則當場大聲噓他。抗議焦點是 Google 對以色列國防部的合約，包括與 Amazon 共同拿下、提供雲端與 AI 服務給以色列軍方的 Project Nimbus（合約金額 12 億美元），以及 Google 與美國移民暨海關執法局（ICE）的合作關係。學生高舉「ICE SPIES WITH GOOGLE AI」「GENOCIDE RUNS ON GOOGLE」標語，並揮舞巴勒斯坦旗幟、高喊「Free Palestine」。抗議由「史丹佛學生爭取巴勒斯坦正義」、「No Tech for Apartheid」、「Tech for Liberation」等校園團體發起。創投大老 Vinod Khosla 在 X 上發文抨擊學生「偏頗、愚蠢、短視、自私」，引發更大爭議。</p>
+    <div class="why"><b>為什麼重要：</b>事件顯示 AI 已成為校園世代對科技巨頭的最大抗議符號；Project Nimbus 等國防 AI 合約將成為 Z 世代選購科技產品時的道德考量。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Google、Sundar Pichai、Project Nimbus、Amazon、ICE、Vinod Khosla、Stanford</span>
+      <span class="item"><b>概念股：</b>GOOGL、AMZN；國防 AI 與公部門標案類股</span>
+      <a href="https://techcrunch.com/2026/06/15/sundar-pichai-faces-boos-walkout-at-stanford-graduation-ceremony-over-googles-israel-ice-ties/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-13 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Anthony Ha</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/" target="_blank">OpenAI 遭美國多州檢察長聯合調查，紐約領銜發出傳票</a></h3>
+    <p class="summary">紐約州檢察長上週五對 OpenAI 發出傳票，聯邦其他州也加入組成聯合調查小組。傳票要求 OpenAI 提交多項文件，包括廣告政策、使用者互動與留存、模型「討好性」（sycophancy）、消費者資料與健康資料處理、以及對未成年人與長者的保護措施等。OpenAI 發言人表示「認真對待州檢察長提出的疑慮，將建設性配合」，並強調 ChatGPT 已加入未成年人保護體驗、年齡預測、家長工具等機制。OpenAI 未透露參與調查的州有哪些。本週稍早 OpenAI 才剛在與 Elon Musk 的訴訟中勝訴（Musk 表示將上訴）。</p>
+    <div class="why"><b>為什麼重要：</b>OpenAI 此時正在籌備 IPO，州檢察長調查增加合規風險；對消費者 AI 應用（特別是涉及未成年人與健康資料）將提高監管標準。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>OpenAI、ChatGPT、紐約州檢察長、Elon Musk、Sam Altman、Florida AG James Uthmeier</span>
+      <span class="item"><b>概念股：</b>OpenAI 概念股；AI 客服/聊天類股</span>
+      <a href="https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-13 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Anthony Ha</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/" target="_blank">WSJ：Amazon CEO Andy Jassy 對政府示警 Anthropic 模型，引發封殺</a></h3>
+    <p class="summary">《華爾街日報》報導，Amazon CEO Andy Jassy 在封殺 Anthropic 之前，曾告訴美國財政部長 Scott Bessent 與其他政府官員，Amazon 研究人員用 Claude Fable 5 取得可用於網路攻擊的資訊，美國政府隨後對 Fable 5 與 Mythos 5 祭出出口禁令。Amazon 發言人表示公司「經常受政府諮詢潛在安全風險，但不分享討論細節」，並指出 AWS 受到這次模型下架影響。David Sacks（川普前 AI 大使，現任科技與科學顧問共同主席）聲稱「一家 Anthropic 與美國政府都信任的合作夥伴，發現了越獄；政府要求 Dario Amodei 修復或下架，Dario 拒絕。」Anthropic 隨後在部落格回應，認為該功能「早就在其他公開模型中可用」。</p>
+    <div class="why"><b>為什麼重要：</b>Amazon 身為 Anthropic 最大外部投資人之一（投資 80 億美元並承諾 1,000 億雲端支出），此舉凸顯創投股東與模型廠之間的利益衝突；對台灣 AI 雲端供應鏈是警訊。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Amazon、Andy Jassy、Anthropic、Claude Fable 5、Claude Mythos 5、Scott Bessent、David Sacks、Dario Amodei、AWS</span>
+      <span class="item"><b>概念股：</b>AMZN；雲端服務類股</span>
+      <a href="https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-12 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Connie Loizos</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/" target="_blank">Anthropic「安全警告」自食其果？美國政府封殺最強 AI</a></h3>
+    <p class="summary">美國政府上週五以國安為由，下令 Anthropic 立即關閉 Claude Fable 5 與 Mythos 5。Anthropic 表示於美東時間下午 5:21 收到指令，被迫為「全球所有使用者」（不只是外國人）停用模型。Mythos 是 Anthropic 4 月公開的頂級模型，號稱能找出所有主流作業系統與瀏覽器的漏洞，公司只透過 Project Glasswing 與約 50 家經篩選的組織（Amazon、Apple、Google、Microsoft、CrowdStrike）合作。Fable 5 三天前才剛發布，是 Mythos 的公開版（含防護機制），根據 Vals AI 測試為當時最強公開模型。Anthropic 認為所謂越獄「只是讓模型讀特定程式碼並找出漏洞」，且該能力「早就在其他公開模型中可用」。OpenAI 執行長 Sam Altman 4 月時曾批評 Anthropic 處理 Mythos 的方式是「恐懼行銷」。</p>
+    <div class="why"><b>為什麼重要：</b>事件開啟 AI 公司「安全披露 vs. 商業化」的灰色地帶；對 Anthropic 即將到來的 IPO 是一大打擊；對 OpenAI、Google 等對手則是相對利多。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Anthropic、Claude Fable 5、Claude Mythos 5、Vals AI、OpenAI、Sam Altman、Project Glasswing、Trump Administration</span>
+      <span class="item"><b>概念股：</b>AI 安全與治理類股</span>
+      <a href="https://techcrunch.com/2026/06/12/anthropics-safety-warnings-may-have-just-backfired-the-government-has-pulled-the-plug-on-its-most-powerful-ai/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-12 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Lorenzo Franceschi-Bicchierai</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/" target="_blank">Google 提告「Outsider Enterprise」：中國 AI 詐騙集團騙數十萬人</a></h3>
+    <p class="summary">Google 對一個名為 Outsider Enterprise 的中國 AI 詐騙集團提起訴訟。該集團用 AI 假冒 Google 與其他品牌發送詐騙簡訊、設立假網站，騙走密碼與信用卡號。Google 估計受害者「數十萬人」，損失「估計達數百萬美元」，2 週內部署 9,000 個假網站、100 萬個假域名、向 Android 用戶發送 250 萬則簡訊。FBI 與 Lumen Black Lotus Labs 配合查扣數個域名、Shopify 店面與帳號。FBI 估計該平台自 2023 年 7 月起已盜取至少 387 萬張信用卡、損失約 19 億美元。集團還利用 Google 自己的 Gemini AI 來生成假網站內容，每月竊取超過 100 億則詐騙訊息。</p>
+    <div class="why"><b>為什麼重要：</b>事件顯示 AI 已成跨國詐騙核心工具；Google 罕見以「以 AI 對抗 AI」策略提告，將影響國際執法合作與資安產業供應鏈；對台灣 165 反詐騙、刑事局是借鏡。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Google、Outsider Enterprise、FBI、Lumen Black Lotus Labs、Gemini、AI、AT&T、T-Mobile、Verizon、Shopify</span>
+      <span class="item"><b>概念股：</b>GOOGL；資安與反詐騙類股</span>
+      <a href="https://techcrunch.com/2026/06/12/chinese-cybercrime-operation-that-used-ai-to-scam-hundreds-of-thousands-of-victims-sued-by-google/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+</div>
+
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">💰 AI 投融資與併購</h3>
+<div class="news-list">
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">頭條延伸</span>
+      <span>📅 2026-06-15 22:34 TPE · 美東 06-15 07:34</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Amanda Silberling</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/salesforce-acquires-ai-customer-service-platform-fin-for-3-6b/" target="_blank">Salesforce 以 36 億美元收購 AI 客服平台 Fin，要把 Agentforce 推向代理經濟核心</a></h3>
+    <p class="summary">Salesforce 週一宣布以約 36 億美元收購 AI 客服新創 Fin（前身為 Intercom，2024 年改名）。Fin 提供 AI 代理，能跨 Live Chat、WhatsApp、SMS、電話、Slack 等多渠道解決客戶查詢。Salesforce 表示要把 Fin 的團隊與技術整合進 Agentforce，協助企業建立自動化任務的客製化 AI 代理。Salesforce CEO Marc Benioff 認為 Fin 帶來「成熟的代理技術、深度客戶承諾、與一支與 Agentforce 互補的 AI 團隊」。Fin 共同創辦人 Eoghan McCabe 強調他仍擔任 CEO、Des 仍領導 R&D，並提及 Fin 近期發布的旗艦模型 Apex 與內部代理 Operator。交易預計在 Salesforce 2027 財年第四季完成。</p>
+    <div class="why"><b>為什麼重要：</b>Salesforce 加碼押注 AI 代理平台，整合 Fin 跨渠道客服是 Agentforce 商業化的關鍵；對台灣 CRM、AI 客服新創（如漸強、嘉亨）形成競爭壓力。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Salesforce、Fin、Agentforce、Intercom、Marc Benioff、Eoghan McCabe、Apex、Operator</span>
+      <span class="item"><b>概念股：</b>CRM；企業 AI 服務類股</span>
+      <a href="https://techcrunch.com/2026/06/15/salesforce-acquires-ai-customer-service-platform-fin-for-3-6b/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">頭條延伸</span>
+      <span>📅 2026-06-15 21:46 TPE · 美東 06-15 09:46</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Jagmeet Singh</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/sarvam-becomes-indias-newest-ai-unicorn-with-234-million-funding-round-led-by-hcltech/" target="_blank">Sarvam 募得 2.34 億美元成印度最新 AI 獨角獸，HCLTech 領投 1.5 億</a></h3>
+    <p class="summary">印度班加羅爾 AI 新創 Sarvam 完成 2.34 億美元融資，估值 15 億美元，正式成為印度最新 AI 獨角獸。印度 IT 服務巨頭 HCLTech 領投 1.5 億美元，Bessemer Venture Partners、Khosla Ventures、Peak XV Partners 等既有投資人跟投。Sarvam 走全端 AI 商業模式，涵蓋模型、推理基礎設施、企業應用；其模型為印度語言與在地場景設計，已部署於銀行、保險、政府服務、國防等領域。HCLTech 帶來企業通路、工程人力與軟體資產，被視為 Sarvam 商業化的關鍵夥伴。Sarvam 對話 AI 平台每日處理 200 萬次互動、API 呼叫 1,000 萬次，語音模型每月轉錄 50 萬小時音訊，文件 AI 系統已數位化超過 3,500 萬頁；其多語言語音代理已為印度農業部蒐集 1,700 萬名農民資料，並支援某保險公司 4,500 萬保戶續保。</p>
+    <div class="why"><b>為什麼重要：</b>Sarvam 是「主權 AI」（sovereign AI）浪潮的最新代表，顯示新興市場正在建立自己的 AI 棧；對台灣 AI 廠商而言，是評估南向合作的絕佳標的。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Sarvam、HCLTech、Bessemer Venture Partners、Khosla Ventures、Peak XV Partners、Anthropic、OpenAI、Vivek Raghavan、Pratyush Kumar、Nandan Nilekani</span>
+      <span class="item"><b>概念股：</b>印度 IT 服務類股；AI 主權概念股</span>
+      <a href="https://techcrunch.com/2026/06/15/sarvam-becomes-indias-newest-ai-unicorn-with-234-million-funding-round-led-by-hcltech/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">IPO 熱潮</span>
+      <span>📅 2026-06-16 02:30 TPE · 美東 06-15 14:30</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Kirsten Korosec, Russell Brandom</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/spacex-is-public-everything-you-need-to-know-post-ipo/" target="_blank">SpaceX 上市後你需要知道的一切：史上最大 IPO</a></h3>
+    <p class="summary">SpaceX 於 6 月 12 日以每股 135 美元定價，成為史上最大 IPO 案。執行長 Elon Musk 成為全球第一位身價破兆美元的富豪，SpaceX 股價上漲使公司市值達 2.1 兆美元，預計為員工創造約 4,400 名百萬富翁、400 名億元富翁。雖然公司名為「SpaceX」，但近來大力宣傳其 AI 業務（包括軌道資料中心），與 OpenAI（已秘密申請 IPO）、Anthropic（已申請 IPO，估值近 1 兆美元）形成「MANGOS」（Meta、Anthropic、Nvidia、Google、OpenAI、SpaceX）IPO 浪潮。TechCrunch 也盤點誰將從中受益、pre-IPO 交易、S-1 文件亮點。</p>
+    <div class="why"><b>為什麼重要：</b>SpaceX IPO 為 AI 產業建立公開市場估值基準；MANGOS 新組合顯示 AI 已取代 FAANG 成為科技投資主軸；對台灣 AI 供應鏈（鴻海、台積電）有外溢效應。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>SpaceX、Elon Musk、OpenAI、Anthropic、Nvidia、Google、Meta</span>
+      <span class="item"><b>概念股：</b>台股：鴻海 (2317)、台積電 (2330)；美股 MANGOS 全員</span>
+      <a href="https://techcrunch.com/2026/06/15/spacex-is-public-everything-you-need-to-know-post-ipo/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-14 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Anthony Ha（Equity Podcast）</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/14/as-ai-companies-race-to-go-public-who-else-is-along-for-the-ride/" target="_blank">AI 公司搶 IPO，誰還在排隊跟著上車？</a></h3>
+    <p class="summary">SpaceX 本週上市，成為史上最大 IPO 案。緊接著 OpenAI、Anthropic 也先後秘密申請 IPO。TechCrunch 的 Equity Podcast 與記者 Kirsten Korosec、Sean O'Kane 討論這波「熱 IPO 夏天」。Julie Bort 提出新口號「MANGOS」取代 FAANG，把 Meta、Anthropic、Nvidia、Google、OpenAI、SpaceX 納入新版組合。Kirsten 認為除了這些大公司外，還有許多新創想「搭 SpaceX IPO 順風車」，例如軌道資料中心與衛星 AI 領域的新創紛紛啟動募資或 SPAC。Sean 則提醒 SpaceX 正在「壓力測試單人控制的上市公司能有多大極限」，未來 OpenAI 與 Anthropic 是否會「複製 SpaceX 模式」是觀察重點。</p>
+    <div class="why"><b>為什麼重要：</b>MANGOS 新組合是科技板塊大洗牌的訊號；對台灣投資人而言，AI 概念股投資組合需要重新調整。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>SpaceX、OpenAI、Anthropic、Meta、Nvidia、Google、MANGOS、Julie Bort、Kirsten Korosec、Sean O'Kane</span>
+      <span class="item"><b>概念股：</b>MANGOS 全員；SPAC 與太空 AI 概念股</span>
+      <a href="https://techcrunch.com/2026/06/14/as-ai-companies-race-to-go-public-who-else-is-along-for-the-ride/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+</div>
+
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">👥 AI 人事與組織</h3>
+<div class="news-list">
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">AI 裁員</span>
+      <span>📅 2026-06-15 15:25 TPE · 美東 06-15 03:25</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Connie Loizos</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/" target="_blank">AI 裁員潮成「火藥庫」：當數萬人失業，少數 AI 內部人財富卻爆增</a></h3>
+    <p class="summary">Challenger, Gray & Christmas 報告顯示，上月科技業裁員達兩年來單月新高（近 4 萬人），AI 連續第三個月成為各產業裁員最常被引用的理由。對 AI 是否為真正原因的質疑正在升高：Jack Dorsey（Block）聲稱其裁員近半與 AI 工具「改變公司運作方式」有關，但隨後在 X 上承認疫情期間確實過度僱用。Marc Andreessen 認為 AI 是裁員的「銀色子彈藉口」，「每家大企業都過度僱用了至少 25%、可能 50%、甚至 75%」。Cerebras 上市首日股價飆漲 68%，創辦人 Feldman 與 Lie 身價破 10 億美元；SpaceX IPO 後市值達 2.1 兆美元，預估創造 4,400 名百萬富翁、約 400 名億元富翁。Anthropic、OpenAI 估值都近 1 兆美元。Zuckerberg 3 月以 1.7 億美元購入邁阿密豪宅創紀錄，2 個月後 Meta 宣布裁員 8,000 人。</p>
+    <div class="why"><b>為什麼重要：</b>「裁員換 AI 投資」的矛盾正在激化社會對立；對台灣企業與勞動市場是重要警示，可能在 2027 年面臨類似 AI 自動化壓力。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Cerebras、SpaceX、Anthropic、OpenAI、Block、Jack Dorsey、Marc Andreessen、Meta、Mark Zuckerberg、Challenger Gray & Christmas、Andrew Feldman、Sean Lie、Elon Musk</span>
+      <span class="item"><b>概念股：</b>AI 晶片類股；美股：META、SPAC 概念</span>
+      <a href="https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-12 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Connie Loizos</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/12/metas-months-old-ai-unit-is-a-soul-crushing-gulag-say-the-engineers-stuck-inside-it/" target="_blank">Meta 三個月大 AI 團隊被自家工程師形容為「心靈監獄」，瀕臨集體離職</a></h3>
+    <p class="summary">Wired 取得內部錄音與訪談報導，Meta 三個月前成立的「Applied AI」團隊（約 6,500 名工程師與產品經理）士氣跌至谷底。導火線是一場員工直播會議遭人 hijack 怒罵 Meta AI 高層「是個混蛋」。員工多數是透過驚喜信件被「徵召」（draftee），「要不就加入、要不就離職」，被迫每天產出訓練 AI 用的謎題與程式題。1,600 名 Meta 員工連署抗議公司監控點擊與按鍵作為 AI 訓練資料。產品長 Chris Cox 本週對員工坦言「環境很殘酷」。Applied AI 團隊由 12 年老兵 Maher Saba（前 Reality Labs VP）領導，向 CTO Andrew Bosworth 報告；原設計每 50 名員工配 1 位主管。Zuckerberg 週五在內部備忘錄承認「近期改變造成痛苦」，承諾改進。</p>
+    <div class="why"><b>為什麼重要：</b>顯示 AI 競賽對企業內部造成的壓力已到臨界點；Meta 用「徵召制」動員員工可能成為其他 AI 廠的借鏡或警示。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Meta、Mark Zuckerberg、Alexandr Wang、Scale AI、Maher Saba、Andrew Bosworth、Chris Cox、Meta Superintelligence Labs</span>
+      <span class="item"><b>概念股：</b>META；企業 AI 轉型類股</span>
+      <a href="https://techcrunch.com/2026/06/12/metas-months-old-ai-unit-is-a-soul-crushing-gulag-say-the-engineers-stuck-inside-it/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-12 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Rebecca Bellan（Equity Podcast）</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/12/andrew-yang-thinks-the-next-big-startup-opportunity-is-lowering-the-cost-of-living/" target="_blank">Andrew Yang 認為下一波創業機會是「降低生活成本」</a></h3>
+    <p class="summary">美國創業家、前總統候選人 Andrew Yang 提出新創業理論：當 AI 壓縮薪資並取代勞工時，把錢「還給消費者」的商業模式將是新一波創業主流。Yang 受 Mark Cuban 的 Cost Plus Drugs 啟發，列出「住房、教育、食物、燃料、交通、媒體、無線」七大被過度剝削的產業。他去年 9 月推出行動虛擬網路業者 Noble Mobile，主打低價資費並把多餘用量回饋給客戶，目前已有「數千名」客戶與「數百萬美元」營收。他認為每戶每月平均省下的 50 美元若投資 40 年可達 2.4 萬美元，相當於一筆退休金頭期款。Yang 不諱言：「有投資人跟我說『Andrew，我們愛你、想合作——只要把它包裝成 AI 公司就投資』。」</p>
+    <div class="why"><b>為什麼重要：</b>Yang 點出 AI 財富集中化下「消費者還錢」商機；對台灣新創圈是逆向思考：當 AI 熱潮退燒，「Cost Plus」式商業可能是下一個金礦。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Andrew Yang、Mark Cuban、Cost Plus Drugs、Noble Mobile、Light Phone、Misfits Markets</span>
+      <span class="item"><b>概念股：</b>反 AI 壟斷與消費者物價相關類股</span>
+      <a href="https://techcrunch.com/2026/06/12/andrew-yang-thinks-the-next-big-startup-opportunity-is-lowering-the-cost-of-living/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+</div>
+
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">🏢 企業 AI 動態</h3>
+<div class="news-list">
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">AI 代理身分</span>
+      <span>📅 2026-06-15 21:00 TPE · 美東 06-15 09:00</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Jagmeet Singh</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/ai-agents-are-becoming-employees-newcore-emerges-with-66m-to-give-them-identities/" target="_blank">當 AI 代理變員工，NewCore 募 6,600 萬美元幫它們建立身分</a></h3>
+    <p class="summary">資安新創 NewCore 從隱密模式走出，完成 6,600 萬美元種子輪，估值 3 億美元。Cyberstarts 領投，Index Ventures、Evolution Equity Partners 跟投。共同創辦人暨 CEO Zohar Alon（曾創辦 Dome9、被 Check Point 收購）認為企業部署 AI 代理時，「身分系統」將成為最脆弱環節；既有身分平台（Okta、Microsoft Entra）為人類員工設計，難以承載 AI 代理。CTO Amihai Neiderman（前 Unit 8200 研究主管、Nym Health 創辦人）、CCO Erez Yarkoni（前 T-Mobile USA 與 Telstra CIO）共同創辦。NewCore 採用「split-key」架構把關鍵身分憑證分散於客戶與平台，強調「人類 + 機器 + AI 代理」的第一類身分管理；推出 Agentic Skill 整合 Claude Code、OpenAI Codex、Cursor 等 AI 程式工具。Goldman Sachs 已測試 AI 程式代理 Devin；McKinsey 表示已有 2.5 萬個 AI 代理與其 6 萬名員工共事。</p>
+    <div class="why"><b>為什麼重要：</b>AI 代理身分管理是企業 AI 部署的關鍵缺口；對台灣 AI 資安廠商（如奧義智慧）有策略啟示；對企業 IT 採購是 2026 年新重點。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>NewCore、Cyberstarts、Index Ventures、Evolution Equity Partners、Zohar Alon、Dome9、Check Point、Amihai Neiderman、Nym Health、Erez Yarkoni、T-Mobile、Goldman Sachs、Devin、McKinsey、Okta、Microsoft Entra、Claude Code、OpenAI Codex、Cursor</span>
+      <span class="item"><b>概念股：</b>資安類股；企業 AI 身分管理類股</span>
+      <a href="https://techcrunch.com/2026/06/15/ai-agents-are-becoming-employees-newcore-emerges-with-66m-to-give-them-identities/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">KPMG 醜聞</span>
+      <span class="tag weekend">📅 06-13 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Anthony Ha</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/" target="_blank">KPMG 撤回「代理 AI 卓越再定義」報告：因為內容是 AI 幻覺</a></h3>
+    <p class="summary">四大會計師事務所之一的 KPMG 撤回了 2025 年 10 月發布的《重新定義代理 AI 時代的卓越》（Redefining excellence in the age of agentic AI）報告，因為多家被引述的組織表示報告內容與事實不符。研究機構 GPTZero 告訴《金融時報》，報告中多處不實是 AI 幻覺所致——換句話說，這份「關於 AI 的報告」本身就是用 AI 寫的。UBS、英國 NHS、瑞士聯邦鐵路、倫敦交通局都向《金融時報》表示，報告對其 AI 使用的描述不正確或有誤導。KPMG 發言人表示公司已將報告從網站下架並展開內部調查，並強調「所有員工應遵循負責任 AI 使用指南，包括人類監督驗證內容」。上月 EY 才因 AI 幻覺撤回忠誠獎勵報告。</p>
+    <div class="why"><b>為什麼重要：</b>「用 AI 寫 AI 報告」是 AI 治理警訊；對台灣四大會計師事務所、顧問公司是直接警示；GPTZero 等 AI 偵測工具需求將上升。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>KPMG、GPTZero、UBS、NHS、Swiss Federal Railways、Transport for London、EY</span>
+      <span class="item"><b>概念股：</b>AI 內容驗證類股；AI 治理諮詢類股</span>
+      <a href="https://techcrunch.com/2026/06/13/kpmg-pulls-report-on-ai-usage-due-to-apparent-hallucinations/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+</div>
+
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">🤖 AI 產品與應用</h3>
+<div class="news-list">
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Facebook AI Mode</span>
+      <span>📅 2026-06-16 02:30 TPE · 美東 06-15 14:30</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Lauren Forristal</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/metas-new-ai-mode-on-facebook-pulls-from-public-info-across-its-platforms/" target="_blank">Meta 在 Facebook 推出「AI Mode」搜尋，整合公開貼文、Reels 與社團內容</a></h3>
+    <p class="summary">Meta 週一宣布在 Facebook 推出一系列新 AI 功能，主打「AI Mode」搜尋——用戶可用自然語言提問，AI 從 Facebook 上的公開貼文、Reels、社團中彙整答案。這是 Meta 為了追趕 AI 競賽並維持用戶黏著度所做的最新努力。同步推出 Forum App 的「Ask」分頁（5 月已悄悄上線），以及 Reels 影片剪輯拼貼、AI 照片預設（如虛擬穿著球隊球衣）等工具。社群內容作為 AI 答案來源的可信度引發質疑——Reddit 上對 Google AI Mode 已有類似抱怨，認為彙整結果可能過時或失真。Meta 還同步推出 Facebook、Instagram、WhatsApp 的全球訂閱方案（起價 3.99 美元/月），更多 AI 訂閱層級正在規劃中。</p>
+    <div class="why"><b>為什麼重要：</b>Meta 把社群內容作為 AI 答案來源是全新策略；對台灣內容平台（如 Dcard、巴哈姆特）的 AI 整合是啟示。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Meta、Facebook、Instagram、WhatsApp、Forum App、Reels、Meta AI</span>
+      <span class="item"><b>概念股：</b>META；社群平台類股</span>
+      <a href="https://techcrunch.com/2026/06/15/metas-new-ai-mode-on-facebook-pulls-from-public-info-across-its-platforms/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+</div>
+
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">🌍 AI 國際與地緣政治</h3>
+<div class="news-list">
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">Meta Manus</span>
+      <span class="tag weekend">📅 06-14 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Kate Park</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/13/meta-reportedly-moves-to-unwind-2b-manus-deal-after-beijings-demand/" target="_blank">Meta 拆解 20 億美元 Manus 收購案，北京強制脫鉤</a></h3>
+    <p class="summary">Meta 已開始拆解 2024 年 12 月宣布的 20 億美元 Manus 收購案，切斷兩家公司之間的內部系統存取與資料共享。這是 Meta 為配合北京兩個月前以「國安」理由下達的脫鉤命令所採取的最具體行動。Manus 共同創辦人已開始與外部投資人洽談，擬募集約 10 億美元重新買回公司，可能採用中國合資結構並在香港上市。Manus 投資人 Benchmark 已收到 Meta 收購案款項；亞洲投資人 Tencent、HSG、ZhenFund 表示會配合脫鉤。中國當局同時擴大對私營企業 AI 研究人員的出境管制，要求政府核准才能出國；也對 Moonshot AI、StepFun、ByteDance 等頂級 AI 公司加強外資監管。Manus 雖然母公司為 Butterfly Effect、總部已遷新加坡，仍被認定為「中國血統」。</p>
+    <div class="why"><b>為什麼重要：</b>事件顯示中國嚴控 AI 技術外流，連新加坡總部也擋不住；對台灣 AI 新創赴陸投資或被陸資收購是重要警示。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Meta、Manus、Butterfly Effect、Tencent、HSG、ZhenFund、Benchmark、Moonshot AI、StepFun、ByteDance、北京國安部、Senator John Cornyn</span>
+      <span class="item"><b>概念股：</b>中國 AI 類股；港股 AI 上市潮</span>
+      <a href="https://techcrunch.com/2026/06/13/meta-reportedly-moves-to-unwind-2b-manus-deal-after-beijings-demand/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">週末延伸</span>
+      <span class="tag weekend">📅 06-14 美東</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Jagmeet Singh</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/13/as-anthropic-suspends-access-to-new-models-india-debates-its-ai-future/" target="_blank">Anthropic 暫停新模型後，印度辯論 AI 主權未來</a></h3>
+    <p class="summary">Anthropic 旗下 Fable 5 與 Mythos 5 因美國政府出口管制被迫對外國用戶下架後，印度科技領袖陷入辯論：這是否為印度 AI 雄心的警鐘？OpenAI 與 Anthropic 皆稱印度為僅次於美國的第二大市場。然而，高運算成本與資金取得困難，讓印度新創難以與美中對手競爭。本週 Sarvam 剛募得 2.34 億美元，成為印度主權 AI 的最新代表。</p>
+    <div class="why"><b>為什麼重要：</b>印度 AI 主權運動開始成形；對台灣 AI 戰略佈局是新興合作訊號。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Anthropic、Sarvam、OpenAI、印度 AI Mission、Nandan Nilekani</span>
+      <span class="item"><b>概念股：</b>印度 IT 服務類股；AI 主權概念股</span>
+      <a href="https://techcrunch.com/2026/06/13/as-anthropic-suspends-access-to-new-models-india-debates-its-ai-future/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+</div>
+
+<h3 style="color:#00ff88;font-size:1.2em;margin:30px 0 14px;">💾 AI 晶片與硬體 / 🧠 AI 模型與研究</h3>
+<div class="news-list">
+
+  <div class="news-card">
+    <div class="meta-row">
+      <span class="tag">軌道 AI</span>
+      <span>📅 2026-06-15 20:00 TPE · 美東 06-15 08:00</span>
+      <span class="tag" style="background:rgba(0,212,255,0.05);color:var(--muted);">TechCrunch · Tim Fernholz</span>
+    </div>
+    <h3><a href="https://techcrunch.com/2026/06/15/a-satellite-just-learned-to-find-things-on-its-own-heres-what-that-means/" target="_blank">衛星首次自主找到目標！NASA JPL 用 Gemma 3 視覺語言模型突破</a></h3>
+    <p class="summary">今年 4 月，一顆地球觀測衛星首次在沒有地面分析師介入的情況下，自主找到它被指定的目標。這是視覺語言模型（VLM）首次在軌道上執行任務，預示 AI 將根本改變太空感測器的應用與價值。YAM-9 衛星由太空基礎建設公司 Loft Orbital 建造，搭載 NASA JPL 開發的軟體，運行 Google DeepMind Gemma 3 VLM（專為邊緣裝置設計）。研究人員要求模型辨識自然環境與人類開發交界處、識別鐵路樞紐周邊基礎設施，模型都成功完成。這項突破短期內可在軌道上做資料分流（減少分析師資料負擔），長期則為太空 AI 基礎建設鋪路。Loft Orbital 計畫打造 50-100 顆 YAM-9 衛星組成即時覆蓋地球的星座。YAM-9 搭載 Nvidia Jetson Orin AGX GPU，2025 年秋季發射。</p>
+    <div class="why"><b>為什麼重要：</b>軌道 AI 應用是新藍海；對 Nvidia Jetson Orin 系列是利多；對台灣太空產業、衛星新創是策略參考。</div>
+    <div class="footer-row">
+      <span class="item"><b>關鍵實體：</b>Loft Orbital、NASA JPL、Google DeepMind、Gemma 3、Paul Lasserre、Juan Delfa Victoria、Taran Cyriac John、Nvidia Jetson Orin AGX、Planet Labs、Kepler Communications、EarthDaily、NAVI-Orbital</span>
+      <span class="item"><b>概念股：</b>NVDA；太空 AI 與衛星類股；台股：衛星供應鏈</span>
+      <a href="https://techcrunch.com/2026/06/15/a-satellite-just-learned-to-find-things-on-its-own-heres-what-that-means/" target="_blank">原文 →</a>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="section-title">🔑 今日關鍵詞</h2>
+<div class="keywords" style="margin:14px 0 30px;">
+  <span class="kw">Claude Fable 5</span>
+  <span class="kw">Claude Mythos 5</span>
+  <span class="kw">Project Glasswing</span>
+  <span class="kw">AI 越獄（jailbreak）</span>
+  <span class="kw">AI 代理身分</span>
+  <span class="kw">Agentforce</span>
+  <span class="kw">MANGOS</span>
+  <span class="kw">Sarvam 主權 AI</span>
+  <span class="kw">AI 失業潮</span>
+  <span class="kw">Gemma 3 VLM</span>
+  <span class="kw">Nvidia Jetson Orin</span>
+  <span class="kw">Meta Manus 拆解</span>
+  <span class="kw">Project Nimbus</span>
+  <span class="kw">Outsider Enterprise</span>
+  <span class="kw">Splunk-key 架構</span>
+  <span class="kw person">Sundar Pichai</span>
+  <span class="kw person">Sam Altman</span>
+  <span class="kw person">Dario Amodei</span>
+  <span class="kw person">Marc Benioff</span>
+  <span class="kw person">Eoghan McCabe</span>
+  <span class="kw person">Mark Zuckerberg</span>
+  <span class="kw person">Elon Musk</span>
+  <span class="kw person">Andy Jassy</span>
+  <span class="kw person">David Sacks</span>
+  <span class="kw person">Alex Stamos</span>
+  <span class="kw person">Katie Moussouris</span>
+  <span class="kw person">Zohar Alon</span>
+  <span class="kw person">Andrew Yang</span>
+  <span class="kw person">Vinod Khosla</span>
+  <span class="kw person">Vivek Raghavan</span>
+  <span class="kw person">Pratyush Kumar</span>
+  <span class="kw company">Anthropic</span>
+  <span class="kw company">OpenAI</span>
+  <span class="kw company">Meta</span>
+  <span class="kw company">Google</span>
+  <span class="kw company">SpaceX</span>
+  <span class="kw company">Salesforce</span>
+  <span class="kw company">Amazon</span>
+  <span class="kw company">HCLTech</span>
+  <span class="kw company">Sarvam</span>
+  <span class="kw company">NewCore</span>
+  <span class="kw company">Loft Orbital</span>
+  <span class="kw company">NASA JPL</span>
+  <span class="kw company">Cerebras</span>
+  <span class="kw company">KPMG</span>
+  <span class="kw company">Manus</span>
+</div>
+
+<div class="outlook">
+  <h3>🔮 明日觀察重點（2026-06-17）</h3>
+  <ul>
+    <li><b>Anthropic 與白宮攻防下一步：</b>76 位資安專家連署壓力下，白宮是否撤銷 Fable/Mythos 出口管制？David Sacks 與 Anthropic 的說詞矛盾將如何發酵？</li>
+    <li><b>Salesforce-Fin 整合：</b>36 億美元收購後，Agentforce 在企業 AI 代理市場是否成為新霸主？對 Slack、ServiceNow 等競爭對手影響。</li>
+    <li><b>Sarvam 與印度主權 AI：</b>印度最大 AI 獨角獸誕生後，OpenAI 與 Anthropic 是否會加速在印度的在地化策略？</li>
+    <li><b>SpaceX MANGOS 效應：</b>Quantum Space 等 SPAC 案是否會跟進？OpenAI 與 Anthropic 秘密 IPO 申請可能加速。</li>
+    <li><b>AI 裁員怒火延燒：</b>Block、Meta、Cerebras 內部矛盾會否在 Q2 財報季爆發？科技勞動市場是否迎來工會化浪潮？</li>
+    <li><b>Pichai 抗議風波：</b>創投大老 Vinod Khosla 的發言讓事件升溫，是否會擴大為「AI 與國防」全國性辯論？</li>
+    <li><b>OpenAI 多州調查：</b>繼佛州訴訟、紐約傳票後，是否有更多州加入？OpenAI IPO 時程是否受影響？</li>
+    <li><b>軌道 AI 競賽：</b>NASA JPL Gemma 3 突破後，Kepler Communications、Planet Labs 等是否會跟進？Nvidia 在太空 AI 晶片市場的領先優勢能維持多久？</li>
+  </ul>
+</div>
+
+<footer class="page-foot">
+  <p>📰 每日 AI 新聞中文整理 · 由 OpenClaw 自動生成</p>
+  <p style="margin-top:6px;">資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a> · <a href="../index.html">返回首頁</a></p>
+  <p style="margin-top:10px;color:#555;">© 2026 acstep · 繁體中文台灣用語</p>
+</footer>
+
+</div>
+</body>
+</html>
