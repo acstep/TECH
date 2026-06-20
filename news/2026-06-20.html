@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-20 每日 AI 新聞中文摘要｜TECH</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080810;
+  --text: #e8e8f0;
+  --muted: #888;
+  --cyan: #00d4ff;
+  --green: #00ff88;
+  --orange: #ff8c42;
+  --red: #ff4d6d;
+  --yellow: #ffd166;
+  --purple: #a78bfa;
+  --border: rgba(255,255,255,0.08);
+  --card: rgba(255,255,255,0.03);
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 20px;
+  min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+header.page {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--green) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+}
+h1 { font-size: 2.4em; font-weight: 900; margin-bottom: 8px; letter-spacing: -1px; }
+.subtitle { color: var(--muted); font-size: 1.05em; }
+.meta-bar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  color: var(--muted);
+  font-size: 0.95em;
+}
+.meta-bar b { color: var(--cyan); }
+.section-title {
+  color: var(--green);
+  font-size: 1.6em;
+  margin: 40px 0 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.portal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }
+@media (max-width: 600px) { .portal { grid-template-columns: 1fr; } }
+.portal a { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.25s; text-align: center; }
+.portal a:hover { transform: translateY(-2px); border-color: rgba(0,212,255,0.4); }
+.portal a.active { border-color: rgba(0,255,136,0.5); background: linear-gradient(135deg, rgba(0,255,136,0.06), rgba(0,212,255,0.04)); }
+.portal .ico { font-size: 1.6rem; margin-bottom: 4px; }
+.portal .ttl { font-weight: 700; font-size: 0.95rem; }
+.portal a.active .ttl { color: var(--green); }
+.portal .desc { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+.headline-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+@media (max-width: 900px) { .headline-grid { grid-template-columns: 1fr; } }
+.headline {
+  background: linear-gradient(160deg, rgba(0,212,255,0.10), rgba(0,255,136,0.06));
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.headline::before {
+  content: "🔥 頭條";
+  position: absolute; top: 0; right: 0;
+  background: linear-gradient(135deg, var(--cyan), var(--green));
+  color: #080810; font-size: 0.72em; font-weight: 700;
+  padding: 5px 14px; border-radius: 0 16px 0 14px;
+  letter-spacing: 0.5px;
+}
+.headline h2 { font-size: 1.18em; margin: 8px 0 10px; line-height: 1.4; }
+.headline h2 a { color: var(--text); text-decoration: none; }
+.headline h2 a:hover { color: var(--cyan); }
+.headline .summary { color: #c5c5d2; font-size: 0.93em; line-height: 1.65; }
+.headline .meta { color: var(--muted); font-size: 0.78em; margin-top: 12px; }
+.headline.big { grid-row: span 1; }
+
+.radar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 30px;
+}
+@media (max-width: 900px) { .radar-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .radar-grid { grid-template-columns: 1fr; } }
+.radar-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.25s;
+}
+.radar-card:hover {
+  border-color: rgba(0,212,255,0.4);
+  transform: translateY(-2px);
+}
+.radar-card .ico { font-size: 1.5rem; margin-bottom: 6px; }
+.radar-card .name { font-weight: 700; margin-bottom: 4px; }
+.radar-card .count { color: var(--cyan); font-size: 0.85em; margin-bottom: 8px; }
+.radar-card .rep { color: var(--muted); font-size: 0.78em; line-height: 1.5; }
+
+.article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 16px;
+  transition: all 0.25s;
+}
+.article:hover {
+  border-color: rgba(0,212,255,0.3);
+}
+.article h3 { font-size: 1.15em; margin-bottom: 8px; line-height: 1.4; }
+.article h3 a { color: var(--text); text-decoration: none; }
+.article h3 a:hover { color: var(--cyan); }
+.article .time { color: var(--muted); font-size: 0.78em; margin-bottom: 10px; }
+.article .summary { color: #c5c5d2; margin-bottom: 12px; font-size: 0.95em; line-height: 1.75; }
+.article .importance {
+  background: rgba(0,255,136,0.06);
+  border-left: 3px solid var(--green);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #d8d8e2;
+}
+.article .importance::before { content: "💡 為什麼重要："; color: var(--green); font-weight: 700; }
+.article .meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  font-size: 0.82em;
+  color: var(--muted);
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 600px) { .article .meta-grid { grid-template-columns: 1fr; } }
+.article .meta-grid b { color: var(--cyan); }
+
+.kw-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.kw {
+  padding: 6px 12px;
+  background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 20px;
+  font-size: 0.85em;
+  color: var(--cyan);
+}
+
+.tomorrow {
+  background: linear-gradient(135deg, rgba(167,139,250,0.10), rgba(0,212,255,0.06));
+  border: 1px solid rgba(167,139,250,0.25);
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 20px;
+}
+.tomorrow h3 { color: var(--purple); margin-bottom: 12px; }
+.tomorrow ul { list-style: none; padding: 0; }
+.tomorrow li {
+  padding: 8px 0 8px 20px;
+  position: relative;
+  color: #c5c5d2;
+  font-size: 0.95em;
+  line-height: 1.65;
+  border-bottom: 1px solid var(--border);
+}
+.tomorrow li:last-child { border-bottom: none; }
+.tomorrow li::before { content: "▸"; position: absolute; left: 0; color: var(--purple); font-weight: 700; }
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85em;
+}
+footer a { color: var(--cyan); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="page">
+  <h1>📡 每日 AI 新聞中文摘要</h1>
+  <div class="subtitle">2026-06-20（星期六）｜TechCrunch AI 新聞精選</div>
+</header>
+
+<div class="meta-bar">
+  <span>📰 總新聞數 <b>24</b> 則</span>
+  <span>🗂️ 涵蓋分類 <b>8</b> 個</span>
+  <span>⏰ 涵蓋時間 <b>近 7 日</b></span>
+  <span>🤖 編譯 <b>AI 新聞編譯師</b></span>
+</div>
+
+<nav class="portal">
+  <a href="index.html" class="active"><span class="ico">🏠</span><span class="ttl">回首頁</span><span class="desc">歷史報告總覽</span></a>
+  <a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank"><span class="ico">📰</span><span class="ttl">TechCrunch AI</span><span class="desc">原始來源</span></a>
+  <a href="https://github.com/acstep/TECH" target="_blank"><span class="ico">💻</span><span class="ttl">GitHub 原始碼</span><span class="desc">本網站開源</span></a>
+</nav>
+
+<div class="section-title">🔥 今日三大頭條</div>
+<div class="headline-grid">
+  <div class="headline big">
+    <h2><a href="https://techcrunch.com/2026/06/19/the-ceo-of-allbirds-new-ai-biz-has-a-plan-but-no-employees/" target="_blank">Allbirds 轉型 AI 新事業，執行長有計畫但沒有團隊</a></h2>
+    <div class="summary">今年 4 月，曾以羊毛休閒鞋著稱的上市公司 Allbirds 宣布轉型投入 AI，當時股價隨 meme 浪潮飆漲。如今執行長 Tim Brown 公開承認所謂的「AI 事業」目前還沒有任何員工，僅有外部顧問協助他擬定方向。Brown 表示將先聚焦於與 Allbirds 既有品牌結合的 AI 工具，但具體產品仍未定。批評者認為這是跟風炒作，公司則強調這是長期布局。</div>
+    <div class="meta">🕐 2026-06-19 21:00（台北時間 週五）｜👤 Tim Fernholz</div>
+  </div>
+  <div class="headline">
+    <h2><a href="https://techcrunch.com/2026/06/18/snap-spins-off-ai-video-team-into-new-company-dotmo-due-to-costs/" target="_blank">Snap 因成本過高，將 AI 影片團隊分拆為新公司 Dotmo</a></h2>
+    <div class="summary">Snap 宣布把內部生成式 AI 影片團隊分拆為獨立公司 Dotmo，新公司將專注於開發能創造互動遊戲體驗的 AI 模型。Snap 表示，分拆主因是內部運算與人才成本過高。Dotmo 將取得 Snap 技術授權，並與 Snapchat 創作者保持密切合作，但仍為獨立運營公司。</div>
+    <div class="meta">🕐 2026-06-19 04:30（台北時間 週五）｜👤 Lucas Ropek</div>
+  </div>
+  <div class="headline">
+    <h2><a href="https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/" target="_blank">Amazon 計畫直接對外銷售 AI 晶片 Trainium，挑戰 NVIDIA</a></h2>
+    <div class="summary">AWS AI 主管 Peter DeSantis 向彭博透露，AWS 正與多家企業洽談對外銷售自研 AI 晶片 Trainium，用於其資料中心。雖然 AWS 否認這與單一客戶有關，但業界解讀這是 AWS 對 NVIDIA 在 AI 加速器市場主導地位的正面挑戰。Trainium 主要用於模型訓練，AWS 過去僅自家使用。</div>
+    <div class="meta">🕐 2026-06-19 02:22（台北時間 週五）｜👤 Julie Bort</div>
+  </div>
+</div>
+
+<div class="section-title">🎯 主題雷達</div>
+<div class="radar-grid">
+  <div class="radar-card">
+    <div class="ico">💾</div>
+    <div class="name" style="color: var(--cyan);">AI 晶片與硬體</div>
+    <div class="count">2 則新聞</div>
+    <div class="rep">代表：美方質疑 ASML 頂級晶片設備疑流入中國，ASML 否認…</div>
+  </div>
+  <div class="radar-card">
+    <div class="ico">🧠</div>
+    <div class="name" style="color: var(--green);">AI 模型與研究</div>
+    <div class="count">1 則新聞</div>
+    <div class="rep">代表：ChatGPT 市占率首次跌破 50%，Gemini、Claude、Grok 瓜分市場…</div>
+  </div>
+  <div class="radar-card">
+    <div class="ico">🤖</div>
+    <div class="name" style="color: var(--purple);">AI 產品與應用</div>
+    <div class="count">5 則新聞</div>
+    <div class="rep">代表：Snap 因成本過高，將 AI 影片團隊分拆為新公司 Dotmo…</div>
+  </div>
+  <div class="radar-card">
+    <div class="ico">🏢</div>
+    <div class="name" style="color: var(--orange);">企業 AI 動態</div>
+    <div class="count">2 則新聞</div>
+    <div class="rep">代表：Allbirds 轉型 AI 新事業，執行長有計畫但沒有團隊…</div>
+  </div>
+  <div class="radar-card">
+    <div class="ico">💰</div>
+    <div class="name" style="color: var(--yellow);">AI 投融資與併購</div>
+    <div class="count">6 則新聞</div>
+    <div class="rep">代表：傳 Elastic 同意以最高 8,500 萬美元收購 CRV 投資的 Deductive AI…</div>
+  </div>
+  <div class="radar-card">
+    <div class="ico">🏛️</div>
+    <div class="name" style="color: var(--red);">AI 政策與監管</div>
+    <div class="count">4 則新聞</div>
+    <div class="rep">代表：AI 資料中心取得政府「快速通道」，優先併網…</div>
+  </div>
+  <div class="radar-card">
+    <div class="ico">👥</div>
+    <div class="name" style="color: var(--cyan);">AI 人事與組織</div>
+    <div class="count">2 則新聞</div>
+    <div class="rep">代表：OpenAI IPO 前重磅挖角：延攬 Google DeepMind 大老與前白宮 AI 政策官…</div>
+  </div>
+  <div class="radar-card">
+    <div class="ico">🌍</div>
+    <div class="name" style="color: var(--green);">AI 國際與地緣政治</div>
+    <div class="count">2 則新聞</div>
+    <div class="rep">代表：印度首富安巴尼要把 AI 放進每一通電話、應用程式與家庭…</div>
+  </div>
+</div>
+
+<div class="section-title">📋 完整新聞清單</div>
+<h2 style="color: var(--cyan); margin: 32px 0 16px; font-size: 1.4em;">💾 AI 晶片與硬體（2）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/19/the-us-says-asmls-top-chip-tool-may-be-in-china-asml-says-it-isnt/" target="_blank">美方質疑 ASML 頂級晶片設備疑流入中國，ASML 否認</a></h3>
+  <div class="time">🕐 2026-06-19 15:59（台北時間 週五）｜👤 Connie Loizos｜📰 TechCrunch</div>
+  <div class="summary">彭博報導，美國商務部長 Howard Lutnick 多次會見荷蘭半導體設備龍頭 ASML 高層，表達對其極紫外光（EUV）曝光機可能已流入中國的疑慮。EUV 是全球唯一能印製最先進半導體的設備，自首次川普政府起就被禁止輸中。ASML 強烈否認有任何 EUV 進入中國。商務部尚未公開證實此事，但已要求 ASML 提出內部稽查報告。</div>
+  <div class="importance">此事件凸顯美中晶片管制持續升級。一旦查證屬實，將是出口管制最大漏洞之一，並可能進一步收緊 ASML 對中國 DUV 與成熟製程設備的銷售，影響全球半導體供應鏈。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>ASML、Howard Lutnick、美國商務部、彭博</div>
+    <div><b>📈 相關概念股：</b>美股：ASML；台股：台積電 (2330)、ASML 台廠供應鏈</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/" target="_blank">Amazon 計畫直接對外銷售 AI 晶片 Trainium，挑戰 NVIDIA</a></h3>
+  <div class="time">🕐 2026-06-19 02:22（台北時間 週五）｜👤 Julie Bort｜📰 TechCrunch</div>
+  <div class="summary">AWS AI 主管 Peter DeSantis 向彭博透露，AWS 正與多家企業洽談對外銷售自研 AI 晶片 Trainium，用於其資料中心。雖然 AWS 否認這與單一客戶有關，但業界解讀這是 AWS 對 NVIDIA 在 AI 加速器市場主導地位的正面挑戰。Trainium 主要用於模型訓練，AWS 過去僅自家使用。</div>
+  <div class="importance">若 AWS 成功對外銷售 Trainium，將打破 NVIDIA 在 AI 訓練晶片市場的準壟斷地位，可能引發超大規模雲端業者 (hyperscaler) 群起效仿，加速 AI 晶片市場多元化。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Amazon、AWS、Peter DeSantis、Trainium、NVIDIA</div>
+    <div><b>📈 相關概念股：</b>美股：AMZN、NVDA；台股：台積電 (2330, AWS Trainium 代工)</div>
+  </div>
+</div>
+<h2 style="color: var(--green); margin: 32px 0 16px; font-size: 1.4em;">🧠 AI 模型與研究（1）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/16/chatgpts-market-share-slips-below-50-for-first-time/" target="_blank">ChatGPT 市占率首次跌破 50%，Gemini、Claude、Grok 瓜分市場</a></h3>
+  <div class="time">🕐 2026-06-16 18:30（台北時間 週二）｜👤 Ivan Mehta｜📰 TechCrunch</div>
+  <div class="summary">根據 Sensor Tower《2026 AI 狀態報告》，ChatGPT 雖仍是全球最受歡迎的 AI 助手，但市占率首次跌破 50%，被 Google Gemini、Anthropic Claude、xAI Grok 瓜分。報告指出使用者正大量在不同助手間「多棲遷徙」，尤其在工作場景中 Claude 與 Gemini 的企業滲透率快速上升。</div>
+  <div class="importance">AI 助手市場進入戰國時代。OpenAI 不再獨大，對企業選商策略、開發者 API 市場、模型價格都將產生結構性影響。Claude 與 Gemini 在企業端的崛起尤其值得關注。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>OpenAI、ChatGPT、Google Gemini、Anthropic Claude、xAI Grok、Sensor Tower</div>
+    <div><b>📈 相關概念股：</b>美股：MSFT (OpenAI 投資方)、GOOGL</div>
+  </div>
+</div>
+<h2 style="color: var(--purple); margin: 32px 0 16px; font-size: 1.4em;">🤖 AI 產品與應用（5）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/snap-spins-off-ai-video-team-into-new-company-dotmo-due-to-costs/" target="_blank">Snap 因成本過高，將 AI 影片團隊分拆為新公司 Dotmo</a></h3>
+  <div class="time">🕐 2026-06-19 04:30（台北時間 週五）｜👤 Lucas Ropek｜📰 TechCrunch</div>
+  <div class="summary">Snap 宣布把內部生成式 AI 影片團隊分拆為獨立公司 Dotmo，新公司將專注於開發能創造互動遊戲體驗的 AI 模型。Snap 表示，分拆主因是內部運算與人才成本過高。Dotmo 將取得 Snap 技術授權，並與 Snapchat 創作者保持密切合作，但仍為獨立運營公司。</div>
+  <div class="importance">大型平台將 AI 內容業務分拆已成趨勢（如 Meta 把 FB 內容業務切割），反映生成式 AI 高成本迫使企業重新評估資本配置。Dotmo 的存活將考驗獨立 AI 內容公司能否自負盈虧。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Snap、Dotmo、Snapchat、Evan Spiegel</div>
+    <div><b>📈 相關概念股：</b>美股：SNAP</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/almost-half-of-u-s-singles-feel-negatively-about-ai-in-dating-match-says/" target="_blank">Match 集團調查：近半美國單身者對 AI 進入交友圈持負面觀感</a></h3>
+  <div class="time">🕐 2026-06-19 02:51（台北時間 週五）｜👤 Amanda Silberling｜📰 TechCrunch</div>
+  <div class="summary">交友軟體巨頭 Match Group（Tinder、Hinge、OkCupid 母公司）發布內部研究指出，美國單身者對 AI 介入戀愛普遍感到不安。雖有 47% 表示對 AI 應用於交友持負面態度，但也有 30% 認為 AI 可協助篩選對象。集團內部不同步調：Bumble 推出 AI 助理 Bee、Tinder 重金投資 AI 但放慢徵才、Hinge 執行長則為投入 AI 而辭職重組。</div>
+  <div class="importance">此報告顯示消費者對 AI 進入人際關係的隱憂，與企業瘋狂投入 AI 形成鮮明對比。對 Match Group 等平台而言，AI 應用須更謹慎設計，否則將面臨使用者流失。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Match Group、Tinder、Hinge、OkCupid、Bumble、Bee</div>
+    <div><b>📈 相關概念股：</b>美股：MTCH (Match Group)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/how-to-turn-off-ai-in-your-google-docs/" target="_blank">如何關閉 Google Docs 中的 AI 功能</a></h3>
+  <div class="time">🕐 2026-06-19 01:00（台北時間 週五）｜👤 Amanda Silberling｜📰 TechCrunch</div>
+  <div class="summary">Google 在 Google Docs 中內建了 Gemini AI 助手（會彈出「Write with Gemini」提示）。本篇教學說明如何透過 Tools 選單與設定頁面逐步關閉相關 AI 浮動視窗、自動完成與智慧撰寫功能。操作步驟包括：點選 Tools > 「Suggest edits」取消勾選、於帳號設定中關閉 Smart Compose 等。</div>
+  <div class="importance">消費者對 AI 預設啟用的反彈日益升高，這篇教學的熱度反映用戶對 AI 「強加」的不滿。對 Google 等業者而言，如何平衡 AI 推廣與使用者選擇權，將是產品設計關鍵。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Google、Google Docs、Gemini</div>
+    <div><b>📈 相關概念股：</b>美股：GOOGL</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/queer-eyes-life-coach-karamo-brown-launches-ke-a-wellness-app-featuring-his-ai-digital-clone/" target="_blank">《酷兒眼睛》Karamo Brown 推 Kē 健康 App，內建本人 AI 數位分身</a></h3>
+  <div class="time">🕐 2026-06-19 00:55（台北時間 週五）｜👤 Lauren Forristal｜📰 TechCrunch</div>
+  <div class="summary">Netflix《酷兒眼睛》明星 Karamo Brown 推出個人健康應用 Kē，結合 AI 數位分身技術。應用提供個人化健身計畫（依用戶器材與時間調整）、營養建議、心理冥想引導，並可與其 AI 分身對話，模擬 Brown 本人風格的建議。應用聚焦於健身、戒酒、感情等領域。Brown 表示這來自他個人一年半的成長經歷。</div>
+  <div class="importance">名人 AI 分身應用再度擴張，從饒舌歌手、網紅到電視名人。對 AI 創作者經濟而言，「AI 自己的分身」成為新一波內容變現模式，但也引發肖像與人格權爭議。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Karamo Brown、Kē、Netflix、Queer Eye</div>
+    <div><b>📈 相關概念股：</b>美股：NFLX</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/17/google-bets-on-gemini-to-reinvent-the-smart-home-speaker/" target="_blank">Google 押注 Gemini 改造智慧音箱，推出 Home Speaker 99.99 美元</a></h3>
+  <div class="time">🕐 2026-06-18 00:30（台北時間 週四）｜👤 Sarah Perez｜📰 TechCrunch</div>
+  <div class="summary">Google 推出售價 99.99 美元的 Google Home Speaker，是 2020 年 Nest Audio 以來首款獨立的智慧音箱。整機圍繞 Gemini AI 設計：可進行自然對話、控制智慧家庭、播放音樂，並支援 Gemini Live 對話模式。Google 期望透過 Gemini 重新點燃智慧家庭市場。</div>
+  <div class="importance">Google 重返智慧家庭硬體市場，搭配 Gemini 試圖挑戰 Amazon Echo 與 Apple HomePod 的市占。這是 Gemini 在消費硬體的最大考驗，結果將影響 Google 整體 AI 商業化策略。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Google、Gemini、Home Speaker、Nest、Amazon Echo、Apple HomePod</div>
+    <div><b>📈 相關概念股：</b>美股：GOOGL、AMZN、AAPL</div>
+  </div>
+</div>
+<h2 style="color: var(--orange); margin: 32px 0 16px; font-size: 1.4em;">🏢 企業 AI 動態（2）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/19/the-ceo-of-allbirds-new-ai-biz-has-a-plan-but-no-employees/" target="_blank">Allbirds 轉型 AI 新事業，執行長有計畫但沒有團隊</a></h3>
+  <div class="time">🕐 2026-06-19 21:00（台北時間 週五）｜👤 Tim Fernholz｜📰 TechCrunch</div>
+  <div class="summary">今年 4 月，曾以羊毛休閒鞋著稱的上市公司 Allbirds 宣布轉型投入 AI，當時股價隨 meme 浪潮飆漲。如今執行長 Tim Brown 公開承認所謂的「AI 事業」目前還沒有任何員工，僅有外部顧問協助他擬定方向。Brown 表示將先聚焦於與 Allbirds 既有品牌結合的 AI 工具，但具體產品仍未定。批評者認為這是跟風炒作，公司則強調這是長期布局。</div>
+  <div class="importance">Allbirds 的案例凸顯當前部分傳統企業面對 AI 浪潮的「焦慮式轉型」現象：為拉抬股價匆忙宣稱投入 AI，卻缺乏實際技術或人力，對 AI 泡沫化疑慮是重要警示。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Allbirds、Tim Brown</div>
+    <div><b>📈 相關概念股：</b>美股：BIRD (Allbirds)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/17/anthropic-becomes-first-ai-startup-to-join-the-frontier-carbon-removal-coalition/" target="_blank">Anthropic 成為首家加入 Frontier 碳移除聯盟的 AI 新創</a></h3>
+  <div class="time">🕐 2026-06-18 02:30（台北時間 週四）｜👤 Tim De Chant｜📰 TechCrunch</div>
+  <div class="summary">Anthropic 宣布加入 Frontier 碳移除聯盟，並承諾投入新一輪 9.15 億美元募資中的部分資金，成為首家加入該聯盟的 AI 公司。Frontier 總承諾金額從原基礎翻倍至 18 億美元，已簽約 7 億美元用於 50 多個專案，移除約 180 萬噸碳。Anthropic 將購買碳移除信用以抵銷其 AI 訓練與運算產生的排放。</div>
+  <div class="importance">Anthropic 此舉為 AI 產業的碳足跡問題樹立新標竿。隨著 AI 訓練耗能激增，碳移除與再生能源將成為 AI 公司 ESG 與品牌競爭力關鍵，有望帶動「綠色 AI」新一輪投資。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Anthropic、Frontier、Stripe、Alphabet、Meta、Shopify、Microsoft</div>
+    <div><b>📈 相關概念股：</b>美股：ANTHROPIC (私募)；台股：綠能題材</div>
+  </div>
+</div>
+<h2 style="color: var(--yellow); margin: 32px 0 16px; font-size: 1.4em;">💰 AI 投融資與併購（6）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/source-elastic-agrees-to-buy-crv-backed-deductiveai-for-up-to-85m/" target="_blank">傳 Elastic 同意以最高 8,500 萬美元收購 CRV 投資的 Deductive AI</a></h3>
+  <div class="time">🕐 2026-06-19 08:51（台北時間 週五）｜👤 Marina Temkin｜📰 TechCrunch</div>
+  <div class="summary">知情人士透露，企業軟體公司 Elastic 已同意以最高 8,500 萬美元收購 AI bug 偵測與修復新創 Deductive AI。Deductive 2023 年成立，去年 11 月脫離隱形模式，宣布由 CRV 領投 750 萬美元種子輪，估值 3,300 萬美元，Databricks Ventures、Thomvest、PrimeSet 跟投。交易結構包含現金與股票。</div>
+  <div class="importance">這是企業 AI 工具新創被大型軟體公司整併的典型案例，反映 AI 應用層「先收購、後整合」的策略。對 CRV 而言，在不到一年內取得約 10 倍估值成長，是 AI 投資熱潮下的成功案例。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Elastic、Deductive AI、CRV、Databricks Ventures</div>
+    <div><b>📈 相關概念股：</b>美股：ESTC (Elastic)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/ai-inference-startup-baseten-reportedly-raising-1-5b-months-after-its-last-mega-round/" target="_blank">AI 推論新創 Baseten 傳再融資 15 億美元，距離上輪僅五個月</a></h3>
+  <div class="time">🕐 2026-06-19 05:20（台北時間 週五）｜👤 Dominic-Madori Davis｜📰 TechCrunch</div>
+  <div class="summary">華爾街日報報導，AI 推論基礎設施公司 Baseten 即將完成 15 億美元融資，估值上看 130 億美元。今年 1 月該公司才剛以 50 億美元估值完成 3 億美元 E 輪，九個月前則完成 D 輪 1.5 億美元。換言之，半年內估值暴漲 160%。本輪採分階段定價，反映市場對 AI 推論需求的爆炸性成長。Baseten 提供企業部署與運行大型語言模型的雲端基礎設施。</div>
+  <div class="importance">Baseten 是 AI 推論層基礎設施的代表企業，本輪估值增速說明投資人看好 LLM 部署需求仍將高速成長。對標的包含 Together AI、Fireworks AI 等，可能形成新一波推論雲競爭。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Baseten、Together AI、Fireworks AI、華爾街日報</div>
+    <div><b>📈 相關概念股：</b>美股：NVDA (NVIDIA 推論生態系)；概念股：CRDO、AMD</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/the-11-standout-startups-from-ycs-demo-day-according-to-vcs/" target="_blank">Y Combinator 春季 Demo Day：11 家值得關注的新創</a></h3>
+  <div class="time">🕐 2026-06-19 03:52（台北時間 週五）｜👤 Marina Temkin｜📰 TechCrunch</div>
+  <div class="summary">TechCrunch 採訪八位創投，整理出 Y Combinator 2026 春季 Demo Day 中 11 家最熱門的新創。主題涵蓋國防科技、機器人、AI 基礎設施、開發者工具與 AI 代理。包含 AI 程式碼審查、AI 客服、AI 安全測試等領域。部分公司已獲多家創投報價。</div>
+  <div class="importance">YC Demo Day 仍是早期 AI 投資風向球。這批新創多聚焦於「AI agent」與「AI 基礎設施」垂直應用，顯示 2026 年 AI 投資重心從「通用模型」轉向「垂直應用」。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Y Combinator、Garry Tan</div>
+    <div><b>📈 相關概念股：</b>美股：二級市場概念股；早期投資人機會</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/general-intuition-in-talks-to-raise-300m-at-around-2b-valuation/" target="_blank">General Intuition 洽談增資 3 億美元，估值上看 20 億美元</a></h3>
+  <div class="time">🕐 2026-06-18 23:20（台北時間 週四）｜👤 Rebecca Bellan｜📰 TechCrunch</div>
+  <div class="summary">紐約新創 General Intuition 正洽談約 3 億美元融資，估值上看 20 億美元。該公司專門訓練 AI 代理在「空間與時間中移動」的基礎模型，源自 Medal（遊戲影片剪輯分享平台）八個月前的 1.34 億美元分拆融資。投資人包含 Khosla Ventures、General Catalyst 等。</div>
+  <div class="importance">AI 代理（AI Agent）訓練仍是 2026 年最熱門的投資主題之一。General Intuition 鎖定遊戲與機器人領域的空間推理模型，半年內估值翻倍，顯示投資人對 agentic AI 商業化的高度信心。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>General Intuition、Medal、Khosla Ventures、General Catalyst</div>
+    <div><b>📈 相關概念股：</b>美股：NVDA、MSFT (遊戲與 AI)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/" target="_blank">SpaceX IPO 後數日，宣布以 600 億美元股票收購 AI 程式設計新創 Cursor</a></h3>
+  <div class="time">🕐 2026-06-16 19:21（台北時間 週二）｜👤 Sean O'Kane｜📰 TechCrunch</div>
+  <div class="summary">SpaceX 在創紀錄 IPO 後僅數天，即宣布以 600 億美元股票收購 AI 程式設計助理 Cursor。這筆交易被視為 SpaceX/xAI 補強 AI 戰力的關鍵動作，尤其在 AI 部門經歷重組後。此案是 AI 程式設計助理類別史上最大併購案。</div>
+  <div class="importance">SpaceX/xAI 對 Cursor 的併購，象徵超大型企業把 AI 程式設計工具視為下一代基礎設施。Cursor 創辦人團隊將進入 SpaceX，可能加速 AI Agent 與程式碼生成的深度整合。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>SpaceX、xAI、Cursor、Elon Musk、Anysphere</div>
+    <div><b>📈 相關概念股：</b>美股：SpaceX (私募)、GOOGL (GitHub Copilot 競爭)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/14/orbio-raises-21-million-to-automate-hiring-and-onboarding-for-frontline-workers/" target="_blank">Orbio 獲 2,100 萬美元 A 輪，自動化第一線員工招聘與報到</a></h3>
+  <div class="time">🕐 2026-06-15 12:01（台北時間 週一）｜👤 Dominic-Madori Davis｜📰 TechCrunch</div>
+  <div class="summary">西班牙新創 Orbio（前 Amazon 員工 Sergi Bastardas 創立）宣布完成 2,100 萬美元 A 輪融資，由 Dawn Capital 領投。公司專門為第一線勞工（倉儲、零售、客服等）提供 AI 代理人，自動化招聘篩選、排班、報到與訓練流程。客戶包括多家歐洲大型零售商。</div>
+  <div class="importance">第一線勞工 AI 應用是企業 AI 滲透率最低但規模最大的市場。Orbio 此輪融資顯示投資人對「AI + 藍領 HR」的興趣快速升溫，可能開啟新一波企業 AI 細分應用投資潮。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Orbio、Dawn Capital、Sergi Bastardas、Amazon、Colvin</div>
+    <div><b>📈 相關概念股：</b>美股：ADBE (Workday 競爭)、PAYC (Paycom)、DAY (Dayforce)</div>
+  </div>
+</div>
+<h2 style="color: var(--red); margin: 32px 0 16px; font-size: 1.4em;">🏛️ AI 政策與監管（4）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/ai-data-centers-just-got-a-government-mandated-fast-lane-to-the-grid/" target="_blank">AI 資料中心取得政府「快速通道」，優先併網</a></h3>
+  <div class="time">🕐 2026-06-19 01:49（台北時間 週五）｜👤 Tim De Chant｜📰 TechCrunch</div>
+  <div class="summary">美國聯邦能源管制委員會（FERC）週四下令六大電網業者加速審核資料中心與大型電力用戶的併網申請，要求他們證明資料中心能「及時且有序地」接入輸電系統，費用由資料中心自行負擔。FERC 委員一致通過此令。同時為電網科技新創公司打開大門，讓其參與併網流程的現代化升級。</div>
+  <div class="importance">此政策象徵 AI 基礎設施被視為國家戰略資產，將進一步加速大型資料中心興建，但同時對電力公司與小型用戶的電網擠壓效應也將加劇，是 AI 能源危機的最新里程碑。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>FERC、美國能源部、Six Major Grid Operators</div>
+    <div><b>📈 相關概念股：</b>美股：VST (Vistra)、NRG (Energy)、CEG (Constellation)、TLN (Talen)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/a-tech-worker-backed-pac-is-bringing-a-5m-knife-to-big-techs-100m-gunfight/" target="_blank">科技員工成立新超級 PAC，以 500 萬美元對抗 Big Tech 的 1 億美元政治獻金</a></h3>
+  <div class="time">🕐 2026-06-18 23:13（台北時間 週四）｜👤 Rebecca Bellan｜📰 TechCrunch</div>
+  <div class="summary">民主黨策士 Shaunna Thomas 與 Leah Hunt-Hendrix 週四宣布成立「Guardrails Alliance」超級 PAC，獲得科技員工、勞工團體等基層支持，目標是支持 AI 立法與問責。相較於 Big Tech 在國會遊說的 1 億美元級別資金，這個 PAC 僅有 500 萬美元預算，被視為「基層 vs 大科技」的象徵性對決。</div>
+  <div class="importance">AI 監管的草根動員正在成形，可能改變美國 AI 立法政治生態。Big Tech 雖然資源雄厚，但員工反彈與工會結盟形成新型壓力來源，可能推動 AI 安全立法加速。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Guardrails Alliance、Shaunna Thomas、Leah Hunt-Hendrix、Big Tech</div>
+    <div><b>📈 相關概念股：</b>美股：GOOGL、META、MSFT、AMZN (AI 監管風險)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/15/the-us-governments-anthropic-models-ban-was-never-about-an-ai-jailbreak/" target="_blank">美國封殺 Anthropic 模型，與「越獄」無關</a></h3>
+  <div class="time">🕐 2026-06-16 05:50（台北時間 週二）｜👤 Zack Whittaker｜📰 TechCrunch</div>
+  <div class="summary">美國商務部週五援引一項冷門的出口管制指令，要求 Anthropic 停止非美國人（包括自家員工）使用新模型 Fable 5 與 Mythos 5，聲稱涉及不明確的「AI 越獄」風險。實際上，這是更廣泛地緣政治與商業競爭工具的運用。本篇解析事件始末與深層意涵。</div>
+  <div class="importance">此事件揭示美國政府開始將 AI 模型視為戰略性技術資產，運用出口管制限制外國使用者存取。對全球 AI 治理而言，是「AI 巴拿馬化」的危險先例。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Anthropic、美國商務部、Fable、Mythos、Dario Amodei</div>
+    <div><b>📈 相關概念股：</b>美股：ANTHROPIC (私募)；美股：NVDA (美國 AI 主權)</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/13/openai-faces-investigation-from-state-attorneys-general/" target="_blank">OpenAI 遭多州檢察長聯合調查</a></h3>
+  <div class="time">🕐 2026-06-14 00:47（台北時間 週日）｜👤 Anthony Ha｜📰 TechCrunch</div>
+  <div class="summary">紐約州檢察長於週五向 OpenAI 發出傳票，要求其提交有關廣告、使用者留存、模型「諂媚性」、消費者與健康資料處理、未成年人與長者保護等多項文件。多州檢察長組成聯合調查小組，是美國地方政府對 AI 巨頭首次系統性問責行動。OpenAI 表示將配合調查。</div>
+  <div class="importance">州級檢察長聯手調查 OpenAI 開啟 AI 監管新篇章，可能成為日後聯邦 AI 立法的催化劑。對 AI 業者而言，消費者保護、未成年人安全與資料治理將成為新的合規重點。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>OpenAI、Letitia James (紐約檢察長)、Sam Altman、ChatGPT</div>
+    <div><b>📈 相關概念股：</b>美股：MSFT (OpenAI 主要投資人)；AI 合規題材</div>
+  </div>
+</div>
+<h2 style="color: var(--cyan); margin: 32px 0 16px; font-size: 1.4em;">👥 AI 人事與組織（2）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/18/openai-is-bringing-on-some-big-guns-in-the-lead-up-to-its-ipo/" target="_blank">OpenAI IPO 前重磅挖角：延攬 Google DeepMind 大老與前白宮 AI 政策官</a></h3>
+  <div class="time">🕐 2026-06-19 03:59（台北時間 週五）｜👤 Rebecca Bellan｜📰 TechCrunch</div>
+  <div class="summary">OpenAI 在 IPO 前夕迎來兩位重量級人物：Google DeepMind 傳奇研究員 Noam Shazeer 與前川普政府白宮 AI 政策官 Dean Ball。Shazeer 是 Gemini 共同負責人、Character AI 創辦人，週三宣布離開 Google（他自 2000 年起任職於 Google，僅在創辦 Character AI 時短暫離開三年）。Dean Ball 則是白宮 AI 政策核心幕僚。這是 OpenAI 上市前最重要的兩個高階人事案。</div>
+  <div class="importance">Shazeer 加入象徵 OpenAI 在頂尖研究人才的爭奪戰再下一城；Dean Ball 的加入則顯示 OpenAI 在 AI 監管遊說上提前布局。兩個動作均顯示 OpenAI 對 IPO 監管審查高度重視。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>OpenAI、Noam Shazeer、Dean Ball、Google DeepMind、Character AI、Sam Altman</div>
+    <div><b>📈 相關概念股：</b>美股：OpenAI 私募估值；GOOGL</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/" target="_blank">AI 裁員浪潮成為社會火藥庫</a></h3>
+  <div class="time">🕐 2026-06-15 15:25（台北時間 週一）｜👤 Connie Loizos｜📰 TechCrunch</div>
+  <div class="summary">根據 TrueUp 統計，今年以來科技業已發生 363 筆裁員，影響近 15 萬人，比去年同期加速 44%，等於每天 974 人失去工作。企業一邊創紀錄獲利，一邊以「AI 提高效率」為由大規模裁員，引發員工恐慌與社會反彈。多位 CEO 公開承認 AI 是裁員主要驅動因素。這股不滿可能成為下一波工會化與政治動員的引爆點。</div>
+  <div class="importance">AI 取代工作的速度超出社會與政治準備，形成勞動市場重大結構轉型。各國政府可能加速推出 AI 課稅、再培訓與基本所得等政策，是 2026 年最重要的社會經濟議題之一。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>TrueUp、Klarna、Salesforce、Meta、Google、Amazon</div>
+    <div><b>📈 相關概念股：</b>美股：META、GOOGL、AMZN (裁員受惠)；概念股：再就業、線上教育</div>
+  </div>
+</div>
+<h2 style="color: var(--green); margin: 32px 0 16px; font-size: 1.4em;">🌍 AI 國際與地緣政治（2）</h2>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/19/billionaire-ambani-wants-ai-in-every-call-app-and-home/" target="_blank">印度首富安巴尼要把 AI 放進每一通電話、應用程式與家庭</a></h3>
+  <div class="time">🕐 2026-06-19 23:23（台北時間 週五）｜👤 Jagmeet Singh｜📰 TechCrunch</div>
+  <div class="summary">印度信實工業（Reliance Industries）董事長穆克什·安巴尼週五於年度股東大會上宣布多項 AI 服務，包括可在通話中即時加入的「Jio Call Agent」AI 助理（能即時轉錄、摘要對話並代叫車、訂餐、購物），以及整合於 Jio 平台與智慧家庭的 AI 工具。安巴尼把信實定位為印度的「AI 國家代表隊」，對抗 Google、OpenAI 等海外巨頭。Reliance 同時計畫為企業客戶提供 AI 基礎設施，並擴展其綠色能源以支撐運算需求。這是印度企業對美國 AI 巨頭最強勢的一次回應。</div>
+  <div class="importance">信實此舉象徵印度正式以國家級規模挑戰美國 AI 主導地位，可能加速印度本土 AI 晶片、模型與應用生態系的成形，對 OpenAI、Google 在印度的市占構成壓力。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Mukesh Ambani、Reliance Industries、Jio、Jio Call Agent、印度政府</div>
+    <div><b>📈 相關概念股：</b>美股：RELIANCE (NYSE)；台股：聯發科 (2454) 印度布局概念</div>
+  </div>
+</div>
+<div class="article">
+  <h3><a href="https://techcrunch.com/2026/06/13/as-anthropic-suspends-access-to-new-models-india-debates-its-ai-future/" target="_blank">Anthropic 暫停新模型存取，印度熱議 AI 自主戰略</a></h3>
+  <div class="time">🕐 2026-06-14 11:00（台北時間 週日）｜👤 Jagmeet Singh｜📰 TechCrunch</div>
+  <div class="summary">Anthropic 應美國政府要求暫停最新模型存取後，印度科技圈掀起「是否該依賴外國 AI」的辯論。多家印度企業與學者呼籲政府加碼本土 AI 研發，反對完全依附美國模型與雲端服務。Reliance、Tata、Infosys 等企業被點名應承擔更大角色。</div>
+  <div class="importance">印度此辯論將加速各國「AI 主權」意識與本土模型投資。對 OpenAI、Anthropic、Google 在亞洲市場的擴張形成新障礙，概念上類似歐盟 GDPR 對資料主權的影響。</div>
+  <div class="meta-grid">
+    <div><b>🏷️ 關鍵實體：</b>Anthropic、Reliance、Tata、Infosys、印度政府</div>
+    <div><b>📈 相關概念股：</b>美股：GOOGL、MSFT；印度：TCS、INFY</div>
+  </div>
+</div>
+
+<div class="section-title">🔑 今日關鍵詞</div><div class="kw-cloud"><span class="kw">ASML</span><span class="kw">AWS</span><span class="kw">Agent</span><span class="kw">Allbirds</span><span class="kw">Alliance</span><span class="kw">Alphabet</span><span class="kw">Altman</span><span class="kw">Amazon</span><span class="kw">Ambani</span><span class="kw">Amodei</span><span class="kw">Anthropic</span><span class="kw">Anysphere</span><span class="kw">Apple</span><span class="kw">Ball</span><span class="kw">Baseten</span><span class="kw">Bastardas</span><span class="kw">Bee</span><span class="kw">Big</span><span class="kw">Brown</span><span class="kw">Bumble</span><span class="kw">CRV</span><span class="kw">Call</span><span class="kw">Capital</span><span class="kw">Catalyst</span><span class="kw">Character</span><span class="kw">ChatGPT</span><span class="kw">Claude</span><span class="kw">Colvin</span><span class="kw">Combinator</span><span class="kw">Cursor</span></div>
+
+<div class="section-title">🔮 明日觀察</div><div class="tomorrow"><h3>基於今日新聞，AI 預測明日可能的延伸發展：</h3><ul><li><b>OpenAI IPO 籌備：</b>延攬 Noam Shazeer 與 Dean Ball 後，OpenAI 預計最快於 Q4 啟動上市流程，明日可能釋出更多 S-1 文件細節與投資人路演時程。</li><li><b>AWS Trainium 對外銷售：</b>Amazon 已透露正與多家企業洽談，預計數週內會公布首批外部客戶，將是 NVIDIA 在 AI 訓練晶片市場競爭的關鍵轉折。</li><li><b>Anthropic 與美政府角力：</b>Fable 5 與 Mythos 5 仍下線中，預期 Anthropic 將向法院提起訴訟或尋求白宮協商，明日可能有官方聲明或法律行動。</li><li><b>Baseten 估值跳升效應：</b>130 億美元估值可能帶動 AI 推論層同類公司（Together AI、Fireworks AI）加速融資，投資人追逐熱潮。</li><li><b>印度 AI 主權：</b>在 Ambani 宣布 Jio AI 服務後，印度政府可能於未來一週公布 AI 主權戰略細節與補助方案。</li><li><b>州檢察長 vs OpenAI：</b>多州調查可能擴大至其他 AI 公司（Anthropic、Google），AI 業者面臨新一波合規成本上升。</li><li><b>SpaceX-Cursor 整合：</b>600 億美元交易後，Cursor 將進入 SpaceX/xAI 體系，可能改寫企業 AI 程式設計工具競爭格局，挑戰 GitHub Copilot。</li><li><b>AI 裁員政治化：</b>AI 取代效應進入 2026 選舉週期，國會議員可能提出 AI 稅、再培訓法案，明日或有政策動態。</li></ul></div>
+<footer>
+  <p>📡 每日 AI 新聞中文摘要｜<a href="index.html">回首頁</a>｜資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p style="margin-top: 8px;">本頁面由 AI 自動編譯，內容僅供研究參考，不構成投資建議。</p>
+  <p style="margin-top: 8px;">© 2026 acstep/TECH · Powered by OpenClaw</p>
+</footer>
+
+</div>
+</body>
+</html>
