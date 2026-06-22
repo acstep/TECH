@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要 2026-06-22｜TECH 每日 AI 新聞</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #080810;
+  color: #e8e8f0;
+  line-height: 1.7;
+  padding: 20px;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* 頁首 */
+.page-header {
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  padding: 40px 20px 30px;
+  margin-bottom: 30px;
+}
+.page-header h1 { font-size: 2.6em; font-weight: 900; letter-spacing: -1px; }
+.page-header .date { font-size: 1.1em; color: #888; margin-top: 8px; }
+.page-header .stats { color: #aaa; font-size: 0.95em; margin-top: 10px; }
+.page-header .keywords { margin-top: 14px; font-size: 0.88em; color: #666; }
+
+/* 三大頭條 */
+.top3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+@media (max-width: 768px) { .top3 { grid-template-columns: 1fr; } }
+.headline-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.headline-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,212,255,0.15);
+  border-color: rgba(0,212,255,0.35);
+}
+.headline-card.hot {
+  border-color: rgba(0,255,136,0.3);
+  background: linear-gradient(135deg, rgba(0,255,136,0.06), rgba(0,212,255,0.04));
+}
+.headline-card .rank {
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #00d4ff;
+}
+.headline-card.hot .rank { color: #00ff88; }
+.headline-card h2 { color: #fff; font-size: 1.15em; font-weight: 700; line-height: 1.4; }
+.headline-card .excerpt { color: #aaa; font-size: 0.9em; line-height: 1.5; }
+.headline-card .meta { color: #666; font-size: 0.78em; margin-top: auto; }
+
+/* 主題雷達 */
+.radar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 36px;
+}
+@media (max-width: 768px) { .radar { grid-template-columns: repeat(2, 1fr); } }
+.radar-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s;
+}
+.radar-card:hover { border-color: rgba(0,212,255,0.35); transform: translateY(-2px); }
+.radar-card .cat { font-size: 0.8em; font-weight: 700; margin-bottom: 6px; }
+.radar-card .cat .icon { font-size: 1.1em; }
+.radar-card .count { color: #00d4ff; font-size: 1.6em; font-weight: 900; }
+.radar-card .label { color: #666; font-size: 0.78em; }
+.radar-card .sample { color: #888; font-size: 0.78em; margin-top: 6px; line-height: 1.4; }
+
+/* 完整新聞 */
+.section-title {
+  color: #00ff88;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,255,136,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.news-group { margin-bottom: 40px; }
+.news-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 14px;
+  transition: all 0.25s;
+}
+.news-card:hover { border-color: rgba(0,212,255,0.3); }
+.news-card h3 { font-size: 1.05em; font-weight: 600; margin-bottom: 8px; }
+.news-card h3 a { color: #fff; text-decoration: none; }
+.news-card h3 a:hover { color: #00d4ff; }
+.news-card .time {
+  color: #666;
+  font-size: 0.78em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.news-card .summary { color: #bbb; font-size: 0.92em; line-height: 1.65; margin-bottom: 12px; }
+.news-card .why { color: #00ff88; font-size: 0.85em; line-height: 1.55; margin-bottom: 12px; padding: 10px 14px; background: rgba(0,255,136,0.05); border-left: 3px solid rgba(0,255,136,0.4); border-radius: 0 8px 8px 0; }
+.news-card .entities { color: #888; font-size: 0.82em; }
+.news-card .entities .tag { display: inline-block; background: rgba(0,212,255,0.08); color: #00d4ff; border: 1px solid rgba(0,212,255,0.15); border-radius: 20px; padding: 2px 10px; margin: 2px 4px 2px 0; font-size: 0.88em; }
+.news-card .stock { color: #aaa; font-size: 0.82em; margin-top: 8px; }
+.news-card .stock .stag { display: inline-block; background: rgba(255,200,0,0.08); color: #ffc800; border: 1px solid rgba(255,200,0,0.15); border-radius: 20px; padding: 2px 8px; margin: 2px 3px 2px 0; font-size: 0.88em; }
+
+/* 關鍵詞雲 */
+.keywords-section { margin-bottom: 40px; }
+.kw-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.kw { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 5px 14px; font-size: 0.85em; color: #aaa; transition: all 0.2s; }
+.kw:hover { border-color: rgba(0,212,255,0.35); color: #00d4ff; }
+.kw.primary { border-color: rgba(0,255,136,0.35); color: #00ff88; font-weight: 600; }
+
+/* 明日觀察 */
+.tomorrow { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 24px 28px; margin-bottom: 40px; }
+.tomorrow h2 { color: #00d4ff; margin-bottom: 14px; font-size: 1.15em; }
+.tomorrow li { color: #bbb; margin-bottom: 8px; padding-left: 20px; position: relative; line-height: 1.6; }
+.tomorrow li::before { content: "▸"; position: absolute; left: 0; color: #00d4ff; }
+
+/* Footer */
+footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 30px 0; text-align: center; color: #555; font-size: 0.88em; }
+footer a { color: #00d4ff; text-decoration: none; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #00d4ff; text-decoration: none; font-size: 0.9em; }
+.back-link:hover { color: #00ff88; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<a class="back-link" href="../index.html">← 返回首頁</a>
+
+<!-- 頁首 -->
+<div class="page-header">
+  <h1>📰 每日 AI 新聞摘要</h1>
+  <div class="date">📅 2026 年 6 月 22 日（台北時間）</div>
+  <div class="stats">涵蓋 2026/06/19–06/22 重要 AI 新聞 · 共 17 則新聞 · 8 個分類</div>
+  <div class="keywords">關鍵詞：Anthropic · Fable 5 · Mythos 5 · iOS 27 · John Jumper · Noam Shazeer · SpaceX · Cursor · Baseten · Amazon Trainium</div>
+</div>
+
+<!-- 三大頭條 -->
+<div class="top3">
+  <a class="headline-card hot" href="https://techcrunch.com/2026/06/21/when-the-trump-administration-cracks-down-on-anthropic-who-benefits/" target="_blank">
+    <div class="rank">🔥 頭條 #1</div>
+    <h2>川普政府封殺 Anthropic 旗艦模型，誰才是最大贏家？</h2>
+    <div class="excerpt">美國政府以國安為由強制 Anthropic 下架 Fable 5 與 Mythos 5，資安專家連署批此舉危險；同時有分析認為，這反而讓 Anthropic 的模型看起來更強大，下載量不減反增。</div>
+    <div class="meta">TechCrunch · 2026/06/21 · Equity Podcast</div>
+  </a>
+  <a class="headline-card" href="https://techcrunch.com/2026/06/21/beyond-siri-here-are-the-practical-ai-features-coming-to-your-iphone-in-ios-27/" target="_blank">
+    <div class="rank">頭條 #2</div>
+    <h2>WWDC 隱藏版 AI 功能：iOS 27 為 iPhone 帶來 8 大實用 AI 革新</h2>
+    <div class="excerpt">Siri 大改版之外，iOS 27 還有帳單 Split 自動分帳、AI 代理幫你更新被駭密碼、Messages 單鍵智慧回覆、Home App 通知整合、Shortcuts 自然語言編程等實用功能。</div>
+    <div class="meta">TechCrunch · 2026/06/21 · Sarah Perez</div>
+  </a>
+  <a class="headline-card" href="https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/" target="_blank">
+    <div class="rank">頭條 #3</div>
+    <h2>諾貝爾得主 John Jumper 離開 DeepMind，加入對手陣營 Anthropic</h2>
+    <div class="excerpt">以 AlphaFold 蛋白質結構預測模型獲得諾貝爾化學獎的 John Jumper宣布離開任職近 9 年的 Google DeepMind，加入對手 AI 公司 Anthropic。這是 DeepMind 近期最大的人才流失之一。</div>
+    <div class="meta">TechCrunch · 2026/06/20 · Anthony Ha</div>
+  </a>
+</div>
+
+<!-- 主題雷達 -->
+<div class="section-title">📡 主題雷達</div>
+<div class="radar">
+  <div class="radar-card">
+    <div class="cat"><span class="icon">🏛️</span> AI 政策與監管</div>
+    <div class="count">3</div>
+    <div class="label">則新聞</div>
+    <div class="sample">Trump 封殺 Anthropic、出口管制歷史、ASML EUV 機台疑雲</div>
+  </div>
+  <div class="radar-card">
+    <div class="cat"><span class="icon">🤖</span> AI 產品與應用</div>
+    <div class="count">4</div>
+    <div class="label">則新聞</div>
+    <div class="sample">iOS 27 AI 功能、In the Weights 排名、Signal AI 倫理、約會 AI 態度</div>
+  </div>
+  <div class="radar-card">
+    <div class="cat"><span class="icon">💰</span> AI 投融資與併購</div>
+    <div class="count">4</div>
+    <div class="label">則新聞</div>
+    <div class="sample">Baseten $13B 估值、SpaceX 600億收 Cursor、Elastic 8,500萬併 Snap Dotmo</div>
+  </div>
+  <div class="radar-card">
+    <div class="cat"><span class="icon">👥</span> AI 人事與組織</div>
+    <div class="count">3</div>
+    <div class="label">則新聞</div>
+    <div class="sample">John Jumper→Anthropic、Noam Shazeer→OpenAI、Dean Ball→OpenAI</div>
+  </div>
+  <div class="radar-card">
+    <div class="cat"><span class="icon">💾</span> AI 晶片與硬體</div>
+    <div class="count">1</div>
+    <div class="label">則新聞</div>
+    <div class="sample">AWS 對外賣 Trainium 晶片挑戰 Nvidia、TSMC 產能滿載</div>
+  </div>
+  <div class="radar-card">
+    <div class="cat"><span class="icon">🏢</span> 企業 AI 動態</div>
+    <div class="count">3</div>
+    <div class="label">則新聞</div>
+    <div class="sample">Ambani 5 億 Jio 用戶 AI、META AI 裁員醜聞、Apple AI 讓 iPhone 漲價</div>
+  </div>
+  <div class="radar-card">
+    <div class="cat"><span class="icon">🌍</span> AI 國際與地緣政治</div>
+    <div class="count">1</div>
+    <div class="label">則新聞</div>
+    <div class="sample">Reliance Jio AI 滲透印度 5 億用戶，印度本土 AI 主權覺醒</div>
+  </div>
+  <div class="radar-card">
+    <div class="cat"><span class="icon">⚡</span> AI 基礎設施</div>
+    <div class="count">1</div>
+    <div class="label">則新聞</div>
+    <div class="sample">FERC 為 AI 資料中心開電網快車、批發電價漲 267%</div>
+  </div>
+</div>
+
+<!-- ========== 完整新聞 ========== -->
+
+<!-- AI 政策與監管 -->
+<div class="news-group" id="policy">
+  <div class="section-title">🏛️ AI 政策與監管（3 則）</div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/21/when-the-trump-administration-cracks-down-on-anthropic-who-benefits/" target="_blank">當川普政府封殺 Anthropic，誰才是最大受益者？</a></h3>
+    <div class="time">📅 2026/06/21 · TechCrunch · 作者：Anthony Ha · <a href="https://techcrunch.com/podcasts/equity/" style="color:#666;">Equity Podcast</a></div>
+    <div class="summary">
+      上週五，美國政府以「國安疑慮」為由，向 AI 公司 Anthropic 發布出口管制令，強制其將最新旗艦模型 Fable 5 與 Mythos 5 完全下架。這是美國首次針對前沿 AI 模型祭出此類禁令。Anthropic 收到通知後僅 90 分鐘即被迫中斷服務。據報導，導火線之一是 Amazon 執行長 Andy Jassy 向白宮示警，聲稱其研究人員發現 Fable 5 的安全防護可被繞過。不過資安社群普遍反彈：超過 76 位資安專家連署公開信，要求政府撤回禁令，認為此舉反而讓美國網路防禦能力倒退。TechCrunch 的 Equity Podcast 分析認為，Anthropic 與本屆政府關係緊張，加上 Fable 與 Mythos 行銷文案聲稱「史上最強大也最危險」，成為被盯上的主因。諷刺的是，上次 Anthropic 遭監管打壓時，Claude 下載量不降反增，這次恐怕也不例外。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>這是美國政府首次對商業 AI 模型實施出口管制，象徵 AI 監管進入新階段。不僅影響 Anthropic 的國際市場佈局，也為 OpenAI、Google 等競爭對手創造政策套利空間。若禁令常態化，前沿 AI 的全球化部署將面臨根本性挑戰。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Anthropic</span>
+      <span class="tag">Fable 5</span>
+      <span class="tag">Mythos 5</span>
+      <span class="tag">Donald Trump</span>
+      <span class="tag">Andy Jassy</span>
+      <span class="tag">Amazon</span>
+      <span class="tag">OpenAI</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Anthropic (未上市)</span>
+      <span class="stag">Amazon (AMZN)</span>
+      <span class="stag">Alphabet (GOOGL)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/19/encryption-spyware-and-now-mythos-history-shows-why-cyber-export-control-doesnt-work/" target="_blank">從 PGP 到 Mythos：出口管制史揭示網路武器禁運為何從未奏效</a></h3>
+    <div class="time">📅 2026/06/19 · TechCrunch · 作者：Lorenzo Franceschi-Bicchierai</div>
+    <div class="summary">
+      這篇深度報導回顧過去 30 年美國政府嘗試以出口管制遏止「危險網路技術」的歷史——從 1990 年代試圖封殺 PGP 加密軟體（最後失敗告終，Phil Zimmermann 甚至將原始碼印成書出版），到 2010 年代 Wassenaar 協定限制間諜軟體出口（義大利、以色列等國陽奉陰違）。作者指出，Anthropic 的 Mythos 並非首例——只是這次主角換成了 AI 模型，且禁止的理由聲稱是「國安」。報導引述 ASML CEO Christophe Fouquet 的說法，強調 EUV 機台不可能神不知鬼不覺地流入中國（ASML 對每台出貨均實施 GPS 追蹤），並指出若禁令變成常態，將迫使美國 AI 公司在服務外國客戶前必須事先申請核准，無疑會削弱其全球競爭力。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>AI 模型的「出口管制」比傳統軟體更難定義——模型權重可以隱藏在任何數據檔案中跨境傳輸。這篇報導點出政策的根本盲區：如果連一把「機槍」（間諜軟體）都管不住，要如何管住一把「看不見的機槍」（AI 模型）？
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Anthropic</span>
+      <span class="tag">Mythos</span>
+      <span class="tag">PGP / Phil Zimmermann</span>
+      <span class="tag">Wassenaar Arrangement</span>
+      <span class="tag">ASML</span>
+      <span class="tag">Christophe Fouquet</span>
+      <span class="tag">Howard Lutnick</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">ASML (ASML)</span>
+      <span class="stag">Alphabet (GOOGL)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/19/the-us-says-asmls-top-chip-tool-may-be-in-china-asml-says-it-isnt/" target="_blank">美國指控 ASML 最先進 EUV 機台可能已流入中國，ASML 否認</a></h3>
+    <div class="time">📅 2026/06/19 · TechCrunch · 作者：Connie Loizos</div>
+    <div class="summary">
+      美國商務部長 Howard Lutnick 在近期會議中告知荷蘭半導體設備巨頭 ASML 高層，有跡象顯示該公司最先進的極紫外光（EUV）微影機台可能已落入中國手中。若屬實，這將是美國近年構築的對中科技封鎖線最嚴重的破口之一。ASML 執行長 Christophe Fouquet 旋即反駁，強調公司對每台出廠機台均有 GPS 追蹤，EUV 機台從未交付中國。然而，美國政府拒絕向 ASML 或公眾展示所掌握的證據。報導同時披露，Commerce Department 去年底已向一家開發下一代光源技術的新創 xLight 投資 1.5 億美元——巧合的是，xLight 的技術正是 EUV 的潛在替代方案。國會兩黨目前正推動立法，要將禁令擴大至 ASML 的 DUV（深紫外光）機台，全面封鎖對中半導體設備出口。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>ASML 是全球唯一能製造 EUV 機台的公司，市值約 7,000 億美元，是歐洲最大上市企業。EUV 是生產輝達 H100/H200、蘋果 M 系列等最先進 AI 晶片的唯一工具。一旦傳言屬實，不僅影響台積電的製造能力，也將重塑全球 AI 晶片供應鏈的地緣政治格局。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">ASML</span>
+      <span class="tag">EUV</span>
+      <span class="tag">TSMC</span>
+      <span class="tag">Howard Lutnick</span>
+      <span class="tag">Christophe Fouquet</span>
+      <span class="tag">xLight</span>
+      <span class="tag">China</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">ASML (ASML)</span>
+      <span class="stag">台積電 (TSM)</span>
+      <span class="stag">輝達 (NVDA)</span>
+      <span class="stag">蘋果 (AAPL)</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI 產品與應用 -->
+<div class="news-group" id="products">
+  <div class="section-title">🤖 AI 產品與應用（4 則）</div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/21/beyond-siri-here-are-the-practical-ai-features-coming-to-your-iphone-in-ios-27/" target="_blank">Siri 之外：iOS 27 為 iPhone 帶來的 8 大實用 AI 功能</a></h3>
+    <div class="time">📅 2026/06/21 · TechCrunch · 作者：Sarah Perez</div>
+    <div class="summary">
+      WWDC 2026 的主角無疑是 Siri 的大改版，但 iOS 27 其實埋了更多低調但實用的 AI 功能。首先是「帳單 Split」，用戶拍攝餐廳收據照片，AI 自動解析品項與金額，並透過 Apple Cash 向朋友分帳請求款項，支援 1/2 分割。其次是「密碼 Update」，AI 代理自動瀏覽有漏洞的網站、登入並將密碼升級為更安全的版本，全程無需用戶手動操作。Messages 的「單鍵回覆建議」則根據對話內容智慧判斷，自動出現「加入待辦事項」或「傳送活動照片」等快捷按鈕。「通話內容（Call Context）」在用戶致電客服時，自動從 Mail 裡提取預訂編號等資訊顯示在螢幕上，全程在設備端運行保護隱私。其他功能還包括自然語言新增 Calendar 行程、Vibe Coding Shortcuts（用口語描述自動化流程）、Home App 通知整合、以及 Safari 標籤自動分類。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>這次的功能不是「對 ChatGPT 說話」，而是把 AI 嵌入用戶每天都會用的操作場景——分帳、密碼更新、回訊息、查資料。這代表蘋果的 AI 策略正從「丝 AI 助手」走向「隱形基礎設施」，降低用戶的 AI 感知門檻，對多數消費者影響力比 Siri 改版更直接。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Apple</span>
+      <span class="tag">Apple Intelligence</span>
+      <span class="tag">iOS 27</span>
+      <span class="tag">Siri</span>
+      <span class="tag">Apple Cash</span>
+      <span class="tag">WWDC 2026</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">蘋果 (AAPL)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/20/signals-meredith-whittaker-wants-you-to-remember-that-ai-chatbots-are-not-your-friends/" target="_blank">Signal 總裁 Meredith Whittaker：AI 聊天機器人「不是你的朋友」</a></h3>
+    <div class="time">📅 2026/06/20 · TechCrunch · 作者：Anthony Ha</div>
+    <div class="summary">
+      Signal 總裁 Meredith Whittaker 在接受 Bloomberg 專訪時明確警告：「這些不是你的朋友。它們不是有意識的存在，也不是會話式的知覺者。」Whittaker 表示自己確實使用 AI 工具「偶爾格式化文件」，但從不向 AI 詢問需要思考的問題，「因為我不希望我研析問題的過程被一個只是在統計既有資料輸出的系統所取代或遮蔽」。她更直接抨擊 Microsoft AI 執行長 Mustafa Suleyman 提出的「讓 Copilot 幫你聽家人群組聊天來自動採購耶誕禮物」構想，認為這意味著要對 AI 開放「信用卡、瀏覽器、Signal、通訊錄、家庭地址、日曆」等高度敏感權限，「在 Signal 的情境裡，這就是所謂的後門」。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>Whittaker 是目前最具影響力的科技隱私倡議者之一，她的立場代表了一股不斷壯大的「反 AI 滲透」聲音。隨著 AI 助理逐步嵌入作業系統與通訊平台，Whittaker 的批評剛好撞上蘋果將 AI 功能深度整合 iMessage 的時刻，公共辯論將持續升溫。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Signal</span>
+      <span class="tag">Meredith Whittaker</span>
+      <span class="tag">Microsoft Copilot</span>
+      <span class="tag">Mustafa Suleyman</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/20/in-the-weights-is-your-new-ai-centric-vanity-search/" target="_blank">「在權重裡（In the Weights）」：把你的名字丟進 AI 模型，看誰記得你</a></h3>
+    <div class="time">📅 2026/06/20 · TechCrunch · 作者：Anthony Ha</div>
+    <div class="summary">
+      前 OpenAI / Global Illumination 工程師 Thomas Dimson 與 Joey Flynn 共同推出了「In the Weights」網站，用戶輸入名字後，系統會向 GPT、Claude、Gemini、Grok、Llama 等主流 AI 模型集體發問「這是誰？」，然後根據回傳結果給出一個「強度分數」。目前第一名是跨界歌王 Luciano Pavarotti 與演員 Macaulay Culkin，分數逼近 988 分（滿分 1000），而 TechCrunch 內部記者 Anthony Ha 拿到 641 分，進入全球前 6%。這個網站的設計靈感來自一篇惡搞文章，把 AI 模型記憶人的能力比擬成「將你的存在編碼進超智能」的一種另類永生。Dimson 透露上線後「反應瘋狂」，他們下一步打算研究同一模型家族為何對同一名字給出不同描述，以及哪些人「明明值得有維基百科但還沒有」。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>這是一個文化現象，反映了 2026 年「AI 存在感」已成為新的社會地位象徵。隨著 ChatGPT 等工具成為大眾取得資訊的主要介面，「AI 是否記得你」開始具備類似「Google PageRank」的社交貨幣意義，對個人品牌與公眾人物有實質影響。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">In the Weights</span>
+      <span class="tag">Thomas Dimson</span>
+      <span class="tag">Joey Flynn</span>
+      <span class="tag">Global Illumination</span>
+      <span class="tag">OpenAI</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/18/almost-half-of-u-s-singles-feel-negatively-about-ai-in-dating-match-says/" target="_blank">Match Group 研究：近半美國單身者對約會 AI 持負面態度</a></h3>
+    <div class="time">📅 2026/06/18 · TechCrunch · 作者：Amanda Silberling</div>
+    <div class="summary">
+      交友巨頭 Match Group（旗下擁有 Tinder、Hinge、OkCupid）發布研究報告，訪問 1,000 名 18 至 39 歲的美國單身者。結果顯示：47% 對 AI 在戀愛情境中的應用持負面態度；40% 表示拒絕與使用 AI 伴侶 App 的人約會；在 18 至 24 歲女性族群中，這個比例更高達 51%。然而這並不意味用戶完全排斥 AI：64% 受訪者認為 AI 可以協助「求職過程中較困難的部分」，但不希望 AI 取代「真正的情感連結」。Match 在部落格中總結：「用戶要的是：協助困難的部分，但把人的部分還給人。」Bumble 創辦人 Whitney Wolfe Herd 提出的「Bot 與 Bot 自動約會」概念，在這份報告面前顯得格外突兀。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>約會 App 正在成為 AI 滲透最快的消費者場景之一。Tinder 已投入大量資源在 AI 工具上，甚至因此放緩徵才。這份研究透露：消費者對「真實性」有強烈需求，過度 AI 化的品牌可能適得其反，成為 Dating App 廠商未來決策的重要參照。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Match Group</span>
+      <span class="tag">Tinder</span>
+      <span class="tag">Hinge</span>
+      <span class="tag">Bumble</span>
+      <span class="tag">Whitney Wolfe Herd</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Match Group (MTCH)</span>
+      <span class="stag">Bumble (BMBL)</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI 人事與組織 -->
+<div class="news-group" id="people">
+  <div class="section-title">👥 AI 人事與組織（3 則）</div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/" target="_blank">諾貝爾化學獎得主 John Jumper 宣布離開 DeepMind，加入對手 Anthropic</a></h3>
+    <div class="time">📅 2026/06/20 · TechCrunch · 作者：Anthony Ha · <strong style="color:#00ff88;">重要人事</strong></div>
+    <div class="summary">
+      John Jumper 在 X（前 Twitter）上發文宣布，他將在任職近 9 年後離開 Google DeepMind，加入競爭對手 Anthropic。Jumper 是 2024 年諾貝爾化學獎共同得主之一（共同獲獎者包括 DeepMind CEO Demis Hassabis），表彰其團隊開發 AlphaFold——能根據基因序列預測蛋白質 3D 結構的 AI 模型，被譽為生物學 50 年來最大突破。Jumper 在發文中特別感謝 Hassabis 當年的大膽授權：「他在我博士畢業僅 6 個月後，就讓我帶領 AlphaFold 團隊。」Bloomberg 同時報導，Jumper 在 DeepMind 期間也是該公司 AI 程式設計工具團隊的關鍵成員，但 Google 將這類工具商業化的進程並不順利。值得注意的是，Character AI 共同創辦人 Noam Shazeer（本週宣布加入 OpenAI）也與 Jumper 同日離開了 Google。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>諾貝爾獎等級的頂尖科學家主動轉檯，是對 Anthropic 科研實力的最強認可。Jumper 加盟 Anthropic 後，將與 Google 形成更直接的研發對抗，也顯示 DeepMind 在留才方面正面臨嚴峻挑戰。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">John Jumper</span>
+      <span class="tag">DeepMind</span>
+      <span class="tag">Anthropic</span>
+      <span class="tag">AlphaFold</span>
+      <span class="tag">Demis Hassabis</span>
+      <span class="tag">Nobel Prize</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Alphabet (GOOGL)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/18/openai-is-bringing-on-some-big-guns-in-the-lead-up-to-its-ipo/" target="_blank">OpenAI IPO 前猛將加盟：Transformer 共同發明人 Noam Shazeer 與前白宮 AI 官 Dean Ball 雙雙加入</a></h3>
+    <div class="time">📅 2026/06/18 · TechCrunch · 作者：Rebecca Bellan · <strong style="color:#00ff88;">重要人事</strong></div>
+    <div class="summary">
+      OpenAI 衝刺 IPO 的陣容再加兩名大將。第一位是 Noam Shazeer——他是 2017 年開創 Transformer 架構的論文「Attention Is All You Need」的共同作者，也是 Google Gemini 團隊共同主管，後來離開創辦 Character AI，2024 年 Google 以 27 億美元將其收購後 Shazeer 重返 Google，這次再度轉隊至 OpenAI。第二位是 Dean Ball，他曾短暫任職白宮，協助發布《美國 AI Action Plan》，隨後加入 OpenAI 領導新團隊「Strategic Futures」，直接向策略長 Jason Kwon 匯報，專責「前沿AI政策、災難風險、遞歸自我改進、就業市場影響，及與各國政府的互動」。Dean Ball 在部落格中寫道：「AI 實驗室幾乎必然需要在 AI 治理上帶頭，內部治理比多數人認知的更核心。」
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>OpenAI 同時吸納「最會做 AI 的人」（Shazeer）和「最懂 AI 政策的人」（Ball），顯示其 IPO 前正同步強化技術與政策兩條戰線。在 Anthropic 遭政府打壓之際，OpenAI 此舉被解讀為「鞏固政策套利地位」的戰略動作。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">OpenAI</span>
+      <span class="tag">Noam Shazeer</span>
+      <span class="tag">Dean Ball</span>
+      <span class="tag">Transformer</span>
+      <span class="tag">Character AI</span>
+      <span class="tag">Google DeepMind</span>
+      <span class="tag">Sam Altman</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">OpenAI (未上市)</span>
+      <span class="stag">Alphabet (GOOGL)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/19/the-ceo-of-allbirds-new-ai-biz-has-a-plan-but-no-employees/" target="_blank">Allbirds 轉型 AI 後新執行長上任：Smartbird 的第一步是「從零組團隊」</a></h3>
+    <div class="time">📅 2026/06/19 · TechCrunch · 作者：Tim Fernholz · <strong style="color:#00ff88;">獨家</strong></div>
+    <div class="summary">
+      Allbirds（前NASDAQ 上市公司，代號 BIRD）於今年 4 月宣佈放棄鞋類業務、全面轉型 AI，並更名 Smartbird。公司已以 1 億美元增發新股，並將原有鞋類業務作價 4,300 萬美元出售。新執行長 Nadia Carlsten 近日到崗，她曾是 AWS 高層，擁有工程博士學位，最近主持歐洲 DCAI 計算公司。Carlsten 接受 TechCrunch 獨家專訪時透露：「我們要招募一個全新團隊，也即將設立辦公室。」（同日鞋類業務正式完成清算）。Smartbird 的商業模式瞄準「對資料主權有需求」的企業客戶——製藥、能源、金融、公共部門等需要直接控制伺服器的行業，而非與公有雲竞争。Carlsten 預計年底前為首批客戶部署計算叢集，規模在數百至數千顆晶片之間。她同時透露年薪為 70 萬美元，並獲約 900 萬美元股票。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>Allbirds 是第一家具規模的上市消費品牌「 целковит」放棄原有業務全力轉型 AI 的案例。從 Meme 股票操作到真正建立 AI 基礎設施公司，Smartbird 能否找到差異化市場（私有化、受監管產業的客製化 AI 部署）是觀察重點。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Smartbird</span>
+      <span class="tag">Allbirds</span>
+      <span class="tag">Nadia Carlsten</span>
+      <span class="tag">AWS</span>
+      <span class="tag">DCAI</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI 晶片與硬體 -->
+<div class="news-group" id="chips">
+  <div class="section-title">💾 AI 晶片與硬體（1 則）</div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/" target="_blank">Amazon 準備對外銷售 Trainium AI 晶片，直球挑戰 Nvidia 霸主地位</a></h3>
+    <div class="time">📅 2026/06/18 · TechCrunch · 作者：Julie Bort</div>
+    <div class="summary">
+      Amazon Web Services 執行長 Andy Jassy 在年度致股東信中透露，若 AWS 的自研 AI 晶片業務单独成立並對外銷售，其年度營收可達約 500 億美元。AWS AI 負責人 Peter DeSantis 向 Bloomberg 證實，公司正在洽谈向外部資料中心銷售 Trainium 晶片機架。過往 AWS 一直拒絕外部請求，原因是晶片实在太抢手——Jassy 透露，目前 Trainium 與下一代 Trainium4（一年後才出貨）的產能都已瞬間售罄。但即便如此，AWS 顯然認為 500 億美元市場值得佈局。要在台積電的產能排程中與 Nvidia 搶份額，門檻極高——台積電已超越蘋果成為其最大客戶。而 Nvidia CEO Jensen Huang 近期亦宣稱已找到一個 2,000 億美元新市場（AI CPU），直接切入 Intel 與 AMD 的地盤。Amazon 這一步被解讀為「AI 黃金時代的雲端大戰」下半場鳴槍。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>Nvidia 目前營收年化 3,260 億美元，500 億美元雖然不會讓其「被消滅」，但相當於 Intel 的全年營收。若 Amazon 真的開始對外供貨，Trainium 將成為首個有實質規模的非 Nvidia AI 訓練/推論晶片選項，改變整個 AI 硬體生態的競爭格局。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Amazon</span>
+      <span class="tag">AWS</span>
+      <span class="tag">Trainium</span>
+      <span class="tag">Nvidia</span>
+      <span class="tag">TSMC</span>
+      <span class="tag">Andy Jassy</span>
+      <span class="tag">Jensen Huang</span>
+      <span class="tag">Intel</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Amazon (AMZN)</span>
+      <span class="stag">輝達 (NVDA)</span>
+      <span class="stag">台積電 (TSM)</span>
+      <span class="stag">Intel (INTC)</span>
+      <span class="stag">AMD (AMD)</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI 投融資與併購 -->
+<div class="news-group" id="funding">
+  <div class="section-title">💰 AI 投融資與併購（4 則）</div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/18/ai-inference-startup-baseten-reportedly-raising-1-5b-months-after-its-last-mega-round/" target="_blank">AI 推論新創 Baseten 傳再獲 15 億美元，估值 130 億——5 個月內翻 2.6 倍</a></h3>
+    <div class="time">📅 2026/06/18 · TechCrunch · 作者：Marina Temkin</div>
+    <div class="summary">
+      AI 推論（Inference）基礎設施公司 Baseten 傳出即將完成新一輪 15 億美元融資，由 Spark Capital、Sands Capital、Altimeter Capital 與 Wellington Management 共同領投，估值達 130 億美元。值得注意的是，這是所謂「分割定價輪」（split-priced round），部分投資人以 130 億估值進場，部分以 110 億估值進場，藉此拉高帳面估值並讓領投方「看起來更漂亮」。Baseten 成立於 2019 年，專精於 AI 模型推論環節的基礎設施，透過智慧路由將請求分配給最適合任務的模型（尤其偏好成本較低的開源替代方案）來最佳化速度與成本。該公司 5 個月前才以 50 億估值融资 3 億美元，9 個月前以 22.5 億估值融资 1.5 億美元，成長速度極快。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>Baseten 的估值飆升代表「AI 推論層」仍是創投最願意砸錢的賽道。與訓練環節相比，推論是模型每天被用戶實際呼叫時必需的基礎設施，隨著 AI 應用爆發，推論需求將長期高於訓練需求。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Baseten</span>
+      <span class="tag">Spark Capital</span>
+      <span class="tag">Altimeter Capital</span>
+      <span class="tag">Wellington Management</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/" target="_blank">SpaceX 宣佈以 600 億美元股票收購 AI 程式碼工具 Cursor，IPO 後數日即完成</a></h3>
+    <div class="time">📅 2026/06/16 · TechCrunch · 作者：Sean O'Kane</div>
+    <div class="summary">
+      SpaceX 在其歷史性 IPO（俗稱「馬斯克 IPO」）後數日，即宣佈以 600 億美元股票收購 AI 程式碼新創 Cursor（前名 Anysphere）。這筆交易其實早有伏筆：4 月時雙方已宣佈要么以 600 億美元收購，要么支付 100 億美元分手費的雙軌協議。當時 Cursor 正在與 a16z、Thrive、Nvidia 等商談 20 億美元融資（估值 500 億）。知情人士向 TechCrunch 透露，Cursor 籌集的 20 億美元「根本不夠使其損益兩平」，即便該公司 2025 年中才剛融资 9 億美元，年底又融资 23 億美元。SpaceX 的算盤是：將 Cursor 納入其 AI 部門（基於 xAI 合併而來）來兌現 IPO 時對投資人描述的 26 兆美元 AI 機會。xAI 此前因允許用戶生成非自願深度偽造影像醜聞而飽受批評，11 位共同創辦人亦已在 3 月底集體出走，馬斯克公開承認公司「第一次沒建好，需要從頭重建」。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>這是 SpaceX 史上最大收購，也是 AI 程式碼工具賽道迄今最高金額的併購案。600 億美元幾乎是 Cursor 上一輪估值的 2.4 倍，但 SpaceX 在 IPO 後股價數日內從 135 美元飙升至 200 美元以上，市值一夜增加近兆美元——相當於「16 個 Cursor」。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">SpaceX</span>
+      <span class="tag">Cursor</span>
+      <span class="tag">xAI</span>
+      <span class="tag">Elon Musk</span>
+      <span class="tag">Andreessen Horowitz</span>
+      <span class="tag">Nvidia</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">SpaceX (未上市)</span>
+      <span class="stag">輝達 (NVDA)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/18/source-elastic-agrees-to-buy-crv-backed-deductiveai-for-up-to-85m/" target="_blank">Elastic 以最多 8,500 萬美元收購 AI 程式碼 Debug 新創 Deductive AI</a></h3>
+    <div class="time">📅 2026/06/18 · TechCrunch · 作者：Marina Temkin</div>
+    <div class="summary">
+      企業軟體公司 Elastic（NASDAQ: ESTC）已同意以最高 8,500 萬美元收購 AI 程式碼錯誤偵測與修復新創 Deductive AI。Deductive 成立於 2023 年，2025 年 11 月才正式公開亮相，當時宣佈獲得 750 萬美元種子輪（由 CRV 領投，Databricks Ventures 參與），估值 3,300 萬美元。短短 7 個月後即被收購，收購價約為估值的 25 倍，堪稱快進快出的成功退出。兩位創辦人分別來自 ThoughtSpot（前）和 Apache Software Foundation / Meta（前）。Elastic 將把 Deductive 的 AI SRE（網站可靠性工程）技術整合至其可觀測性平台，實現系統故障的自動偵測與即時修復。知情人士透露，Deductive 的年化營收約 100 萬美元，但增速低於同賽道的 Resolve AI（1.5 億美元估值、Greylock/Lightspeed 支援）。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>這筆收購代表大型上市軟體公司正積極透過收購 AI 新創來快速獲取 Agentic AI 能力。Deductive 的估值在 7 個月內翻了 25 倍，反映市場對「AI 取代人工 Debug」願景的高度期待。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Elastic</span>
+      <span class="tag">Deductive AI</span>
+      <span class="tag">CRV</span>
+      <span class="tag">Databricks</span>
+      <span class="tag">Resolve AI</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Elastic (ESTC)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/18/snap-spins-off-ai-video-team-into-new-company-dotmo-due-to-costs/" target="_blank">Snap 将 AI 影片生成團隊分拆為新公司 Dotmo，CTO Bobby Murphy 個人領投</a></h3>
+    <div class="time">📅 2026/06/18 · TechCrunch · 作者：Lucas Ropek</div>
+    <div class="summary">
+      Snap 宣佈將旗下生成式 AI 影片團隊分拆為獨立公司 Dotmo，專注開發可創造互動式遊戲體驗的 AI 模型。分拆的主要原因是成本過高——自己營運AI 研發對 Snap 的財務壓力太大。Dotmo 與 Snap 的關係仍然緊密：Snap 將授權其技術供 Dotmo 在遊戲及互動娛樂領域使用；初期團隊由自願離職的 Snap 員工組成；Snap CTO Bobby Murphy 將以個人身份擔任主要投資人，並持續在 Snap 擔任全職 CTO。作為交換，Snap 將獲得 Dotmo 的大量股份——若 Dotmo 未來成功，Snap 可從中受益。這是 Snap 年內第二次分拆作業（前次是 AR 眼鏡 Specs）。Snap 今年稍早亦裁員 1,000 人（佔員工 16%）。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>分拆而非直接裁員，是大型科技公司處理「成本高的實驗性 AI 項目」的常見策略。既能減輕母公司財務負擔，又能保留人才與技術的連結，為未來潛在收購或戰略合作預留空間。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Snap</span>
+      <span class="tag">Dotmo</span>
+      <span class="tag">Bobby Murphy</span>
+      <span class="tag">Specs</span>
+      <span class="tag">Snapchat</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Snap (SNAP)</span>
+    </div>
+  </div>
+</div>
+
+<!-- 企業 AI 動態 -->
+<div class="news-group" id="enterprise">
+  <div class="section-title">🏢 企業 AI 動態（3 則）</div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/19/billionaire-ambani-wants-ai-in-every-call-app-and-home/" target="_blank">印度首富安巴尼要在每一通電話、App 與家庭中植入 AI：Jio 5 億用戶的 AI 革命</a></h3>
+    <div class="time">📅 2026/06/19 · TechCrunch · 作者：Jagmeet Singh · <strong style="color:#00ff88;">國際 AI</strong></div>
+    <div class="summary">
+      印度信實工業（Reliance）董事長穆凱什·安巴尼（Mukesh Ambani）在年度股東大會上發布重磅 AI 計劃，主打三款新產品：Jio Call Agent（AI 電話助理，說「Hey Jio」即可啟動，自動生成對話摘要並代為預訂計程車、餐廳）、AI 版 MyJio（以自然語言完成 eSIM 開通、漫遊方案選擇等操作）、以及 TeleFrame（家庭智慧顯示器，主動推送天氣、行程、家庭提醒）。Reliance 去年已宣佈與 Google、Meta、Nvidia 合作，並計劃投資 1,100 億美元建設 AI 基礎設施。本週 Reliance 還宣佈與 Meta 合作在 Gujarat 邦建設 AI 資料中心。安巴尼在會上強調：「印度不應只是 AI 的消費者，必須成為創造者與全球領導者。」Jio 目前有超過 5 億用戶。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>Reliance 的 Jio 網路覆蓋超 5 億印度用戶，這些新 AI 功能將把生成式 AI 直接嵌入印度最大電信網絡的核心——不需下載 App，而是網路本身就有 AI 能力。這代表「電信 + AI 融合」的商業模式在全球開發中國家可能成為主流，挑戰蘋果與 Google 的 AI 應用生態系統。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Reliance Jio</span>
+      <span class="tag">Mukesh Ambani</span>
+      <span class="tag">Jio Call Agent</span>
+      <span class="tag">TeleFrame</span>
+      <span class="tag">Google</span>
+      <span class="tag">Meta</span>
+      <span class="tag">Nvidia</span>
+      <span class="tag">JioHealthIQ</span>
+      <span class="tag">JioLearnIQ</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Reliance (未上市)</span>
+      <span class="stag">Meta (META)</span>
+      <span class="stag">Alphabet (GOOGL)</span>
+      <span class="stag">輝達 (NVDA)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/17/ai-is-hurting-apple-in-more-ways-than-one-it-may-force-iphone-price-increases/" target="_blank">AI 正在多方面傷害蘋果：iPhone 可能因記憶體成本暴漲而漲價</a></h3>
+    <div class="time">📅 2026/06/17 · TechCrunch · 作者：Kirsten Korosec</div>
+    <div class="summary">
+      蘋果正面臨「RAMageddon」——AI 對硬體的貪婪需求導致全球記憶體晶片嚴重短缺，即將卸任的執行長 Tim Cook 接受華爾街日報專訪時表示，下一代 Mac、iPhone 或 iPad 的價格上漲「不可避免」，晶片成本自去年已飆升 4 倍。Cook 坦言情況「不可持續」，但未透露哪些產品將首先調價。研調機構 TechInsights 測算，若要維持 iPhone Pro 的利潤率，蘋果需在下一代的成本上額外增加約 270 美元。iPhone 17 Pro 目前起售价為 1,099 美元。蘋果在 AI 方面已承受多重壓力：此前因未能如期交付 AI 功能，已支付 2.5 億美元集體訴訟和解金；WWDC 上展示的 AI 改版被批評落後競爭對手；設備端 AI 處理需求增加 RAM 配置，形成價格上漲的長期結構壓力。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>蘋果的案例顯示，AI 熱潮正在向上游硬體供應鏈產生副作用——記憶體、NAND、先进封裝全線喊漲。若連全球供應鏈管理最精密的蘋果都難以吸收成本，這波「AI 通貨膨脹」將對整個消費電子產業造成深遠影響。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">Apple</span>
+      <span class="tag">Tim Cook</span>
+      <span class="tag">iPhone 17 Pro</span>
+      <span class="tag">DRAM</span>
+      <span class="tag">NAND</span>
+      <span class="tag">TSMC</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">蘋果 (AAPL)</span>
+      <span class="stag">三星電子 (005930.KS)</span>
+      <span class="stag">美光 (MU)</span>
+      <span class="stag">SK Hynix (000660.KS)</span>
+    </div>
+  </div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/video/neas-tiffany-luck-says-enterprises-are-still-figuring-out-their-ai-roi/" target="_blank">NEA 合夥人 Tiffany Luck：企業仍在搞懂 AI 的投資回報怎麼算</a></h3>
+    <div class="time">📅 2026/06/17 · TechCrunch · 作者：Theresa Loconsolo · Equity Podcast</div>
+    <div class="summary">
+      創投公司 NEA 合夥人 Tiffany Luck 接受 TechCrunch Equity Podcast 專訪，深度剖析企業 AI 部署的現況與陷阱。她指出「Tokenmaxxing」（把 AI 用到極致）是 2025 年矽谷最熱話題，CEO 們瘋狂要求員工提高 AI 使用量，但「帳單來了」：Uber 數月內燒光全年 AI 預算、部分公司裁撤部分部門的 Claude 授權、Meta 砍掉內部 AI 使用排行榜。Luck 認為，許多企業仍在「測試 AI」的階段，尚未找到可量化的 ROI。她特別感興趣的是消費領域的「魔法時刻」——能真正改變用戶體驗的 AI 功能，而非企業級的「慢慢優化」。她也表示，協助企業追蹤 AI 投資回報的的新創正在填補市場缺口，這是一個尚未被滿足的巨大需求。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>企業 AI 支出放緩的第一波信號已經出現——不是不需要 AI，而是發現「燒錢速度」遠快於「省錢/賺錢速度」。這對提供 AI 成本管理、ROI 測量工具的新創是利好，但對已高價購入大量 GPU 的雲端廠商可能構成庫存壓力。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">NEA</span>
+      <span class="tag">Tiffany Luck</span>
+      <span class="tag">Uber</span>
+      <span class="tag">Meta</span>
+      <span class="tag">Claude</span>
+      <span class="tag">OpenAI</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI 基礎設施 -->
+<div class="news-group" id="infra">
+  <div class="section-title">⚡ AI 基礎設施（1 則）</div>
+
+  <div class="news-card">
+    <h3><a href="https://techcrunch.com/2026/06/18/ai-data-centers-just-got-a-government-mandated-fast-lane-to-the-grid/" target="_blank">美國政府為 AI 資料中心開電網快車：FERC 要求電網業者 30 天內提交供電報告</a></h3>
+    <div class="time">📅 2026/06/18 · TechCrunch · 作者：Tim De Chant</div>
+    <div class="summary">
+      美國聯邦能源管制委員會（FERC）下令六大電網運營商為資料中心用戶提供電網連接「快車道」，要求它們在 30 天內提交可用發電容量報告，並在 60 天內「辯護或修訂」各地電費費率。命令同時要求電網業者更彈性接受「用戶側發電」（behind-the-meter power，即資料中心自建發電設施）。然而，此命令並未解決發電量不足的根本問題。背景是：截至 2023 年底，全美電廠發電機組的排隊待連接總量已超過整個電網的理論供電容量，形同「排隊的發電量比電網本身還長」。在此背景下，AI 資料中心用電需求預計在 2035 年前成長近 3 倍，部分地區批發電價已較 5 年前大漲 267%。能源部長 Chris Wright 曾在 10 月公開表示，資料中心連接電網的延誤已威脅美國 AI 競爭力，成為 FERC 動作的直接推力。
+    </div>
+    <div class="why">
+      <strong>為什麼重要：</strong>AI 資料中心是吃電怪獸——一座大型資料中心的用電量相當於數十萬戶家庭。當批發電價 5 年內漲 267%，意味著 AI 公司的營運成本將持續攀升，可能成為影響 AI 商業化速度的隱形瓶頸，而非晶片或模型本身。
+    </div>
+    <div class="entities">
+      <strong>關鍵實體：</strong>
+      <span class="tag">FERC</span>
+      <span class="tag">PJM</span>
+      <span class="tag">Chris Wright</span>
+      <span class="tag">Invenergy</span>
+      <span class="tag">AI 資料中心</span>
+    </div>
+    <div class="stock">
+      <strong>相關概念股：</strong>
+      <span class="stag">Clean Energy (CLNE)</span>
+      <span class="stag">Vistra (VST)</span>
+      <span class="stag">Constellation Energy (CEG)</span>
+    </div>
+  </div>
+</div>
+
+<!-- 今日關鍵詞 -->
+<div class="keywords-section">
+  <div class="section-title">🔑 今日關鍵詞</div>
+  <div class="kw-cloud">
+    <span class="kw primary">Anthropic</span>
+    <span class="kw primary">Fable 5</span>
+    <span class="kw primary">Mythos 5</span>
+    <span class="kw primary">Trump Administration</span>
+    <span class="kw primary">John Jumper</span>
+    <span class="kw">iOS 27</span>
+    <span class="kw">Apple Intelligence</span>
+    <span class="kw">Noam Shazeer</span>
+    <span class="kw">Dean Ball</span>
+    <span class="kw">OpenAI IPO</span>
+    <span class="kw">Trainium</span>
+    <span class="kw">AWS</span>
+    <span class="kw">Baseten</span>
+    <span class="kw">SpaceX</span>
+    <span class="kw">Cursor</span>
+    <span class="kw">Mukesh Ambani</span>
+    <span class="kw">Jio AI</span>
+    <span class="kw">ASML</span>
+    <span class="kw">EUV</span>
+    <span class="kw">FERC</span>
+    <span class="kw">Signal</span>
+    <span class="kw">Meredith Whittaker</span>
+    <span class="kw">In the Weights</span>
+    <span class="kw">Match Group</span>
+    <span class="kw">Smartbird</span>
+    <span class="kw">Dotmo</span>
+    <span class="kw">Elastic</span>
+    <span class="kw">Deductive AI</span>
+    <span class="kw">NEA</span>
+    <span class="kw">Tiffany Luck</span>
+    <span class="kw">Tim Cook</span>
+    <span class="kw">RAMageddon</span>
+    <span class="kw">Transformer</span>
+  </div>
+</div>
+
+<!-- 明日觀察 -->
+<div class="tomorrow">
+  <h2>🔮 明日觀察（2026-06-23）</h2>
+  <ul>
+    <li><strong>Anthropic Fable/Mythos 禁令後續：</strong>資安社群連署已滿一週，白宮是否回應？Anthropic 是否提出上訴或妥協方案？其他模型是否傳出類似「被點名」？</li>
+    <li><strong>OpenAI IPO 進度：</strong>Noam Shazeer 和 Dean Ball 的加盟顯示 OpenAI 正在加速 S-1 準備，預計正式 IPO 時間線可能比市場預期的更快。</li>
+    <li><strong>Baseten 130 億美元估值：</strong>「分割定價輪」的爭議可能引發新一波對 AI 估值泡沫的討論，類似當年 WeWork 的批判將重新浮現。</li>
+    <li><strong>iOS 27 Beta 釋出：</strong>開發者 Beta 即將開放，早期用戶對「密碼自動更新」等代理功能的實際表現評價出爐。</li>
+    <li><strong>Reliance Jio AI 服務：</strong>印度 Jio 用戶（5 億+）對「Hey Jio」助理的早期反應，將是全球最大規模的電信 AI 落地測試。</li>
+  </ul>
+</div>
+
+<footer>
+  <p>由 <a href="https://acstep.github.io/TECH/" target="_blank">OpenClaw</a> 自動生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p style="margin-top:8px;">© 2026 acstep · 生成時間：2026-06-22 13:00 Taipei</p>
+</footer>
+</div>
+</body>
+</html>
