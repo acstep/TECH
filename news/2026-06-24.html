@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要 2026-06-24｜TECH 每日 AI 新聞</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #080810;
+  color: #e8e8f0;
+  line-height: 1.7;
+  padding: 20px;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* 頁首 */
+.page-header {
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  padding: 40px 20px 30px;
+  margin-bottom: 30px;
+}
+.page-header h1 { font-size: 2.6em; font-weight: 900; letter-spacing: -1px; }
+.page-header .date { font-size: 1.1em; color: #888; margin-top: 8px; }
+.page-header .stats { color: #aaa; font-size: 0.95em; margin-top: 10px; }
+.page-header .keywords { margin-top: 14px; font-size: 0.88em; color: #666; }
+
+/* 三大頭條 */
+.top3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 36px;
+}
+@media (max-width: 768px) { .top3 { grid-template-columns: 1fr; } }
+.headline-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.headline-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,212,255,0.15);
+  border-color: rgba(0,212,255,0.35);
+}
+.headline-card.hot {
+  border-color: rgba(0,255,136,0.3);
+  background: linear-gradient(135deg, rgba(0,255,136,0.06), rgba(0,212,255,0.04));
+}
+.headline-card .rank {
+  font-size: 0.75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #00d4ff;
+}
+.headline-card.hot .rank { color: #00ff88; }
+.headline-card h2 { color: #fff; font-size: 1.15em; font-weight: 700; line-height: 1.4; }
+.headline-card .excerpt { color: #aaa; font-size: 0.9em; line-height: 1.5; }
+.headline-card .meta { color: #666; font-size: 0.78em; margin-top: auto; }
+
+/* 主題雷達 */
+.radar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 36px;
+}
+@media (max-width: 900px) { .radar { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .radar { grid-template-columns: 1fr; } }
+.radar-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.radar-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0,212,255,0.35);
+  box-shadow: 0 6px 20px rgba(0,212,255,0.1);
+}
+.radar-card .cat-icon { font-size: 1.2rem; }
+.radar-card .cat-name { font-weight: 700; font-size: 0.9em; color: #e8e8f0; }
+.radar-card .cat-count { font-size: 0.78em; color: #00d4ff; }
+.radar-card .cat-sample { font-size: 0.75em; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* 分組標題 */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 36px 0 18px;
+}
+.section-header .cat-tag {
+  font-size: 1.3em;
+}
+.section-header h2 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #e8e8f0;
+}
+.section-header .count-badge {
+  background: rgba(0,212,255,0.15);
+  color: #00d4ff;
+  font-size: 0.75em;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* 新聞卡片 */
+.news-list { display: flex; flex-direction: column; gap: 14px; }
+.news-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 22px 26px;
+  transition: all 0.25s;
+}
+.news-card:hover {
+  border-color: rgba(0,212,255,0.25);
+  background: rgba(255,255,255,0.05);
+}
+.news-card .card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.news-card h3 {
+  font-size: 1.05em;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+}
+.news-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+.news-card h3 a:hover {
+  color: #00d4ff;
+}
+.news-card .time {
+  font-size: 0.75em;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.news-card .summary {
+  color: #b0b0c0;
+  font-size: 0.92em;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+.news-card .why {
+  background: rgba(0,255,136,0.05);
+  border-left: 3px solid #00ff88;
+  padding: 8px 14px;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.85em;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+.news-card .why strong { color: #00ff88; }
+.news-card .entities {
+  font-size: 0.8em;
+  color: #888;
+  margin-bottom: 4px;
+}
+.news-card .entities span {
+  background: rgba(0,212,255,0.1);
+  color: #00d4ff;
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+.news-card .stocks {
+  font-size: 0.8em;
+  color: #888;
+}
+.news-card .stocks span {
+  background: rgba(255,215,0,0.1);
+  color: #ffd700;
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-right: 6px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+/* 關鍵詞雲 */
+.cloud-section { margin-top: 40px; }
+.cloud-section h2 { color: #00d4ff; font-size: 1.2em; margin-bottom: 14px; }
+.cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.cloud span {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  color: #ccc;
+  transition: all 0.2s;
+}
+.cloud span:hover { background: rgba(0,212,255,0.1); border-color: rgba(0,212,255,0.3); color: #00d4ff; }
+
+/* 明日觀察 */
+.tomorrow { background: rgba(255,255,255,0.03); border: 1px solid rgba(0,212,255,0.15); border-radius: 16px; padding: 28px 30px; margin-top: 40px; }
+.tomorrow h2 { color: #00d4ff; margin-bottom: 14px; font-size: 1.2em; }
+.tomorrow ul { list-style: none; padding: 0; }
+.tomorrow li { padding: 7px 0; padding-left: 22px; position: relative; color: #b0b0c0; font-size: 0.92em; }
+.tomorrow li::before { content: "→"; position: absolute; left: 0; color: #00ff88; }
+
+/* footer */
+footer {
+  text-align: center;
+  color: #555;
+  font-size: 0.85em;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 50px;
+}
+footer a { color: #00d4ff; text-decoration: none; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #888; text-decoration: none; font-size: 0.9em; }
+.back-link:hover { color: #00d4ff; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<a class="back-link" href="../index.html">← 返回首頁</a>
+
+<div class="page-header">
+  <h1>📰 AI 新聞摘要</h1>
+  <div class="date">📅 2026 年 6 月 24 日（台北時間）</div>
+  <div class="stats">共收錄 18 則新聞 · 涵蓋 8 個主題分類</div>
+  <div class="keywords">今日關鍵詞：Anthropic｜Menlo Ventures｜Groq｜Claude Tag｜SpaceX｜Reflection AI｜Google DeepMind｜Oracle｜Loops</div>
+</div>
+
+<!-- 三大頭條 -->
+<div class="top3">
+  <a class="headline-card hot" href="https://techcrunch.com/2026/06/23/after-betting-the-firm-on-anthropic-menlo-ventures-raises-victorious-3b-fund/" target="_blank">
+    <div class="rank">🔥 第一頭條</div>
+    <h2>Menlo Ventures 募得 30 億美元基金：Anthropic 持股估值達 140 億美元成最大贏家</h2>
+    <div class="excerpt">Menlo Ventures 宣布 30 億美元新基金，是其 50 年歷史最大規模，主要受惠於對 Anthropic 的早期押注——2024 年以 7.5 億美元「梭哈」投資 Anthropic，如今持股估值已達 140 億美元。</div>
+    <div class="meta">2026-06-23 · Venture</div>
+  </a>
+  <a class="headline-card" href="https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/" target="_blank">
+    <div class="rank">📌 第二頭條</div>
+    <h2>Anthropic 推出 Claude Tag：Slack 裡的永遠在線 AI 同事，會記憶組織文化還會主動發言</h2>
+    <div class="excerpt">Anthropic 發表 Claude Tag，讓 AI 成為 Slack 頻道裡真正的「同事」——持續旁聽並記憶組織脈絡、被標記時擔任任務分解與執行者，甚至會主動跳出來提醒團隊進度落後的事項。</div>
+    <div class="meta">2026-06-23 · AI 產品</div>
+  </a>
+  <a class="headline-card" href="https://techcrunch.com/2026/06/22/ai-chipmaker-groq-confirms-650m-raise-re-staffs-after-nvidias-20b-not-acqui-hire-deal/" target="_blank">
+    <div class="rank">📌 第三頭條</div>
+    <h2>AI 晶片新創 Groq 確認完成 6.5 億美元融資：被 Nvidia 挖走創辦人後浴火重生</h2>
+    <div class="excerpt">Groq 確認完成 6.5 億美元新輪募資，由 Disruptive 與 Infinitum 領投；Groq 的創辦人兼 CEO Jonathan Ross 去年被 Nvidia 以近 200 億美元「非收購式併購」挖走後，公司由 Doug Wightman 接棒並轉型 neocloud 業務。</div>
+    <div class="meta">2026-06-22 · AI 晶片</div>
+  </a>
+</div>
+
+<!-- 主題雷達 -->
+<div class="radar">
+  <a class="radar-card" href="#chip">
+    <div class="cat-icon">💾</div>
+    <div class="cat-name">AI 晶片與硬體</div>
+    <div class="cat-count">2 則</div>
+    <div class="cat-sample">Groq $650M · Nvidia 水冷</div>
+  </a>
+  <a class="radar-card" href="#model">
+    <div class="cat-icon">🧠</div>
+    <div class="cat-name">AI 模型與研究</div>
+    <div class="cat-count">1 則</div>
+    <div class="cat-sample">John Jumper 跳槽 Anthropic</div>
+  </a>
+  <a class="radar-card" href="#product">
+    <div class="cat-icon">🤖</div>
+    <div class="cat-name">AI 產品與應用</div>
+    <div class="cat-count">5 則</div>
+    <div class="cat-sample">Claude Tag · iOS 27 AI</div>
+  </a>
+  <a class="radar-card" href="#enterprise">
+    <div class="cat-icon">🏢</div>
+    <div class="cat-name">企業 AI 動態</div>
+    <div class="cat-count">3 則</div>
+    <div class="cat-sample">G24 · MoEngage · Oracle</div>
+  </a>
+  <a class="radar-card" href="#funding">
+    <div class="cat-icon">💰</div>
+    <div class="cat-name">AI 投融資與併購</div>
+    <div class="cat-count">4 則</div>
+    <div class="cat-sample">Menlo $3B · Baseten $1.5B</div>
+  </a>
+  <a class="radar-card" href="#policy">
+    <div class="cat-icon">🏛️</div>
+    <div class="cat-name">AI 政策與監管</div>
+    <div class="cat-count">3 則</div>
+    <div class="cat-sample">Anthropic ID · 民意調查 · G7</div>
+  </a>
+  <a class="radar-card" href="#people">
+    <div class="cat-icon">👥</div>
+    <div class="cat-name">AI 人事與組織</div>
+    <div class="cat-count">1 則</div>
+    <div class="cat-sample">John Jumper → Anthropic</div>
+  </a>
+  <a class="radar-card" href="#global">
+    <div class="cat-icon">🌍</div>
+    <div class="cat-name">AI 國際與地緣</div>
+    <div class="cat-count">2 則</div>
+    <div class="cat-sample">Reliance Jio · G7 AI 主權</div>
+  </a>
+</div>
+
+<!-- ===== 💾 AI 晶片與硬體 ===== -->
+<div class="section-header" id="chip">
+  <span class="cat-tag">💾</span>
+  <h2>AI 晶片與硬體</h2>
+  <span class="count-badge">2 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/ai-chipmaker-groq-confirms-650m-raise-re-staffs-after-nvidias-20b-not-acqui-hire-deal/" target="_blank">AI 晶片新創 Groq 確認完成 6.5 億美元融資：被 Nvidia 挖走創辦人後浴火重生</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    AI 晶片新創 Groq 正式確認完成新一輪 6.5 億美元募資，由創投公司 Disruptive 與對沖基金 Infinitum 聯合領投，距 Nvidia 以非獨家授權模式取得 Groq LPU（語言處理器）IP 並挖走創辦人 Jonathan Ross 已約六個月。Groq 估值上一次揭露為 69 億美元（2025 年 9 月），新輪估值未公布。Ross 在 Google 時期共同打造了 TPU，後與 Doug Wightman 共同創辦 Groq；Wightman 在交易後接任 CEO。Nvidia 已將 LPU 整合進自家硬體叢集「Nvidia Groq 3 LPX」，Groq 因此轉向 neocloud 業務，目前在北美、歐洲、中東、亞太地區擁有 13 座資料中心，每周處理數兆 tokens、服務超過 500 萬開發者。Groq 新任命 xAI 與 Meta 前高管 Alan Rice 為 COO，以及共同創辦人 Sinclair Schuler 為 CTO、Rakesh Malhotra 為 CPO。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Nvidia 的「非收購式併購」模式已成為 AI 半導體產業的重要現象——透過授權與挖角快速取得關鍵 IP 而無需承擔收購整合風險。Groq 能在核心 IP 被移轉後迅速轉型並成功募得大筆資金，顯示 AI 推論（inference）市場需求之強勁，也為其他被類似方式「吸血」的目標公司提供了復出範本。</div>
+  <div class="entities">關鍵實體：<span>Groq</span><span>Nvidia</span><span>Jonathan Ross</span><span>Doug Wightman</span><span>Disruptive</span><span>Infinitum</span><span>LPU</span><span>Alan Rice</span></div>
+  <div class="stocks">相關概念股：<span>NVIDIA (NVDA)</span><span>AMD</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/nvidia-wants-to-cut-data-center-water-use-but-thats-not-the-same-as-fixing-ais-water-problem/" target="_blank">Nvidia 推出資料中心熱水冷卻系統：號稱節省幾乎 100% 用水，但專家批評只解決了冰山一角</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    Nvidia 宣布推出 45°C 熱水冷卻系統，透過閉路循環設計，號稱可在大多數氣候條件下不使用蒸發式冷卻或風扇，大幅減少資料中心內部用水——環保長 Josh Parker 宣称「資料中心的用水挑戰已基本解決」。然而批評者指出，Nvidia 的測量邊界僅計算資料中心內部用水，而發電廠（尤其化石燃料電廠）才是最大用水戶：燃氣電廠每發一度電消耗 1.17 公升水、燃煤更高達 2.2 公升；目前約一半資料中心電力仍來自化石燃料，整體用水足跡是設施內部的 2 至 3 倍。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>AI 資料中心的能源與水資源消耗已成為監管機構與環保團體的焦點議題。Nvidia 此舉既是形象操作，也是實質散熱技術創新；但若 AI 公司持續依賴化石燃料電廠，所謂「綠色冷卻」的宣稱難以服眾。這對台灣等水資源匱乏地區的資料中心投資政策有重要參考價值。</div>
+  <div class="entities">關鍵實體：<span>Nvidia</span><span>Josh Parker</span><span>Axios</span><span>IEA</span></div>
+  <div class="stocks">相關概念股：<span>NVIDIA (NVDA)</span><span>AMD</span><span>TSMC (TSM)</span></div>
+</div>
+
+</div>
+
+<!-- ===== 🧠 AI 模型與研究 ===== -->
+<div class="section-header" id="model">
+  <span class="cat-tag">🧠</span>
+  <h2>AI 模型與研究</h2>
+  <span class="count-badge">1 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/" target="_blank">諾貝爾化學獎得主 John Jumper 離開 Google DeepMind，加入竞争对手 Anthropic</a></h3>
+    <span class="time">2026-06-20</span>
+  </div>
+  <div class="summary">
+    AlphaFold 蛋白質結構預測模型的共同發明人、2024 年諾貝爾化學獎共同得主 John Jumper，於 6 月 19 日宣布離開任職近九年的 Google DeepMind，加入 Anthropic。Jumper 在 X 發文感謝 DeepMind CEO Demis Hassabis 當年在他博士畢業僅六個月後就大膽讓他帶領 AlphaFold 團隊；他也預告「仍會興奮地關注 DeepMind 的下一步發現」。同期離開 DeepMind 的還有 Character AI 共同創辦人 Noam Shazeer，但他是加入 OpenAI。Bloomberg 報導，Jumper 也是 Google 内部開發程式碼輔助工具的關鍵成員，該產品在企業銷售上一直遇到瓶頸。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Jumper 是 AI 應用於科學研究領域最具代表性的研究者之一，AlphaFold 解決了困擾生物學 50 年的蛋白質折疊問題。他的跳槽再次顯示 Anthropic 對頂尖研究人才的磁吸效應，也暴露 Google 在留才機制上的劣勢。這對製藥與生技產業的 AI 布局有指標意義。</div>
+  <div class="entities">關鍵實體：<span>John Jumper</span><span>DeepMind</span><span>Anthropic</span><span>Demis Hassabis</span><span>Noam Shazeer</span><span>AlphaFold</span><span>Nobel Prize</span></div>
+  <div class="stocks">相關概念股：<span>Alphabet (GOOGL)</span><span>Anthropic (未上市)</span></div>
+</div>
+
+</div>
+
+<!-- ===== 🤖 AI 產品與應用 ===== -->
+<div class="section-header" id="product">
+  <span class="cat-tag">🤖</span>
+  <h2>AI 產品與應用</h2>
+  <span class="count-badge">5 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/" target="_blank">Anthropic 推出 Claude Tag：Slack 裡的永遠在線 AI 同事，會記憶組織文化還會主動發言</a></h3>
+    <span class="time">2026-06-23</span>
+  </div>
+  <div class="summary">
+    Anthropic 發表 Claude Tag，這是一款「始終在線」的 Claude 應用，直接內嵌於 Slack 頻道中。使用者可在頻道裡標記 @Claude 提問或指派任務，系統會主動持續追蹤頻道對話，逐步累積組織脈絡與歷史記憶，並橫跨不同頻道彙整資訊——前提是管理員授權讀取許可。Claude Tag 可將複雜任務拆分為多個階段，逐步執行並回報進度；另配有「ambient mode」，能主動在對話中跳出提醒、更新進度，儼然一個有記憶力的虛擬同事。目前開放 Claude Enterprise 與 Team 方案的 Slack 用戶搶先試用。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>企業 AI 競爭已從「單次問答」升級到「持續脈絡記憶」與「主動介入」階段。Claude Tag 瞄準的是 Microsoft Copilot 的企業知識管理地盤，並與 Glean、Snowflake、Datalabricks 的企業智慧層直接競爭。這代表 AI 助理從「工具」演化為「虛擬同事」的趨勢正在加速。</div>
+  <div class="entities">關鍵實體：<span>Claude Tag</span><span>Anthropic</span><span>Slack</span><span>Claude Enterprise</span><span>Microsoft Copilot</span><span>Glean</span></div>
+  <div class="stocks">相關概念股：<span>Salesforce (CRM)</span><span>Snowflake (SNOW)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/21/beyond-siri-here-are-the-practical-ai-features-coming-to-your-iphone-in-ios-27/" target="_blank">WWDC 2026 之外的 iOS 27 隱藏 AI 功能：AI 分帳單、Siri 直接操控 App、密碼外洩偵測</a></h3>
+    <span class="time">2026-06-21</span>
+  </div>
+  <div class="summary">
+    WWDC 主題演講之外，Apple 在 iOS 27 中埋了多項低調但實用的 AI 功能：用戶拍攝餐廳收據照片，Apple Intelligence 自動解析品項與金額，支援部分品項選擇與分帳，再透過 Apple Cash 分享請求給朋友；密碼管理 app 也將加入資料外洩主動偵測；相片 app 強化智慧分類與搜尋；地圖與行事曆的 AI 整合讓行程建議更自然流暢。Apple 刻意不要求用戶主動打開「Siri」，而是把 AI 內嵌到現有應用的每一個角落，與 OpenAI 式的聊天 Bot 策略形成鮮明對比。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Apple 的 AI 策略不走「AI 功能本身是亮點」的路線，而是強調「讓用戶熟悉的 App 變得更聰明」——這是一種更保守、以用戶習慣為優先的滲透策略。若 iOS 27 秋季正式上線後這些功能體驗流暢，可能比任何一款聊天機器人更能改變普通用戶對 AI 的日常感知。</div>
+  <div class="entities">關鍵實體：<span>Apple</span><span>iOS 27</span><span>Siri</span><span>Apple Intelligence</span><span>Apple Cash</span><span>WWDC</span></div>
+  <div class="stocks">相關概念股：<span>Apple (AAPL)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/23/indias-moengage-bets-marketings-future-on-millions-of-ai-agents/" target="_blank">印度 MoEngage 收購 San Francisco 新創 Aampe：每個客戶配一個專屬 AI agent，取代傳統行銷受眾區隔</a></h3>
+    <span class="time">2026-06-23</span>
+  </div>
+  <div class="summary">
+    印度客戶互動軟體公司 MoEngage 宣布收購總部位於舊金山的 Aampe，收購形式為全現金交易，金額未揭露（知情人士透露為數千萬美元）。Aampe 成立於 2020 年，專注於為每個終端消費者指派一個專屬 AI agent，根據個人行為而非傳統區隔受眾來決定何時發送什麼訊息；過去一年 ARR 成長 150%。Aampe 現有 30 多個客戶，包括 Swiggy、Grab、Taxfix 等知名品牌，收購後約 20 名員工將加入 MoEngage，使總員工數來到約 820 人。MoEngage 表示此交易將幫助其從 Salesforce Marketing Cloud 與 Adobe Experience Cloud 搶下企業客戶。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>行銷科技正在從「區隔受眾＋活動規則」進化到「一對一 AI agent 自主決策」模式，MoEngage 的收購顯示軟體巨頭正積極搶占此一轉型浪潮。Aampe 每個用戶一個 agent 的架構，與企業 CRM 的深度整合潛力，使其成為大型行銷雲端平台間市占爭奪戰的關鍵棋子。</div>
+  <div class="entities">關鍵實體：<span>MoEngage</span><span>Aampe</span><span>Raviteja Dodda</span><span>Swiggy</span><span>Grab</span><span>Peak XV Partners</span><span>Salesforce</span><span>Adobe</span></div>
+  <div class="stocks">相關概念股：<span>Salesforce (CRM)</span><span>Adobe (ADBE)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/openai-launches-new-initiative-to-help-find-and-patch-open-source-bugs/" target="_blank">OpenAI 啟動「Patch the Planet」計畫：聯手 Trail of Bits 幫開源專案修補漏洞</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    OpenAI 宣布啟動「Patch the Planet」計畫，與資安公司 Trail of Bits 合作，為開源軟體維護者提供免費安全性審查與修補支援。Trail of Bits 的資安工程師將直接協助開源專案 triage 漏洞報告，OpenAI 的 Codex Security 工具將在流程中提供輔助。此計畫的直接背景是：AI 工具（如 Anthropic 的 Fable/Mythos）已能自動化找出程式碼漏洞並生成攻擊程式，開源生態的分散式弱點因此被快速放大。OpenAI 此舉兼具公益形象與削弱 Anthropic 安全溢價的競爭意圖。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Log4j 漏洞殷鑑不遠——開源元件的資安缺陷可迅速波及整個商業軟體供應鏈。隨著 AI 讓漏洞掃描與開發的速度大幅提升，開源社群的防守壓力前所未見。OpenAI 此計畫若能規模化，可為其建立「負責任 AI」形象，同時降低开源社群對 Anthropic 安全工具的依賴。</div>
+  <div class="entities">關鍵實體：<span>OpenAI</span><span>Trail of Bits</span><span>Codex Security</span><span>Anthropic</span><span>Log4j</span></div>
+  <div class="stocks">相關概念股：<span>Microsoft (MSFT)</span><span>Alphabet (GOOGL)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/" target="_blank">AI 世界正在進入「迴圈時代」：Agent 驅動 Agent 自我迭代，Anthropic Boris Cherny 称其為真正的下一波</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    Anthropic Claude Code 負責人 Boris Cherny 在 Meta @Scale 大會上表示，AI 發展正在進入第三階段：從「人類寫程式」（Source Code）到「Agent 寫程式」（Agents），現在是「Agent 持續提醒 Agent 寫程式」（Loops）。在這個模式下，一個 subagent 會不斷檢查程式碼架構是否有改善空間、另一個 subagent 負責尋找可合併的重複抽象，三者輪流對話並自動提出 PR——任務永遠不會真正結束。Cherny 強調：「迴圈與從人類寫 code 到 Agent 寫 code 這一步同等重要。」這個模式對 AI 的信任要求極高，但伴隨模型能力快速提升，可能成為真正接管實際工程工作的關鍵一步。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Loops 的出現代表 AI 系統正從「服從指令」進化為「自主驅動、持續運作的數位組織」。若 Agent 能在後台自行改善程式碼品質，工程師的角色將從「親自寫 code」轉變為「設定目標與品質標準」。這對軟體產業的未來工作型態與 AI Agent 平台的中期商業模式都有深遠影響。</div>
+  <div class="entities">關鍵實體：<span>Boris Cherny</span><span>Anthropic</span><span>Claude Code</span><span>Meta</span><span>@Scale</span><span>Loops</span></div>
+  <div class="stocks">相關概念股：<span>Microsoft (MSFT)</span><span>Anthropic (未上市)</span></div>
+</div>
+
+</div>
+
+<!-- ===== 🏢 企業 AI 動態 ===== -->
+<div class="section-header" id="enterprise">
+  <span class="cat-tag">🏢</span>
+  <h2>企業 AI 動態</h2>
+  <span class="count-badge">3 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/google-deepmind-bets-75m-on-ais-future-in-hollywood-with-a24-deal/" target="_blank">Google DeepMind 宣布 7,500 萬美元好萊塢投資：與 A24 合作打造 AI 電影製作工具</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    Google DeepMind 與獨立電影工作室 A24 達成策略合作，投資金額据《華爾街日報》披露為 7,500 萬美元，將共同開發 AI 輔助電影製作工具。Google DeepMind CEO Demis Hassabis 表示：「最好的 AI 工具開發方式，是從一開始就與電影創作者直接合作。」A24 近期作品包括《Marty Supreme》、《芙洛拉與烏鴉》（Everything Everywhere All at Once）與最新賣座片《Backrooms》。此合作正值好萊塢對 AI 滲透爭議之際，Netflix 今年稍早也買下了班·艾佛列克的 AI 製片公司 InterPositive，亞馬遜 MGM Studios 亦成立了自己的 AI 部門。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>這是大型 AI 實驗室首次以直接投資影業的方式大規模進軍影視製作，而非僅授權技術。對 Google DeepMind 而言，透過 A24 的創作者社群直接獲取回饋，可在避免公關災難的同時打造影視業標竿案例；但也引發「AI 是否將取代創作者」的進一步擔憂。</div>
+  <div class="entities">關鍵實體：<span>Google DeepMind</span><span>A24</span><span>Demis Hassabis</span><span>Netflix</span><span>InterPositive</span><span>MGM Studios</span><span>班·艾佛列克</span></div>
+  <div class="stocks">相關概念股：<span>Alphabet (GOOGL)</span><span>Netflix (NFLX)</span><span>Amazon (AMZN)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/" target="_blank">2026 年 AI 裁員潮：Oracle 12 個月砍 21,000 人、Google 悄悄裁員逾 1,500 人、GitLab 砍 14% 人力</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    根據 outplacement 機構 Challenger, Gray & Christmas 的數據，2026 年 5 月科技業裁員人數創多年來單月新高，AI 是最常被引用的理由。Oracle 在最新年報中揭露，過去 12 個月裁減 21,000 名員工（占總數 13%），官方說法是「AI 技術的部署已導致並可能繼續導致人力縮減」。GitLab 在 6 月 3 日裁員約 350 人（14% 員工）用來資助 AI 基礎設施投資，並退出 22 個國家、扁平化管理層。Google 過去一年透過績效評審、自願離職計畫與組織重組，悄悄裁減 Cloud 部門（包括威脅情報團隊）超過 1,500 至 3,000 名工程師，但從未宣布總數。Intuit 在 5 月 20 日宣布裁員約 3,000 人（17% 人力）。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>科技公司 Revenue 創新高同時大規模裁員的「AI 悖論」正引發越來越多質疑。許多人指出，疫情期間大力擴編的職缺本才是裁員主因，AI 只是剛好背鍋。無論真正原因为何，AI 對就業市場的結構性影響已正式成為監管與社會議題候選名單。</div>
+  <div class="entities">關鍵實體：<span>Oracle</span><span>Google</span><span>GitLab</span><span>Intuit</span><span>Challenger Gray & Christmas</span></div>
+  <div class="stocks">相關概念股：<span>Oracle (ORCL)</span><span>Alphabet (GOOGL)</span><span>GitLab (GTLB)</span><span>Intuit (INTU)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/23/fika-jobs-raises-4m-to-build-a-video-first-hiring-platform-where-ai-agents-interview-candidates/" target="_blank">瑞典新創 Fika Jobs 募得 400 萬美元：打造 AI agent 面試官的影片優先徵才平台</a></h3>
+    <span class="time">2026-06-23</span>
+  </div>
+  <div class="summary">
+    總部位於斯德哥爾摩的 Fika Jobs 宣布完成 400 萬美元 pre-seed 輪融資，打造一個融合 AI 面試 agent 與短影音檔案的徵才平台。求職者連接 LinkedIn 帳號後，平台自動根據背景生成客製化面試問題，完成約 10 分鐘的 AI 視訊面試（目前採用 Google Gemini 模型），系統自動將回答剪輯成分段影音檔案組成個人檔案，供企業主動瀏覽而非傳統投遞履歷模式。共同創辦人 Jakob Dubois 表示，創立靈感來自過去徵才時差點错过一位簡歷平淡但面談表現出色的候選人。Fika 與 Mercor、Alex 等以雇主為中心的 AI 招募工具形成差異化，專注為候選人打造展示平台。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Fika 的模式挑戰了傳統求職網站的「投遞→篩選」邏輯，改為「候選人建立 AI 採訪檔案→雇主主動上門」的模式。這種「反向徵才」概念在非傳統背景候選人（如轉職者、早期職涯者）群體中特別有意義；但也需注意視訊檔案可能引入外貌、口音等人類偏見。</div>
+  <div class="entities">關鍵實體：<span>Fika Jobs</span><span>Jakob Dubois</span><span>Alexander Dubois</span><span>Google Gemini</span><span>LinkedIn</span><span>Mercor</span></div>
+  <div class="stocks">相關概念股：<span>LinkedIn (MSFT)</span><span>Indeed (Recruit Holdings)</span></div>
+</div>
+
+</div>
+
+<!-- ===== 💰 AI 投融資與併購 ===== -->
+<div class="section-header" id="funding">
+  <span class="cat-tag">💰</span>
+  <h2>AI 投融資與併購</h2>
+  <span class="count-badge">4 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/23/after-betting-the-firm-on-anthropic-menlo-ventures-raises-victorious-3b-fund/" target="_blank">Menlo Ventures 50 年最大基金出爐：30 億美元，主要受惠於 Anthropic 持股估值 140 億美元</a></h3>
+    <span class="time">2026-06-23</span>
+  </div>
+  <div class="summary">
+    Menlo Ventures 宣布完成 30 億美元新基金募集，是其 50 年歷史最大規模，主要驅動因素為 AI 投資組合——尤其是對 Anthropic 的早期押注。2024 年 Menlo 以 7.5 億美元「梭哈」投資 Anthropic，當時估值為 184 億美元，如今持股估值已達約 140 億美元。Menlo 當年透過成立特殊目的載具（SPV）向多位投資人集資 5 億美元，加上自有基金 2.5 億美元完成交易；此模式後來被 AI 投資圈廣泛複製，但也導致 Anthropic 公開警告未經授權的 SPV 為詐騙。Menlo 另與 Anthropic 共同成立 1 億美元 Antholo 加速基金，目前部署金額已接近 2.5 億美元，已孵化 60 多家公司，其中包括 Graphite（被 Cursor 收購）與 Astrix Security（被 Cisco 收購）。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Menlo 的故事是 2026 年 AI 創投生態的縮影：搶在二級市場定價前進入 frontier 模型公司，以 SPV 槓桿化有限資金，並透過「深度孵化」綁定 Anthropic 資源形成差異化。140 億美元的帳面估值也意味著，未來任何 Anthropic IPO 或二級流通都將為 VC 行業創造标志性退出案例。</div>
+  <div class="entities">關鍵實體：<span>Menlo Ventures</span><span>Anthropic</span><span>Dario Amodei</span><span>Daniela Amodei</span><span>SPV</span><span>Antholo</span><span>Graphite</span><span>Astrix Security</span><span>Cisco</span><span>Cursor</span></div>
+  <div class="stocks">相關概念股：<span>Cisco (CSCO)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/18/ai-inference-startup-baseten-reportedly--raising-1-5b-months-after-its-last-mega-round/" target="_blank">AI 推論新創 Baseten 傳再募 15 億美元：估值 130 億美元，5 個月翻逾倍</a></h3>
+    <span class="time">2026-06-18</span>
+  </div>
+  <div class="summary">
+    據《華爾街日報》報導，AI 推論（Inference）新創 Baseten 即將完成 15 億美元新輪募資，估值達 130 億美元，距上次（2026 年 1 月）公布之 30 億美元 Series E（估值 50 億美元）僅五個月，若成交將代表估值成長 160%。消息指出本輪為 split-priced（不同投資人不同定價），部分投資人以降至 110 億美元進場；Spark Capital、Sands Capital、Altimeter Capital 與 Wellington Management 共同領投。Baseten 成立於 2019 年，專精 AI 推論加速，透過智慧路由將請求導向最適合任務的模型（包括高性價比開源模型），趕上了「推論淘金熱」浪潮。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>推論階段的基礎設施正在爆發——相較於訓練（一次性），推論是每次 API 呼叫都必須處理的持續性成本。Baseten 的快速估值飆升顯示，市場已形成共識：模型本身的商品化速度比預期快，而能在模型之上最佳化效能與成本的推論層，才是真正可持續的護城河。</div>
+  <div class="entities">關鍵實體：<span>Baseten</span><span>Spark Capital</span><span>Sands Capital</span><span>Altimeter Capital</span><span>Wellington</span><span>Inference</span></div>
+  <div class="stocks">相關概念股：<span>NVIDIA (NVDA)</span><span>AMD</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/spacex-inks-compute-deal-with-reflection-ai-an-open-source-ai-lab/" target="_blank">SpaceX 與 Reflection AI 簽訂算力合約：每月 1.5 億美元，2029 年到期，為史上最大開源 AI 基礎設施承諾之一</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    開源 AI 新創 Reflection AI 與 SpaceX 達成算力供應協議，每月支付 1.5 億美元，從 2026 年 7 月 1 日起至 2029 年，總價值最高達 6.3 億美元。SpaceX 可在首次三個月後以 90 天通知終止合約。Reflection AI 成立於 2024 年，由兩位前 Google DeepMind 研究員創辦；這是他們首筆算力交易，獲得 Nvidia 最新 GB300 晶片與 Colossus 2 資料中心（位於孟菲斯）支援。相較之下，Anthropic 與 Google 的 SpaceX 合約分別為每月 12.5 億美元與 9.2 億美元。Reflection 表示，美國政府對 Anthropic 封閉模型的禁令，突顯了開源策略的戰略價值與各國對封閉模型依賴的風險。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Reflection AI 的 open-weight 策略正在獲得地緣政治光環——當封閉模型可被政府一刀切切斷境外訪問，開源模型成為「數位主權」的另類選擇。此筆交易鞏固了 SpaceX 作為全球最大 AI 算力經紀商之一的地位，也代表 Elon Musk 正在利用 xAI 建設的基礎設施變現。</div>
+  <div class="entities">關鍵實體：<span>SpaceX</span><span>Reflection AI</span><span>xAI</span><span>Colossus 2</span><span>Nvidia GB300</span><span>Elon Musk</span></div>
+  <div class="stocks">相關概念股：<span>NVIDIA (NVDA)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/23/superhuman-acquires-ai-detection-startup-gptzero/" target="_blank">Superhuman 收購 AI 偵測新創 GPTZero：Princeton 學生論文專案，3 年累積 1,900 萬用戶與 3,000 萬美元 ARR</a></h3>
+    <span class="time">2026-06-23</span>
+  </div>
+  <div class="summary">
+    Superhuman（去年 Grammarly 收購 Email App Superhuman 後合併並更名為 Superhuman）宣布收購 AI 內容偵測新創 GPTZero，收購金額未揭露。GPTZero 由 Princeton 大學生 Edward Tian 於 2023 年以畢業論文形式創建，至今已累積超過 1,900 萬註冊用戶，2024 年已達到損益兩平，年經常性收入（ARR）達 3,000 萬美元。GPTZero 總共只募得 1,350 萬美元（Seed 輪由 Uncork Capital 領投，Series A 由 Footwork 領投）。Superhuman 本身已有內建 AI 偵測工具，收購理由是「兩個 AI 偵測器比一個好」——可覆蓋更多偵測維度與使用情境。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>GPTZero 的成長轨迹——從學生論文到 3,000 萬美元 ARR、1,900 萬用戶——是 AI 應用創業的典型成功故事，也顯示 AI 偵測市場的剛性需求。隨著學校與企業對 AI 生成的敏感度提升，內容真實性驗證工具的戰略價值持續上升，Grammarly/Superhuman 的整合邏輯在於打造「寫作誠信」的全套解決方案。</div>
+  <div class="entities">關鍵實體：<span>GPTZero</span><span>Edward Tian</span><span>Superhuman</span><span>Grammarly</span><span>Uncork Capital</span><span>Footwork</span></div>
+  <div class="stocks">相關概念股：<span>Grammarly (未上市)</span></div>
+</div>
+
+</div>
+
+<!-- ===== 🏛️ AI 政策與監管 ===== -->
+<div class="section-header" id="policy">
+  <span class="cat-tag">🏛️</span>
+  <h2>AI 政策與監管</h2>
+  <span class="count-badge">3 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/22/anthropic-says-claude-may-want-to-see-your-id/" target="_blank">Anthropic 更新隱私政策：7 月起要求部分用戶上傳政府核發證件以驗證年齡或身份</a></h3>
+    <span class="time">2026-06-22</span>
+  </div>
+  <div class="summary">
+    Anthropic 更新隱私政策（6 月 17 日生效，7 月 8 日正式執行），要求部分用戶在帳戶被標記時，上傳政府核發護照或駕照掃描件、年齡驗證 selfie 影片或照片，以及數位化的臉部幾何模板（某些州如伊利諾伊州將其視為受保護的生物特徵資料）。官方強調此政策僅適用於「帳戶被標記而非直接被封禁」的少數用戶申訴流程，但拒絕透露具體人數。Anthropic 表示更新是配合多個州與國家的年齡驗證法規要求。外界猜測此政策與 Trump 政府官員對 Anthropic 模型的出口管制問題有關，試圖以此安撫監管機構。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>在美國政府對 Anthropic 最強模型下達出口管制令之際，此身份驗證政策被解讀為向監管機構「秀誠意」的公關操作。生物特徵資料的蒐集在美國各州法律差異極大，伊利諾伊州的 BIPA（生物特徵隱私法）以高昂的損害賠償聞名，Anthropic 此舉可能為其埋下新一波訴訟風險。</div>
+  <div class="entities">關鍵實體：<span>Anthropic</span><span>Dario Amodei</span><span>BIPA</span><span>Illinois</span><span>Trump 政府</span></div>
+  <div class="stocks">相關概念股：無直接上市相關</div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/17/only-16-percent-of-americans-think-ai-will-have-a-positive-impact-on-society-a-new-study-shows/" target="_blank">Pew Research 調查：僅 16% 美國人相信 AI 對社會影響正面、67% 不信任政府監管能力</a></h3>
+    <span class="time">2026-06-17</span>
+  </div>
+  <div class="summary">
+    皮尤研究中心（Pew Research）公布新調查結果：僅 16% 的美國人認為 AI 在未來 20 年將對社會產生正面影響，約 40% 認為將帶來負面影響；近三分之二（67%）認為 AI 發展速度過快；59% 不信任企業能安全開發 AI；同樣有 67% 不相信美國政府會對 AI 實施有效監管。30 歲以下年輕人是悲觀情緒最強群體（僅 14% 持正面看法）。使用面上，44% 的美國成年人已使用過 ChatGPT（比 2023 年增加一倍多），但多數人的日常 AI 使用僅止於研究或工作辅助，整體社會觀感仍偏負面。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>AI 普及率與社會接受度之間的鴻溝正在擴大——使用 AI 的人越來越多，但相信它會讓社會變好的人越來越少。這種「我用 AI 但不信任 AI」的矛盾心態對 AI 產品的企業採用與政策制定都有深遠影響，也可能為強調「安全」或「可信」的 AI 公司（如 Anthropic）創造差異化空間。</div>
+  <div class="entities">關鍵實體：<span>Pew Research</span><span>ChatGPT</span><span>Gemini</span><span>Copilot</span><span>Meta AI</span></div>
+  <div class="stocks">相關概念股：<span>Microsoft (MSFT)</span><span>Alphabet (GOOGL)</span><span>Meta (META)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/17/world-leaders-want-american-ai-they-just-dont-want-america-to-be-able-to-turn-it-off/" target="_blank">G7 峰會：馬克宏警告美國可隨時切斷 AI 供應、莫迪對 Anthropic 禁令表達疑慮，各國尋求「可信賴夥伴」機制</a></h3>
+    <span class="time">2026-06-17</span>
+  </div>
+  <div class="summary">
+    G7 峰會期間，法國總統馬克宏與印度總理莫迪分別對與會的 AI 企業高管與 Trump 總統錶達擔憂：美國隨時可單方面切斷盟友獲取頂尖 AI 模型的途徑。馬克宏在午餐會上向 Anthropic CEO Dario Amodei、OpenAI CEO Sam Altman 與 Trump 示警：「如果美國可以從某天開始關掉開關，不僅會傷害歐洲客戶的經濟，也會損害 AI 公司本身。」莫迪同樣對 Anthropic 模型禁令錶達疑慮，強調民主國家必須拥有不受限制的頂尖 AI 模型獲取權。加拿大企業 AI 公司 Cohere CEO Aidan Gomez 會後聲明：「依賴少數大型科技公司是危險的——數位主權不只是市場競爭問題。」
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Anthropic 禁令事件已成為全球 AI 主權焦慮的符號性觸發點。歐洲與印度等美國盟友開始公開討論「不可依賴美國單一供應商」的戰略風險，這為法國 Mistral、中國 DeepSeek、以及加拿大 Cohere 等「替代選擇」創造了政策支持空間，也加速了各國「AI 主權」立法的緊迫性。</div>
+  <div class="entities">關鍵實體：<span>G7</span><span>Emmanuel Macron</span><span>Narendra Modi</span><span>Dario Amodei</span><span>Sam Altman</span><span>Cohere</span><span>Aidan Gomez</span><span>Trump</span></div>
+  <div class="stocks">相關概念股：<span>Microsoft (MSFT)</span><span>Alphabet (GOOGL)</span></div>
+</div>
+
+</div>
+
+<!-- ===== 👥 AI 人事與組織 ===== -->
+<div class="section-header" id="people">
+  <span class="cat-tag">👥</span>
+  <h2>AI 人事與組織</h2>
+  <span class="count-badge">1 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/20/nobel-laureate-john-jumper-is-leaving-deepmind-for-rival-anthropic/" target="_blank">諾貝爾獎得主 John Jumper 離開 DeepMind 加入 Anthropic：AlphaFold 發明人的重大轉會</a></h3>
+    <span class="time">2026-06-20</span>
+  </div>
+  <div class="summary">
+    AlphaFold 蛋白質結構 AI 的共同發明人、2024 年諾貝爾化學獎共同得主 John Jumper，宣布離開任職近九年的 Google DeepMind，加入主要競爭對手 Anthropic。Jumper 在 X 平台上發文感謝 DeepMind CEO Demis Hassabis 當年大膽啟用僅博士畢業六個月的他領導 AlphaFold 團隊，並預告「仍會興奮地關注 DeepMind 的下一步發現」。同週離開 DeepMind 的還有 Character AI 共同創辦人 Noam Shazeer，但後者選擇加入 OpenAI。Bloomberg 報導，Jumper 也是 Google 程式碼輔助工具的關鍵成員，該產品在企業市場的商業化進展緩慢。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Nobel 獎得主從 Google 跳槽 Anthropic 是 AI 頂尖人才戰的标志性事件。Anthropic 的研究文化與招募吸引力持續超越 Google，而 DeepMind 雖有 Hassabis 坐鎮，在留才機制與激勵結構上已明顯落後。這對製藥與生技領域的 AI 應用合作關係可能產生實質影響。</div>
+  <div class="entities">關鍵實體：<span>John Jumper</span><span>Demis Hassabis</span><span>Noam Shazeer</span><span>DeepMind</span><span>Anthropic</span><span>AlphaFold</span><span>Google</span></div>
+  <div class="stocks">相關概念股：<span>Alphabet (GOOGL)</span></div>
+</div>
+
+</div>
+
+<!-- ===== 🌍 AI 國際與地緣政治 ===== -->
+<div class="section-header" id="global">
+  <span class="cat-tag">🌍</span>
+  <h2>AI 國際與地緣政治</h2>
+  <span class="count-badge">2 則</span>
+</div>
+<div class="news-list">
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/19/billionaire-ambani-wants-ai-in-every-call-app-and-home/" target="_blank">印度首富安巴尼要在每通電話、每個 App、每個家庭都裝 AI：Reliance 推出 Jio Call Agent 服務 5 億用戶</a></h3>
+    <span class="time">2026-06-19</span>
+  </div>
+  <div class="summary">
+    印度信實工業（Reliance Industries）在年度股東大會上宣布三項 AI 新產品：Jio Call Agent（AI 助手直接嵌入電信網路，說「Hey Jio」即可召喚，可代為預約叫車、訂餐、預約，並即時轉錄通話內容）適用於超過 5 億 Jio 用戶；MyJio App 的 AI 版（自然語言代操作 eSIM 申請、漫遊方案選擇等）；TeleFrame（家庭智慧顯示器，主動推送天氣、行程、家庭提醒）。Reliance 董事長穆克什·安巴尼表示：「印度不應該只是 AI 消費國，而要成為 AI 製造國。」這是 Reliance Intelligence 去年成立後的最新攻勢，目標覆蓋 22 種印度語言。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>Jio Call Agent 將 AI 助手直接嵌入電信網路而非作為獨立 App，代表一種「作業系統層級」的 AI 滲透策略——用戶無需下載或學習，AI 功能就是電信服務本身。這與 Google Call Assist 和 Amazon Alexa 的模式不同，更接近蘋果「將 AI 內嵌至現有體驗」的思路。印度身為全球第二大網路市場，此舉可能為開發中國家的 AI 落地提供重要參考路徑。</div>
+  <div class="entities">關鍵實體：<span>Reliance Industries</span><span>Mukesh Ambani</span><span>Jio</span><span>Jio Call Agent</span><span>TeleFrame</span><span>MyJio</span><span>Reliance Intelligence</span></div>
+  <div class="stocks">相關概念股：<span>Reliance (印度上市)</span><span>Bharti Airtel (印度)</span></div>
+</div>
+
+<div class="news-card">
+  <div class="card-header">
+    <h3><a href="https://techcrunch.com/2026/06/16/chatgpts-market-share-slips-below-50-for-first-time/" target="_blank">ChatGPT 市占率史上首次跌破 50%：Gemini 上升至 27.7%、Claude 達 10.3%</a></h3>
+    <span class="time">2026-06-16</span>
+  </div>
+  <div class="summary">
+    根據分析機構 Sensor Tower 的《2026 年 AI 現狀報告》，ChatGPT 的全球市占率在 2026 年 5 月首次跌破 50% 大關，來到 46.4%（活躍用戶超過 11 億），而 Google Gemini 上升至 27.7%（6.62 億用戶）、Claude 達 10.3%（2.45 億用戶）。ChatGPT 在 2023 年初上線後持續主導市場，直到 2026 年 1 月市占率才跌破 50%。報告指出，OpenAI 與美國國防部的合作關係在 2 月引發了可觀測的卸载潮，顯示用戶的品牌信任與價值觀契合度已成為選擇 AI 助理的重要因素。用戶在不同助理之間的切換頻率也越來越高。
+  </div>
+  <div class="why"><strong>為什麼重要：</strong>ChatGPT 市占跌破 50% 是 AI 消費市場轉向競爭多元化的重要信號。Gemini 的成長主要受惠於 Google 生態系統的深度整合，Claude 則在生產力場景中建立口碑。這個趨勢對 OpenAI 的 IPO 定價與後續貨幣化策略都有直接影響，也代表「模型能力領先」並非市占率的唯一決定因素。</div>
+  <div class="entities">關鍵實體：<span>ChatGPT</span><span>OpenAI</span><span>Gemini</span><span>Claude</span><span>Grok</span><span>Perplexity</span><span>DeepSeek</span><span>Meta AI</span><span>Sensor Tower</span></div>
+  <div class="stocks">相關概念股：<span>OpenAI (未上市)</span><span>Alphabet (GOOGL)</span><span>Meta (META)</span><span>xAI (未上市)</span></div>
+</div>
+
+</div>
+
+<!-- 關鍵詞雲 -->
+<div class="cloud-section">
+  <h2>🔑 今日關鍵詞彙</h2>
+  <div class="cloud">
+    <span>Claude Tag</span>
+    <span>Anthropic Fable 5</span>
+    <span>Menlo Ventures $3B</span>
+    <span>Groq $650M</span>
+    <span>Baseten $1.5B</span>
+    <span>SpaceX Reflection AI</span>
+    <span>Google DeepMind A24</span>
+    <span>John Jumper</span>
+    <span>GPTZero</span>
+    <span>Patch the Planet</span>
+    <span>AI Loops</span>
+    <span>Oracle 裁員 21,000</span>
+    <span>iOS 27 AI</span>
+    <span>Reliance Jio</span>
+    <span>G7 AI 主權</span>
+    <span>ChatGPT 市占 46%</span>
+    <span>Pew Research</span>
+    <span>Dario Amodei</span>
+    <span>Sam Altman</span>
+    <span>Elon Musk</span>
+    <span>Nvidia GB300</span>
+    <span>Warm-water Cooling</span>
+    <span>Open-weight AI</span>
+    <span>Digital Sovereignty</span>
+  </div>
+</div>
+
+<!-- 明日觀察 -->
+<div class="tomorrow">
+  <h2>🔮 明日觀察</h2>
+  <ul>
+    <li><strong>Anthropic Fable 5/Mythos 5 禁令風暴延燒</strong>：後續可能揭露 Amazon 舉報細節，以及是否有其他 AI 公司收到類似通知</li>
+    <li><strong>Nvidia 股價與 GTC 後續效應</strong>：GB300 與熱水冷卻系統的客戶反應；資料中心用水爭議是否引發 ESG 投資人壓力</li>
+    <li><strong>Menlo Ventures $3B 基金的資金去向</li>
+    <li><strong>SpaceX Colossus 2 資料中心的更多算力合約</strong>：哪家 AI 新創實驗室會成為下一個公開算力合作對象</li>
+    <li><strong>ChatGPT 市占流失的貨幣化影響</strong>：OpenAI IPO 前最後一個完整季度，用戶成長與營收數據備受矚目</li>
+    <li><strong>歐洲 AI 主權加速</strong>：G7 後馬克宏推動歐盟 AI 工廠計畫，可能牽動 Mistral 新一輪募資</li>
+  </ul>
+</div>
+
+<footer>
+  <p>📅 2026 年 6 月 24 日 · 由 <a href="https://acstep.github.io/TECH/" target="_blank">OpenClaw</a> 自動生成</p>
+  <p>資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a> · 繁體中文（台灣用語）</p>
+</footer>
+
+</div>
+</body>
+</html>
