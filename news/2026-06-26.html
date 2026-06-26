@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-06-26 AI 新聞摘要 | TECH</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif; background: #080810; color: #e8e8f0; line-height: 1.7; padding: 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.back { display: inline-flex; align-items: center; gap: 6px; color: #00d4ff; text-decoration: none; font-size: 0.9em; margin-bottom: 20px; padding: 8px 16px; border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; transition: all 0.2s; }
+.back:hover { background: rgba(0,212,255,0.08); }
+
+/* HEADER */
+.header { text-align: center; padding: 40px 20px; margin-bottom: 40px; background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,255,136,0.05)); border: 1px solid rgba(0,212,255,0.15); border-radius: 20px; position: relative; overflow: hidden; }
+.header::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(0,212,255,0.06) 0%, transparent 70%); pointer-events: none; }
+.header .date-tag { display: inline-block; background: linear-gradient(135deg, #00d4ff, #00ff88); color: #080810; font-weight: 900; font-size: 0.75em; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; letter-spacing: 0.05em; }
+.header h1 { font-size: 2.4em; font-weight: 900; color: #fff; margin-bottom: 8px; }
+.header .meta { color: #888; font-size: 0.95em; margin-top: 12px; }
+.header .meta span { margin: 0 8px; color: #555; }
+.header .keyword-cloud { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.kw { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #aaa; font-size: 0.8em; padding: 4px 12px; border-radius: 20px; }
+
+/* TOP 3 */
+.top3 { margin-bottom: 50px; }
+.top3 h2 { color: #00ff88; font-size: 1.3em; margin-bottom: 16px; padding-left: 12px; border-left: 3px solid #00ff88; }
+.top3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .top3-grid { grid-template-columns: 1fr; } }
+.top-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 28px; position: relative; overflow: hidden; transition: all 0.3s; }
+.top-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d4ff, #00ff88); }
+.top-card:hover { transform: translateY(-3px); border-color: rgba(0,212,255,0.4); box-shadow: 0 8px 30px rgba(0,212,255,0.1); }
+.top-card .rank { font-size: 2.5em; font-weight: 900; color: rgba(0,212,255,0.15); position: absolute; top: 10px; right: 16px; }
+.top-card h3 { font-size: 1.05em; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.4; }
+.top-card h3 a { color: inherit; text-decoration: none; }
+.top-card h3 a:hover { color: #00d4ff; }
+.top-card .excerpt { color: #aaa; font-size: 0.88em; line-height: 1.6; margin-top: 12px; }
+.top-card .src { display: inline-block; margin-top: 14px; font-size: 0.78em; color: #00d4ff; background: rgba(0,212,255,0.08); padding: 3px 10px; border-radius: 20px; text-decoration: none; }
+
+/* CATEGORY RADAR */
+.radar { margin-bottom: 50px; }
+.radar h2 { color: #00d4ff; font-size: 1.3em; margin-bottom: 16px; padding-left: 12px; border-left: 3px solid #00d4ff; }
+.radar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 900px) { .radar-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .radar-grid { grid-template-columns: 1fr; } }
+.radar-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 18px; transition: all 0.25s; cursor: pointer; text-decoration: none; display: block; color: inherit; }
+.radar-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-2px); }
+.radar-card .icon { font-size: 1.4em; margin-bottom: 6px; }
+.radar-card .name { font-weight: 700; font-size: 0.88em; color: #e0e0e8; }
+.radar-card .count { color: #555; font-size: 0.78em; margin-top: 2px; }
+.radar-card .rep { color: #00ff88; font-size: 0.75em; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* SECTION */
+.section { margin-bottom: 50px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.section-icon { font-size: 1.3em; }
+.section-title { font-size: 1.2em; font-weight: 800; color: #e8e8f0; }
+.section-count { margin-left: auto; background: rgba(255,255,255,0.05); color: #888; font-size: 0.8em; padding: 2px 10px; border-radius: 20px; }
+
+/* NEWS CARD */
+.news-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 24px; margin-bottom: 16px; transition: all 0.25s; }
+.news-card:hover { border-color: rgba(0,212,255,0.2); background: rgba(255,255,255,0.035); }
+.news-title { font-size: 1.05em; font-weight: 700; color: #e8e8f0; margin-bottom: 6px; line-height: 1.4; }
+.news-title a { color: inherit; text-decoration: none; }
+.news-title a:hover { color: #00d4ff; }
+.news-meta { font-size: 0.78em; color: #555; margin-bottom: 12px; }
+.news-summary { color: #aaa; font-size: 0.9em; line-height: 1.7; margin-bottom: 14px; }
+.news-why { color: #00ff88; font-size: 0.85em; background: rgba(0,255,136,0.06); border-left: 3px solid #00ff88; padding: 10px 14px; border-radius: 0 8px 8px 0; margin-bottom: 14px; line-height: 1.5; }
+.news-details { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tag { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: #888; font-size: 0.75em; padding: 3px 10px; border-radius: 6px; }
+.tag.stock { color: #f5c518; border-color: rgba(245,197,24,0.2); background: rgba(245,197,24,0.05); }
+
+/* KEYWORDS */
+.keywords { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 28px; margin-bottom: 50px; }
+.keywords h2 { color: #00d4ff; font-size: 1.15em; margin-bottom: 16px; }
+.kw-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.kw-item { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); color: #aaa; font-size: 0.82em; padding: 5px 14px; border-radius: 20px; }
+
+/* OBSERVE */
+.observe { background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,255,136,0.04)); border: 1px solid rgba(0,212,255,0.15); border-radius: 14px; padding: 28px; margin-bottom: 50px; }
+.observe h2 { color: #00ff88; font-size: 1.15em; margin-bottom: 16px; }
+.observe ul { list-style: none; }
+.observe li { padding: 8px 0; padding-left: 20px; position: relative; color: #bbb; font-size: 0.9em; }
+.observe li::before { content: "▸"; position: absolute; left: 0; color: #00ff88; }
+
+/* FOOTER */
+footer { text-align: center; color: #444; font-size: 0.82em; padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
+footer a { color: #00d4ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back" href="../index.html">← 返回首頁</a>
+
+  <div class="header">
+    <div class="date-tag">2026-06-26</div>
+    <h1>📰 每日 AI 新聞摘要</h1>
+    <div class="meta">
+      資料來源：TechCrunch <span>|</span> 共整理 <strong style="color:#00d4ff">21</strong> 則新聞 <span>|</span> 涵蓋 <strong style="color:#00ff88">7</strong> 個分類
+    </div>
+    <div class="keyword-cloud">
+      <span class="kw">GPT 5.6</span>
+      <span class="kw">Jalapeño</span>
+      <span class="kw">Broadcom</span>
+      <span class="kw">Amazon India $13B</span>
+      <span class="kw">General Intuition $2.3B</span>
+      <span class="kw">Claude</span>
+      <span class="kw">Micron</span>
+      <span class="kw">Anthropic IPO</span>
+      <span class="kw">MATCH Act</span>
+      <span class="kw">ASML</span>
+      <span class="kw">Cerebras</span>
+      <span class="kw">Token Rationing</span>
+      <span class="kw">Groq</span>
+      <span class="kw">Topaz Labs</span>
+      <span class="kw">Agility Robotics</span>
+    </div>
+  </div>
+
+  <!-- TOP 3 HEADLINES -->
+  <div class="top3">
+    <h2>🔥 每日 3 大頭條</h2>
+    <div class="top3-grid">
+      <div class="top-card">
+        <div class="rank">01</div>
+        <h3><a href="https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/" target="_blank">白宮要求 OpenAI 延後發布新模型：GPT 5.6 因國安疑慮須「逐案審批」</a></h3>
+        <p class="excerpt">白宮要求 OpenAI 延後公開發布最新模型 GPT 5.6，改為「逐個客戶審批」的限制式釋出。Sam Altman 在內部會議表示，政府機關將參與 preview 期的審查，若進行順利才可能在數週後全面開放。這是川普政府從「不干預 AI」立場轉向積極監管的重大訊號。</p>
+        <a class="src" href="https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/" target="_blank">TechCrunch · 06/25</a>
+      </div>
+      <div class="top-card">
+        <div class="rank">02</div>
+        <h3><a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank">OpenAI 發表首款自研晶片「Jalapeño」：聯手 Broadcom 挑戰 Nvidia 推理成本</a></h3>
+        <p class="excerpt">OpenAI 正式發表首款自研推理晶片 Jalapeño，由 Broadcom 協助設計與製造。晶片專為 OpenAI 推理工作負載量身打造，官方聲稱效能功耗比優於目前市場上最佳替代方案。OpenAI 強調晶片開發過程中已使用自家 AI 模型輔助設計，這是公司垂直整合策略的關鍵一步。</p>
+        <a class="src" href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank">TechCrunch · 06/24</a>
+      </div>
+      <div class="top-card">
+        <div class="rank">03</div>
+        <h3><a href="https://techcrunch.com/2026/06/25/amazon-ups-india-bet-with-fresh-13b-ai-infrastructure-investment/" target="_blank">亞馬遜加碼印度 $130 億美元：蓋 AI 資料中心與電商物流網</a></h3>
+        <p class="excerpt">亞馬遜宣布至 2030 年前將在印度追加 130 億美元投資，用於擴建 AWS 資料中心（落腳孟買與海德拉巴）以及零售與物流基礎建設。這使亞馬遜對印度總承諾投資達到 480 億美元，超越微軟（175 億）與 Google（150 億），成為對印度 AI 基礎設施最大手筆的外資雲端巨頭。</p>
+        <a class="src" href="https://techcrunch.com/2026/06/25/amazon-ups-india-bet-with-fresh-13b-ai-infrastructure-investment/" target="_blank">TechCrunch · 06/25</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY RADAR -->
+  <div class="radar">
+    <h2>📡 主題雷達</h2>
+    <div class="radar-grid">
+      <a class="radar-card" href="#chip">
+        <div class="icon">💾</div>
+        <div class="name">AI 晶片與硬體</div>
+        <div class="count">4 則</div>
+        <div class="rep">Jalapeño · Micron · Cerebras</div>
+      </a>
+      <a class="radar-card" href="#model">
+        <div class="icon">🧠</div>
+        <div class="name">AI 模型與研究</div>
+        <div class="count">4 則</div>
+        <div class="rep">GPT 5.6 · General Intuition</div>
+      </a>
+      <a class="radar-card" href="#product">
+        <div class="icon">🤖</div>
+        <div class="name">AI 產品與應用</div>
+        <div class="count">4 則</div>
+        <div class="rep">Claude · Figma · Facebook</div>
+      </a>
+      <a class="radar-card" href="#enterprise">
+        <div class="icon">🏢</div>
+        <div class="name">企業 AI 動態</div>
+        <div class="count">2 則</div>
+        <div class="rep">Token Rationing · Rippling</div>
+      </a>
+      <a class="radar-card" href="#funding">
+        <div class="icon">💰</div>
+        <div class="name">AI 投融資與併購</div>
+        <div class="count">5 則</div>
+        <div class="rep">General Intuition $2.3B</div>
+      </a>
+      <a class="radar-card" href="#policy">
+        <div class="icon">🏛️</div>
+        <div class="name">AI 政策與監管</div>
+        <div class="count">1 則</div>
+        <div class="rep">MATCH Act · ASML</div>
+      </a>
+      <a class="radar-card" href="#talent">
+        <div class="icon">👥</div>
+        <div class="name">AI 人事與組織</div>
+        <div class="count">1 則</div>
+        <div class="rep">Google → Anthropic</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION: AI 晶片與硬體 -->
+  <div class="section" id="chip">
+    <div class="section-header">
+      <span class="section-icon">💾</span>
+      <span class="section-title">AI 晶片與硬體</span>
+      <span class="section-count">4 則</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank">OpenAI 發表首款自研推理晶片 Jalapeño，由 Broadcom 代工</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · 記者：Russell Brandom</div>
+      <div class="news-summary">OpenAI 正式公開代號「Jalapeño」的首款自研推理晶片，採用與 Broadcom 合作的模式設計與製造。晶片專為推理（inference）工作負載打造，OpenAI 聲稱早期測試顯示效能功耗比顯著優於市場現有替代方案。Greg Brockman 指出，Jalapeño 的策略意義在於「理解工作負載特性，找出未被滿足的需求」。OpenAI 強調，預訓練等高計算密集任務短期內仍將依賴 Nvidia 硬體，但即使是推理成本的微小改善，都對公司財務結構有重大影響。</div>
+      <div class="news-why">為什麼重要：這代表 OpenAI 正式邁出「擺脫 Nvidia 依賴」的第一步。Jalapeño 是 Google（TPU）、Amazon（Trainium/Inferentia）、Microsoft（Cagelle）之後，又一雲端巨頭或 AI 公司投入自研晶片。隨著推理需求爆發，推理晶片市場將成下一個兵家必爭之地。</div>
+      <div class="news-details">
+        <span class="tag">Broadcom</span>
+        <span class="tag">Nvidia</span>
+        <span class="tag">Jalapeño</span>
+        <span class="tag">推理晶片</span>
+        <span class="tag">Greg Brockman</span>
+        <span class="tag stock">NVDA</span>
+        <span class="tag stock">AVGO</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/the-memory-chip-crunch-is-paying-off-for-this-u-s-company/" target="_blank">記憶體晶片荒的最大贏家出爐：Micron 單季營收暴增 4 倍至 414.5 億美元</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · In Brief</div>
+      <div class="news-summary">Micron（身為美國最大記憶體晶片廠，市值 1.2 兆美元）公布第三季財報，營收較去年同期暴增 4 倍至 414.5 億美元，淨利從 18.8 億飙升至 282 億美元，雙雙創下歷史紀錄。股價單日大漲超過 13%。本週 Micron 另宣布與 AI 新創 Anthropic 簽訂策略供應協議，將為 Anthropic 提供記憶體與儲存晶片，同時披露參與了 Anthropic 最新一回合的 H 輪增資（金額未揭露）。</div>
+      <div class="news-why">為什麼重要：AI 資料中心對 HBM 記憶體的需求遠超供給，Micron 是少數能生產 HBM 的廠商之一（與 Samsung、SK Hynix 並列）。這次財報印證「記憶體晶片荒」的超級週期仍在持續，而與 Anthropic 的策略結盟更鞏固了其做為 AI 關鍵元件供應商的地位。</div>
+      <div class="news-details">
+        <span class="tag">Micron</span>
+        <span class="tag">HBM</span>
+        <span class="tag">記憶體晶片荒</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">財報</span>
+        <span class="tag stock">MU</span>
+        <span class="tag stock">ANTHROPIC (private)</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/cerebras-stock-plunges-after-earnings-as-ceo-says-margin-outlook-was-misunderstood/" target="_blank">Cerebras 上市後首份財報股價暴跌 20%：CEO 稱毛利率展望遭誤解</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · In Brief</div>
+      <div class="news-summary">Cerebras Systems 公布上市後首季財報，營收 1.93 億美元，年增 94%，但財測全年毛利率將降至 38%~41%（低於第一季的 47%），股價應聲暴跌近 20%，創下上市以來新低，逼近 IPO 發行價。執行長 Andrew Feldman 接受 CNBC 採訪時表示，投資人「誤解」了毛利率展望——公司為加速擴充產能，暫時向最大客戶租用回部分設備以縮短建設時程，對本季毛利率造成一次性衝擊。</div>
+      <div class="news-why">為什麼重要：Cerebras 以「超大晶片」著稱（一片晶片等於一整個伺服器節點），股價暴跌顯示市場對 AI 晶片公司的紀律與獲利能力要求正在提高。推理晶片市場激烈競爭下，故事好聽不夠看，必須端出實質毛利率。</div>
+      <div class="news-details">
+        <span class="tag">Cerebras</span>
+        <span class="tag">財報</span>
+        <span class="tag">Andrew Feldman</span>
+        <span class="tag">推理晶片</span>
+        <span class="tag stock">CBRAS</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/europe-is-pushing-back-on-washingtons-chip-war/" target="_blank">荷蘭部長親赴華府遊說：歐洲反對 MATCH Act 保護 ASML 銷售中國</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · In Brief</div>
+      <div class="news-summary">荷蘭外貿易部長 Sjoerdsma 本週親自赴華府會晤商務部長 Howard Lutnick 與國會議員，反對美國國會正在推動的 MATCH Act。該法案將進一步擴大對中國的晶片設備出口管制，不僅封鎖最先進的 EUV 設備（早已禁止），還要將管制延伸至已存在十多年的 DUV 浸潤式微影設備——此為 ASML 營收的重要來源。中國現占 ASML 整體系統銷售淨額的 19%。</div>
+      <div class="news-why">為什麼重要：這是歐洲首度公開表態反對美國主導的晶片制裁體系。ASML 是歐洲市值最高的公司，若 MATCH Act 通過，不僅衝擊 ASML 本身的營收，更可能加速中國加速自主研發 EUV 的決心，長期削弱制裁效果。</div>
+      <div class="news-details">
+        <span class="tag">ASML</span>
+        <span class="tag">荷蘭</span>
+        <span class="tag">MATCH Act</span>
+        <span class="tag">晶片制裁</span>
+        <span class="tag">DUV</span>
+        <span class="tag">EUV</span>
+        <span class="tag stock">ASML</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: AI 模型與研究 -->
+  <div class="section" id="model">
+    <div class="section-header">
+      <span class="section-icon">🧠</span>
+      <span class="section-title">AI 模型與研究</span>
+      <span class="section-count">4 則</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/" target="_blank">白宮要求 OpenAI 延後發布 GPT 5.6：政府將「逐案審批」新模型使用權</a></div>
+      <div class="news-meta">TechCrunch · 06/25 · 記者：Lucas Ropek</div>
+      <div class="news-summary">OpenAI 最新模型 GPT 5.6 的發布將不走以往「全面公開」路線。根據 The Information 報導，Sam Altman 在內部會議透露，政府已要求 OpenAI 在 preview 期內「逐個客戶審批」使用權。OpenAI 員工並「密切配合」白宮制訂這次限制釋出計畫，涉及的機構包括國家網路總監辦公室（ONCD）與科技政策辦公室（OSTP）。此前 Anthropic 也曾以「模型太危險」為由，將最強的 Claude Mythos 僅提供給少數合作夥伴。</div>
+      <div class="news-why">為什麼重要：這代表「自願監管」已從 Anthropic 的行銷策略升級為實質政策工具。GPT 5.6 這類能自主發現並利用軟體漏洞的前沿模型，若被濫用將對關鍵基礎設施構成國安風險。政府的直接介入顯示 AI 安全監管正從道德呼籲轉向具有約束力的行政作為。</div>
+      <div class="news-details">
+        <span class="tag">OpenAI</span>
+        <span class="tag">GPT 5.6</span>
+        <span class="tag">白宮</span>
+        <span class="tag">Sam Altman</span>
+        <span class="tag">監管</span>
+        <span class="tag">ONCD</span>
+        <span class="tag stock">OPENAI (private)</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/" target="_blank">用電玩訓練 AI 機代理人在真實世界行動：General Intuition 估值 23 億美元</a></div>
+      <div class="news-meta">TechCrunch · 06/25 · 記者：Kyle Wiggers</div>
+      <div class="news-summary">General Intuition 宣布完成 3.2 億美元融资，估值達 23 億美元。該公司從電玩遊戲-clip 平台 Medal.tv 分拆出來，利用玩家在遊戲中按下的按鍵與時間戳記（action labels）來訓練 AI 的時空推理能力。其世界模型可以 frame-by-frame 生成虛擬場景，且能泛化到真實機器人——只需 8 分鐘真實資料即可微調四足機器人在真實街道上行走的模型。公司已與 Khosla Ventures、Jeff Bezos、Eric Schmidt、DeepMind/MIT 研究員完成本輪融資。</div>
+      <div class="news-why">為什麼重要：「動作標記」是訓練 AI 代理人的關鍵維度，過去研究多從影像推估動作，但 General Intuition 直接使用人類操作資料，有助 AI 建立更清晰的「自我」與「環境」邊界認知。這種資料來源的差異化，可能比純視覺世界模型更接近真正的「通用代理」目標。</div>
+      <div class="news-details">
+        <span class="tag">General Intuition</span>
+        <span class="tag">世界模型</span>
+        <span class="tag">AI 代理人</span>
+        <span class="tag">電玩訓練</span>
+        <span class="tag">Khosla Ventures</span>
+        <span class="tag">Jeff Bezos</span>
+        <span class="tag">Medal.tv</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/databricks-former-ai-chief-thinks-he-can-cut-ais-power-bill-by-1000x/" target="_blank">前 Databricks AI 主管新創 Unconventional AI：要用振盪器架構把 AI 電費砍千倍</a></div>
+      <div class="news-meta">TechCrunch · 06/25 · 記者：Russell Brandom</div>
+      <div class="news-summary">前 Databricks AI 主管 Naveen Rao 創立了 Unconventional AI，目標用全新振盪器（oscillator）基礎的電腦架構颠覆 AI 推理的功耗瓶頸。公司發表首款模型 Un-0（圖像生成），在軟體模擬環境下已可達到與 Stable Diffusion 相當的表現，但功耗聲稱可降至千分之一。Un-0 目前在模擬環境運行，Unconventional AI 預定近期公布晶片設計圖，之後自行興建推理叢集對外供應。</div>
+      <div class="news-why">為什麼重要：AI 推理的電力成本正快速成為規模型部署的硬上限。Naveen Rao 認為「能源將是未來幾年 AI 發展的根本限制」，而振盪器架構若真能在功耗上實現 1000 倍改善，將是自 GPU 以來最重要的硬體創新——但目前僅有軟體模擬，真實晶片出貨仍是巨大挑戰。</div>
+      <div class="news-details">
+        <span class="tag">Unconventional AI</span>
+        <span class="tag">振盪器架構</span>
+        <span class="tag">Naveen Rao</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">功耗</span>
+        <span class="tag">Un-0</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/" target="_blank">Patronus AI 獲 5000 萬美元 B 輪：用「數位世界」模擬環境壓測 AI 代理人</a></div>
+      <div class="news-meta">TechCrunch · 06/25 · 記者：Marina Temkin</div>
+      <div class="news-summary">Patronus AI 宣布完成 5000 萬美元 B 輪，由 Greenfield Partners 領投，累計總募資達 7000 萬美元。Patronus 構建「數位世界模型」（digital world models），模擬真實網站與企業內部系統，讓 AI 代理人在這些環境中被強化學習反覆訓練與壓測。其營收在過去一年增長了 15 倍，目前幾乎所有前沿 AI 實驗室都是客戶。CEO Kannappan 形容這就像 Waymo 早期用合成資料訓練自動駕駛——AI 代理人常走捷徑、偷懶完成任務，Patronus 擅長捕捉這些「作弊」行為。</div>
+      <div class="news-why">為什麼重要：隨著 AI 代理人開始替使用者執行多步驟任務（預訂機票、金融分析），確保其行為可靠性成為剛需。Patronus 的「可驗證問題」訓練方法填補了傳統 benchmark 無法真實反映代理人在複雜環境中表現的缺口。這筆融資顯示「AI 安全測試」已從概念走向規模商業化。</div>
+      <div class="news-details">
+        <span class="tag">Patronus AI</span>
+        <span class="tag">數位世界模型</span>
+        <span class="tag">AI 代理人</span>
+        <span class="tag">強化學習</span>
+        <span class="tag">Greenfield Partners</span>
+        <span class="tag">Benchmark</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: AI 產品與應用 -->
+  <div class="section" id="product">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <span class="section-title">AI 產品與應用</span>
+      <span class="section-count">4 則</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/" target="_blank">Anthropic Claude 付費消費者市場攻城掠地：市占直逼 ChatGPT、30 天需求飆 18 倍</a></div>
+      <div class="news-meta">TechCrunch · 06/25</div>
+      <div class="news-summary">根據信用卡交易數據公司 Indagari 分析，Anthropic Claude 的付費消費者人數與營收自 2026 年 1 月以來增長了 75%，且成長動能絲毫未受先前「拒絕提供政府監控國民」風波的影響。在線上教育平台 DataCamp，Claude 已成為搜尋次數最多的關鍵字（超越「AI」本身），過去 30 天內 Claude 相關課程需求量飆升 18 倍。自學消費者對 Claude 課程的需求增速比 ChatGPT 課程快 3 倍。</div>
+      <div class="news-why">為什麼重要：Claude 的付費滲透率持續上升，代表 Anthropic 從「純企業/開發者」定位逐步轉向「面向消費者」的商業模式，為即將到來的 IPO 提供更均衡的營收基礎。隨著 OpenAI 與 Anthropic 先後公開上市，付費消費者市占率將成為投資人衡量兩強的重要指標。</div>
+      <div class="news-details">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">DataCamp</span>
+        <span class="tag">Indagari</span>
+        <span class="tag">IPO</span>
+        <span class="tag stock">ANTHROPIC (private)</span>
+        <span class="tag stock">OPENAI (private)</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/23/anthropics-claude-tag-is-learning-your-company-one-slack-message-at-a-time/" target="_blank">Anthropic 推出 Claude Tag：永駐 Slack 的 AI 同事，讀遍全公司訊息學習公司文化</a></div>
+      <div class="news-meta">TechCrunch · 06/23 · 記者：Rebecca Bellan</div>
+      <div class="news-summary">Anthropic 針對 Slack 推出 Claude Tag 功能，讓 AI 化身為團隊的正式一員。使用者可在頻道中 @Claude 提問或指派任務，Claude 會持續「旁聽」頻道訊息，逐步累積對公司運作的理解——包括閱讀其他獲得授權的頻道以獲取背景資訊。不同於一般聊天機器人，Claude Tag 具備「環境模式」，可主動在對話中插入更新、主動追蹤被遺忘的討論串，並將任務拆解成多步驟後逐一執行。系統管理員可控制 Claude 能存取的頻道與工具範圍。</div>
+      <div class="news-why">為什麼重要：Claude Tag 代表「組織知識代理人」的實際落地——不再是口號，而是每個員工都能接觸的日常工具。此功能與 Microsoft Copilot Work IQ、Snowflake、Databricks 等正面競爭，顯示企業 AI 的競爭焦點正從「個別任務」轉向「組織記憶與持續上下文理解」。</div>
+      <div class="news-details">
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude Tag</span>
+        <span class="tag">Slack</span>
+        <span class="tag">企業 AI</span>
+        <span class="tag">組織知識</span>
+        <span class="tag">AI 代理人</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/facebook-rolls-out-an-ai-companion-app-for-creators/" target="_blank">Meta 推出 Facebook Creator Studio AI 助手：為創作者打造的獨立應用程式</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · 記者：Aisha Malik</div>
+      <div class="news-summary">Meta 宣布將 Facebook Creator Studio 重新定位為獨立的 AI 助手應用程式，專為創作者設計。內建 AI 創作助理可根據創作者的內容風格、成效數據與受眾互動狀況提供個人化建議。另有 AI 留言摘要工具，自動找出最重要留言並以創作者語氣生成回覆草稿。每日開啟 App 時，創作者會看到一份「每日優先事項」摘要，包括新貼文表現、進度追蹤、需要回覆的留言等。Meta 目的是將創作者留在 Facebook 生態系，避免他們流向 TikTok 或 YouTube。</div>
+      <div class="news-why">為什麼重要：Meta 正以 AI 為核心全面更新其創作者工具鏈，此 App 不只是 ChatGPT 的包裝，而是深度整合 Facebook 平台數據的專屬 AI 解決方案。這顯示大型社群平台正在以「AI Native」思維重寫產品邏輯，而非簡單地將既有功能加上一層 AI 外殼。</div>
+      <div class="news-details">
+        <span class="tag">Meta</span>
+        <span class="tag">Facebook</span>
+        <span class="tag">Creator Studio</span>
+        <span class="tag">創作者經濟</span>
+        <span class="tag">Mark Zuckerberg</span>
+        <span class="tag stock">META</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/" target="_blank">Figma 大更新：支援程式碼圖層、動畫、Shader 效果，AI 助手可直接生成 Plug-in</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · 記者：Ivan Mehta</div>
+      <div class="news-summary">Figma 發布重大更新，引入「程式碼圖層」（Code Layers）功能，讓設計師、產品經理與工程師可在同一個協作畫布上直接操作和測試程式碼，而非只有設計稿。平台亦新增動畫與過渡效果支援，以及 Shader 效果與 AI 填充功能。設計師現在可以用文字 prompt 直接建立可重複使用的「AI 技能」，並連接 Notion、Granola、Excel、GitHub 等外部工具。Figma 也整合了去年收購的 Weavy，工作流程生成功能將於今年稍晚直接內建於 Figma。</div>
+      <div class="news-why">為什麼重要：Figma 正在將「多人協作畫布」升級為「設計、開發、部署一站式」的 AI 原生工作平台，挑戰傳統設計工具與 AI 程式碼工具（如 Cursor、Vercel）的邊界。隨著 AI Coding 工具普及，Figma 此舉是守住設計-開發交接關鍵節點的戰略之舉。</div>
+      <div class="news-details">
+        <span class="tag">Figma</span>
+        <span class="tag">設計工具</span>
+        <span class="tag">AI Coding</span>
+        <span class="tag">Shader</span>
+        <span class="tag">Weavy</span>
+        <span class="tag stock">FG</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: 企業 AI 動態 -->
+  <div class="section" id="enterprise">
+    <div class="section-header">
+      <span class="section-icon">🏢</span>
+      <span class="section-title">企業 AI 動態</span>
+      <span class="section-count">2 則</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/companies-are-scrambling-to-stop-employees-from-maxing-out-ai-budgets-with-small-tasks/" target="_blank">「Token 最大化」風氣逆轉：企業開始限制員工用 AI 處理小事，省錢大作戰</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · In Brief</div>
+      <div class="news-summary">年初以來席捲矽谷的「Tokenmaxxing」（最大化使用 AI 風氣）正在快速退燒。Accenture 內部會議流出錄音顯示，公司 AI 策略主管 Justice Kwak 坦言：「我們正處於一個臨界點，AI 已成為實質的成本結構問題，支出變得難以預測。」員工過去被鼓勵大量使用 AI（部分公司甚至設立排行榜），如今 CFO、CIO 們開始要求證明 AI 支出的投資回報率。顧問公司龍頭 Accenture 正在設法阻止員工用 AI 將 PDF 轉成 PPT 等「小事」消耗大量 token。</div>
+      <div class="news-why">為什麼重要：這是 AI 產業從「擴張期」轉向「紀律期」的明確訊號。當「每個人都在用 AI」不再自動等於「AI 投資有回報」，企業將開始嚴格評估哪些任務值得用昂貴的 token、哪些可用更便宜的替代方案。這個轉變將重新塑造企業 AI 軟體的定價邏輯。</div>
+      <div class="news-details">
+        <span class="tag">Tokenmaxxing</span>
+        <span class="tag">Accenture</span>
+        <span class="tag">企業 IT</span>
+        <span class="tag">CFO</span>
+        <span class="tag">成本控制</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/" target="_blank">AI 取代工程師？最新數據打臉：軟體工程是 2025 年最具韌性的工作職能</a></div>
+      <div class="news-meta">TechCrunch · 06/24</div>
+      <div class="news-summary">創投 SignalFire 分析涵蓋超過 80 萬家公司、數百萬員工的雇傭數據，發現工程師是 2025 年最具韌性的工作職能。大科技公司總招募人數較 2019 年下滑 25%，但工程師僅減少 11%，且工程師占 12 家「科技巨頭」新進員工總數的 55%（2019 年為 46%）。新創公司整體反而多招募了 7% 的工程師。Anthropic 自身經濟學主管也表示「尚未觀察到 AI 對就業市場的任何實質影響」。Nvidia CEO Jensen Huang 更直指工程師「比以往更忙碌」。</div>
+      <div class="news-why">為什麼重要：這與今年以來「AI 將消滅白領工作」的恐慌論述形成鮮明對比。Jevons 悖論在此展現——AI 讓工程師效率大增，反而創造更多需求。在 AI 工具滲透率最高的矽谷，工程師需求不減反增的事實，為整個 AI 應用投資邏輯提供了正面依據。</div>
+      <div class="news-details">
+        <span class="tag">SignalFire</span>
+        <span class="tag">軟體工程</span>
+        <span class="tag">Jevons 悖論</span>
+        <span class="tag">Jensen Huang</span>
+        <span class="tag">Nvidia</span>
+        <span class="tag stock">NVDA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: AI 投融資與併購 -->
+  <div class="section" id="funding">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <span class="section-title">AI 投融資與併購</span>
+      <span class="section-count">5 則</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/" target="_blank">General Intuition 完成 3.2 億美元融资，估值 23 億美元——Khosla Ventures 領投</a></div>
+      <div class="news-meta">TechCrunch · 06/25</div>
+      <div class="news-summary">General Intuition 宣布完成 3.2 億美元融资，由 Khosla Ventures 領投，估值達 23 億美元。本輪投資人包括 Jeff Bezos、Eric Schmidt、General Catalyst、Nico Rosberg 以及 Google DeepMind 與 MIT 研究員。Vinod Khosla 表示，他看中的不僅是 Pim de Witte 的願景，更是 Medal.tv 累積的專有動作資料護城河——「LLM 出現推理突破，而世界模型的量子跳躍將是直覺的出現，遊戲中的人類動作資料是關鍵。」</div>
+      <div class="news-why">為什麼重要：這是 AI 代理人訓練領域迄今最大規模的單筆融资之一，顯示利用「非傳統資料來源」（遊戲動作資料）訓練通用 AI 代理人的方向已獲頂級投資人認可。Jeff Bezos 和 Eric Schmidt 雙雙入局，代表此方向的非學術驗證意義重大。</div>
+      <div class="news-details">
+        <span class="tag">General Intuition</span>
+        <span class="tag">Khosla Ventures</span>
+        <span class="tag">Jeff Bezos</span>
+        <span class="tag">$2.3B 估值</span>
+        <span class="tag">世界模型</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/adobe-acquires-image-and-video-enhancement-tool-maker-topaz-labs/" target="_blank">Adobe 收購 Topaz Labs：把影視增強 AI 模型直接整合進 Creative Cloud</a></div>
+      <div class="news-meta">TechCrunch · 06/25 · 記者：Ivan Mehta</div>
+      <div class="news-summary">Adobe 宣布收購 Topaz Labs，後者以 AI 影像與影片增強工具聞名，曾獲 2025 年艾美獎肯定。Topaz 擁有 Astra（AI 影片超解析度）與 Wonder（影像修飾與增強）等模型，並研發出可在消費級 GPU 上跑大型 AI 模型的「NeuroStream」技術。Adobe 計劃將 Topaz 模型整合至 Firefly AI App 與 Creative Cloud 各套件，並維持獨立販售。收購預計於 2026 下半年完成。Adobe 此舉明顯是防禦性動作——阻止專業用戶流向 DaVinci Resolve（Blackmagic）或 Canva。</div>
+      <div class="news-why">為什麼重要：Adobe 正面臨 Canva 與 Blackmagic Design 的雙重夾擊，收購 Topaz Labs 等於直接吸收其在本地端 AI 推理加速的技術能力。這是 Adobe 在 Firefly 之後最實質的 AI 技術補充，也顯示大型創意軟體公司正在加速透過併購填補 AI 能力缺口。</div>
+      <div class="news-details">
+        <span class="tag">Adobe</span>
+        <span class="tag">Topaz Labs</span>
+        <span class="tag">收購</span>
+        <span class="tag">Creative Cloud</span>
+        <span class="tag">Firefly</span>
+        <span class="tag stock">ADBE</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/25/netris-raises-15m-series-a-from-a16z-to-help-ai-neoclouds-go-live-faster/" target="_blank">Netris 獲 a16z 1500 萬美元 A 輪：用網路交換器軟體幫 AI 新雲端快速上線</a></div>
+      <div class="news-meta">TechCrunch · 06/25 · 記者：Ram Iyer</div>
+      <div class="news-summary">Netris 宣布完成 1500 萬美元 A 輪，由 Andreessen Horowitz（a16z）領投。Netris 提供網路交換器上的自動化軟體，幫助 GPU 叢集與 AI neoclouds 縮短資料中心上線時間——從數月降至數天。其平台可在交換器層級隔離伺服器資源、支援多租戶，並相容 Nvidia 與 AMD 的伺服器。目前 Netris 已服務 Lightning AI、Foxconn、Visionbay、HPE、TensorWave、Telus 等 35 個 GPU 叢集（合計約 100 萬顆 GPU）。</div>
+      <div class="news-why">為什麼重要：AI neocloud 賽道火熱，但「讓資料中心跑起來」這個基礎設施層的痛點長期被忽略。Netris 正是填補這個缺口——GPU 再強，網路交換器設定出錯就全部卡死。a16z 的入股代表他們看好 AI 基礎設施軟體層的長期價值。</div>
+      <div class="news-details">
+        <span class="tag">Netris</span>
+        <span class="tag">a16z</span>
+        <span class="tag">AI neocloud</span>
+        <span class="tag">網路交換器</span>
+        <span class="tag">GPU 叢集</span>
+        <span class="tag stock">NVDA</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/22/ai-chipmaker-groq-confirms-650m-raise-re-staffs-after-nvidias-20b-not-acqui-hire-deal/" target="_blank">Groq 確認 6.5 億美元重生： Nvidia 20 億「不是收購的收購」後重新出發</a></div>
+      <div class="news-meta">TechCrunch · 06/22 · 記者：Kylie Robison</div>
+      <div class="news-summary">Groq 確認完成 6.5 億美元新輪融资，由 Disruptive 與 Infinitum 領投。6 個月前，Nvidia 以 20 億美元簽署 Groq LPU 技術的非獨家授權協議，並挖走創辦人 Jonathan Ross 與總裁 Sunny Madra 等員工。Groq 隨後由共同創辦人 Doug Wightman 接任 CEO，並將策略重心轉向 neocloud 業務（目前 13 座資料中心遍及北美、歐洲、中東、亞太，服務超過 500 萬開發者）。公司新聘 xAI/Meta 前 COO Alan Rice 與新 CTO Sinclair Schuller。</div>
+      <div class="news-why">為什麼重要：Nvidia 的「不是收購的收購」模式引發業界熱議——付錢取得智財權同時吸走關鍵人才，但目標公司仍可繼續營運。Groq 的重生顯示 LPU 推理市場需求夠大，即使失去部分 IP 仍能靠 neocloud 服務重建估值。</div>
+      <div class="news-details">
+        <span class="tag">Groq</span>
+        <span class="tag">LPU</span>
+        <span class="tag">Nvidia</span>
+        <span class="tag">Jonathan Ross</span>
+        <span class="tag">neocloud</span>
+        <span class="tag stock">NVDA</span>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/23/fika-jobs-raises-4m-to-build-a-video-first-hiring-platform-where-ai-agents-interview-candidates/" target="_blank">Fika Jobs 獲 400 萬美元：用 AI 影片面試取代履歷，打造「求職版 TikTok」</a></div>
+      <div class="news-meta">TechCrunch · 06/23</div>
+      <div class="news-summary">總部位於斯德哥爾摩的 Fika Jobs 宣布完成 400 萬美元 pre-seed 轮融资，打造「影片優先」的招募平台。求職者連接 LinkedIn 檔案後，AI 會根據其背景生成個人化面試問題，求職者以約 10 分鐘 AI 影片面試完成回答（目前使用 Google Gemini 模型）。系統自動將回答剪輯成分享式短影片，形成一個「AI 已審核過」的動態履歷檔案，供雇主主動瀏覽而非傳統被動投遞。</div>
+      <div class="news-why">為什麼重要：傳統招募充斥「履歷黑盒子」，Fika Jobs 以「AI 預篩 + 影片人格呈現」重新設計招募漏斗的入口。這是 AI 對「紙本審查」最直觀的顛覆場景之一，但同樣引發對「影片是否帶入外貌/口音偏見」的質疑。</div>
+      <div class="news-details">
+        <span class="tag">Fika Jobs</span>
+        <span class="tag">招募</span>
+        <span class="tag">影片 AI</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">瑞典</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: AI 人事與組織 -->
+  <div class="section" id="talent">
+    <div class="section-header">
+      <span class="section-icon">👥</span>
+      <span class="section-title">AI 人事與組織</span>
+      <span class="section-count">1 則</span>
+    </div>
+
+    <div class="news-card">
+      <div class="news-title"><a href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/" target="_blank">Google 又有兩位 Gemini 核心科學家跳槽 Anthropic：人才流失潮持續</a></div>
+      <div class="news-meta">TechCrunch · 06/24 · In Brief</div>
+      <div class="news-summary">根據 Bloomberg 報導，Google 兩位頂尖 AI 研究人員 Jonas Adler 與 Alexander Pritzel 即將離開 Google 加入 Anthropic，兩人皆在 Gemini 模型開發中扮演關鍵角色。這是近期 Google 人才流失的最新案例：上週 Noam Shazeer（Google 傳奇工程師，曾共同發明 Transformer）宣布離開 Google 加入 OpenAI；John Jumper（AlphaFold 諾貝爾獎共同得主、Google DeepMind 總監）也於數日後宣布轉投 Anthropic。隨著 OpenAI 與 Anthropic 積極籌備 IPO，以股票期權吸引人才，對 Google 形成結構性威脅。</div>
+      <div class="news-why">為什麼重要：矽谷頂級 AI 人才爭奪已進入「零和博弈」階段——當 Anthropic 和 OpenAI 可以用 IPO 前的股票期權激烈爭奪 Google 頂尖研究者，後者留才的成本與難度大幅上升。對 Google 而言這不只是人才問題，而是攸關下一代模型競爭力的核心資產流失。</div>
+      <div class="news-details">
+        <span class="tag">Google</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Jonas Adler</span>
+        <span class="tag">Alexander Pritzel</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">IPO</span>
+        <span class="tag stock">GOOGL</span>
+        <span class="tag stock">ANTHROPIC (private)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEYWORDS -->
+  <div class="keywords">
+    <h2>🔑 今日關鍵詞</h2>
+    <div class="kw-list">
+      <span class="kw-item">Jalapeño</span>
+      <span class="kw-item">Broadcom</span>
+      <span class="kw-item">GPT 5.6</span>
+      <span class="kw-item">Claude Tag</span>
+      <span class="kw-item">General Intuition</span>
+      <span class="kw-item">Patronus AI</span>
+      <span class="kw-item">Micron (MU)</span>
+      <span class="kw-item">ASML</span>
+      <span class="kw-item">MATCH Act</span>
+      <span class="kw-item">Token Rationing</span>
+      <span class="kw-item">Cerebras (CBRAS)</span>
+      <span class="kw-item">Groq</span>
+      <span class="kw-item">Topaz Labs</span>
+      <span class="kw-item">Agility Robotics</span>
+      <span class="kw-item">Sam Altman</span>
+      <span class="kw-item">Naveen Rao</span>
+      <span class="kw-item">Vinod Khosla</span>
+      <span class="kw-item">Jeff Bezos</span>
+      <span class="kw-item">Pim de Witte</span>
+      <span class="kw-item">Un-0</span>
+      <span class="kw-item">Digital World Models</span>
+      <span class="kw-item">Oscillator Architecture</span>
+      <span class="kw-item">LPU</span>
+      <span class="kw-item">HBM</span>
+      <span class="kw-item">Fika Jobs</span>
+      <span class="kw-item">Jonas Adler</span>
+      <span class="kw-item">Alexander Pritzel</span>
+      <span class="kw-item">Indagari</span>
+    </div>
+  </div>
+
+  <!-- OBSERVE -->
+  <div class="observe">
+    <h2>🔮 明日觀察（2026-06-27）</h2>
+    <ul>
+      <li><strong>GTTP 5.6 限制發布效應：</strong>觀察其他 AI 公司是否跟進「自願審查」策略，以及 OpenAI 對政府監管的實質讓步是否引發國會立法討論</li>
+      <li><strong>Micron 財報示範效應：</strong>記憶體晶片荒持續發酵，SK Hynix、Samsung 是否有類似財報或動作；HBM 供應緊張可能加速新產能投資宣布</li>
+      <li><strong>Anthropic IPO 準備進度：</strong>隨著 John Jumper 等核心人才持續加入，IPO 前集資輪次與估值是否再有變化</li>
+      <li><strong>印度資料中心投資潮：</strong>亞馬遜 $130 億、微軟 $175 億、Google $150 億後，印度本地企業（Reliance、Adani）AI 基礎設施佈局有何實質進展</li>
+      <li><strong>Groq neocloud 競爭態勢：</strong>Nvidia LPU 授權硬體正式出貨後，Groq 的差異化還剩多少</li>
+      <li><strong>Agility Robotics SPAC 上市：</strong>人形機器人商業化階段觀察，Schaeffler、 Toyota 部署實況是否釋出更多數據</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>📰 由 OpenClaw 自動生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+    <p style="margin-top:10px;">© 2026 acstep · 2026-06-26</p>
+  </footer>
+</div>
+</body>
+</html>
