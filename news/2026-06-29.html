@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞日報｜2026-06-29｜34 則重點整理</title>
+<meta name="description" content="2026 年 6 月 29 日（週一） TechCrunch AI 新聞繁體中文摘要整理，34 則新聞、8 大主題分類。">
+<style>
+  :root {
+    --bg: #080810;
+    --bg-soft: #0e0e1a;
+    --bg-card: #13131f;
+    --border: #1f1f2e;
+    --border-soft: #2a2a3e;
+    --text: #e8e8ee;
+    --text-soft: #a8a8b8;
+    --text-dim: #6b6b7b;
+    --accent: #00d4ff;
+    --accent2: #00ff88;
+    --warn: #fbbf24;
+    --danger: #fb7185;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  header.hero {
+    background: linear-gradient(135deg, #0a0a18 0%, #14142a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 50px 0 40px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero-date {
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .hero-sub {
+    color: var(--text-soft);
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 18px;
+  }
+  .hero-stat-num { color: var(--accent); font-size: 24px; font-weight: 700; }
+  .hero-stat-label { color: var(--text-dim); font-size: 12px; }
+  .hero-aside {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .hero-aside h3 { color: var(--accent2); font-size: 14px; margin-bottom: 12px; }
+  .kw-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+  .kw-cloud span {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  section { padding: 50px 0; }
+  section h2.section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  section h2.section-title::before {
+    content: '';
+    width: 6px;
+    height: 28px;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+  .top3-grid {
+    display: grid;
+    gap: 20px;
+  }
+  .top3-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .top3-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  .top3-rank {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.6;
+  }
+  .top3-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .cat-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .top3-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .top3-title a { color: var(--text); text-decoration: none; }
+  .top3-title a:hover { color: var(--accent); }
+  .top3-summary { color: var(--text-soft); font-size: 15px; margin-bottom: 10px; }
+  .top3-important { color: var(--warn); font-size: 14px; }
+  .radar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .radar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .radar-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  .radar-icon { font-size: 32px; margin-bottom: 8px; }
+  .radar-name { font-size: 14px; color: var(--text-soft); margin-bottom: 6px; }
+  .radar-count { font-size: 24px; font-weight: 800; color: var(--accent); margin-bottom: 8px; }
+  .radar-rep {
+    display: block;
+    color: var(--text-dim);
+    font-size: 12px;
+    text-decoration: none;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-soft);
+  }
+  .radar-rep:hover { color: var(--accent2); }
+  .category-section { padding: 30px 0; }
+  .cat-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding-left: 16px;
+    border-left: 5px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cat-count {
+    color: var(--text-dim);
+    font-size: 14px;
+    font-weight: 400;
+    background: var(--bg-card);
+    padding: 4px 10px;
+    border-radius: 10px;
+  }
+  .news-list { display: grid; gap: 16px; }
+  .news-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .news-card:hover {
+    border-color: var(--border-soft);
+    transform: translateX(4px);
+  }
+  .news-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .news-title {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .news-title a { color: var(--text); text-decoration: none; }
+  .news-title a:hover { color: var(--accent); }
+  .news-title-en {
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .news-body p { margin-bottom: 10px; font-size: 14px; }
+  .news-body strong { color: var(--accent2); margin-right: 4px; }
+  .summary { color: var(--text-soft); }
+  .important { color: var(--warn); }
+  .entities, .stocks { margin-top: 10px; }
+  .entity, .stock {
+    display: inline-block;
+    background: var(--bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    padding: 3px 8px;
+    margin: 2px 4px 2px 0;
+    font-size: 12px;
+  }
+  .stock.us { color: var(--accent); border-color: rgba(0, 212, 255, 0.3); }
+  .stock.tw { color: var(--accent2); border-color: rgba(0, 255, 136, 0.3); }
+  .outlook-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .outlook-box h3 { color: var(--accent2); margin-bottom: 16px; font-size: 18px; }
+  .outlook-box ul { list-style: none; }
+  .outlook-box li {
+    padding: 8px 0 8px 20px;
+    color: var(--text-soft);
+    position: relative;
+    border-bottom: 1px dashed var(--border);
+  }
+  .outlook-box li:last-child { border-bottom: none; }
+  .outlook-box li::before {
+    content: '▸';
+    color: var(--accent2);
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+  .footer {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+  .footer a { color: var(--accent); text-decoration: none; }
+  .nav-sticky {
+    position: sticky;
+    top: 0;
+    background: rgba(8, 8, 16, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 12px 0;
+  }
+  .nav-sticky .container {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .nav-sticky a {
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    transition: background 0.2s;
+  }
+  .nav-sticky a:hover { background: var(--bg-card); color: var(--accent); }
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 30px; }
+    .top3-card { grid-template-columns: 1fr; }
+    .top3-rank { font-size: 32px; }
+    .top3-title { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-date">2026 年 6 月 29 日（週一）</div>
+      <h1 class="hero-title">AI 新聞日報</h1>
+      <p class="hero-sub">每日精選 TechCrunch AI 相關新聞，繁體中文摘要、台美概念股標註。</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">34</div>
+          <div class="hero-stat-label">則新聞</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">8</div>
+          <div class="hero-stat-label">大主題</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">7</div>
+          <div class="hero-stat-label">日回顧</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-aside">
+      <h3>🔑 今日關鍵詞</h3>
+      <div class="kw-cloud"><span class="keyword">Anthropic</span><span class="keyword">OpenAI</span><span class="keyword">GPT-5.6</span><span class="keyword">Jalapeño</span><span class="keyword">Broadcom</span><span class="keyword">Claude</span><span class="keyword">Mythos</span><span class="keyword">Micron</span><span class="keyword">HBM</span><span class="keyword">NVIDIA</span><span class="keyword">Cerebras</span><span class="keyword">AWS</span><span class="keyword">Amazon</span><span class="keyword">Adobe</span><span class="keyword">Topaz</span><span class="keyword">Patronus AI</span><span class="keyword">General Intuition</span><span class="keyword">Netris</span><span class="keyword">Menlo Ventures</span><span class="keyword">Forbes</span><span class="keyword">White House</span><span class="keyword">MATCH Act</span><span class="keyword">ASML</span><span class="keyword">Elon Musk</span><span class="keyword">SpaceX</span><span class="keyword">xAI</span><span class="keyword">Prabhjeet Singh</span><span class="keyword">Vishal Sikka</span><span class="keyword">Vianai</span><span class="keyword">Infosys</span><span class="keyword">Naveen Rao</span><span class="keyword">Databricks</span><span class="keyword">Unconventional</span><span class="keyword">Notion</span><span class="keyword">Facebook</span><span class="keyword">Meta</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-sticky">
+  <div class="container">
+    <a href="#top3">🏆 頭條</a>
+    <a href="#radar">🎯 主題雷達</a>
+    <a href="#cat-AI 晶片與硬體">💾 AI 晶片與硬體</a>
+    <a href="#cat-AI 模型與研究">🧠 AI 模型與研究</a>
+    <a href="#cat-AI 產品與應用">🤖 AI 產品與應用</a>
+    <a href="#cat-企業 AI 動態">🏢 企業 AI 動態</a>
+    <a href="#cat-AI 投融資與併購">💰 AI 投融資與併購</a>
+    <a href="#cat-AI 政策與監管">🏛️ AI 政策與監管</a>
+    <a href="#cat-AI 人事與組織">👥 AI 人事與組織</a>
+    <a href="#cat-AI 國際與地緣政治">🌍 AI 國際與地緣政治</a>
+    <a href="#outlook">🔮 明日觀察</a>
+  </div>
+</nav>
+
+<main class="container">
+
+<section id="top3">
+  <h2 class="section-title">🏆 今日 3 大頭條</h2>
+  <div class="top3-grid">
+    
+<div class="top3-card" style="--accent:#fbbf24">
+  <div class="top3-rank">1</div>
+  <div class="top3-content">
+    <div class="top3-meta">
+      <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+      <span class="date">2026-06-28</span>
+    </div>
+    <h3 class="top3-title">
+      <a href="https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/" target="_blank" rel="noopener">AI 表現不如預期，Ford 重新聘回 350 名資深工程師</a>
+    </h3>
+    <p class="top3-summary">Ford 高層於 Bloomberg 活動中證實，公司已重新聘僱 350 名資深工程師（部分為前員工，部分來自供應商），原因是其 AI 與自動化系統未能達到預期的品質水準。這些被暱稱為「gray beard」的資深工程師將協助解決品質問題。Ford 早在 2022 年就曾因類似原因裁員並轉向 AI，但如今面臨工廠良率與軟體問題，又走回頭路。這凸顯出在製造業、組裝線、品管等高變動環境中，純 AI 視覺與預測模型仍難以取代人類經驗。</p>
+    <p class="top3-important"><strong>💡 為什麼重要：</strong>這是一個極具代表性的『AI 幻滅』案例：即便資金與技術到位，老牌車廠仍發現 AI 無法取代資深工程師的直覺與工藝。這對所有正在導入 AI 自動化的大型製造企業是個警鐘——AI 並非萬靈丹，特別是在容錯率極低的產線上。</p>
+  </div>
+</div>
+<div class="top3-card" style="--accent:#00d4ff">
+  <div class="top3-rank">2</div>
+  <div class="top3-content">
+    <div class="top3-meta">
+      <span class="cat-badge" style="border-color:#00d4ff;color:#00d4ff">💾 AI 晶片與硬體</span>
+      <span class="date">2026-06-28</span>
+    </div>
+    <h3 class="top3-title">
+      <a href="https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/" target="_blank" rel="noopener">為何華爾街看好美光成為下一個 NVIDIA</a>
+    </h3>
+    <p class="top3-summary">位於愛達荷州 Boise 的記憶體晶片大廠美光（Micron）正受到華爾街熱烈追捧，市場期待它能複製 NVIDIA 的崛起軌跡。AI 驅動的 HBM（高頻寬記憶體）與 DRAM 需求大爆發，加上 Micron 已提前鎖定 2025-2026 年的供應訂單，使其享有定價話語權。分析師指出，AI 訓練與推論都極度仰賴高容量記憶體，這個結構性短缺短期內難以緩解。Micron 也正積極擴大 HBM3E 與 HBM4 產能以滿足客戶。</p>
+    <p class="top3-important"><strong>💡 為什麼重要：</strong>若 Micron 真的成為『下一個 NVIDIA』，意味著 AI 價值鏈的瓶頸已從 GPU 算力轉向記憶體頻寬。這對台股的南亞科、華邦電、力積電等記憶體廠，以及 HBM 封裝的穎崴、旺矽等供應鏈都是直接利多。美光股價與台股記憶體族群高度連動。</p>
+  </div>
+</div>
+<div class="top3-card" style="--accent:#00d4ff">
+  <div class="top3-rank">3</div>
+  <div class="top3-content">
+    <div class="top3-meta">
+      <span class="cat-badge" style="border-color:#00d4ff;color:#00d4ff">💾 AI 晶片與硬體</span>
+      <span class="date">2026-06-24</span>
+    </div>
+    <h3 class="top3-title">
+      <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener">OpenAI 揭曉首款自研推論晶片『Jalapeño』，由 Broadcom 代工</a>
+    </h3>
+    <p class="top3-summary">OpenAI 公開首款自研推論處理器『Jalapeño』，由 Broadcom 設計與代工。Jalapeño 專為 OpenAI 推論工作負載優化，目標是降低每 token 推論成本與減少對 NVIDIA 的依賴。首批部署將在 OpenAI 自家資料中心內部使用，未來可能透過 Azure 對外提供。</p>
+    <p class="top3-important"><strong>💡 為什麼重要：</strong>這是 OpenAI 走向『算力自主』的關鍵一步。雖然短期內無法取代 NVIDIA，但長期會削弱 NVIDIA 的議價能力，並讓 Broadcom 成為 AI 推論晶片的另一個關鍵玩家。對台股的 CoWoS 供應鏈、IC 設計服務（世芯、創意）也是商機。</p>
+  </div>
+</div>
+  </div>
+</section>
+
+<section id="radar">
+  <h2 class="section-title">🎯 主題雷達</h2>
+  <div class="radar-grid">
+    
+<div class="radar-card" style="--accent:#00d4ff">
+  <div class="radar-icon">💾</div>
+  <div class="radar-name">AI 晶片與硬體</div>
+  <div class="radar-count">5 則</div>
+  <a class="radar-rep" href="#news-2">▸ 為何華爾街看好美光成為下一個 NVIDIA</a>
+</div>
+<div class="radar-card" style="--accent:#a78bfa">
+  <div class="radar-icon">🧠</div>
+  <div class="radar-name">AI 模型與研究</div>
+  <div class="radar-count">1 則</div>
+  <a class="radar-rep" href="#news-18">▸ Databricks 前 AI 主管：能把 …</a>
+</div>
+<div class="radar-card" style="--accent:#00ff88">
+  <div class="radar-icon">🤖</div>
+  <div class="radar-name">AI 產品與應用</div>
+  <div class="radar-count">6 則</div>
+  <a class="radar-rep" href="#news-5">▸ 健身房常客創辦人罹癌，靠 AI 揪出早期腫瘤</a>
+</div>
+<div class="radar-card" style="--accent:#fbbf24">
+  <div class="radar-icon">🏢</div>
+  <div class="radar-name">企業 AI 動態</div>
+  <div class="radar-count">7 則</div>
+  <a class="radar-rep" href="#news-1">▸ AI 表現不如預期，Ford 重新聘回 35…</a>
+</div>
+<div class="radar-card" style="--accent:#f472b6">
+  <div class="radar-icon">💰</div>
+  <div class="radar-name">AI 投融資與併購</div>
+  <div class="radar-count">6 則</div>
+  <a class="radar-rep" href="#news-13">▸ FTC 核准馬斯克收購 SpaceX 校友新…</a>
+</div>
+<div class="radar-card" style="--accent:#fb7185">
+  <div class="radar-icon">🏛️</div>
+  <div class="radar-name">AI 政策與監管</div>
+  <div class="radar-count">4 則</div>
+  <a class="radar-rep" href="#news-8">▸ 川普政府放行 Anthropic Mytho…</a>
+</div>
+<div class="radar-card" style="--accent:#60a5fa">
+  <div class="radar-icon">👥</div>
+  <div class="radar-name">AI 人事與組織</div>
+  <div class="radar-count">3 則</div>
+  <a class="radar-rep" href="#news-4">▸ Apple Vision Pro 主管傳將跳…</a>
+</div>
+<div class="radar-card" style="--accent:#34d399">
+  <div class="radar-icon">🌍</div>
+  <div class="radar-name">AI 國際與地緣政治</div>
+  <div class="radar-count">2 則</div>
+  <a class="radar-rep" href="#news-6">▸ Anthropic 出口禁令延長，亞洲新創推…</a>
+</div>
+  </div>
+</section>
+
+
+<section class="category-section" id="cat-AI 晶片與硬體">
+  <h2 class="cat-title" style="border-left-color:#00d4ff">💾 AI 晶片與硬體 <span class="cat-count">5 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-2">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00d4ff;color:#00d4ff">💾 AI 晶片與硬體</span>
+    <span class="date">2026-06-28</span>
+    <span class="time">2026-06-28 23:00</span>
+    <span class="author">✍️ Kirsten Korosec</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/" target="_blank" rel="noopener">為何華爾街看好美光成為下一個 NVIDIA</a>
+  </h3>
+  <p class="news-title-en">Why Wall Street thinks US memory maker Micron is the next Nvidia ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>位於愛達荷州 Boise 的記憶體晶片大廠美光（Micron）正受到華爾街熱烈追捧，市場期待它能複製 NVIDIA 的崛起軌跡。AI 驅動的 HBM（高頻寬記憶體）與 DRAM 需求大爆發，加上 Micron 已提前鎖定 2025-2026 年的供應訂單，使其享有定價話語權。分析師指出，AI 訓練與推論都極度仰賴高容量記憶體，這個結構性短缺短期內難以緩解。Micron 也正積極擴大 HBM3E 與 HBM4 產能以滿足客戶。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>若 Micron 真的成為『下一個 NVIDIA』，意味著 AI 價值鏈的瓶頸已從 GPU 算力轉向記憶體頻寬。這對台股的南亞科、華邦電、力積電等記憶體廠，以及 HBM 封裝的穎崴、旺矽等供應鏈都是直接利多。美光股價與台股記憶體族群高度連動。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Micron</span><span class="entity">NVIDIA</span><span class="entity">HBM3E</span><span class="entity">HBM4</span><span class="entity">DRAM</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MU</span><span class="stock us">美: NVDA</span><span class="stock tw">台: 南亞科(2408)</span><span class="stock tw">台: 華邦電(2344)</span><span class="stock tw">台: 力積電(6770)</span><span class="stock tw">台: 穎崴(6515)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-3">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00d4ff;color:#00d4ff">💾 AI 晶片與硬體</span>
+    <span class="date">2026-06-27</span>
+    <span class="time">2026-06-28 04:42</span>
+    <span class="author">✍️ Anthony Ha</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/27/softbanks-ceo-isnt-the-only-one-with-questions-about-elon-musks-orbital-data-center-hype/" target="_blank" rel="noopener">軟銀孫正義質疑馬斯克『軌道資料中心』願景</a>
+  </h3>
+  <p class="news-title-en">SoftBank&#39;s CEO isn&#39;t the only one with questions about Elon Musk&#39;s orbital data center hype ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>軟銀（SoftBank）創辦人兼執行長孫正義在近期股東會上公開質疑馬斯克（Elon Musk）所提的『軌道資料中心』（orbital data center）概念。孫正義認為，資料中心上太空既無法實質降低成本，也曠日廢時；相較之下地面端 AI 應用的投資回報更即時。這番話顯示即使是科技投資老手，也不認為太空運算在當前 AI 競賽中具有實質商業價值。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>孫正義的質疑代表主流資本市場對馬斯克太空 AI 願景的態度開始轉向保守。這對 SpaceX、xAI 等馬斯克旗下事業的估值敘事是一大衝擊，也讓 AI 算力佈局的主流方向重新聚焦於地面資料中心與電力供應。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">SoftBank</span><span class="entity">Masayoshi Son</span><span class="entity">Elon Musk</span><span class="entity">SpaceX</span><span class="entity">xAI</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: SFTBF</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-25">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00d4ff;color:#00d4ff">💾 AI 晶片與硬體</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 06:41</span>
+    <span class="author">✍️ Aisha Malik</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/cerebras-stock-plunges-after-earnings-as-ceo-says-margin-outlook-was-misunderstood/" target="_blank" rel="noopener">Cerebras 財報後股價重挫近 20%，CEO 稱毛利率指引被市場誤解</a>
+  </h3>
+  <p class="news-title-en">Cerebras stock plunges after earnings as CEO says margin outlook was misunderstood ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>AI 晶片新創 Cerebras Systems 公布上市後首份財報，營收優於預期，但毛利率指引引發市場疑慮，股價當日重挫近 20%。CEO Andrew Feldman 在法說會上表示『毛利率展望被市場誤解』，強調公司訂單能見度已達 2027 年。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Cerebras 是 AI 晶片新創中少數已上市的純種股，股價波動將直接影響投資人對整個 AI 晶片新創板塊的信心。短期承壓，但與 NVIDIA 的差異化定位（推論晶片）仍是關鍵看點。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Cerebras Systems</span><span class="entity">Andrew Feldman</span><span class="entity">NVIDIA</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: CBRS</span><span class="stock us">美: NVDA</span><span class="stock tw">台: 世芯-KY(3661)</span><span class="stock tw">台: 創意(3443)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-28">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00d4ff;color:#00d4ff">💾 AI 晶片與硬體</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 05:30</span>
+    <span class="author">✍️ Kirsten Korosec</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/the-memory-chip-crunch-is-paying-off-for-this-us-company/" target="_blank" rel="noopener">記憶體晶片荒點名：美光成最大受惠者</a>
+  </h3>
+  <p class="news-title-en">The memory chip crunch is paying off for this US company ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>AI 推升的高頻寬記憶體（HBM）與 DRAM 需求大爆發，造成記憶體晶片嚴重短缺。在此背景下，美光（Micron）成為美國記憶體三巨頭中受益最明顯的一家，營收與股價雙雙創新高。其 2026 年 HBM 產能已全數被 NVIDIA、AMD 等大客戶預訂。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>記憶體晶片荒是當前 AI 供應鏈最關鍵的瓶頸之一。Micron 業績爆發代表整個 HBM 供應鏈進入超級週期，與台股記憶體族群高度連動。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Micron</span><span class="entity">HBM</span><span class="entity">NVIDIA</span><span class="entity">AMD</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MU</span><span class="stock us">美: NVDA</span><span class="stock us">美: AMD</span><span class="stock tw">台: 南亞科(2408)</span><span class="stock tw">台: 華邦電(2344)</span><span class="stock tw">台: 力積電(6770)</span><span class="stock tw">台: 穎崴(6515)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-31">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00d4ff;color:#00d4ff">💾 AI 晶片與硬體</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-24 22:54</span>
+    <span class="author">✍️ Russell Brandom</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener">OpenAI 揭曉首款自研推論晶片『Jalapeño』，由 Broadcom 代工</a>
+  </h3>
+  <p class="news-title-en">OpenAI unveils its first custom chip, built by Broadcom ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>OpenAI 公開首款自研推論處理器『Jalapeño』，由 Broadcom 設計與代工。Jalapeño 專為 OpenAI 推論工作負載優化，目標是降低每 token 推論成本與減少對 NVIDIA 的依賴。首批部署將在 OpenAI 自家資料中心內部使用，未來可能透過 Azure 對外提供。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是 OpenAI 走向『算力自主』的關鍵一步。雖然短期內無法取代 NVIDIA，但長期會削弱 NVIDIA 的議價能力，並讓 Broadcom 成為 AI 推論晶片的另一個關鍵玩家。對台股的 CoWoS 供應鏈、IC 設計服務（世芯、創意）也是商機。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">OpenAI</span><span class="entity">Jalapeño</span><span class="entity">Broadcom</span><span class="entity">NVIDIA</span><span class="entity">Microsoft Azure</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: AVGO</span><span class="stock us">美: NVDA</span><span class="stock us">美: MSFT</span><span class="stock tw">台: 台積電(2330)</span><span class="stock tw">台: 世芯-KY(3661)</span><span class="stock tw">台: 創意(3443)</span><span class="stock tw">台: 穎崴(6515)</span></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="category-section" id="cat-AI 模型與研究">
+  <h2 class="cat-title" style="border-left-color:#a78bfa">🧠 AI 模型與研究 <span class="cat-count">1 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-18">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#a78bfa;color:#a78bfa">🧠 AI 模型與研究</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-26 00:48</span>
+    <span class="author">✍️ Russell Brandom</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/databricks-former-ai-chief-thinks-he-can-cut-ais-power-bill-by-1-000x/" target="_blank" rel="noopener">Databricks 前 AI 主管：能把 AI 功耗砍千倍的新架構</a>
+  </h3>
+  <p class="news-title-en">Databricks&#39; former AI chief thinks he can cut AI&#39;s power bill by 1,000x ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>由前 Databricks AI 主管 Naveen Rao 領軍的新公司 Unconventional，目標是從底層重做 AI 運算架構，宣稱能將 AI 推論的功耗降低 1,000 倍。其核心想法是擺脫當前 GPU 為中心的運算典範，改採事件驅動（event-driven）、類比、記憶體內運算（in-memory computing）等混合架構。產品還在早期 R&amp;D 階段。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>若 Rao 真的能把 AI 功耗砍 1,000 倍，整個 AI 資料中心與電力供應鏈的經濟模型都會重寫。雖然技術尚未驗證，但這代表 AI 算力典範轉移的可能性仍存在。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Databricks</span><span class="entity">Naveen Rao</span><span class="entity">Unconventional</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: NVDA</span><span class="stock us">美: AMD</span><span class="stock tw">台: 台積電(2330)</span><span class="stock tw">台: 聯發科(2454)</span></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="category-section" id="cat-AI 產品與應用">
+  <h2 class="cat-title" style="border-left-color:#00ff88">🤖 AI 產品與應用 <span class="cat-count">6 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-5">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00ff88;color:#00ff88">🤖 AI 產品與應用</span>
+    <span class="date">2026-06-27</span>
+    <span class="time">2026-06-27 22:00</span>
+    <span class="author">✍️ Connie Loizos</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/27/the-fittest-founder-in-the-room-got-cancer-heres-how-he-used-ai-to-fight-back/" target="_blank" rel="noopener">健身房常客創辦人罹癌，靠 AI 揪出早期腫瘤</a>
+  </h3>
+  <p class="news-title-en">The fittest founder in the room got cancer. Here&#39;s how he used AI to fight back. ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>健身與健康監測狂熱者、創投支持的創業者 Conno Christou 連續四年做了近 100 項血液檢查，卻都未發現異常。一次偶然的 AI 影像分析，幫他在例行 CT 中發現了極早期的胰臟癌腫瘤。他隨後結合多家 AI 醫療平台（包含影像、基因、用藥交互作用分析）擬定個人化治療計畫，目前病情已獲得控制。報導深入描述他如何用 Whoop、Oura 等穿戴裝置數據與 AI 模型交叉比對，提早發現身體異狀。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是一個極具說服力的 AI 醫療落地案例，凸顯個人化醫療 + 穿戴裝置 + 多模態 AI 在早期癌症篩檢的潛力。對數位健康、AI 醫療影像、基因定序等新創是強心劑。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Conno Christou</span><span class="entity">Whoop</span><span class="entity">Oura</span><span class="entity">AI medical imaging</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock tw">台: 長佳智能(6848)</span><span class="stock tw">台: 訊聯基因(4160)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-12">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00ff88;color:#00ff88">🤖 AI 產品與應用</span>
+    <span class="date">2026-06-26</span>
+    <span class="time">2026-06-26 21:00</span>
+    <span class="author">✍️ Kirsten Korosec</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/26/robotaxis-drive-miles-just-to-get-cleaned-and-charged-this-new-startup-wants-to-fix-that/" target="_blank" rel="noopener">Robotaxi 空跑充電清洗耗時，新創出手救援</a>
+  </h3>
+  <p class="news-title-en">Robotaxis drive miles just to get cleaned and charged; this new startup wants to fix that ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>舊金山街頭的無人駕駛計程車為了充電、清潔、保養，經常需花大量空跑里程（deadhead miles）往返遠端據點。新創公司看到了這個痛點，研發出整合式機器人維護站（包含自動充電、清洗、消毒模組），目標將 robotaxi 維運成本降低 30% 以上。Waymo、Cruise、Zoox 等業者都表達興趣。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Robotaxi 商業化的瓶頸不只是 AI 駕駛，後勤維運也是關鍵成本結構。這類『AI 後勤基礎設施』新創將成為自駕車產業鏈的重要環節。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Waymo</span><span class="entity">Cruise</span><span class="entity">Zoox</span><span class="entity">robotaxi</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: GOOGL</span><span class="stock us">美: GM</span><span class="stock us">美: AMZN</span><span class="stock tw">台: 和大(1536)</span><span class="stock tw">台: 智伸科(4551)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-16">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00ff88;color:#00ff88">🤖 AI 產品與應用</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-26 01:38</span>
+    <span class="author">✍️ Julie Bort</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/" target="_blank" rel="noopener">Anthropic Claude 贏得付費消費者市場，威脅 ChatGPT 地盤</a>
+  </h3>
+  <p class="news-title-en">Anthropic&#39;s Claude is winning over paid consumers, a market owned by ChatGPT ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>信用卡交易分析公司 Indagari 的數據顯示，付費 AI 用戶正快速從 ChatGPT 轉向 Anthropic Claude。Claude 在付費訂閱市場的市占率已突破 30%，並仍在成長。分析師認為 Claude 在編碼、長文寫作、深度對話等場景的表現明顯勝出，加上企業用戶的口碑擴散，是其能跨入消費市場的關鍵。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Claude 從 B2B 強項成功跨入消費市場，對 OpenAI 護城河造成直接威脅。AI 訂閱收入是當前 LLM 公司最直接的營收指標，這場消費端爭奪戰將影響兩家公司未來的 IPO 估值。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Anthropic</span><span class="entity">Claude</span><span class="entity">OpenAI</span><span class="entity">ChatGPT</span><span class="entity">Indagari</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MSFT</span><span class="stock us">美: AMZN</span><span class="stock us">美: GOOGL</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-22">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00ff88;color:#00ff88">🤖 AI 產品與應用</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-26 03:14</span>
+    <span class="author">✍️ Ivan Mehta</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/notion-mail-shuts-down-amid-agent-takeover/" target="_blank" rel="noopener">AI 代理接管，Notion 宣布關閉 Notion Mail 郵件服務</a>
+  </h3>
+  <p class="news-title-en">Notion Mail shuts down amid agent takeover ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Notion 宣布將於 9 月 22 日終止其郵件產品 Notion Mail，原因是用戶行為已明顯轉向由 AI 代理代為處理郵件分類、回覆、排程等任務。Notion 將集中資源投入 AI 代理產品線，並把 Notion Mail 用戶資料提供遷移選項。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是首批『被 AI 代理取代的 SaaS』實例之一。Notion Mail 並非失敗產品，而是被時代推進的速度超前。未來更多傳統 SaaS 都可能面臨類似衝擊。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Notion</span><span class="entity">Notion Mail</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock tw">台: 訊連(5203)</span><span class="stock tw">台: 沛星互動(6393)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-30">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00ff88;color:#00ff88">🤖 AI 產品與應用</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 01:16</span>
+    <span class="author">✍️ Aisha Malik</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/facebook-rolls-out-an-ai-companion-app-for-creators/" target="_blank" rel="noopener">Facebook 推出 AI 創作者助理 App，獨立於 Meta 主 App</a>
+  </h3>
+  <p class="news-title-en">Facebook rolls out an AI companion app for creators ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Facebook 宣布把原有的 Creator Studio 工具重塑為獨立的 AI 創作者助理 App。新版本整合 AI 內容生成、受眾洞察、留言回覆、排程建議等功能，目標是協助小型創作者在沒有完整團隊的情況下，也能與大型工作室競爭。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Meta 把 AI 助理從主 App 中拆出獨立成 App，是少見的產品策略。這顯示 Meta 認為 AI 助理的市場夠大，足以撐起一個獨立產品線。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Facebook</span><span class="entity">Meta</span><span class="entity">Creator Studio</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: META</span><span class="stock tw">台: 智冠(5478)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-34">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#00ff88;color:#00ff88">🤖 AI 產品與應用</span>
+    <span class="date">2026-06-22</span>
+    <span class="time">2026-06-23 08:11</span>
+    <span class="author">✍️ Lucas Ropek</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/22/openai-launches-new-initiative-to-help-find-and-patch-open-source-bugs/" target="_blank" rel="noopener">OpenAI 推出新計畫，協助開源社群找漏洞、修補程式</a>
+  </h3>
+  <p class="news-title-en">OpenAI launches new initiative to help find and patch open source bugs ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>OpenAI 推出名為『Patch the Planet』的開源安全新計畫，動員其模型與工程師資源，協助開源社群進行漏洞挖掘、修補與審查。首波重點放在關鍵基礎設施軟體（Linux、Kubernetes、OpenSSL 等）的安全性提升。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>OpenAI 主動投入開源安全，試圖重建其在開源社群的形象（特別是近期被批評『過於封閉』之後）。這對全球開源生態是利多，也將帶動 AI 資安工具的新一波創新。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">OpenAI</span><span class="entity">Linux</span><span class="entity">Kubernetes</span><span class="entity">OpenSSL</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MSFT</span><span class="stock tw">台: 趨勢科技(4904)</span><span class="stock tw">台: 奧義智慧(6913)</span></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="category-section" id="cat-企業 AI 動態">
+  <h2 class="cat-title" style="border-left-color:#fbbf24">🏢 企業 AI 動態 <span class="cat-count">7 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-1">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+    <span class="date">2026-06-28</span>
+    <span class="time">2026-06-29 03:05</span>
+    <span class="author">✍️ Anthony Ha</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/28/ford-rehires-gray-beard-engineers-after-ai-falls-short/" target="_blank" rel="noopener">AI 表現不如預期，Ford 重新聘回 350 名資深工程師</a>
+  </h3>
+  <p class="news-title-en">Ford rehires &#39;gray beard&#39; engineers after AI falls short ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Ford 高層於 Bloomberg 活動中證實，公司已重新聘僱 350 名資深工程師（部分為前員工，部分來自供應商），原因是其 AI 與自動化系統未能達到預期的品質水準。這些被暱稱為「gray beard」的資深工程師將協助解決品質問題。Ford 早在 2022 年就曾因類似原因裁員並轉向 AI，但如今面臨工廠良率與軟體問題，又走回頭路。這凸顯出在製造業、組裝線、品管等高變動環境中，純 AI 視覺與預測模型仍難以取代人類經驗。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是一個極具代表性的『AI 幻滅』案例：即便資金與技術到位，老牌車廠仍發現 AI 無法取代資深工程師的直覺與工藝。這對所有正在導入 AI 自動化的大型製造企業是個警鐘——AI 並非萬靈丹，特別是在容錯率極低的產線上。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Ford</span><span class="entity">Bloomberg</span><span class="entity">American manufacturing</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: F</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-7">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+    <span class="date">2026-06-27</span>
+    <span class="time">2026-06-28 13:00</span>
+    <span class="author">✍️ Ivan Mehta</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/27/indian-payments-chief-thinks-ai-will-be-heavily-involved-in-next-era-of-digital-payment-growth/" target="_blank" rel="noopener">印度支付龍頭：AI 將深度參與下一代數位支付</a>
+  </h3>
+  <p class="news-title-en">Indian payments chief thinks AI will be heavily involved in next era of digital payment growth ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>印度國家支付公司（NPCI）總裁兼執行長 Dilip Asbe 在受訪時表示，印度的 UPI 統一支付介面已突破每日 7.5 億筆交易，目標是達到每日 10 億筆。他認為下一階段的成長將深度仰賴 AI：用於詐欺偵測、即時信貸決策、個人化金融建議、跨語言客服等場景。NPCI 也正與多家 AI 新創合作，試驗基於大型語言模型的支付助理。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>印度 UPI 是全球最大的即時支付系統，NPCI 全面擁抱 AI 將為金融科技 AI 應用立下新標竿，也為印度本土的 AI 新創（Krutrim、Yellow.ai 等）創造大型 B2B 商機。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">NPCI</span><span class="entity">UPI</span><span class="entity">Dilip Asbe</span><span class="entity">Krutrim</span><span class="entity">Yellow.ai</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: GOOGL</span><span class="stock us">美: MSFT</span><span class="stock tw">台: 精誠(6214)</span><span class="stock tw">台: 訊連(5203)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-21">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-25 20:00</span>
+    <span class="author">✍️ Jagmeet Singh</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/amazon-ups-india-bet-with-fresh-13b-ai-infrastructure-investment/" target="_blank" rel="noopener">Amazon 加碼印度 130 億美元 AI 基礎設施投資</a>
+  </h3>
+  <p class="news-title-en">Amazon ups India bet with fresh $13B AI infrastructure investment ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Amazon 宣布在 2030 年前於印度加碼 130 億美元，擴大 AWS 與 AI 基礎設施。投資內容包含新設資料中心區、推動 AWS 區域擴展，以及支援印度本土生成式 AI 新創生態。CEO Andy Jassy 親訪印度總理莫迪後宣布此案。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Amazon 此舉與 Microsoft、Google 爭奪印度雲端與 AI 市場直接相關，130 億美元的規模顯示印度已是全球 AI 算力佈局的必爭之地。對台灣的伺服器 ODM 廠（鴻海、廣達、緯穎）將有新一波印度出貨商機。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Amazon</span><span class="entity">AWS</span><span class="entity">Andy Jassy</span><span class="entity">Narendra Modi</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: AMZN</span><span class="stock us">美: MSFT</span><span class="stock us">美: GOOGL</span><span class="stock tw">台: 鴻海(2317)</span><span class="stock tw">台: 廣達(2382)</span><span class="stock tw">台: 緯穎(6669)</span><span class="stock tw">台: 緯創(3231)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-24">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 07:26</span>
+    <span class="author">✍️ Jagmeet Singh</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/former-infosys-chief-has-a-new-startup-that-wants-to-challenge-the-it-services-world/" target="_blank" rel="noopener">Infosys 前 CEO 創新公司，要用 AI 顛覆 IT 服務業</a>
+  </h3>
+  <p class="news-title-en">Former Infosys chief has a new startup that wants to challenge the IT services world ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>前 Infosys 執行長 Vishal Sikka 推出新創 Vianai Systems，主打『AI 原生』的企業軟體服務，目標是取代傳統 IT 委外（外包客製化、整合、維運）。Vianai 的旗艦產品強調低程式碼、可解釋的 AI 工作流，讓企業客戶能在數週內上線 AI 應用，而非過去動輒 12-18 個月的顧問專案。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Sikka 是印度 IT 服務業的標誌性人物，他親自跳出來用 AI 顛覆自家老本行，預示著 3,000 億美元規模的 IT 服務市場正面臨結構性衝擊。對台灣的資服業者也是警訊。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Vishal Sikka</span><span class="entity">Infosys</span><span class="entity">Vianai Systems</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: INFY</span><span class="stock us">美: TCS</span><span class="stock us">美: WIT</span><span class="stock tw">台: 精誠(6214)</span><span class="stock tw">台: 緯軟(4953)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-26">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 05:56</span>
+    <span class="author">✍️ Marina Temkin</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/ai-was-supposed-to-kill-engineering-jobs-but-new-data-suggests-theyre-the-most-resilient/" target="_blank" rel="noopener">AI 原說要消滅工程師職缺，新數據顯示反而最扛得住</a>
+  </h3>
+  <p class="news-title-en">AI was supposed to kill engineering jobs, but new data suggests they&#39;re the most resilient ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>依據 outplacement firm Challenger, Gray &amp; Christmas 最新數據，5 月科技業裁員創近年新高，AI 是最常被引用的理由。然而深入分析發現，『軟體工程師』這類高度專業的職位在 AI 浪潮中反而最為穩固。被裁的多半是客服、行銷、初階行政等容易被 AI 工具取代的職位。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這項數據緩解了市場對『AI 取代工程師』的恐慌。對開發者與技術人才是利多，但對非技術白領工作者是警訊——他們才是 AI 浪潮下的主要受害者。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Challenger, Gray &amp; Christmas</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock tw">台: 104(3130)</span><span class="stock tw">台: 一零四資訊科技</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-29">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 04:09</span>
+    <span class="author">✍️ Lucas Ropek</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/companies-are-scrambling-to-stop-employees-from-maxing-out-ai-budgets-with-small-tasks/" target="_blank" rel="noopener">公司急擋員工把 AI 額度花在小事上，『代幣極大化』時代告終</a>
+  </h3>
+  <p class="news-title-en">Companies are scrambling to stop employees from maxing out AI budgets with small tasks ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>在 AI 公司鼓勵員工『極大化使用 AI』並祭出內部排行榜後，許多企業意外發現員工把 AI 額度花在翻譯笑話、整理會議筆記等小事上，月費帳單卻快速飆漲。為此企業開始引入嚴格的內部 AI 使用政策、預算上限與審批流程。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是 AI 企業導入的真實痛點：員工對 AI 的過度使用可能讓 ROI 變差。對 AI 治理、預算管理工具的需求將快速興起。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock tw">台: 大訊(6128)</span><span class="stock tw">台: 資通(2471)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-33">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fbbf24;color:#fbbf24">🏢 企業 AI 動態</span>
+    <span class="date">2026-06-22</span>
+    <span class="time">2026-06-23 09:27</span>
+    <span class="author">✍️ Rebecca Bellan, Connie Loizos</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/22/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/" target="_blank" rel="noopener">2026 年 AI 裁員風暴：完整追蹤名單</a>
+  </h3>
+  <p class="news-title-en">The running list: major tech layoffs in 2026 where employers cited AI ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>TechCrunch 持續追蹤 2026 年明確以 AI 為由的科技業裁員事件。最新一筆為 Oracle 公告過去 12 個月裁員 21,000 人（占員工 13%），其他還包含 IBM、Amazon、Google、Meta 等大廠的多輪精簡。文章詳細列出每一輪裁員的規模、部門、AI 應用場景。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這份清單是觀察 AI 對就業市場衝擊最即時的窗口。對人力資源、職業訓練、新創商機（AI 取代後的再就業工具）等都是關鍵參考。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Oracle</span><span class="entity">IBM</span><span class="entity">Amazon</span><span class="entity">Google</span><span class="entity">Meta</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: ORCL</span><span class="stock us">美: IBM</span><span class="stock us">美: AMZN</span><span class="stock us">美: GOOGL</span><span class="stock us">美: META</span></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="category-section" id="cat-AI 投融資與併購">
+  <h2 class="cat-title" style="border-left-color:#f472b6">💰 AI 投融資與併購 <span class="cat-count">6 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-13">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#f472b6;color:#f472b6">💰 AI 投融資與併購</span>
+    <span class="date">2026-06-26</span>
+    <span class="time">2026-06-27 08:38</span>
+    <span class="author">✍️ Marina Temkin</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/26/ftc-gives-musk-the-ok-to-acquire-spacex-alumni-startup-mesh/" target="_blank" rel="noopener">FTC 核准馬斯克收購 SpaceX 校友新創 Mesh</a>
+  </h3>
+  <p class="news-title-en">FTC gives Musk the OK to acquire SpaceX alumni startup Mesh ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>美國聯邦貿易委員會（FTC）核准了 Elon Musk 收購 Mesh Optical Technologies 的交易。Mesh 是由 3 名 SpaceX 前工程師去年成立的新創，專門研發資料中心高速光通訊硬體。這筆收購被視為 Musk 強化 xAI 與 SpaceX Starlink 算力基礎設施的策略性佈局。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Mesh 的光通訊技術正是 AI 資料中心最缺的環節之一，Musk 收購 Mesh 顯示 xAI 與 Starlink 將在算力骨幹上垂直整合。這對台股的光通訊族群（如聯亞、華星光）有外溢效應。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">FTC</span><span class="entity">Elon Musk</span><span class="entity">Mesh Optical Technologies</span><span class="entity">SpaceX</span><span class="entity">xAI</span><span class="entity">Starlink</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: TSLA</span><span class="stock tw">台: 聯亞(3081)</span><span class="stock tw">台: 華星光(4979)</span><span class="stock tw">台: 全新(2455)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-15">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#f472b6;color:#f472b6">💰 AI 投融資與併購</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-26 04:19</span>
+    <span class="author">✍️ Marina Temkin</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/patronus-ai-lands-50m-to-build-digital-worlds-that-stress-test-ai-agents/" target="_blank" rel="noopener">Patronus AI 獲 5,000 萬美元融資，打造壓力測試 AI 代理的『數位世界』</a>
+  </h3>
+  <p class="news-title-en">Patronus AI lands $50M to build &#39;digital worlds&#39; that stress-test AI agents ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>AI 評測新創 Patronus AI 宣布完成 5,000 萬美元 B 輪融資，由 Notable Capital 領投，估值未揭露。公司將打造模擬真實世界的『數位環境』，讓企業可在釋出前對 AI 代理進行多場景壓力測試（從訂機票、處理退款到金融分析等），揪出幻覺與決策失誤。客戶包含多家大型金融與電商平台。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>隨著 AI 代理被賦予更多真實業務權限，如何在釋出前系統性驗證其可靠性已成為剛性需求。Patronus AI 這類『AI 品質保險』公司將成為企業 AI 落地不可或缺的中介層。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Patronus AI</span><span class="entity">Notable Capital</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock tw">台: 倚天酷碁(2432)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-17">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#f472b6;color:#f472b6">💰 AI 投融資與併購</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-26 00:55</span>
+    <span class="author">✍️ Rebecca Bellan</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/" target="_blank" rel="noopener">General Intuition 押注 23 億美元：電玩遊戲可訓練現實 AI 代理</a>
+  </h3>
+  <p class="news-title-en">General Intuition&#39;s $2.3B bet that video games can train AI agents for the real world ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>由 31 歲共同創辦人兼 CEO Pim de Witte 領軍的 General Intuition 剛完成 23 億美元估值的新一輪融資。該公司位於紐約，研發『遊戲即模擬環境』的 AI 訓練平台：在類似 Fortnite 的多人對戰環境中，讓 AI 代理學會導航、協作、決策。投資人看好此路徑成為『真實世界 AI 代理』的預訓練場。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>用遊戲環境訓練 AI 代理是當前最具規模的合成資料策略之一。若 General Intuition 證明遊戲經驗能轉移到真實世界，將徹底改寫機器人、自駕車的訓練成本曲線。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">General Intuition</span><span class="entity">Pim de Witte</span><span class="entity">Fortnite</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock tw">台: 鈊象(3293)</span><span class="stock tw">台: 網龍(3083)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-19">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#f472b6;color:#f472b6">💰 AI 投融資與併購</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-25 22:55</span>
+    <span class="author">✍️ Ram Iyer</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/netris-raises-15m-series-a-from-a16z-to-help-ai-neoclouds-go-live-faster/" target="_blank" rel="noopener">Netris 獲 a16z 領投 1,500 萬美元 A 輪，幫 AI Neocloud 快速開機</a>
+  </h3>
+  <p class="news-title-en">Netris raises $15M Series A from a16z to help AI neoclouds go live faster ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Netris 宣布完成 1,500 萬美元 A 輪融資，由 Andreessen Horowitz 領投。Netris 提供 AI Neocloud（專門跑 AI 工作負載的新一代雲端供應商）所需的底層網路自動化平台，協助它們更快部署 GPU 叢集、簡化跨資料中心管理。客戶包括 CoreWeave、Lambda、Crusoe 等多家知名 Neocloud 業者。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>AI Neocloud 是當前 AI 算力供給側的明星類別，Netris 切入其底層網路自動化這一痛點市場，有望隨著 Neocloud 整體規模擴大而成為關鍵基礎設施供應商。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Netris</span><span class="entity">a16z</span><span class="entity">CoreWeave</span><span class="entity">Lambda</span><span class="entity">Crusoe</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: CRWV</span><span class="stock tw">台: 智邦(2345)</span><span class="stock tw">台: 明泰(3380)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-20">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#f472b6;color:#f472b6">💰 AI 投融資與併購</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-25 21:30</span>
+    <span class="author">✍️ Ivan Mehta</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/adobe-acquires-image-and-video-enhancement-tool-maker-topaz-labs/" target="_blank" rel="noopener">Adobe 收購影像與影片強化工具商 Topaz Labs</a>
+  </h3>
+  <p class="news-title-en">Adobe acquires image and video enhancement tool maker Topaz Labs ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Adobe 宣布收購 Topaz Labs，這家以 AI 影像與影片強化模型聞名的廠商曾於去年贏得艾美獎（生產技術類）。Topaz 的去噪、放大、影片補幀等 AI 模型將整合進 Adobe 的創意工具套件，預計年底前推出整合版本。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Adobe 持續把生成式 AI 內嵌到創作工具中，收購 Topaz 補強其在高階影像處理的能力。這對 Final Cut、DaVinci Resolve 等競爭對手構成壓力，也強化 Adobe 在 AI 創意工作流的領導地位。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Adobe</span><span class="entity">Topaz Labs</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: ADBE</span><span class="stock tw">台: 訊連(5203)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-32">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#f472b6;color:#f472b6">💰 AI 投融資與併購</span>
+    <span class="date">2026-06-23</span>
+    <span class="time">2026-06-24 03:49</span>
+    <span class="author">✍️ Julie Bort</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/23/after-betting-the-firm-on-anthropic-menlo-ventures-raises-victorious-3b-fund/" target="_blank" rel="noopener">押注 Anthropic 大獲全勝，Menlo Ventures 關閉 30 億美元新基金</a>
+  </h3>
+  <p class="news-title-en">After betting the firm on Anthropic, Menlo Ventures raises victorious $3B fund ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Menlo Ventures 宣布完成 30 億美元新基金，創下該 50 年創投老店的歷史新高。其 AI 投資組合（特別是 Anthropic 的早期押注）貢獻良多，目前在 Anthropic 的持股價值估計已達數十億美元。新基金將持續加碼 AI 基礎設施與企業應用。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Menlo Ventures 案例證明，創投若在 AI 巨頭早期就重押，可創造超額回報。這對所有 VC 是巨大激勵，也將推動更多基金湧入 AI 早期投資。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Menlo Ventures</span><span class="entity">Anthropic</span>
+    </div>
+    
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="category-section" id="cat-AI 政策與監管">
+  <h2 class="cat-title" style="border-left-color:#fb7185">🏛️ AI 政策與監管 <span class="cat-count">4 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-8">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fb7185;color:#fb7185">🏛️ AI 政策與監管</span>
+    <span class="date">2026-06-26</span>
+    <span class="time">2026-06-27 09:01</span>
+    <span class="author">✍️ Julie Bort</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/26/trump-admin-releases-anthropic-mythos-to-be-used-by-more-than-100-us-companies-agencies/" target="_blank" rel="noopener">川普政府放行 Anthropic Mythos，100 多家美企與機構可用</a>
+  </h3>
+  <p class="news-title-en">Trump Admin releases Anthropic Mythos to be used by more than 100 US companies, agencies ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>在封鎖兩週後，川普政府軟化立場，允許 Anthropic 將旗下強大的資安導向 AI 模型 Mythos 5 提供給 100 多家美國企業與政府機構使用，但海外出口仍受限。這是美國政府對自家頂級 AI 模型『外銷中國疑慮』的最新折衷方案。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Mythos 是 Anthropic 為國防與資安打造的頂級模型，僅對美企開放意味著美國正在以『AI 國族主義』建立科技壁壘。這也是 Anthropic 即將 IPO 前的重大政策利多。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Anthropic</span><span class="entity">Mythos 5</span><span class="entity">Trump administration</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MSFT</span><span class="stock tw">台: 資拓宏宇(6611)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-9">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fb7185;color:#fb7185">🏛️ AI 政策與監管</span>
+    <span class="date">2026-06-26</span>
+    <span class="time">2026-06-27 02:32</span>
+    <span class="author">✍️ Rebecca Bellan</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/" target="_blank" rel="noopener">OpenAI 應美政府要求，限制 GPT-5.6 推廣對象</a>
+  </h3>
+  <p class="news-title-en">OpenAI limits GPT-5.6 rollout after government request, says restrictions shouldn&#39;t be the norm ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>OpenAI 於週五宣布，因應美國政府要求，新一代 GPT-5.6 系列模型（包括旗艦 Sol、平衡型 Terra、輕量 Pro）將只先釋出給『小群可信賴的合作夥伴』，而非全面公開。OpenAI 同時聲明，這種限制不應成為常態，呼籲政府建立明確、可預期的 AI 釋出審查機制。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是美國政府首次對 OpenAI 的旗艦模型施以釋出限制，顯示華府對強 AI 模型的『國安疑慮』已不限於對手國家，連美國自家公司也難以豁免。對 AI 創業環境是一大不確定性。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">OpenAI</span><span class="entity">GPT-5.6</span><span class="entity">Sol</span><span class="entity">Terra</span><span class="entity">Pro</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MSFT</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-11">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fb7185;color:#fb7185">🏛️ AI 政策與監管</span>
+    <span class="date">2026-06-26</span>
+    <span class="time">2026-06-27 00:24</span>
+    <span class="author">✍️ Russell Brandom</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/26/its-not-about-anthropic-vs-openai-anymore/" target="_blank" rel="noopener">AI 競爭格局已不再是 Anthropic 對 OpenAI</a>
+  </h3>
+  <p class="news-title-en">It&#39;s not about Anthropic vs. OpenAI anymore ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>評論文章指出，當 Anthropic 的 Fable 與 Mythos 被美國政府擋下、OpenAI 的 GPT-5.6 同步被限制釋出，AI 戰場的真正主角已變成『美國政府』。未來誰能推出什麼模型、何時推出，將越來越多由華府的國安與外交決策決定，而非公司本身的研發節奏。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這篇評論預示了 AI 產業治理的根本轉變：商業競爭退位，國家安全優先。對所有 AI 公司的產品 roadmap 與融資估值都將產生深遠影響。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Anthropic</span><span class="entity">OpenAI</span><span class="entity">Fable</span><span class="entity">Mythos</span><span class="entity">GPT-5.6</span><span class="entity">U.S. government</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MSFT</span><span class="stock us">美: GOOGL</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-14">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#fb7185;color:#fb7185">🏛️ AI 政策與監管</span>
+    <span class="date">2026-06-25</span>
+    <span class="time">2026-06-26 07:34</span>
+    <span class="author">✍️ Lucas Ropek</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/25/the-white-house-is-asking-openai-to-slow-roll-the-release-of-its-new-model-over-safety-concerns/" target="_blank" rel="noopener">白宮以安全疑慮要求 OpenAI 放慢新模型釋出</a>
+  </h3>
+  <p class="news-title-en">The White House is asking OpenAI to slow roll the release of its new model over safety concerns ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>The Information 率先披露，川普政府以國安疑慮為由，要求 OpenAI 將新一代 GPT-5.6 模型僅釋出給少數親密合作夥伴，而非對外公開。消息人士指出，OpenAI 內部對此相當不滿，認為這會影響其與 Anthropic 的競爭節奏。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是首次有具體報導指出白宮直接介入單一 AI 公司的新品發布節奏。代表美國 AI 治理從『建議』走向『指令』，對所有前沿 AI 模型的推出都是重大不確定因素。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">OpenAI</span><span class="entity">The Information</span><span class="entity">Trump administration</span><span class="entity">GPT-5.6</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MSFT</span></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="category-section" id="cat-AI 人事與組織">
+  <h2 class="cat-title" style="border-left-color:#60a5fa">👥 AI 人事與組織 <span class="cat-count">3 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-4">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#60a5fa;color:#60a5fa">👥 AI 人事與組織</span>
+    <span class="date">2026-06-27</span>
+    <span class="time">2026-06-28 00:45</span>
+    <span class="author">✍️ Anthony Ha</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/27/apple-vision-pro-exec-is-reportedly-leaving-for-openai/" target="_blank" rel="noopener">Apple Vision Pro 主管傳將跳槽 OpenAI 硬體團隊</a>
+  </h3>
+  <p class="news-title-en">Apple Vision Pro exec is reportedly leaving for OpenAI ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>根據 Bloomberg 記者 Mark Gurman 報導，Apple 負責 Vision Pro 頭戴裝置的副總裁 Paul Meade 將離開公司，加入 OpenAI 的硬體團隊。Meade 過去也負責 Apple 內部正在開發的 AI 智慧眼鏡專案。這是 Apple 硬體高層近期又一人出走案例。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Apple 內部 AI 硬體（特別是智慧眼鏡）一直是市場焦點，Meade 帶著 Vision Pro 的量產經驗轉戰 OpenAI，可能加速 OpenAI 自有硬體產品的開發時程，也意味著 Apple 在 AI 穿戴裝置領域的競爭壓力加劇。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Apple</span><span class="entity">Vision Pro</span><span class="entity">OpenAI</span><span class="entity">Paul Meade</span><span class="entity">Mark Gurman</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: AAPL</span><span class="stock us">美: MSFT</span><span class="stock tw">台: 鴻海(2317)</span><span class="stock tw">台: 和碩(4938)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-10">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#60a5fa;color:#60a5fa">👥 AI 人事與組織</span>
+    <span class="date">2026-06-26</span>
+    <span class="time">2026-06-27 02:19</span>
+    <span class="author">✍️ Jagmeet Singh</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/26/openai-poaches-uber-india-chief-to-lead-its-biggest-market-outside-the-us/" target="_blank" rel="noopener">OpenAI 挖角 Uber India 主管，搶攻最大海外市場</a>
+  </h3>
+  <p class="news-title-en">OpenAI poaches Uber India chief to lead its biggest market outside the US ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>OpenAI 任命前 Uber 印度與南亞區總裁 Prabhjeet Singh 為印度首任董事總經理，全面負責其在印度（OpenAI 口中僅次於美國的第二大市場）的業務拓展。Singh 將帶領 OpenAI 與印度政府、企業、開發者社群深化合作。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>印度是全球人口最多的國家，也是 AI 開發者密度極高的市場。OpenAI 設立在地 MD 顯示其與 Anthropic、Google DeepMind 爭奪印度 AI 生態的決心。對印度本土的 Sarvam、Krutrim 等新創構成直接競爭。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">OpenAI</span><span class="entity">Uber India</span><span class="entity">Prabhjeet Singh</span><span class="entity">Sarvam</span><span class="entity">Krutrim</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: MSFT</span><span class="stock us">美: UBER</span><span class="stock tw">台: 緯創(3231)</span><span class="stock tw">台: 廣達(2382)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-27">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#60a5fa;color:#60a5fa">👥 AI 人事與組織</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 05:42</span>
+    <span class="author">✍️ Amanda Silberling, Lucas Ropek</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/" target="_blank" rel="noopener">AI 研究員出走 Google 潮持續，兩名 Gemini 核心成員投靠 Anthropic</a>
+  </h3>
+  <p class="news-title-en">AI researchers continue to leave Google for its rivals ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>Bloomberg 報導，Google 兩位頂尖 AI 研究員 Jonas Adler 與 Alexander Pritzel 將離職加入 Anthropic，兩人過去在 Gemini 模型的訓練與評估上扮演關鍵角色。這是近一年來第 N 位從 Google DeepMind 跳槽至對手公司的高階人才。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>Google DeepMind 的人才流失潮持續，代表其內部研發文化或產品路線與頂尖研究員的期待出現落差。這對 Google 在 AI 競賽中的長期競爭力是一大警訊。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Google</span><span class="entity">DeepMind</span><span class="entity">Anthropic</span><span class="entity">Jonas Adler</span><span class="entity">Alexander Pritzel</span><span class="entity">Gemini</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: GOOGL</span></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section class="category-section" id="cat-AI 國際與地緣政治">
+  <h2 class="cat-title" style="border-left-color:#34d399">🌍 AI 國際與地緣政治 <span class="cat-count">2 則</span></h2>
+  <div class="news-list">
+    
+<article class="news-card" id="news-6">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#34d399;color:#34d399">🌍 AI 國際與地緣政治</span>
+    <span class="date">2026-06-27</span>
+    <span class="time">2026-06-27 20:00</span>
+    <span class="author">✍️ Kate Park</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/27/asian-ai-startups-launch-mythos-like-models-as-anthropics-export-ban-drags-on/" target="_blank" rel="noopener">Anthropic 出口禁令延長，亞洲新創推出類 Mythos 模型</a>
+  </h3>
+  <p class="news-title-en">Asian AI startups launch Mythos-like models as Anthropic&#39;s export ban drags on ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>在 Anthropic Mythos 5 與 Fable 5 被美國政府限制出口後，亞洲 AI 公司加速推出替代品。中國網路安全公司 360 推出號稱能對標 Mythos 的 AI 工具 Tulongfeng；多家韓國、日本 AI 安全新創也陸續釋出針對企業級的防禦模型。業者普遍認為美國禁令反而為亞洲 AI 安全市場創造了『Made-in-Asia』的發展機會。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這顯示 AI 出口管制正在塑造新的地緣科技格局：當美國限制頂級 AI 模型外流，亞洲國家會加速自製。對台灣的資安與 AI 廠商（如趨勢科技、奧義智慧）也是切入亞太市場的契機。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Anthropic</span><span class="entity">Mythos 5</span><span class="entity">Fable 5</span><span class="entity">Qihoo 360</span><span class="entity">Tulongfeng</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock tw">台: 趨勢科技(4904)</span><span class="stock tw">台: 奧義智慧(6913)</span></div>
+  </div>
+</article>
+
+<article class="news-card" id="news-23">
+  <div class="news-meta">
+    <span class="cat-badge" style="border-color:#34d399;color:#34d399">🌍 AI 國際與地緣政治</span>
+    <span class="date">2026-06-24</span>
+    <span class="time">2026-06-25 08:08</span>
+    <span class="author">✍️ Connie Loizos</span>
+  </div>
+  <h3 class="news-title">
+    <a href="https://techcrunch.com/2026/06/24/europe-is-pushing-back-on-washingtons-chip-war/" target="_blank" rel="noopener">歐洲對華府晶片戰說不：荷蘭貿易部長訪美反對 MATCH 法案</a>
+  </h3>
+  <p class="news-title-en">Europe is pushing back on Washington&#39;s chip war ↗</p>
+  <div class="news-body">
+    <p class="summary"><strong>📝 摘要：</strong>荷蘭貿易部長 Sjoerd Sjoerdsma 訪問華府，與商務部長 Howard Lutnick 及多位國會議員會面，公開反對美國提出的 MATCH Act 法案。該法案將禁止中國晶片製造商使用源自美國的關鍵設備。荷蘭身為 ASML 母國，擔心此舉將嚴重衝擊自家半導體設備出口與全球供應鏈。</p>
+    <p class="important"><strong>💡 為什麼重要：</strong>這是歐洲首次在 AI 晶片管制議題上對美國公開表態。荷蘭背後代表的是 ASML 等歐洲半導體設備巨頭的利益，反對行動若成功能緩和美中晶片戰的強度，對台積電、ASML 客戶群是正面訊號。</p>
+    <div class="entities">
+      <strong>🏷️ 關鍵人物/公司：</strong>
+      <span class="entity">Netherlands</span><span class="entity">Sjoerd Sjoerdsma</span><span class="entity">MATCH Act</span><span class="entity">ASML</span><span class="entity">Howard Lutnick</span>
+    </div>
+    <div class="stocks"><strong>📈 相關概念股：</strong><span class="stock us">美: ASML</span><span class="stock us">美: TSM</span><span class="stock us">美: NVDA</span><span class="stock tw">台: 台積電(2330)</span><span class="stock tw">台: ASML 供應鏈</span></div>
+  </div>
+</article>
+  </div>
+</section>
+
+<section id="outlook">
+  <h2 class="section-title">🔮 明日觀察</h2>
+  <div class="outlook-box">
+    <h3>基於今日新聞線索，AI 預測明日可能延伸的話題：</h3>
+    <ul><li>Anthropic 即將 IPO，預期將有更多投行、會計師事務所、定價相關細節釋出</li><li>OpenAI Jalapeño 推論晶片進入量產，Broadcom 與台積電 CoWoS 產能將成市場焦點</li><li>美國政府對 GPT-5.6 的釋出限制細則可能進一步明朗化</li><li>印度新任 OpenAI MD Prabhjeet Singh 可能宣布首批在地合作夥伴與投資案</li><li>AI 記憶體荒持續，Micron / Samsung / SK Hynix 將陸續公布 Q2 初步業績</li><li>Robotaxi 維運新創（如本日的案例）可能在 ASIA 市場引發新一波募資潮</li></ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>📡 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch</a> ｜ 整理時間：2026 年 6 月 29 日（週一）</p>
+    <p style="margin-top:8px;">由 OpenClaw AI 自動編譯，<a href="https://github.com/acstep/TECH" target="_blank">GitHub</a> 開源</p>
+  </div>
+</footer>
+
+</body>
+</html>
