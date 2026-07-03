@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要｜2026-07-03｜TechCrunch</title>
+<style>
+  :root {
+    --bg: #080810;
+    --bg2: #0d0d1a;
+    --bg3: #12121f;
+    --card: #0f0f1e;
+    --border: #1a1a2e;
+    --cyan: #00d4ff;
+    --green: #00ff88;
+    --purple: #a855f7;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --text: #e0e0f0;
+    --muted: #8888aa;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+  /* Header */
+  .header { text-align: center; padding: 40px 20px 30px; border-bottom: 1px solid var(--border); margin-bottom: 30px; }
+  .header .date { font-size: 0.85rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .header h1 { font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 12px; }
+  .header h1 span { color: var(--cyan); }
+  .header .stats { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 0.9rem; color: var(--muted); }
+  .header .stats span { background: var(--bg3); padding: 4px 14px; border-radius: 20px; border: 1px solid var(--border); }
+  .header .stats .val { color: var(--green); font-weight: 700; }
+
+  /* Keywords */
+  .keywords { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+  .keywords span { background: var(--bg3); border: 1px solid var(--border); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; color: var(--muted); }
+  .keywords span.hot { border-color: var(--cyan); color: var(--cyan); }
+
+  /* Top 3 */
+  .top3 { margin-bottom: 40px; }
+  .section-title { font-size: 1.1rem; font-weight: 700; color: var(--cyan); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .top3-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .top-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; position: relative; overflow: hidden; }
+  .top-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .top-card:nth-child(1)::before { background: var(--cyan); }
+  .top-card:nth-child(2)::before { background: var(--green); }
+  .top-card:nth-child(3)::before { background: var(--purple); }
+  .top-card .rank { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; opacity: 0.6; }
+  .top-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+  .top-card h3 a { color: #fff; }
+  .top-card .time { font-size: 0.75rem; color: var(--muted); margin-bottom: 10px; }
+  .top-card .excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .top-card .tag { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; margin-top: 10px; background: var(--bg3); color: var(--cyan); border: 1px solid var(--cyan); }
+
+  /* Radar */
+  .radar { margin-bottom: 40px; }
+  .radar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .radar-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; display: flex; align-items: center; gap: 14px; transition: border-color 0.2s; }
+  .radar-card:hover { border-color: var(--cyan); }
+  .radar-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .radar-info h4 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .radar-info .count { font-size: 0.75rem; color: var(--cyan); }
+  .radar-info .example { font-size: 0.72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Sections */
+  .section { margin-bottom: 40px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .section-header h2 { font-size: 1.2rem; font-weight: 700; }
+  .section-header .count-badge { font-size: 0.75rem; background: var(--bg3); color: var(--cyan); padding: 2px 10px; border-radius: 20px; border: 1px solid var(--cyan); }
+
+  /* Article cards */
+  .article-list { display: flex; flex-direction: column; gap: 12px; }
+  .article-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: border-color 0.2s; }
+  .article-card:hover { border-color: #2a2a4e; }
+  .article-card .art-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .article-card h3 { font-size: 1rem; font-weight: 700; line-height: 1.45; flex: 1; }
+  .article-card h3 a { color: #fff; }
+  .article-card h3 a:hover { color: var(--cyan); text-decoration: none; }
+  .article-card .art-meta { display: flex; gap: 12px; font-size: 0.72rem; color: var(--muted); margin-bottom: 10px; flex-wrap: wrap; }
+  .article-card .art-meta .src { color: var(--green); }
+  .article-card .summary { font-size: 0.88rem; color: var(--text); margin-bottom: 10px; line-height: 1.7; }
+  .article-card .why { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; padding: 8px 12px; background: var(--bg3); border-left: 3px solid var(--amber); border-radius: 0 6px 6px 0; }
+  .article-card .entities { font-size: 0.78rem; color: var(--muted); margin-bottom: 6px; }
+  .article-card .entities strong { color: var(--cyan); }
+  .article-card .stocks { font-size: 0.78rem; color: var(--muted); }
+  .article-card .stocks strong { color: var(--green); }
+
+  /* Footer */
+  .footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 40px; }
+  .footer a { color: var(--cyan); }
+
+  /* Tomorrow */
+  .tomorrow { background: var(--bg2); border: 1px solid var(--purple); border-radius: var(--radius); padding: 24px; margin-bottom: 40px; }
+  .tomorrow h2 { color: var(--purple); font-size: 1.1rem; margin-bottom: 12px; }
+  .tomorrow ul { padding-left: 20px; }
+  .tomorrow li { font-size: 0.88rem; color: var(--text); margin-bottom: 6px; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.5rem; }
+    .radar-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="date">📅 2026 年 7 月 3 日　台北時間</div>
+  <h1>🤖 <span>AI</span> 新聞摘要</h1>
+  <div class="stats">
+    <span>📰 總計 <span class="val">18</span> 則</span>
+    <span>📂 <span class="val">7</span> 個分類</span>
+    <span>⏱️ 過去 24 小時</span>
+  </div>
+  <div class="keywords">
+    <span class="hot">Anthropic</span>
+    <span class="hot">Claude Sonnet 5</span>
+    <span class="hot">Microsoft</span>
+    <span class="hot">OpenAI</span>
+    <span class="hot">Meta</span>
+    <span>Etched</span>
+    <span>Google</span>
+    <span>Nano Banana 2 Lite</span>
+    <span>Gemini Spark</span>
+    <span>Samsung</span>
+    <span>AWS FDE</span>
+    <span>Trump</span>
+    <span>出口管制</span>
+    <span> sovereign wealth fund</span>
+    <span>AI Agent</span>
+    <span>vibe coding</span>
+  </div>
+</header>
+
+<!-- TOP 3 -->
+<div class="top3">
+  <div class="section-title">🏆 每日三大頭條</div>
+  <div class="top3-grid">
+
+    <div class="top-card">
+      <div class="rank">🥇 第一大</div>
+      <h3><a href="https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/" target="_blank">Anthropic 與三星洽談合作　開發自有 AI 晶片擺脫輝達依賴</a></h3>
+      <div class="time">🕐 2026/07/02　11:31（美國西部）</div>
+      <div class="excerpt">Anthropic 正與三星電子洽谈，探討由三星代工生產其自有 AI 晶片的可能性。這是 Anthropic 對輝達 GPU 供應瓶頸的回應，也是其「硬體多元化」策略的重要一步。在此之前，OpenAI 已宣布與博通（Broadcom）合作開發名為「Jalapeño」的推論晶片。Anthropic 目前仍持續使用 Google TPU、亞馬遜 Trainium 與輝達晶片的混合配置，但自研晶片將讓其更具主動性。</div>
+      <span class="tag">💾 AI 晶片與硬體</span>
+    </div>
+
+    <div class="top-card">
+      <div class="rank">🥈 第二大</div>
+      <h3><a href="https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/" target="_blank">微軟砸 25 億美元成立 AI 部署公司　挑戰 FDE 企業服務市場</a></h3>
+      <div class="time">🕐 2026/07/02　06:53（美國西部）</div>
+      <div class="excerpt">微軟宣布成立全新營運單位「Microsoft Frontier Company」，專注協助企業成功部署 AI。該項目獲得微軟 25 億美元注資，並配備 6,000 名產業與工程專家。微軟商用事業 CEO Althoff 強調，這超越了傳統「前線部署工程師」（FDE）模式，將是業界最大規模、以成果為導向的工程組織。倫敦證交所集團、Unilever、Land O'Lakes 與 Accenture 已列為早期合作夥伴。</div>
+      <span class="tag">🏢 企業 AI 動態</span>
+    </div>
+
+    <div class="top-card">
+      <div class="rank">🥉 第三大</div>
+      <h3><a href="https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/" target="_blank">OpenAI 提議捐贈 5% 股份給美國主權基金　AI 財富全民共享</a></h3>
+      <div class="time">🕐 2026/07/02　08:20（美國西部）</div>
+      <div class="excerpt">OpenAI 執行長 Sam Altman 向美國政府提議，將公司 5% 股權捐贈給美國主權財富基金，期望藉此「鞏固與政府的良好關係」並「緩解政治反彈」。提案細節仍屬初步討論階段，正式實施需經國會批准。Altman 早在 4 月的政策文件《Intelligence Age 的產業政策》中即倡議成立類似基金，讓一般公民能直接分享 AI 驅動的經濟成長果實。</div>
+      <span class="tag">🏛️ AI 政策與監管</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- RADAR -->
+<div class="radar">
+  <div class="section-title">📡 主題雷達</div>
+  <div class="radar-grid">
+
+    <div class="radar-card">
+      <div class="radar-icon">💾</div>
+      <div class="radar-info">
+        <h4>AI 晶片與硬體</h4>
+        <div class="count">2 則</div>
+        <div class="example">Anthropic×三星、Etched $5B估值</div>
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-icon">🧠</div>
+      <div class="radar-info">
+        <h4>AI 模型與研究</h4>
+        <div class="count">2 則</div>
+        <div class="example">Claude Sonnet 5、Nano Banana 2 Lite</div>
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-icon">🤖</div>
+      <div class="radar-info">
+        <h4>AI 產品與應用</h4>
+        <div class="count">5 則</div>
+        <div class="example">Meta Pocket、Gemini Spark Mac、Acti 鍵盤</div>
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-icon">🏢</div>
+      <div class="radar-info">
+        <h4>企業 AI 動態</h4>
+        <div class="count">3 則</div>
+        <div class="example">微軟$2.5B、Meta 雲端業務、Neo AI Office</div>
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-icon">💰</div>
+      <div class="radar-info">
+        <h4>AI 投融資與併購</h4>
+        <div class="count">2 則</div>
+        <div class="example">Etched $5B估值、EquiLibre $500M</div>
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-icon">🏛️</div>
+      <div class="radar-info">
+        <h4>AI 政策與監管</h4>
+        <div class="count">2 則</div>
+        <div class="example">OpenAI主權基金、川普撤出口限制</div>
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-icon">🌍</div>
+      <div class="radar-info">
+        <h4>AI 國際與地緣政治</h4>
+        <div class="count">1 則</div>
+        <div class="example">川普撤Anthropic出口禁令</div>
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-icon">👥</div>
+      <div class="radar-info">
+        <h4>AI 人事與組織</h4>
+        <div class="count">1 則</div>
+        <div class="example">Meta裁員後Zuckerberg坦承AI進展</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DETAILED ARTICLES -->
+<div class="section">
+  <div class="section-header">
+    <h2>💾 AI 晶片與硬體</h2>
+    <span class="count-badge">2</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/02 11:31 PDT</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/" target="_blank">Anthropic 與三星洽談合作開發自有 AI 晶片</a></h3>
+      <div class="summary">
+        Anthropic 正在與三星電子探討合作，由三星代工生產其自有 AI 晶片。今年 4 月，路透社曾報導 Anthropic 評估自產晶片以緩解 GPU 供應短缺的方案，如今此計畫已進入實質洽談階段。Anthropic 向 TechCrunch 表示，多元化的硬體組合（包括 Google、亞馬遜與輝達晶片）仍將是其運算策略的核心，但未否認與三星的潛在合作。此動態的背景是：OpenAI 上週已宣布與博通合作推出名為「Jalapeño」的推論處理器，宣稱其效能功耗比優於競爭對手。三星同時是輝達的重要合作夥伴，雙方在南韓共同建設 AI 晶片工廠。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Anthropic 若成功自研晶片，將大幅降低對輝達生態系統的依賴，也象徵 AI 新創在基礎設施上的垂直整合趨勢。晶片自研也代表著對 GPU 供應瓶頸的長期回應，對整個 AI 供應鏈具有指標意義。
+      </div>
+      <div class="entities"><strong>關鍵公司：</strong>Anthropic、Samsung、Broadcom、Nvidia、Google、Amazon Trainium、TSMC</div>
+      <div class="stocks"><strong>相關概念股：</strong>NVIDIA (NVDA)、AMD、TSMC (2330.TW)、三星 (005930.KS)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/nvidia-competitor-etched-hits-5b-valuation-1b-in-sales-for-ai-chip/" target="_blank">輝達競爭對手 Etched 估值 50 億美元　已獲 10 億美元訂單</a></h3>
+      <div class="summary">
+        AI 晶片新創 Etched 在台積電成功製造其首批晶片後正式走出隱形模式。該公司表示，已收到 10 億美元的全系統訂單（包含晶片、機架與軟體），並揭露最新一輪 5 億美元融資（估值 50 億美元）已於去年 12 月完成。Etched 成立於 2022 年，聯合創辦人 Gavin Uberti 與 Robert Wahren 皆是哈佛輟學並獲得 Thiel Fellowship 的創業者。投資者陣容豪華，包括 Andrej Karpathy、Geoffrey Hinton、李飛飛、Arthur Mensch 等 AI 大咖，以及億萬富翁 Stanley Druckenmiller 與 Peter Thiel。Etched 的產品定位是專門用於推論（inference）的「前沿推論叢集」，目標是比 GPU 更快速、更便宜、更節能地執行 AI 模型。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Etched 的崛起顯示 AI 推論市場正在快速分化，通用 GPU 的主導地位正受到專用晶片的挑戰。10 億美元訂單也顯示市場對高效能推論晶片的需求極為殷切，而非僅輝達一家獨大。
+      </div>
+      <div class="entities"><strong>關鍵公司：</strong>Etched、TSMC、Nvidia (NVDA)、Cerebras、Groq、OpenAI Broadcom</div>
+      <div class="stocks"><strong>相關概念股：</strong>NVIDIA (NVDA)、AMD、TSMC (2330.TW)、Cerebras (CERBS)</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🧠 AI 模型與研究</h2>
+    <span class="count-badge">2</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/" target="_blank">Anthropic 推出 Claude Sonnet 5　以更低成本運行 AI Agent</a></h3>
+      <div class="summary">
+        Anthropic 發布 Claude Sonnet 5，這是一款定位為「更低成本運行 AI Agent」的中高階模型。Anthropic 表示，Sonnet 5 能「制定計畫、使用瀏覽器與終端機等工具，並以過去需要更大、更昂貴模型才能達到的水準自主運行」。在 Agentic 編碼基準測試中，Sonnet 5 得分 63.2%，僅略低於旗艦 Opus 4.8 的 69.2%，但明顯優於前代 Sonnet 4.6 的 58.1%。定價方面，8 月底前為每百萬輸入 tokens 2 美元、輸出 tokens 10 美元；之後調升至 3 美元與 15 美元，仍低於 Opus 4.8、GPT-5.5 與 Gemini 3.1 Pro。Anthropic 強調，Sonnet 5 在拒絕惡意請求、對抗提示注入攻擊方面均較前代更安全，幻覺與奉承行為也更低。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Sonnet 5 的定價策略顯示 AI Agent 能力已成為各層級模型的基本門檻，未來競爭焦点將從「誰能運行 Agent」轉向「誰能更便宜、更穩定地運行」。這對企業部署 AI Agent 的成本結構將產生重大影響。
+      </div>
+      <div class="entities"><strong>關鍵公司/產品：</strong>Anthropic、Claude Sonnet 5、Opus 4.8、OpenAI GPT-5.5、Google Gemini 3.1 Pro</div>
+      <div class="stocks"><strong>相關概念股：</strong>Amazon (Anthropic 主要投資方)、Alphabet (GOOGL)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/google-introduces-a-faster-cheaper-image-generator-with-nano-banana-2-lite/" target="_blank">Google 發布 Nano Banana 2 Lite　四秒生成圖片、每千張僅 0.034 美元</a></h3>
+      <div class="summary">
+        Google 發布最新版 AI 影像生成模型 Nano Banana 2 Lite，主打更快速、更便宜的特點。該模型可在四秒內生成一張圖片，適合需要快速迭代和大規模產圖的使用場景。定價為每千張圖片 0.034 美元，極具競爭力。Nano Banana 2 Lite 是基於 Gemini 3.1 Flash 的原始 Nano Banana 之後繼版本，而去年 2 月發布的 Nano Banana 2 則增加了更逼真影像生成能力。Google 同時宣布 Gemini Omni Flash 全面開放（每秒輸出 0.10 美元），以及新 demo 工具 Omni Product Studio，可將靜態圖片轉化為電商影片。值得注意的是，Google 剛與獨立電影公司 A24 簽署了 7,500 萬美元的 AI 合作協議，引發創意社群批評。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Google 以超低價切入 AI 影像生成市場，顯示多模態模型的商品化速度加快。Nano Banana 2 Lite 的定價對 Midjourney、OpenAI DALL-E 等競爭對手構成直接壓力，也代表生成式 AI 進入白熱化價格戰。
+      </div>
+      <div class="entities"><strong>關鍵公司/產品：</strong>Google、Nano Banana 2 Lite、Gemini Omni Flash、Omni Product Studio、A24、Midjourney、DALL-E</div>
+      <div class="stocks"><strong>相關概念股：</strong>Alphabet (GOOGL)</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🤖 AI 產品與應用</h2>
+    <span class="count-badge">5</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/02 11:44 PDT</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/02/meta-quietly-launches-vibe-coded-gaming-app-pocket/" target="_blank">Meta 低調推出 AI 遊戲創作 app「Pocket」　以 vibe coding 打造微型遊戲</a></h3>
+      <div class="summary">
+        Meta 悄悄在 App Store 與 Google Play 推出名為 Pocket 的新應用，允許用戶透過 AI 提示詞生成小型互動遊戲。Pocket 源於 Meta 今年收購的團隊，其前身為互動式 vibe coding 遊戲平台 Gizmo。根據 Appfigures 數據，Gizmo 累積有 63.5 萬次下載，98% 正面評價。Pocket 目前仍處於早期實驗階段，尚未正式宣布，但已有逆向工程師搶先發現。Meta 的策略是將 AI 創作工具推向更廣大的一般消費者，延伸其更早之前的 AI 圖片（Meta AI app）與 AI 影片（Vibes app）布局。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Pocket 代表 AI 降低創作門檻的最新應用場景——任何人無需寫程式能力，即可透過自然語言提示生成遊戲。這是 AI 消費化應用的重要一步，也顯示 Meta 在 AI 時代持續搶佔用戶入口的意圖。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>Meta (META)、Pocket、Gizmo、Alessandro Paluzzi、Appfigures</div>
+      <div class="stocks"><strong>相關概念股：</strong>Meta (META)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/01</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/01/gemini-spark-googles-agentic-assistant-is-now-available-on-mac/" target="_blank">Google Agentic 助理 Gemini Spark 登陸 Mac　企業版同步推出</a></h3>
+      <div class="summary">
+        Google 正式將其 Agentic 助理 Gemini Spark 引入 Mac 平台，並同步推出企業版本。Gemini Spark 定位為能自主執行多步驟任務的 AI 代理，適用於企業工作流程場景。這是 Google 在 AI Agent 市場的直接布局，目標是在 OpenAI、Anthropic 相關產品之外，爭取企業用戶青睞。Mac 版本的推出顯示 Google 正在擴大其 AI 產品的跨平台覆蓋範圍，從雲端走向本地化應用場景。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Gemini Spark 登陸 Mac 代表 Google 在個人運算場景的 AI 滲透邁出重要一步。與微軟的 Copilot+PC 生態相比，Google 選擇以 Mac 作為突破口，顯示其差異化競爭策略瞄準創意族群與蘋果生態用戶。
+      </div>
+      <div class="entities"><strong>關鍵公司/產品：</strong>Google、Alphabet、Gemini Spark、OpenAI、Anthropic、Apple</div>
+      <div class="stocks"><strong>相關概念股：</strong>Alphabet (GOOGL)、Apple (AAPL)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/acti-puts-ai-agents-directly-into-your-smartphone-keyboard/" target="_blank">新創 Acti 將 AI Agent 嵌入智慧手機鍵盤　橫跨所有 App 運作</a></h3>
+      <div class="summary">
+        新加坡新創 Acti 推出同名的 Agentic 鍵盤應用，讓 AI 能力直接進入用戶最常使用的介面。不同於傳統鍵盤僅提供文字建議，Acti 能在對話中即時執行多步驟任務——例如查詢附近餐廳並直接推薦、回應股市報價等，用戶無需切換 App。底層由 Google Gemini 模型驅動，並強調本地優先（local-first）設計，用戶個人資料預設保存在設備上，確保隱私。Acti 由前百度員工 Young Wang 創辦，他曾在百度負責 Facemoji Keyboard，該產品曾擁有超過 3 億日活躍用戶。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Acti 的模式顯示 AI Agent 的新入口之爭——誰能占據用戶最高頻的使用介面，誰就能成為 AI 時代的超級入口。鍵盤是每日使用次數最多的介面之一，這個策略若成功將徹底改變 AI 消費產品的生態。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>Acti、Google (Gemini)、Baidu Facemoji、Young Wang</div>
+      <div class="stocks"><strong>相關概念股：</strong>Alphabet (GOOGL)、百度 (BIDU)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/anthropics-claude-science-bets-on-workflow-not-a-new-model-to-win-over-scientists/" target="_blank">Anthropic 推出 Claude Science 科研工作台　AI 打入科學家日常流程</a></h3>
+      <div class="summary">
+        Anthropic 發布 Claude Science，這是一個專為科學家設計的 AI 工作台，整合超過 60 個科學資料庫，提供基因組學、蛋白質結構、化學等領域的預建工具組。與其說是新的 AI 模型，Claude Science 更像是一個「操作系統」——主要 AI 助理擔任專案管理角色，可創建子助理分擔工作，並配有獨立的引用與計算核查 AI。亮點包括：可生成 3D 蛋白質結構圖並附上完整程式碼與說明；可在科學家自有基礎設施上運行，無需將敏感資料上傳至外部伺服器。早期用戶包括 Allen Institute 神經科學家與 UCSF 腦瘤中心研究團隊，均表示大幅縮短分析時間。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Anthropic 從純模型供應商轉向垂直產業工作流程供應商的策略越來越清晰。Claude Science 若能在生技製藥與學術研究領域取得顯著採用，將為 Anthropic 開闢全新的高價值商業模式。
+      </div>
+      <div class="entities"><strong>關鍵公司/產品：</strong>Anthropic、Claude Science、Claude Opus 4.8、Claude Code、OpenAI、Google DeepMind</div>
+      <div class="stocks"><strong>相關概念股：</strong>Amazon (Anthropic 主要投資方)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/02</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/02/yep-were-using-openclaw-to-date-now/" target="_blank">男子用 OpenClaw + Claude 自動經營 IG 試探貼文　吸引百萬觀看與 200 則私訊</a></h3>
+      <div class="summary">
+        內容創作者兼新創創辦人 Ben Guez 利用 OpenClaw 自動追蹤世界盃比賽結果，每場賽後觸發 Claude 自動生成並發布風格相同的 Instagram 試探影片（Trial Reels）。貼文內容為「我無法相信○○國輸了……如果有○○國的女孩需要情緒支持，我的私訊開放」，結果在數天內吸引超過百萬次觀看與 200 則私訊。他甚至在個人檔案中說明僅回覆透過其 AI 語言學習 App Canary 傳來的消息，形成一個完全自動化的流量變現漏斗。Guez 表示：「我不確定大家是否覺得這是好主意，但這真的有效。」
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>這是 AI Agent 實際應用於社群媒體經營與潛在客戶開發的具體案例，展示了 AI Agent 如何將「意圖轉化為行動」的真實場景。對於行銷自動化與社群電商領域，這是一個值得關注的新模式。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>OpenClaw、Claude (Anthropic)、Instagram、Ben Guez、Canary</div>
+      <div class="stocks"><strong>相關概念股：</strong>Meta (META)、Anthropic / Amazon (ANTHROPIC投資方)</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🏢 企業 AI 動態</h2>
+    <span class="count-badge">3</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/02 06:53 PDT</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/" target="_blank">微軟成立 Microsoft Frontier Company　25 億美元打造最大 AI 部署工程團隊</a></h3>
+      <div class="summary">
+        微軟宣布成立全新營運單位「Microsoft Frontier Company」，專注協助企業成功部署 AI。該項目獲得 25 億美元承諾投資，並配備來自各產業的 6,000 名工程與技術專家。微軟商用事業 CEO Judson Althoff 強調這超越傳統 FDE 模式，將是「業界最大規模、最有能力的成果驅動工程組織」。AWS 上週甫宣布 10 億美元 FDE 組織，OpenAI 與 Anthropic 也各自有 40 億美元與 15 億美元的 FDE 合資企業。微軟的優勢在於現有 Fortune 500 企業客戶基礎，早期合作夥伴包括倫敦證交所集團、Unilever、Land O'Lakes 與 Accenture。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>微軟砸重金佈局 AI 部署服務，代表 AI 商業化的瓶頸已從「模型能力」轉向「落地執行」。當前各家 AI 模型能力趨同，能否有效協助企業整合 AI（即 FDE 服務）才是真正的營收來源，這也是雲端巨頭的新戰場。
+      </div>
+      <div class="entities"><strong>關鍵公司：</strong>Microsoft、AWS、OpenAI、Anthropic、Judson Althoff、Accenture、LSEG、Unilever</div>
+      <div class="stocks"><strong>相關概念股：</strong>Microsoft (MSFT)、Accenture (ACN)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/01</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/01/meta-like-spacex-looks-to-turn-excess-ai-compute-into-cash/" target="_blank">Meta 擬仿效 SpaceX 對外銷售閒置 AI 算力　新業務暫名「Meta Compute」</a></h3>
+      <div class="summary">
+        Bloomberg 報導，Meta 正在籌畫類似 CoreWeave 的雲端基礎設施業務，對外銷售 AI 運算資源與模型存取。這項代號「Meta Compute」的新業務，將使 Meta 直接與 AWS、Google Cloud、Microsoft Azure 競爭。知情人士指出，Meta 已承諾投入 1,829 億美元建設 AI 基礎設施，包括在路易斯安那州與俄亥俄州（Zuckerberg 稱其為「曼哈頓大小」）的大型資料中心。Meta 目前尚無重大外部 AI 需求將這些算力變現，而 SpaceX 已率先開始類似布局，與 Anthropic 簽署協議出售 Colossus 1 資料中心算力。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>當 AI 基礎設施投資已達兆美元等級，算力過剩風險日益真實。Meta 從「AI 消費者」轉向「AI 雲端供應商」若成真，將徹底改變雲端市場格局，也顯示 AI 資料中心地主可能比 AI 模型供應商更早獲利。
+      </div>
+      <div class="entities"><strong>關鍵公司：</strong>Meta (META)、SpaceX、xAI、Anthropic、Google Cloud、AWS、Azure、CoreWeave</div>
+      <div class="stocks"><strong>相關概念股：</strong>Meta (META)、Amazon (AWS)、Alphabet (GOOGL)、Microsoft (MSFT)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/01</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/" target="_blank">印度科技大亨自掏 3,000 萬美元　從零打造 AI 版 Microsoft Office</a></h3>
+      <div class="summary">
+        印度連續創業家 Bhavin Turakhia 宣布投入 3,000 萬美元個人資金，創辦企業 AI 工作平台 Neo。Turakhia 是 Directi、Radix、Titan、Zeta 等公司共同創辦人，過去 20 年多以自有資金支持新創，如今以同樣方式押注 Neo。Neo 的核心論點是：生成式 AI 時代的企業軟體必須從零重新設計，而非在舊架構上添加聊天機器人。他比喻：「如果你想打造 iPhone，不能拿 Nokia 的零件改造。」Neo 目前約 45 名員工（18 名工程師），已在内測使用，預計今年底增至百人。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Turakhia 的巨額個人押注顯示，企業 AI 軟體市場仍有被顛覆的空間。從零打造的「AI 原生」產品對抗 Microsoft 365、Google Workspace 的可能性，值得持續關注。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>Neo、Bhavin Turakhia、Directi、Radix、Titan、Zeta、Microsoft、Google、Salesforce、Notion</div>
+      <div class="stocks"><strong>相關概念股：</strong>Microsoft (MSFT)、Alphabet (GOOGL)、Salesforce (CRM)</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>💰 AI 投融資與併購</h2>
+    <span class="count-badge">2</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/the-deepmind-trio-who-built-a-poker-ai-are-now-making-money-for-quant-hedge-funds/" target="_blank">DeepMind 前工程師用撲克 AI 技術闖蕩量化避險基金　新創 EquiLibre 估值 5 億美元</a></h3>
+      <div class="summary">
+        三位前 DeepMind 研究員（Martin Schmid、Ruudi Kadlec、Matej Moravcik）將曾用來打敗人類的撲克 AI 技術，轉向股票交易應用，其布拉格 AI 實驗室 EquiLibre Technologies 完成新一輪增資，公司估值達 5 億美元。本輪由 Creandum 領投，金額未揭露，但被稱為該創投「史上最大單筆投資」。EquiLibre 的演算法已與量化機構 Tower Research Capital 合作，每日在 S&P 500 與 Nasdaq 交易數十億美元，聲稱自成立以來每月都正報酬。其核心方法論是強化學習——讓 AI 在金融市場中以「賺了多少錢」作為激勵信號自我優化。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>DeepMind 級別的強化學習應用於金融市場，顯示 AI 在量化交易的應用正從傳統統計模型升級至更接近通用人工智能的路徑。EquiLibre 的成功可能吸引更多頂尖 AI 研究者投入金融 AI 領域。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>EquiLibre Technologies、DeepMind (Google)、Creandum、Tower Research Capital、Martin Schmid</div>
+      <div class="stocks"><strong>相關概念股：</strong>Alphabet (GOOGL)、Tower Research Capital (私人公司)</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/wayve-launches-85m-employee-tender-offer-at-8-5b-valuation/" target="_blank">自駕新創 Wayve 員工現金利回　8.5 億美元估值、8,500 萬美元要約收購</a></h3>
+      <div class="summary">
+        英國自駕技術新創 Wayve 宣布啟動 8,500 萬美元員工要約收購，讓員工可將部分歸屬股权變現，收購價格對應公司最新估值 85 億美元。該估值來自今年 2 月的 12 億美元 D 輪（由 Eclipse、Balderton、SoftBank Vision Fund 2 領投，參與者包括 Nvidia、Uber、微軟）。Wayve 採用「自我學習」的自駕方法，以端對端神經網路從數據中學習駕駛，而非依賴高精地圖。公司員工人數在過去一年翻倍至 1,200 人，正積極留住人才。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Wayve 的要約收購反映 AI 新創留才大戰加劇——在 IPO 市場充滿不確定性的環境下，允許員工二級市場變現已成為常態化激勵工具，而非僅是大額退出後的偶發事件。
+      </div>
+      <div class="entities"><strong>關鍵公司：</strong>Wayve、SoftBank Vision Fund 2、Nvidia、Uber、Microsoft、Eclipse、Balderton</div>
+      <div class="stocks"><strong>相關概念股：</strong>Nvidia (NVDA)、Uber (UBER)、Microsoft (MSFT)</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🏛️ AI 政策與監管</h2>
+    <span class="count-badge">2</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/02 08:20 PDT</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/02/openai-proposed-donating-5-of-its-equity-to-a-us-sovereign-wealth-fund/" target="_blank">OpenAI 提議捐贈 5% 股权給美國主權基金　讓全民共享 AI 紅利</a></h3>
+      <div class="summary">
+        OpenAI 執行長 Sam Altman 向美國政府提議捐出公司 5% 股權，成立美國主權財富基金。據金融時報報導，其他 AI 公司也可能被要求捐贈類似比例股份，以「鞏固與現政府的良好關係」並「緩解政治反彈」。此提案仍屬初步階段，正式落實需國會批准。今年 6 月，CNBC 即已披露類似討論，當時 Trump 總統表示「考慮讓美國大眾成為這些公司的合夥人」。OpenAI 4 月發布的政策文件提議將基金投資於 AI 實驗室與應用公司，「讓更多人不論出身都能直接分享 AI 驅動的經濟成長果實」。參議員 Bernie Sanders 6 月更提出更激進版本：向所有「系統性重要 AI 公司」一次性徵收 50% 股票稅。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>主權財富基金提案若付諸實現，將是史上最大規模的「AI 利益重新分配」實驗，可能為全球各國的 AI 政策訂定新標準，同時也引發對政府過度介入 AI 產業發展的憂慮。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>OpenAI、Sam Altman、Trump、Bernie Sanders、FT、CNBC</div>
+      <div class="stocks"><strong>相關概念股：</strong>微軟 (MSFT)、Alphabet (GOOGL)、Amazon (AMZN)（均為 OpenAI 投資方）</div>
+    </div>
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/trump-drops-restrictions-on-anthropics-mythos-and-fable-models/" target="_blank">川普撤銷 Anthropic Mythos/Fable 模型出口限制　7 月 1 日起恢復國際存取</a></h3>
+      <div class="summary">
+        美國政府解除 Anthropic Mythos 與 Fable 模型的出口許可要求，恢復這两款被視為目前地表最強 AI 模型的國際公眾存取權限。今年 6 月 12 日，美國政府將其列入出口管制技術清單，外籍人士須特別批准才能使用，引發 Anthropic 不得不完全中斷公眾存取的困境。商務部長 Howard Lutnick 表示，Anthropic 已同意「主動偵測並應對模型相關安全風險」並與美國政府合作制定發布標準。值得注意的是，在亞洲 AI 公司已開始發布接近 Mythos 等級模型之際（中國代號 Fugu、土爾鳳豐等），美國政府受到壓力須放寬對本土 AI 的限制以維持競爭力。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>美國出口管制政策急轉彎，顯示地緣政治考量與 AI 產業競爭之間存在根本張力。短期內，Anthropic 將重新獲得全球開發者青睞；但長期監管框架仍不明確，企業規劃充滿變數。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>Anthropic、Mythos、Fable、Howard Lutnick、Trump 商務部、Fugu (中國)、Tulongfeng</div>
+      <div class="stocks"><strong>相關概念股：</strong>Amazon (Anthropic 主要投資方)</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>👥 AI 人事與組織</h2>
+    <span class="count-badge">1</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/07/02 16:38 PDT</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/07/02/mark-zuckerberg-tells-staff-that-ai-agents-havent-progressed-as-quickly-as-hed-hoped/" target="_blank">Zuckerberg 坦言 AI Agent 進展不如預期　Meta 今年投入 1,450 億美元仍見不到成效</a></h3>
+      <div class="summary">
+        Meta 執行長 Mark Zuckerberg 在內部全員大會向員工坦承，AI Agent 的發展速度未如管理層原先預期般快速。今年稍早，Meta 裁減約 8,000 名企業員工（約 10% 人力），並將另外 7,000 人重新分配至包括「Agent Transformation」在內的 AI 團隊。Zuckerberg 在會議中表示這些裁員「並不如應該的那樣乾淨俐落」，因為高層「擔心公司適應變化的速度不夠快」。他也承認，新的 AI 導向公司結構所帶來的預期效益「尚未實現」，但預期在未來三到六個月內開始看到改善。Meta 今年預計在 AI 基礎設施上投入 1,450 億美元。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>Zuckerberg 的坦承顯示，大型科技公司對 AI 的「承諾 vs. 現實」鴻溝正在擴大。裁員與重組的成本節約，能否在 AI 投資回收前維持組織士氣與財務健康，是所有重押 AI 的企業 CEO 面臨的核心挑戰。
+      </div>
+      <div class="entities"><strong>關鍵公司/人物：</strong>Meta (META)、Mark Zuckerberg、Agent Transformation</div>
+      <div class="stocks"><strong>相關概念股：</strong>Meta (META)</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <h2>🌍 AI 國際與地緣政治</h2>
+    <span class="count-badge">1</span>
+  </div>
+  <div class="article-list">
+
+    <div class="article-card">
+      <div class="art-meta">
+        <span class="src">📰 TechCrunch</span>
+        <span>🕐 2026/06/30</span>
+      </div>
+      <h3><a href="https://techcrunch.com/2026/06/30/trump-drops-restrictions-on-anthropics-mythos-and-fable-models/" target="_blank">美國撤銷 Anthropic 出口禁令背後：亞洲新模型崛起迫使川普讓步</a></h3>
+      <div class="summary">
+        Anthropic Mythos/Fable 模型的出口管制撤銷時限，適逢亞洲 AI 實驗室開始發布接近 Mythos 等級的模型之際。Fugu（中國）與 Tulongfeng 等模型已開始在亞洲市場流通，這讓美國先前的出口管制效果大打折扣。商務部長 Lutnick 強調 Anthropic 須與美國政府合作制定「未來模型發布的協議與標準」，但此綁定條件與 Anthropic 早已自願承諾的內容高度重疊，顯示這次政策的實質更像是一種政治象徵。
+      </div>
+      <div class="why">
+        <strong>💡 為什麼重要：</strong>這顯示美國 AI 出口管制戰略正在經歷根本性的矛盾——管制反而加速了其他國家的自研速度，並削弱美國 AI 產品的全球市場份額。如何在國安與商業利益間取得平衡，將是下屆政府的核心挑戰。
+      </div>
+      <div class="entities"><strong>關鍵國家/實體：</strong>美國、中國、Fugu、Tulongfeng、Anthropic、OpenAI</div>
+      <div class="stocks"><strong>相關概念股：</strong>無直接受益的上市股票（地緣政治風險提示）</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOMORROW WATCH -->
+<div class="tomorrow">
+  <h2>🔮 明日觀察</h2>
+  <ul>
+    <li><strong>AI 部署服務大戰升溫：</strong>微軟 $2.5B Frontier Company vs. AWS $1B FDE，下週可能看到更多企業客戶公告。</li>
+    <li><strong>Anthropic 自研晶片後續：</strong>若確定與三星合作，晶片規格與量產時間表將是焦點，可能帶動三星代工概念股。</li>
+    <li><strong>Claude Sonnet 5 市場反應：</strong>8 月底前的低價策略能否有效吸引開發者遷移，將在未來數週見分曉。</li>
+    <li><strong>Amazon 的下一步：</strong>$1B FDE 組織剛成立，AWS 可能在本週發布更多企業 AI 合作細節。</li>
+    <li><strong>Etched 商業化進度：</strong>$5B 估值公司如何在 Cerebras、Groq、Nvidia 的夾縫中開闢市場，首批客戶名單至關重要。</li>
+  </ul>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>📊 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a>｜每日 12:30 台北時間自動更新</p>
+  <p>🤖 由 OpenClaw AI 編譯｜不代表 TechCrunch 立場｜2026-07-03</p>
+</footer>
+
+</div>
+</body>
+</html>
