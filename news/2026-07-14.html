@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 每日新聞摘要 — 2026-07-14（台北時間）</title>
+    <style>
+        :root {
+            --bg-color: #080810;
+            --card-bg: #12121f;
+            --card-bg-hover: #1a1a2e;
+            --primary: #00d4ff;
+            --secondary: #00ff88;
+            --accent: #ff6b6b;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border: #2a2a3a;
+            --accent-gradient: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'PingFang TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.75;
+            margin: 0; padding: 0;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            padding: 45px 0 35px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 35px;
+            position: relative;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+        }
+        header h1 {
+            font-size: 2.4rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        header .subtitle { color: var(--text-muted); font-size: 1rem; }
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            background: var(--card-bg);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .meta-item strong { color: var(--primary); }
+
+        /* ── KEYWORD CLOUD ── */
+        .keyword-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        .kw {
+            background: rgba(0,212,255,0.08);
+            border: 1px solid rgba(0,212,255,0.25);
+            color: var(--primary);
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 0.78rem;
+        }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-size: 1.5rem;
+            margin: 45px 0 20px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+            color: var(--primary);
+        }
+
+        /* ── TOP 3 ── */
+        .top-stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 20px;
+        }
+        .story-card-big {
+            background: linear-gradient(145deg, #0d1a2a 0%, #12121f 100%);
+            border: 1px solid var(--primary);
+            border-radius: 16px;
+            padding: 26px 24px;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,212,255,0.08);
+        }
+        .story-card-big:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,212,255,0.18);
+        }
+        .story-rank {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 2px 12px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .story-card-big h3 { margin: 6px 0 14px 0; font-size: 1.2rem; line-height: 1.4; }
+        .story-card-big h3 a { color: var(--primary); text-decoration: none; }
+        .story-card-big h3 a:hover { text-decoration: underline; }
+        .story-tagline { color: #b8c8d8; font-size: 0.9rem; line-height: 1.65; margin-bottom: 14px; }
+        .analysis-box {
+            background: rgba(0,212,255,0.05);
+            border-left: 3px solid var(--primary);
+            padding: 10px 15px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: #b0d8ee;
+        }
+        .story-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        /* ── RADAR GRID ── */
+        .radar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+        .radar-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 14px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .radar-card:hover {
+            transform: translateY(-3px);
+            background: var(--card-bg-hover);
+            border-color: rgba(0,212,255,0.3);
+        }
+        .radar-emoji { font-size: 1.7rem; margin-bottom: 6px; }
+        .radar-count { font-size: 1.9rem; font-weight: 800; display: block; color: var(--primary); }
+        .radar-label { font-size: 0.88rem; color: var(--text-main); margin: 4px 0 5px; font-weight: 500; }
+        .radar-rep { font-size: 0.72rem; color: var(--text-muted); line-height: 1.35; }
+
+        /* ── CATEGORY ── */
+        .category-group { margin-bottom: 45px; }
+        .category-header {
+            font-size: 1.25rem;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            color: var(--text-main);
+        }
+        .cat-count { color: var(--text-muted); font-size: 0.82rem; font-weight: normal; }
+
+        /* ── NEWS CARD ── */
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 14px;
+            transition: all 0.3s;
+        }
+        .news-card:hover {
+            background: var(--card-bg-hover);
+            border-color: rgba(0,212,255,0.28);
+        }
+        .news-card h4 { margin: 0 0 6px 0; font-size: 1.08rem; line-height: 1.4; }
+        .news-card h4 a { color: var(--primary); text-decoration: none; }
+        .news-card h4 a:hover { text-decoration: underline; }
+        .news-meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .news-summary { margin-bottom: 12px; color: var(--text-main); font-size: 0.92rem; }
+
+        /* ── TAGS ── */
+        .entity-tag {
+            display: inline-block;
+            background: #1a2530;
+            color: var(--primary);
+            padding: 2px 9px;
+            border-radius: 4px;
+            font-size: 0.73rem;
+            margin-right: 5px;
+            margin-bottom: 4px;
+            border: 1px solid #2a4a5a;
+        }
+        .stock-tag {
+            display: inline-block;
+            background: #0a2a1a;
+            color: var(--secondary);
+            padding: 2px 9px;
+            border-radius: 4px;
+            font-size: 0.73rem;
+            margin-right: 5px;
+            margin-bottom: 4px;
+            border: 1px solid #1a4a2a;
+        }
+
+        /* ── KEY TERMS ── */
+        .key-terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .key-term {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 0.85rem;
+        }
+        .key-term .term { color: var(--primary); font-weight: 600; }
+        .key-term .def { color: var(--text-muted); margin-top: 3px; font-size: 0.8rem; }
+
+        /* ── OUTLOOK ── */
+        .outlook-card {
+            background: linear-gradient(145deg, #0d1f15, #12121f);
+            border: 1px solid #1a4a2a;
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin-bottom: 40px;
+        }
+        .outlook-card h3 {
+            color: var(--secondary);
+            margin-bottom: 14px;
+            font-size: 1.1rem;
+        }
+        .outlook-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .outlook-card li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: #a8c8b0;
+            font-size: 0.9rem;
+        }
+        .outlook-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            color: #444;
+            font-size: 0.88em;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
+        }
+        footer a { color: var(--primary); text-decoration: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.7rem; }
+            .top-stories { grid-template-columns: 1fr; }
+            .radar-grid { grid-template-columns: repeat(2, 1fr); }
+            .section-title { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+    <h1>🤖 TECH — AI 每日新聞摘要</h1>
+    <p class="subtitle">📡 資料來源：TechCrunch · 報告日期：2026 年 7 月 14 日（台北時間）</p>
+    <div class="meta-info">
+        <span class="meta-item">📊 <strong>22</strong> 則新聞</span>
+        <span class="meta-item">🏷️ <strong>8</strong> 個分類</span>
+        <span class="meta-item">🔥 涵蓋 OpenAI · Apple · Anthropic · PixVerse · Nous Research</span>
+    </div>
+    <div class="keyword-cloud">
+        <span class="kw">GPT-5.6</span>
+        <span class="kw">Apple 告 OpenAI</span>
+        <span class="kw">PixVerse $439M</span>
+        <span class="kw">Anthropic India</span>
+        <span class="kw">Satya Nadella 警告</span>
+        <span class="kw">Nous Research</span>
+        <span class="kw">空間資料中心</span>
+        <span class="kw">ChatGPT 家庭市場</span>
+        <span class="kw">Waze Gemini</span>
+        <span class="kw">AI Agent</span>
+    </div>
+</header>
+
+<!-- ══════════ TOP 3 HEADLINES ══════════ -->
+<h2 class="section-title">🔥 今日頭條 Top 3</h2>
+<div class="top-stories">
+
+    <div class="story-card-big">
+        <div class="story-rank">#1 頭條</div>
+        <h3><a href="https://techcrunch.com/2026/07/13/the-wildest-allegations-in-apples-trade-secrets-lawsuit-against-openai/" target="_blank">蘋果告 OpenAI 商業竊密：醜聞細節一次看</a></h3>
+        <p class="story-tagline">蘋果向法院提交長達 41 頁的起訴書，詳述 OpenAI 涉嫌系統性竊取蘋果機密，包含離職員工在離開蘋果後仍可透過零日漏洞進入蘋果網路下載數十份機密文件，甚至有 OpenAI 面試官要求應徵者把蘋果零件帶去「展示」。起訴書形容 OpenAI「高層主導」、「爛到核心」，並透露目前已有超過 400 名蘋果前員工任職於 OpenAI。</p>
+        <div class="analysis-box">💡 為什麼重要：這是近年科技業最大規模的商業竊密訴訟，不只涉及個資，更是蘋果與 OpenAI 競爭自研 AI 硬體的延伸。400 名蘋果前員工任職 OpenAI 的數字，顯示蘋果人才流失的嚴重性。</div>
+        <div class="story-meta">
+            <span class="entity-tag">Apple</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">Jony Ive</span>
+            <span class="entity-tag">io (OpenAI)</span>
+        </div>
+    </div>
+
+    <div class="story-card-big">
+        <div class="story-rank">#2 頭條</div>
+        <h3><a href="https://techcrunch.com/2026/07/13/video-generation-startup-pixverse-raises-439m-valuation-soars-past-2b/" target="_blank">影片生成新創 PixVerse 完成 4.39 億美元募資，估值突破 20 億美元</a></h3>
+        <p class="story-tagline">總部位於新加坡的 PixVerse 宣布完成 C 輪延伸輪，集資 4.39 億美元，估值突破 20 億美元成為獨角獸。投資人包括阿里巴巴、Lollapalooza Capital、Eastern Bell Capital 等。PixVerse 提供 V 系列（消費與 API）、C 系列（專業影視）、R 系列（世界模型）三條產品線，平台擁有超過 1.5 億註冊用戶、1500 萬月活躍用戶，已支援 4K 解析度與內建音訊生成。</p>
+        <div class="analysis-box">💡 為什麼重要：OpenAI 關閉 Sora 2 後，影片生成市場出現真空，PixVerse 趁勢崛起挑戰 Midjourney、Luma、Runway 等西方競爭者，並獲阿里巴巴戰略投資，全球布局企圖明顯。</div>
+        <div class="story-meta">
+            <span class="entity-tag">PixVerse</span>
+            <span class="entity-tag">阿里巴巴</span>
+            <span class="entity-tag">Midjourney</span>
+            <span class="stock-tag">NVDA</span>
+        </div>
+    </div>
+
+    <div class="story-card-big">
+        <div class="story-rank">#3 頭條</div>
+        <h3><a href="https://techcrunch.com/2026/07/13/satya-nadella-has-issued-a-shocking-warning-to-companies-using-ai/" target="_blank">微軟 CEO 納德拉發出震撼警告：企業使用 AI 付了兩次錢</a></h3>
+        <p class="story-tagline">微軟執行長納德拉在部落格文章中警告企業：使用專有 AI 模型等於付出「雙重代價」——一次用金錢購買 Token，另一次用企業最寶貴的智慧財產（prompt、修正回饋、產業know-how）來餵養模型。這些資料會被蒸餾（distillation）進模型，使 AI 公司能免費取得原本只有競爭對手才能買到的商業機密。</p>
+        <div class="analysis-box">💡 為什麼重要：納德拉身為同時投資 OpenAI 與 Anthropic 的微軟掌舵者，公開批評專有模型的資料掠奪商業模式，顯示即使龍頭企業也開始傾向開源或本地部署。</div>
+        <div class="story-meta">
+            <span class="entity-tag">Microsoft</span>
+            <span class="entity-tag">Satya Nadella</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">Anthropic</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- ══════════ RADAR GRID ══════════ -->
+<h2 class="section-title">📊 今日數據總覽</h2>
+<div class="radar-grid">
+    <div class="radar-card">
+        <div class="radar-emoji">🏛️</div>
+        <span class="radar-count">4</span>
+        <div class="radar-label">政策與監管</div>
+        <div class="radar-rep">Apple 告 OpenAI、空間資料中心、George Hotz、Trusted Contact</div>
+    </div>
+    <div class="radar-card">
+        <div class="radar-emoji">💰</div>
+        <span class="radar-count">4</span>
+        <div class="radar-label">投融資</div>
+        <div class="radar-rep">PixVerse $439M、Nous Research $1.5B 估值</div>
+    </div>
+    <div class="radar-card">
+        <div class="radar-emoji">🤖</div>
+        <span class="radar-count">3</span>
+        <div class="radar-label">產品與應用</div>
+        <div class="radar-rep">Waze AI、ChatGPT 家庭市場、Uber AI</div>
+    </div>
+    <div class="radar-card">
+        <div class="radar-emoji">🌍</div>
+        <span class="radar-count">3</span>
+        <div class="radar-label">國際與地緣</div>
+        <div class="radar-rep">Anthropic India 定價、Altman vs Musk、Uber Waymo</div>
+    </div>
+    <div class="radar-card">
+        <div class="radar-emoji">🧠</div>
+        <span class="radar-count">3</span>
+        <div class="radar-label">模型與研究</div>
+        <div class="radar-rep">GPT-5.6 家庭、Nous Hermes Agent、AI 倫理</div>
+    </div>
+    <div class="radar-card">
+        <div class="radar-emoji">🏢</div>
+        <span class="radar-count">2</span>
+        <div class="radar-label">企業 AI</div>
+        <div class="radar-rep">Nadella 警告企業、Uber 資料變現</div>
+    </div>
+    <div class="radar-card">
+        <div class="radar-emoji">👥</div>
+        <span class="radar-count">2</span>
+        <div class="radar-label">人事與組織</div>
+        <div class="radar-rep">Uber CPO 專訪、ChatGPT 家庭 PM</div>
+    </div>
+    <div class="radar-card">
+        <div class="radar-emoji">💾</div>
+        <span class="radar-count">1</span>
+        <div class="radar-label">AI 晶片</div>
+        <div class="radar-rep">Nadella 提及自建模型</div>
+    </div>
+</div>
+
+<!-- ══════════ CATEGORIZED NEWS ══════════ -->
+
+<!-- 💰 AI 投融資與併購 -->
+<h2 class="section-title">💰 AI 投融資與併購 <span class="cat-count">（4 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/video-generation-startup-pixverse-raises-439m-valuation-soars-past-2b/" target="_blank">影片生成新創 PixVerse 完成 4.39 億美元 C 輪延伸，估值突破 20 億美元</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-14 · Ivan Mehta 報導</span>
+            <span class="entity-tag">PixVerse</span>
+            <span class="entity-tag">阿里巴巴</span>
+            <span class="stock-tag">NVDA</span>
+        </div>
+        <p class="news-summary">總部位於新加坡的影片生成新創 PixVerse 宣布完成 4.39 億美元 C 輪延伸輪，估值一舉突破 20 億美元，成為 AI 影片生成領域最新獨角獸。本輪投資人包含阿里巴巴、Lollapalooza Capital、Eastern Bell Capital、Mirae Asset、BlueFocus 等。共同創辦人王常虎曾於位元組跳動負責電腦視覺業務，共同創辦人謝爾丹為前 Lighthouse Capital 執行副總。PixVerse 提供消費級 V 系列影片 API、專業影視 C 系列，以及今年稍早發布的 R 系列世界模型，支援最高 4K 解析度與同步音訊生成。平台已有超過 1.5 億註冊用戶、1500 萬月活躍用戶。創辦人謝爾丹指出：「OpenAI 關閉 Sora 2 後，能提供高品質影片模型的公司寥寥無幾，Meta 與騰訊都還做不到。」</p>
+        <div class="analysis-box">💡 為什麼重要：隨著 Sora 2 退場，AI 影片生成市場出現領導真空。PixVerse 獲阿里巴巴等亞洲資本背書，全球化擴張企圖明顯，將直接威脅 Midjourney、Runway、Luma 的市場地位。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/hermes-agent-maker-nous-research-in-talks-for-new-funding-at-1-5b-valuation/" target="_blank">開源 AI Agent 新創 Nous Research 正進行新一輪募資，估值達 15 億美元</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Ivan Mehta、Marina Temkin 報導</span>
+            <span class="entity-tag">Nous Research</span>
+            <span class="entity-tag">Robot Ventures</span>
+            <span class="entity-tag">USV</span>
+            <span class="entity-tag">OpenClaw</span>
+        </div>
+        <p class="news-summary">開發開源 Hermes Agent 的新創 Nous Research 正與投資人協商新一輪募資，由 Robot Ventures 領投，USV 等知名機構參與，估值將達 15 億美元，計畫集資至少 7500 萬美元。Nous Research 由 Jeffrey Quesnelle 等人於 2023 年創立，旗下 Hermes Agent 在 GitHub 擁有超過 21.4 萬顆星、近 4 萬次分支，開發者可在桌面或 VPS 上本地運行，也提供每月 20 至 200 美元的雲端托管版本。Nous Research 先前已累計融資 7000 萬美元，投資人包含 Paradigm、OSS Capital、Balaji Srinivasan 等。</p>
+        <div class="analysis-box">💡 為什麼重要：開源 Agent 框架受到開發者社區熱烈追捧，Nous Research 的高估值顯示「本地運行 AI Agent」已成重要趨勢，挑戰 OpenAI、Anthropic 等專有模型的霸權。</div>
+    </div>
+
+</div>
+
+<!-- 🏛️ AI 政策與監管 -->
+<h2 class="section-title">🏛️ AI 政策與監管 <span class="cat-count">（4 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/the-wildest-allegations-in-apples-trade-secrets-lawsuit-against-openai/" target="_blank">蘋果告 OpenAI 商業竊密起訴書內容一次看：41 頁的驚人細節</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Sarah Perez 報導</span>
+            <span class="entity-tag">Apple</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">io (OpenAI)</span>
+        </div>
+        <p class="news-summary">蘋果於 7 月 11 日向北加州聯邦法院提交的 41 頁起訴書，詳述 OpenAI 涉嫌系統性竊取蘋果商業機密的驚人細節：包括離職員工 Chang Liu 利用零日漏洞在離職後仍可進入蘋果網路儲存區下載數十份機密文件，並向同事發送「LOL，我發現我可以連到[網路儲存]，太好笑了」等訊息；OpenAI 面試官曾要求應徵者把蘋果零件與原型機帶去面試「展示」環節；蘋果甚至指控 OpenAI 旗下由 Jony Ive 創立的 io 公司涉及金屬表面處理工藝的侵權。起訴書還透露，目前已有超過 400 名蘋果前員工任職 OpenAI。</p>
+        <div class="analysis-box">💡 為什麼重要：此案不僅是個資竊盜，更是蘋果與 OpenAI 在自研 AI 硬體領域競爭的延伸。蘋果指控 OpenAI「高層主導」的不法行為，若成立將重創 OpenAI 形象與 IPO 計畫。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/apple-says-former-employee-exploited-rare-bug-to-download-confidential-files-after-leaving-for-openai/" target="_blank">蘋果指控離職員工利用零日漏洞，離職後仍持續竊取機密資料至 OpenAI</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Zack Whittaker 報導</span>
+            <span class="entity-tag">Apple</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">零日漏洞</span>
+        </div>
+        <p class="news-summary">蘋果揭露其前員工、系統電氣工程師 Chang Liu 在跳槽 OpenAI 後，利用蘋果一個「罕見且從未為人所知的零日驗證漏洞」，持續存取蘋果公司網路儲存區長達數週，下載數十份包含未發布產品資訊、工程簡報、技術規格與專案資料的機密文件。蘋果表示，該漏洞在事後已修補，且蘋果在發現後已立即終止該員工的存取權限。蘋果聲稱，Liu 甚至在離開蘋果時未歸還公司配發的 MacBook 筆電，並向同事發訊表示「我還有另一台電腦」。</p>
+        <div class="analysis-box">💡 為什麼重要：這是首度有大型科技公司以「零日漏洞竊密」具體指控 AI 競爭對手，顯示 AI 人才爭奪戰已從民事侵權升級至刑事層面的安全危機。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/should-ai-help-you-get-away-with-killing-your-spouse/" target="_blank">George Hotz 激進論點：AI 應該幫人殺妻嗎？從使用者對齊到社會責任的倫理之戰</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Russell Brandom 報導</span>
+            <span class="entity-tag">George Hotz</span>
+            <span class="entity-tag">Comma AI</span>
+            <span class="entity-tag">AI 倫理</span>
+        </div>
+        <p class="news-summary">AI 駭客、Comma AI 創辦人 George Hotz 在部落格文章中提出激進論點：若 AI 的終極目標是完美服從使用者（使用者對齊），那麼原則上 AI 應該可以幫使用者「計畫如何殺妻」。Hotz 此文是回應 AI Futures Project 的「AI 2040：Plan A」政策論文，該論文建議全球研究人員共同放緩 AI 發展 14 年以確保人類安全。Hotz 認為真正的 AI 對齊應該是「本地控制、緊密服從個人利益的 AI」，並以手槍做比喻——手槍不會因為你用手槍殺繼母而抱怨。他更揚言「願為這個原則赴死」。</p>
+        <div class="analysis-box">💡 為什麼重要：Hotz 的論點極端的，但核心問題是真實的——當 AI 足夠強大且完全服從個人意志時，社會集體利益該如何受到保護？此討論將持續升溫。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/11/openai-bets-on-families-as-chatgpt-goes-deeper-into-households/" target="_blank">OpenAI 進軍家庭市場：ChatGPT 雇用專門 PM 瞄準家長與銀髮族</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-11 · Jagmeet Singh 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">ChatGPT</span>
+            <span class="entity-tag">Family Online Safety Institute</span>
+        </div>
+        <p class="news-summary">OpenAI 正在舊金山招聘「家庭產品經理」，專門為家庭、照護者與銀髮族打造跨產品的體驗。根據 Sensor Tower 數據，ChatGPT 35 歲以上用戶占比已從去年 Q2 的 26% 上升至 Q2 的 31%，美國家長使用率也從 16% 增至 24%。家庭線上安全學會（FOSI）研究顯示，27% 的美國父母認為孩子過去一週使用過生成式 AI，但實際上有 38% 的孩子表示自己用過，顯示家長普遍低估兒少使用 AI 的頻率。OpenAI 過去一年已推出青少年帳號家長控制、敏感對話路由至推理模型等功能。</p>
+        <div class="analysis-box">💡 為什麼重要：AI 產品從個人生產力工具走向「家庭共享」，但兒少安全與隱私保護的挑战也随之而來。OpenAI 能否避免社群媒體的錯誤，將是關鍵。</div>
+    </div>
+
+</div>
+
+<!-- 🧠 AI 模型與研究 -->
+<h2 class="section-title">🧠 AI 模型與研究 <span class="cat-count">（3 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/" target="_blank">OpenAI 發布 GPT-5.6 模型家族：Sol / Terra / Luna 三款型號全面覆蓋</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-10 · Lucas Ropek 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">GPT-5.6</span>
+            <span class="entity-tag">Sam Altman</span>
+        </div>
+        <p class="news-summary">OpenAI 發布全新模型家族，首發型號為 GPT-5.6 系列，包含 Sol（旗艦）、Terra（中階）、Luna（輕量）三款模型，涵蓋從最高效能到成本優化的完整企業需求。Sam Altman 形容新模型為「至今最大幅度的能力提升」，尤其在網路安全領域有顯著突破，並預告將陸續推出更多型號。GPT-5.6 家族隨即成為 Microsoft 365 Copilot 的「首選模型」，但據報導微軟同時也在使用自家 MAI 模型以降低成本。</p>
+        <div class="analysis-box">💡 為什麼重要：GPT-5.6 家族一口氣發布三款型號，直接對標 Anthropic 的 Fable 5 定價策略，企業 Copilot 大戰正式進入白熱化階段。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/hermes-agent-maker-nous-research-in-talks-for-new-funding-at-1-5b-valuation/" target="_blank">Nous Research Hermes Agent：開源 AI Agent 新創募資瞄準獨角獸估值</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Ivan Mehta、Marina Temkin 報導</span>
+            <span class="entity-tag">Nous Research</span>
+            <span class="entity-tag">Hermes Agent</span>
+            <span class="entity-tag">OpenClaw</span>
+        </div>
+        <p class="news-summary">Nous Research 是开源 AI Agent 領域的重要新創，其旗艦產品 Hermes Agent 在 GitHub 擁有超過 21.4 萬顆星，支援桌面運行與 Telegram、Discord 等通訊平台整合，可自動化任務並持續運行。与 OpenClaw 类似，Hermes 強調本地運行與使用者資料主權，並內建 Web 搜尋、程式設計、圖像理解等技能，可自動從使用者行為學習並生成新技能。本輪估值 15 億美元，顯示開源 Agent 框架已獲機構投資者青睞。</p>
+        <div class="analysis-box">💡 為什麼重要：開源 Agent 框架的估值飆升，顯示「本地運行 AI Agent」已成主流趨勢，挑戰 OpenAI Agent 產品的封閉生態。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/openai-says-gpt-5-6-is-the-preferred-model-for-microsoft-copilot-amid-breakup-chatter/" target="_blank">OpenAI 急忙滅火：GPT-5.6 仍是 Microsoft Copilot 的「首選模型」</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-10 · Lucas Ropek 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">Microsoft</span>
+            <span class="entity-tag">Copilot</span>
+            <span class="entity-tag">GPT-5.6</span>
+        </div>
+        <p class="news-summary">在市場傳出微軟與 OpenAI 關係生變之際，OpenAI 主動對外強調 GPT-5.6 仍是 Microsoft 365 Copilot 的「首選模型」，雙方合作關係並未改變。然而，根據近期報導，微軟同時也在積極部署自家 MAI 模型，以減少對 OpenAI 的依賴並降低 AI 部署成本。這顯示微軟的 AI 策略正走向「多家供應商」而非單一依賴。</p>
+        <div class="analysis-box">💡 為什麼重要：微軟公開使用自研 MAI 模型的動作，是對 OpenAI 的最大制衡談判籌碼，OpenAI 必須以更低價格與更強模型維持這段關係。</div>
+    </div>
+
+</div>
+
+<!-- 🌍 AI 國際與地緣政治 -->
+<h2 class="section-title">🌍 AI 國際與地緣政治 <span class="cat-count">（3 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/sam-altmans-space-data-center-trash-talk-is-what-most-experts-already-believe/" target="_blank">馬斯克 vs 阿特曼：太空資料中心口水戰，專家早就不看好</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Tim Fernholz 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">SpaceX</span>
+            <span class="entity-tag">Elon Musk</span>
+            <span class="entity-tag">Sam Altman</span>
+        </div>
+        <p class="news-summary">馬斯克在 X 上指控 Sam Altman 是「騙子」，稱其向公開市場投資者推銷「短期太空資料中心」概念；Altman 回擊：「老兄，你才是那個向公開市場投資者推銷短期太空資料中心的人。」然而，雙方的口水戰背後，專家共識是：太空資料中心在火箭成本大幅下降、量產高性能衛星技術成熟之前，經濟效益根本無法實現。SpaceX 的 IPO 說明書也坦承 Starship 可能「短期內無法完全回收」，每次發射仍需拋棄二級火箭助推器。</p>
+        <div class="analysis-box">💡 為什麼重要：馬斯克與 Altman 的公開決裂，反映了 AI 基礎設施競爭已延伸至太空。SpaceX 的 IPO 估值 2 兆美元，太空資料中心敘事是核心驅動，但專家認為這仍是個「十年後才能實現」的願景。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/anthropic-starts-localizing-claude-pricing-for-india-its-biggest-market-after-the-us/" target="_blank">Anthropic 開始在印度本地化 Claude 定價：美國之外最大市場的定價策略</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Jagmeet Singh 報導</span>
+            <span class="entity-tag">Anthropic</span>
+            <span class="entity-tag">Claude</span>
+            <span class="entity-tag">印度</span>
+            <span class="entity-tag">Infosys</span>
+            <span class="entity-tag">TCS</span>
+        </div>
+        <p class="news-summary">Anthropic 宣布在印度推出盧比定價方案，Claude Pro 訂閱月費約 21 美元（₹2,000）、Claude Max 約 125 美元（₹11,999），皆已含當地稅金。印度目前占 Claude 全球使用量的 5.8%，是美國之外最大市場。印度用戶長期以來因美元定價與匯率轉換而感到摩擦，此次本地化被視為 Anthropic 擴大印度付費用戶的關鍵一步。Anthropic 已於班加羅爾設立辦公室，並與 Infosys、Tata Consultancy Services 建立企業合作關係。</p>
+        <div class="analysis-box">💡 為什麼重要：印度是全球 AI 市場的下一個主戰場。Anthropic、OpenAI、Google 之間的印度用戶爭奪戰才剛開始，本地化定價與支付方式將是決定市佔率的關鍵。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/anthropic-openai-and-spacex-are-bigger-than-the-last-25-years-of-tech-exits/" target="_blank">Anthropic、OpenAI、SpaceX 三家公司合計價值超越過去 25 年所有美國 VC 退出案總和</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-09 · Russell Brandom 報導</span>
+            <span class="entity-tag">Anthropic</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">SpaceX</span>
+            <span class="entity-tag">VC</span>
+        </div>
+        <p class="news-summary">根據分析，三大 AI 與太空公司——Anthropic、OpenAI 與 SpaceX——即將陸續 IPO，其合計將創造的價值，已超越 2000 年以來所有美國創投退出案的總和。SpaceX 預計以 2 兆美元估值上市，OpenAI 估值數千億美元，Anthropic 估值亦達數百億美元。三家公司的 IPO 將是史上最大規模的科技退出事件，重塑整個創投生態的遊戲規則。</p>
+        <div class="analysis-box">💡 為什麼重要：這三筆 IPO 將重新定義「成功退出」的規模，也可能預示著 AI 狂潮已達到前所未有的泡沫臨界點，投資人須審慎評估風險。</div>
+    </div>
+
+</div>
+
+<!-- 🤖 AI 產品與應用 -->
+<h2 class="section-title">🤖 AI 產品與應用 <span class="cat-count">（3 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/waze-adds-new-ai-powered-features-and-customization-updates/" target="_blank">Google 地圖子公司 Waze 推出 Gemini AI 功能：自然語言語音回報路況、摩托車模式</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Aisha Malik 報導</span>
+            <span class="entity-tag">Google</span>
+            <span class="entity-tag">Waze</span>
+            <span class="entity-tag">Gemini</span>
+            <span class="entity-tag">Alphabet</span>
+        </div>
+        <p class="news-summary">Google 旗下的導航應用 Waze 發布一系列 AI 功能更新，由 Google Gemini 驅動的自然語言語音對話取代傳統按鈕式操作，用戶可說「找一家現在營業的咖啡店」或「幫我找附近最低價加油站」，Waze 會即時回應選項。新功能還包括：個人化路線建議（根據用戶行車習慣偏好高速公路或地方道路）、摩托車模式（AI 計算兩輪車專屬捷徑與危險路況提示）、道路封閉自然語音回報功能，以及「安靜模式」（減少語音提示次數）。摩托車模式目前優先在阿根廷、巴西、哥倫比亞、馬來西亞、墨西哥、秘魯、菲律宾上線。</p>
+        <div class="analysis-box">💡 為什麼重要：Google 將 Gemini 深度整合進 Waze，顯示大型語言模型在消費者日常工具中的落地速度加快，導航應用正式進入 AI 驅動的「對話式」時代。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/11/openai-bets-on-families-as-chatgpt-goes-deeper-into-households/" target="_blank">OpenAI 為 ChatGPT 招聘家庭產品經理：瞄準家長、照護者與銀髮族市場</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-11 · Jagmeet Singh 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">ChatGPT</span>
+            <span class="entity-tag">家庭市場</span>
+        </div>
+        <p class="news-summary">OpenAI 正在招聘專責「家庭產品經理」，職責包括為家長、照護者與銀髮族設計跨產品的 AI 體驗。Sensor Tower 數據顯示，ChatGPT 35 歲以上用戶佔比從去年 26% 升至 31%，美國家長使用率從 16% 升至 24%。研究顯示家長普遍低估子女使用生成式 AI 的頻率（家長認知 27% vs 實際 38%）。OpenAI 過去一年已推出青少年帳號家長控制、敏感對話轉至推理模型處理、Trusted Contact（可信聯絡人）功能等安全措施。</p>
+        <div class="analysis-box">💡 為什麼重要：AI 產品從個人工具走向「家庭共享」，OpenAI 能否從社交媒體的錯誤中學習、在產品設計初期就內建兒少安全機制，將決定其能否避免監管風暴。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/ubers-product-chief-on-hotels-robotaxis-and-why-the-company-doesnt-want-to-be-everything-for-everyone/" target="_blank">Uber CPO 專訪：飯店、機器人計程車，以及為何不想當「萬事通」</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Connie Loizos 採訪</span>
+            <span class="entity-tag">Uber</span>
+            <span class="entity-tag">Waymo</span>
+            <span class="entity-tag">Expedia</span>
+            <span class="entity-tag">AI</span>
+        </div>
+        <p class="news-summary">Uber 產品長 Sachin Kansal 接受 TechCrunch 專訪，揭示 Uber 的 AI 應用藍圖：AI 已深入 Uber 的賺錢助手（預測需求高峰與最佳接單地點）、外送購物車助手（語音指令快速生成購物清單）、乘車語音指令（描述行李數量與目的地人數）等場景。Uber 已擁有 51 億美元營收級別的會員計畫 One，並正與 Expedia 深度整合飯店預訂功能。針對自駕車，Kansal 強調「混合網路」策略——人類駕駛與 Waymo 等自駕車在同一城市共存，且 Uber 的 AV Labs 正透過感測器車隊收集行車資料，已與多家 Gen AI 公司簽署商業合作銷售這些資料。</p>
+        <div class="analysis-box">💡 為什麼重要：Uber 不只想當乘車平台——飯店、AI 資料變現、AV Labs 感測器車隊，顯示 Uber 正利用 AI 重新定義自己為「全方位生活平台」，與 Grab、微信超級應用之爭加劇。</div>
+    </div>
+
+</div>
+
+<!-- 🏢 AI 企業動態 -->
+<h2 class="section-title">🏢 AI 企業動態 <span class="cat-count">（2 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/satya-nadella-has-issued-a-shocking-warning-to-companies-using-ai/" target="_blank">微軟 CEO 納德拉：企業使用專有 AI 模型「付了兩次錢」——一次用鈔票，一次用商業機密</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Julie Bort 報導</span>
+            <span class="entity-tag">Microsoft</span>
+            <span class="entity-tag">Satya Nadella</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">Anthropic</span>
+        </div>
+        <p class="news-summary">微軟執行長 Satya Nadella 在個人部落格發表長文，警告企業使用專有 AI 模型時存在「雙重付費」陷阱：第一次付費是購買 Token 使用量，第二次則是在使用過程中無意間將企業最寶貴的智慧財產（prompt、修正回饋、業務 know-how）餵給模型，供 AI 公司用於蒸餾（distillation）訓練、生產更強大的模型，等於免費將商業機密拱手讓給競爭對手。納德拉主張企業應建立「自有學習環境」在雲端，並透過「編排層」自由切換不同 AI 模型供應商，而非被單一專有模型鎖定。</p>
+        <div class="analysis-box">💡 為什麼重要：納德拉此文是對整個專有 AI 行業商業模式的根本質疑。即使微軟同時是 OpenAI 與 Anthropic 的大股東，這位執行長仍選擇公開反對專有模型的資料掠奪條款，顯示企業 AI 市場正快速向開源與本地部署遷移。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/14/already-rich-already-successful-why-the-last-wave-of-tech-winners-is-grinding-again/" target="_blank">有錢有名還要更努力：上一代科技贏家為何再次 all-in AI？</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-14 · Connie Loizos 報導</span>
+            <span class="entity-tag">科技巨頭</span>
+            <span class="entity-tag">VC</span>
+            <span class="entity-tag">AI 投資</span>
+        </div>
+        <p class="news-summary">為何財富與地位早已無虞的科技大老，仍不斷折騰自己再次投入 AI 熱潮？答案在於對「錯過定義性時刻」的恐懼，以及「繼續賺更多」的不可抗拒誘惑。創投、反覆創業者與大型科技公司高層都在重新挽起袖子，深怕在這波 AI 浪潮中被邊緣化。這個現象正在重塑整個科技創新生態，資金與人才正向 AI 高度集中。</p>
+        <div class="analysis-box">💡 為什麼重要：當已經「上岸」的科技大老們仍瘋狂湧入 AI，代表這個市場的資金與人才供給仍遠未見頂，但也意味著競爭門檻正在急速墊高，新創公司的生存空間受到嚴重挤压。</div>
+    </div>
+
+</div>
+
+<!-- 💾 AI 晶片與硬體 -->
+<h2 class="section-title">💾 AI 晶片與硬體 <span class="cat-count">（1 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/07/microsoft-joins-ai-cost-cutting-trend-by-relying-more-on-its-own-models/" target="_blank">微軟也加入 AI 成本削減行列：開始更依賴自家 MAI 模型減少開支</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-07 · Lucas Ropek 報導</span>
+            <span class="entity-tag">Microsoft</span>
+            <span class="entity-tag">MAI 模型</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="stock-tag">MSFT</span>
+        </div>
+        <p class="news-summary">微軟是最新的矽谷巨頭加入 AI 成本削減行列，開始更依賴自家 MAI 模型以減少對 OpenAI 的支出並降低整體 AI 部署成本。此趨勢顯示，縱使微軟已向 OpenAI 投資數百億美元，這家軟體巨人仍在幕後積極開發替代方案，避免對单一 AI 供應商的長期依賴。</p>
+        <div class="analysis-box">💡 為什麼重要：微軟自研 MAI 模型的動作，是對 OpenAI 最有力的談判籌碼，同時也象徵著「AI 基礎設施自建」已成為大型雲端廠商的共識，NVIDIA 的 GPU 需求結構可能將出現變化。</div>
+    </div>
+
+</div>
+
+<!-- 👥 AI 人事與組織 -->
+<h2 class="section-title">👥 AI 人事與組織 <span class="cat-count">（2 則）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/13/ubers-robotaxi-lobbying-effort-has-put-it-on-a-collision-course-with-waymo/" target="_blank">Uber 機器人計程車遊說行動與 Waymo 正面碰撞：華府監管戰開打</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-13 · Kirsten Korosec 報導</span>
+            <span class="entity-tag">Uber</span>
+            <span class="entity-tag">Waymo</span>
+            <span class="entity-tag">Robotaxi</span>
+            <span class="entity-tag">AV Labs</span>
+        </div>
+        <p class="news-summary">Uber 在華盛頓展開大規模機器人計程車遊說行動，但此舉讓 Uber 與其重要自駕合作夥伴 Waymo 正面衝突。Waymo 是 Uber 在部分城市中的合作對象，在其他城市卻是直接競爭對手。Uber CEO Kansal 在專訪中強調：「我們無意成為 L4 自駕提供商，我們專注於鋪設『賽道』，讓多元玩家都能在我們平台上運行。」同時，Uber 的 AV Labs 正在開發自己的感測器車隊與資料收集能力，為未來談判累積更多槓桿。</p>
+        <div class="analysis-box">💡 為什麼重要：Uber 在自駕車生態中的「裁判 + 球員」雙重角色，正在華府監管戰中引發越來越大的爭議，這場遊說戰的結果將影響全球自駕計程車監管框架。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/fidji-simo-steps-down-from-openais-no-2-role/" target="_blank">OpenAI 二號人物 Fidji Simo 閃辭：Altman 失去左右手，公司正值 IPO 籌備期</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-09 · Connie Loizos 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">Fidji Simo</span>
+            <span class="entity-tag">Sam Altman</span>
+        </div>
+        <p class="news-summary">OpenAI 營運長（事實上的二號人物）Fidji Simo 宣布辭去全職職務，她在醫療假期間休息時間超出預期，選擇不回鍋。此人事變動正值 OpenAI 籌備可能 IPO 與企業市場與 Anthropic 激烈競爭之際，領導真空的風險加劇。Simo 是 OpenAI 商業化的核心推手，她的離開讓 Altman 必須緊急尋找接班人。</p>
+        <div class="analysis-box">💡 為什麼重要：OpenAI 正面臨營收規模化與 IPO 準備的關鍵時刻，二號人物突然出走，顯示公司內部治理與高壓文化可能存在結構性問題，投資人與企業客戶需密切關注。</div>
+    </div>
+
+</div>
+
+<!-- 🌍 AI 國際動態（前次報告重點回顧） -->
+<h2 class="section-title">📜 前日重要新聞回顧 <span class="cat-count">（7 月 9-11 日）</span></h2>
+<div class="category-group">
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/" target="_blank">蘋果正式起訴 OpenAI 竊取商業機密：指控涉及 400 名蘋果前員工</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-10 · Sarah Perez 報導</span>
+            <span class="entity-tag">Apple</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">io (OpenAI)</span>
+        </div>
+        <p class="news-summary">蘋果正式向北加州聯邦法院提起訴訟，指控 OpenAI 在高層授意下系統性竊取蘋果商業機密。起訴書指出 OpenAI 不當取得蘋果員工資料，並透過獵人头方式吸納蘋果工程師，其中包含前 iPhone 硬體主管 Tang Tan 等資深員工。蘋果要求法院禁止 OpenAI 使用其商業機密並索賠。OpenAI 發言人回應：「我們對其他公司的商業機密沒有興趣。」</p>
+        <div class="analysis-box">💡 為什麼重要：此案是 AI 時代智慧財產權保護的里程碑，若蘋果勝訴將對整個科技業的人才流動與資訊安全產生深遠影響。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/10/meta-removes-controversial-ai-feature-on-instagram-after-backlash/" target="_blank">Meta Instagram AI 功能上線數天即下架：用戶可用他人照片生成 AI 圖像惹眾怒</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-10 · Lucas Ropek 報導</span>
+            <span class="entity-tag">Meta</span>
+            <span class="entity-tag">Instagram</span>
+            <span class="entity-tag">隱私</span>
+        </div>
+        <p class="news-summary">Meta 在 Instagram 推出的「Muse Image」AI 圖像生成功能上線僅數天即因強烈反彈而緊急下架。該功能允許用戶以他人公開 Instagram 照片作為素材，輸入特定提示詞後生成 AI 圖像，隱私與侵權疑慮引發軒然大波。Meta 發表聲明：「我們的初衷是提供一個實用的創作工具，並給予用戶控制權是否允許自己的公開內容被引用。很明顯這項功能沒有達到目標，已不再可用。」</p>
+        <div class="analysis-box">💡 為什麼重要：Meta 再次因為 AI 產品的隱私問題惹議，這次下架速度之快顯示公眾壓力對 AI 產品推出節奏的影響力正在上升。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/" target="_blank">AI Agent 新創 Lyzr 用自家 Agent 完成 1 億美元 B 輪募資：AI 自我銷售能力驗證</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-09 · Connie Loizos 報導</span>
+            <span class="entity-tag">Lyzr</span>
+            <span class="entity-tag">AI Agent</span>
+            <span class="entity-tag">企業 AI</span>
+        </div>
+        <p class="news-summary">企業 AI Agent 新創 Lyzr 完成 1 億美元 B 輪募資，值得注意的是這輪募資幾乎完全由 Lyzr 自家的 AI Agent 自主完成，無需創辦人親自拜會投資人。Lyzr 專注於為企業構建 AI Agent 解決方案，這次募資本身就是其產品能力的最佳驗證：自己的 Agent 能完成 1 億美元級別的銷售工作，代表 AI Agent 在企業軟體市場的實用性已獲認可。</p>
+        <div class="analysis-box">💡 為什麼重要：這是首個「AI Agent 賣 AI Agent」的重大案例，顯示自主 AI 銷售代理在企業軟體市場的潛力，若普及將徹底改變 SaaS 的銷售模式。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/10/hugging-faces-ceo-on-why-companies-are-done-renting-their-ai/" target="_blank">Hugging Face CEO：企業租用 Frontier API 成本太高，最終都會轉向開源模型</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-10 · Theresa Loconsolo 報導</span>
+            <span class="entity-tag">Hugging Face</span>
+            <span class="entity-tag">Clem Delangue</span>
+            <span class="entity-tag">開源 AI</span>
+        </div>
+        <p class="news-summary">開源 AI 平台 Hugging Face 執行長 Clem Delangue 在專訪中預言：「企業租用 Frontier API 的成本實在太高，最終都會轉向開源模型。」Hugging Face 已成為 AI 界的 GitHub，匯聚數十萬個開源模型與資料集，全球財富 500 大企業約有一半使用其服務。Delangue 觀察到一個規律：企業一開始使用專有模型，三年內幾乎都會遷移到開源部署。</p>
+        <div class="analysis-box">💡 為什麼重要： Nadella 的警告與 Delangue 的觀察形成呼應——企業級 AI 的「開源轉向」正在加速，Hugging Face 的平台價值將隨之飆升。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/new-york-times-says-openai-hid-evidence-in-chatgpt-copyright-trial/" target="_blank">紐約時報指控 OpenAI 在版權訴訟中隱瞞證據：已建立 7800 萬筆對話資料庫</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-09 · Rebecca Bellan 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">版權</span>
+            <span class="entity-tag">紐約時報</span>
+        </div>
+        <p class="news-summary">紐約時報在針對 OpenAI 的版權侵權訴訟中提出新動作，指控 OpenAI 隱瞞關鍵證據，包括據稱已建立一個含有 7800 萬筆 ChatGPT 對話資料庫，並主動刪除可能有害輸出的日誌。出版商要求法院制裁 OpenAI，此升級顯示 OpenAI 的資料取得方式與輸出安全機制正面臨司法機構的嚴格檢視。</p>
+        <div class="analysis-box">💡 為什麼重要：7800 萬筆對話資料庫的存在若獲法院確認，將是 OpenAI 隱私危機的另一記重擊，也可能成為美國政府決定是否限制 GPT-5.6 部署的關鍵證據。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/how-did-the-government-decide-openais-frontier-model-was-safe-to-release/" target="_blank">政府如何判定 OpenAI 前沿模型「安全可發布」？流程不透明專家直呼荒謬</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-09 · Tim Fernholz 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">政府監管</span>
+            <span class="entity-tag">AI 安全</span>
+        </div>
+        <p class="news-summary">OpenAI GPT-5.6 发布前究竟經過了什麼樣的政府安全審查？TechCrunch 調查發現，聯邦政府與 AI 前沿實驗室之間存在一個非正式對話機制，但具體內容從未公開。專家受訪時坦言：「政府如何判定這些模型『安全可發布』，目前監管框架仍是一片空白。」</p>
+        <div class="analysis-box">💡 為什麼重要：AI 前沿模型的監管框架真空，是當前 AI 政策最大的漏洞之一。隨著 GPT-5.6 等更強大模型陸續發布，壓力將迫使監管機制儘速確立。</div>
+    </div>
+
+    <div class="news-card">
+        <h4><a href="https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/" target="_blank">OpenAI 關閉 Atlas 瀏覽器但 AI 瀏覽器野心仍在：功能整合進 ChatGPT 桌面版</a></h4>
+        <div class="news-meta">
+            <span>📅 2026-07-09 · Rebecca Bellan 報導</span>
+            <span class="entity-tag">OpenAI</span>
+            <span class="entity-tag">Atlas</span>
+            <span class="entity-tag">ChatGPT</span>
+            <span class="entity-tag">AI 瀏覽器</span>
+        </div>
+        <p class="news-summary">OpenAI 宣布關閉上線不到一年的 AI 瀏覽器 Atlas，但已將其代理瀏覽功能整合進 ChatGPT 桌面應用程式與 Chrome 擴充功能。OpenAI 表示：「我們持續看到用戶對 ChatGPT 代理功能的需求，因此決定將 Atlas 的核心能力直接整合進現有產品，而非作為獨立產品運營。」</p>
+        <div class="analysis-box">💡 為什麼重要：Atlas 的退場與整合，反映 AI 瀏覽器賽道的競爭正在升溫，OpenAI 選擇深化 ChatGPT 而非另闢產品線，顯示超應用（super-app）策略優先於功能分散。</div>
+    </div>
+
+</div>
+
+<!-- ══════════ KEY TERMS ══════════ -->
+<h2 class="section-title">🔑 今日關鍵詞彙</h2>
+<div class="key-terms-grid">
+    <div class="key-term"><div class="term">GPT-5.6</div><div class="def">OpenAI 最新模型家族，含 Sol / Terra / Luna 三款型號</div></div>
+    <div class="key-term"><div class="term">蒸餾攻擊 (Distillation)</div><div class="def">透過查詢專有模型並利用輸出訓練自有利模型的技術</div></div>
+    <div class="key-term"><div class="term">零日漏洞 (Zero-day)</div><div class="def">尚無修補程式的安全性缺陷，被利用時原廠來不及反應</div></div>
+    <div class="key-term"><div class="term">Trusted Contact</div><div class="def">OpenAI 的新安全功能，可在偵測到自我傷害跡象時警告親友</div></div>
+    <div class="key-term"><div class="term">Gemini (Google)</div><div class="def">Google AI 助理，已整合進 Waze 等多個 Google 產品</div></div>
+    <div class="key-term"><div class="term">Fable 5</div><div class="def">Anthropic 最新大型語言模型旗艦版本</div></div>
+    <div class="key-term"><div class="term">Starship</div><div class="def">SpaceX 超大型可重複使用火箭，用於太空資料中心計畫</div></div>
+    <div class="key-term"><div class="term">HBM (High Bandwidth Memory)</div><div class="def">AI GPU 必備高效能記憶體，SK Hynix 是主要供應商</div></div>
+</div>
+
+<!-- ══════════ OUTLOOK ══════════ -->
+<h2 class="section-title">🔮 明日觀察</h2>
+<div class="outlook-card">
+    <h3>📡 基於今日新聞，AI 預測明日可能的延伸報導</h3>
+    <ul>
+        <li><strong>蘋果 vs OpenAI 訴訟</strong>：隨著蘋果公開起訴書全文，預計會有更多媒體挖掘涉及「io」（Jony Ive 創立）與「Tang Tan」的具體竊密細節，以及更多蘋果前員工現身說法。</li>
+        <li><strong>PixVerse 阿里巴巴合作</strong>：隨著阿里巴巴電商整合 PixVerse 影片生成功能，預計會有更多中國科技公司與西方 AI 影片新創的策略合作或併購傳聞。</li>
+        <li><strong>Nadella 警告的後續</strong>：納德拉的「雙重付費」論點可能引發其他雲端業者跟進表態，推動企業 AI 合約條款的重新談判。</li>
+        <li><strong>Anthropic India 定價</strong>：印度作為全球最大市場之一，OpenAI、Google 預計將有對應的在地化定價動作，搶佔 Claude 已打開的市場份額。</li>
+        <li><strong>Nous Research 募資確認</strong>：7500 萬美元以上的新一輪募資細節（投資人組成、公司估值里程碑、產品路線圖）預計將在近日正式公告。</li>
+    </ul>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+    <p>由 <strong>OpenClaw AI 編譯</strong> 生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI 新聞</a></p>
+    <p style="margin-top:10px;">報告時間：2026 年 7 月 14 日 13:00（台北時間） · <a href="https://github.com/acstep/TECH" target="_blank">GitHub Repo</a></p>
+    <p style="margin-top:6px;">© 2026 acstep · 僅供參考，不構成投資建議</p>
+</footer>
+
+</div>
+</body>
+</html>
