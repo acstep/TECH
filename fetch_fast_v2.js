@@ -1,0 +1,163 @@
+const puppeteer = require('puppeteer-core');
+const fs = require('fs');
+
+const CHROME = '/usr/bin/google-chrome-stable';
+const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125.0.0.0 Safari/537.36';
+const OUT_FILE = '/home/matt/.openclaw/workspace/TECH/news_data_0717.json';
+
+const AI_KEYWORDS = [
+  'ai', 'artificial intelligence', 'machine learning', 'deepmind', 'openai', 'chatgpt',
+  'claude', 'gemini', 'llm', 'gpt', 'neural', 'nlp', 'computer vision',
+  'generative', 'nvidia', 'gpu', 'chip', 'inference', 'training',
+  'anthropic', 'mistral', 'xai', 'grok', 'hugging face',
+  'agent', 'voice', 'image generation', 'stable diffusion', 'suno',
+  'robot', 'automation', 'model', 'startup', 'funding', 'valuation'
+];
+
+function isAIRelated(title) {
+  const lower = title.toLowerCase();
+  return AI_KEYWORDS.some(kw => lower.includes(kw));
+}
+
+const SOURCES = [
+  'https://techcrunch.com/category/artificial-intelligence/',
+  'https://techcrunch.com/',
+  'https://techcrunch.com/tag/ai/',
+  'https://techcrunch.com/tag/openai/',
+  'https://techcrunch.com/tag/generative-ai/',
+  'https://techcrunch.com/tag/chatgpt/',
+  'https://techcrunch.com/tag/google-deepmind/',
+];
+
+async function fetchArticleList(browser, url) {
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1280, height: 900 });
+  await page.setUserAgent(UA);
+  try {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 20000 });
+    await new Promise(r => setTimeout(r, 4000));
+    const articles = await page.evaluate(() => {
+      const results = [];
+      document.querySelectorAll('a[href*="/2026/"]').forEach(el => {
+        const href = el.href;
+        const text = el.textContent?.trim() || '';
+        if (text.length > 20 && text.length < 300 && href.includes('techcrunch.com/202')) {
+          let time = '';
+          let parent = el.closest('article, .post-block, .river-block, li');
+          if (parent) {
+            const timeEl = parent.querySelector('time');
+            if (timeEl) time = timeEl.dateTime || timeEl.textContent?.trim() || '';
+          }
+          results.push({ title: text, link: href, time });
+        }
+      });
+      return results;
+    });
+    await page.close();
+    return { url, articles, success: true };
+  } catch(e) {
+    await page.close();
+    return { url, error: e.message, success: false };
+  }
+}
+
+async function fetchArticleContent(browser, url) {
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1280, height: 900 });
+  await page.setUserAgent(UA);
+  try {
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 15000 });
+    await new Promise(r => setTimeout(r, 3000));
+    const data = await page.evaluate(() => {
+      const title = document.querySelector('h1')?.textContent?.trim() || '';
+      const time = document.querySelector('time')?.dateTime || 
+                   document.querySelector('time')?.textContent?.trim() || '';
+      const paras = Array.from(document.querySelectorAll('article p, .article-body p, .post-content p'))
+        .map(p => p.textContent.trim())
+        .filter(t => t.length > 80)
+        .slice(0, 6);
+      const content = paras.join(' ').substring(0, 2000);
+      return { title, time, content };
+    });
+    await page.close();
+    return { url, ...data, success: true };
+  } catch(e) {
+    await page.close();
+    return { url, error: e.message, success: false };
+  }
+}
+
+async function main() {
+  const seen = new Map();
+  const browser = await puppeteer.launch({
+    executablePath: CHROME,
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu', '--disable-software-rasterizer']
+  });
+
+  // Step 1: Collect article lists
+  for (const url of SOURCES) {
+    process.stderr.write(`Fetching list: ${url}\n`);
+    const result = await fetchArticleList(browser, url);
+    if (result.success) {
+      for (const art of result.articles) {
+        const key = art.link.split('?')[0];
+        if (!seen.has(key)) seen.set(key, art);
+      }
+      process.stderr.write(`  -> ${result.articles.length} articles\n`);
+    } else {
+      process.stderr.write(`  -> Error: ${result.error}\n`);
+    }
+    await new Promise(r => setTimeout(r, 2000));
+  }
+
+  await browser.close();
+
+  // Filter to July 2026 AI-related
+  const candidates = Array.from(seen.values()).filter(a => {
+    if (!a.link.includes('/2026/')) return false;
+    if (!a.link.includes('/07/')) return false;
+    return isAIRelated(a.title);
+  });
+
+  // Dedupe
+  const deduped = [];
+  const dedupedKeys = new Set();
+  for (const a of candidates) {
+    const k = a.link.split('?')[0];
+    if (!dedupedKeys.has(k)) {
+      dedupedKeys.add(k);
+      deduped.push(a);
+    }
+  }
+
+  process.stderr.write(`\nTotal AI articles from July: ${deduped.length}\n`);
+
+  // Step 2: Fetch content - limit to 22
+  const topArticles = deduped.slice(0, 22);
+  const results = [];
+  const browser2 = await puppeteer.launch({
+    executablePath: CHROME,
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
+  });
+
+  for (const art of topArticles) {
+    process.stderr.write(`Fetching: ${art.title.substring(0, 50)}...\n`);
+    const r = await fetchArticleContent(browser2, art.link);
+    results.push(r);
+    if (r.success) {
+      process.stderr.write(`  OK: ${r.title.substring(0, 60)}\n`);
+    } else {
+      process.stderr.write(`  ERR: ${r.error}\n`);
+    }
+    await new Promise(r => setTimeout(r, 1500));
+  }
+
+  await browser2.close();
+
+  fs.writeFileSync(OUT_FILE, JSON.stringify(results, null, 2));
+  process.stderr.write(`\nSaved ${results.length} articles to ${OUT_FILE}\n`);
+}
+
+main().catch(e => { console.error(e); process.exit(1); });

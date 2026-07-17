@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞 2026-07-17 · TechCrunch 中文摘要</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #080810;
+  color: #e8e8f0;
+  line-height: 1.7;
+  padding: 20px;
+  min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #00d4ff; text-decoration: none; font-size: 0.95em;
+  margin-bottom: 20px; padding: 8px 16px;
+  border: 1px solid rgba(0,212,255,0.3); border-radius: 8px;
+  transition: all 0.2s;
+}
+.back-link:hover { background: rgba(0,212,255,0.1); }
+header {
+  text-align: center; padding: 40px 20px 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 40px;
+}
+h1 { 
+  font-size: 2.4em; font-weight: 900; letter-spacing: -1px;
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+  background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+.meta { color: #888; font-size: 1em; }
+.meta span { color: #00d4ff; }
+/* Top 3 headlines */
+.top3 {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-bottom: 40px;
+}
+@media (max-width: 900px) { .top3 { grid-template-columns: 1fr; } }
+.topcard {
+  background: linear-gradient(145deg, rgba(0,212,255,0.08), rgba(0,255,136,0.04));
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 16px; padding: 28px;
+  transition: all 0.3s;
+}
+.topcard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,212,255,0.5);
+  box-shadow: 0 12px 32px rgba(0,212,255,0.2);
+}
+.topcard .num {
+  font-size: 3em; font-weight: 900; color: rgba(0,212,255,0.2);
+  line-height: 1; margin-bottom: 12px;
+}
+.topcard h2 { color: #fff; font-size: 1.15em; line-height: 1.4; margin-bottom: 12px; }
+.topcard p { color: #aaa; font-size: 0.9em; line-height: 1.6; }
+.topcard a { color: #00ff88; text-decoration: none; font-size: 0.85em; display: inline-block; margin-top: 10px; }
+.topcard a:hover { text-decoration: underline; }
+/* Radar categories */
+.cat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 14px; margin-bottom: 40px;
+}
+@media (max-width: 900px) { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .cat-grid { grid-template-columns: 1fr; } }
+.cat-pill {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+  transition: all 0.2s;
+}
+.cat-pill:hover {
+  border-color: rgba(0,212,255,0.4);
+  background: rgba(0,212,255,0.05);
+}
+.cat-icon { font-size: 1.4em; }
+.cat-info { flex: 1; }
+.cat-name { font-weight: 700; font-size: 0.88em; color: #e8e8f0; }
+.cat-count { font-size: 0.78em; color: #666; }
+/* Section */
+.section { margin-bottom: 50px; }
+.section-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.section-header h2 { color: #fff; font-size: 1.3em; font-weight: 800; }
+.section-header .badge {
+  background: rgba(0,212,255,0.15); color: #00d4ff;
+  font-size: 0.8em; padding: 3px 10px; border-radius: 20px;
+  font-weight: 600;
+}
+/* Article cards */
+.article {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px; padding: 22px 26px;
+  margin-bottom: 16px;
+  transition: all 0.25s;
+}
+.article:hover {
+  border-color: rgba(0,212,255,0.2);
+  background: rgba(0,212,255,0.03);
+}
+.article-header {
+  display: flex; align-items: flex-start; gap: 14px; margin-bottom: 10px;
+}
+.article-num {
+  background: rgba(0,212,255,0.12); color: #00d4ff;
+  font-weight: 800; font-size: 0.8em; padding: 3px 8px;
+  border-radius: 6px; flex-shrink: 0; margin-top: 2px;
+}
+.article h3 {
+  flex: 1;
+}
+.article h3 a {
+  color: #fff; text-decoration: none; font-size: 1em; font-weight: 700;
+  line-height: 1.4;
+}
+.article h3 a:hover { color: #00d4ff; }
+.article .time {
+  color: #555; font-size: 0.8em; margin-bottom: 12px; padding-left: 36px;
+}
+.article .summary {
+  color: #bbb; font-size: 0.92em; line-height: 1.7;
+  margin-bottom: 14px; padding-left: 36px;
+}
+.article .why {
+  background: rgba(0,255,136,0.06);
+  border-left: 3px solid #00ff88;
+  padding: 10px 16px; margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+  padding-left: 36px;
+}
+.article .why-label {
+  color: #00ff88; font-size: 0.8em; font-weight: 700;
+  display: block; margin-bottom: 4px;
+}
+.article .why-text { color: #aaa; font-size: 0.88em; line-height: 1.5; }
+.article .meta-row {
+  display: flex; flex-wrap: wrap; gap: 8px; padding-left: 36px;
+}
+.tag {
+  background: rgba(255,255,255,0.06);
+  color: #888; font-size: 0.78em; padding: 3px 10px;
+  border-radius: 20px; border: 1px solid rgba(255,255,255,0.08);
+}
+.stock-tag {
+  background: rgba(0,212,255,0.08);
+  color: #00d4ff; font-size: 0.78em; padding: 3px 10px;
+  border-radius: 20px; border: 1px solid rgba(0,212,255,0.2);
+}
+/* Keywords */
+.keywords {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-bottom: 40px;
+}
+.kw {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #aaa; font-size: 0.85em; padding: 6px 14px;
+  border-radius: 20px;
+}
+/* Observation */
+.observation {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(0,212,255,0.15);
+  border-radius: 16px; padding: 28px; margin-bottom: 40px;
+}
+.observation h3 { color: #00d4ff; margin-bottom: 14px; font-size: 1.1em; }
+.observation ul { list-style: none; }
+.observation li {
+  padding: 8px 0; padding-left: 20px; position: relative; color: #bbb; font-size: 0.92em;
+}
+.observation li::before { content: "▸"; position: absolute; left: 0; color: #00ff88; }
+footer {
+  text-align: center; color: #555; font-size: 0.85em;
+  padding: 30px 20px; border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 40px;
+}
+footer a { color: #00d4ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link" href="../index.html">← 返回首頁</a>
+  
+  <header>
+    <h1>📰 AI 新聞 2026-07-17</h1>
+    <div class="meta">
+      <span>22</span> 則新聞 ·
+      <span>8</span> 個分類 ·
+      資料來源：TechCrunch
+    </div>
+  </header>
+
+  <!-- TOP 3 HEADLINES -->
+  <div class="top3">
+    <div class="topcard">
+      <div class="num">#1</div>
+      <h2>Apple Intelligence 獲准在中國落地：攜手阿里巴巴 Qwen AI 突破監管障礙</h2>
+      <p>蘋果正式宣布 Apple Intelligence 將在中國市場推出，合作的在地 AI 模型是阿里巴巴的 Qwen。這是蘋果在中國這個全球最大智慧型手機市場之一的重要一步。據報導，Apple Intelligence 同時還獲得了百度文心一言的支持，意味著蘋果在中國採用多模型策略。</p>
+      <a href="https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/" target="_blank">閱讀原文 →</a>
+    </div>
+    <div class="topcard">
+      <div class="num">#2</div>
+      <h2>OpenAI 發布首款硬體裝置：230 美元 Codex 鍵盤，劍指開發者市場</h2>
+      <p>在與 Jony Ive 的 io Devices 法律糾紛之際，OpenAI 發表了首款自有硬體產品——230 美元的 Codex 鍵盤。這款鍵盤專為 Codex AI 程式碼助理優化，目標是搶攻開發者市場。此舉顯示 OpenAI 不只想做軟體，正積極往硬體領域擴張。</p>
+      <a href="https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/" target="_blank">閱讀原文 →</a>
+    </div>
+    <div class="topcard">
+      <div class="num">#3</div>
+      <h2>Anthropic 與 Blackstone 合資成立 Ode：15 億美元瞄準企業 AI 落地實施商機</h2>
+      <p>Anthropic 與私募巨頭 Blackstone 宣布共同成立新公司 Ode，初始注資 15 億美元，瞄準 AI 在企業場景落地這個被認為是下一個兆美元級的商機。雙方均強調，未來 AI 最大的價值不在基礎模型本身，而在協助企業成功部署與整合 AI 解決方案。</p>
+      <a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/" target="_blank">閱讀原文 →</a>
+    </div>
+  </div>
+
+  <!-- CATEGORY RADAR -->
+  <div class="cat-grid">
+    <div class="cat-pill"><div class="cat-icon">💾</div><div class="cat-info"><div class="cat-name">AI 晶片與硬體</div><div class="cat-count">2 篇</div></div></div>
+    <div class="cat-pill"><div class="cat-icon">🧠</div><div class="cat-info"><div class="cat-name">AI 模型與研究</div><div class="cat-count">3 篇</div></div></div>
+    <div class="cat-pill"><div class="cat-icon">🤖</div><div class="cat-info"><div class="cat-name">AI 產品與應用</div><div class="cat-count">5 篇</div></div></div>
+    <div class="cat-pill"><div class="cat-icon">🏢</div><div class="cat-info"><div class="cat-name">企業 AI 動態</div><div class="cat-count">3 篇</div></div></div>
+    <div class="cat-pill"><div class="cat-icon">💰</div><div class="cat-info"><div class="cat-name">AI 投融資</div><div class="cat-count">2 篇</div></div></div>
+    <div class="cat-pill"><div class="cat-icon">🏛️</div><div class="cat-info"><div class="cat-name">AI 政策與監管</div><div class="cat-count">2 篇</div></div></div>
+    <div class="cat-pill"><div class="cat-icon">👥</div><div class="cat-info"><div class="cat-name">AI 人事與組織</div><div class="cat-count">2 篇</div></div></div>
+    <div class="cat-pill"><div class="cat-icon">🌍</div><div class="cat-info"><div class="cat-name">AI 國際與地緣政治</div><div class="cat-count">2 篇</div></div></div>
+  </div>
+
+  <!-- KEYWORDS -->
+  <h2 style="color:#00ff88;margin-bottom:16px;font-size:1.3em;">🔑 今日關鍵詞</h2>
+  <div class="keywords">
+    <span class="kw">Apple Intelligence</span>
+    <span class="kw">Qwen</span>
+    <span class="kw">OpenAI Codex</span>
+    <span class="kw">Anthropic Ode</span>
+    <span class="kw">Blackstone</span>
+    <span class="kw">Moonshot Kimi 3</span>
+    <span class="kw">Suno</span>
+    <span class="kw">Vint Cerf</span>
+    <span class="kw">Miles Wang</span>
+    <span class="kw">Emergent</span>
+    <span class="kw">Thinking Machines</span>
+    <span class="kw">Inkling</span>
+    <span class="kw">Google Vids</span>
+    <span class="kw">Roblox</span>
+    <span class="kw">Reelful</span>
+    <span class="kw">Microsoft</span>
+    <span class="kw">Lorde</span>
+    <span class="kw">DeepMind</span>
+    <span class="kw">Alexandre LeBrun</span>
+  </div>
+
+  <!-- 💾 AI 晶片與硬體 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>💾 AI 晶片與硬體</h2>
+      <span class="badge">10 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/" target="_blank">Roblox launches an AI-powered game-creation feature in its mobile app</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:22:06 · TechCrunch</div>
+      <div class="summary">Roblox announced Thursday a new feature called “Build,” allowing users to design games from their mobile devices using AI. The Build feature lets anyone turn simple text prompts into a basic game without any programming experience. For example, if a ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Roblox 在手機 App 推出 AI 遊戲創作功能，讓一般用戶也能以自然語言生成遊戲內容，降低創作門檻將加速 UGC 生態系統擴張。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Roblox</span>
+        <span class="stock-tag">📈 RBLX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/googles-ai-mode-now-lets-you-link-and-interact-with-select-apps/" target="_blank">Google’s AI Mode now lets you link and interact with select apps</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 09:00:00 · TechCrunch</div>
+      <div class="summary">Google announced on Thursday that it now allows users to link and interact with some of their go-to apps right in AI Mode, the tech giant’s conversational search experience. At launch, supported apps include Instacart, Canva, and YouTube. With this n...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">本篇報導與 AI 產業動態高度相關，建議閱讀原文了解更多細節。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/" target="_blank">Why is OpenAI selling a ChatGPT basketball?</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:31:09 · TechCrunch</div>
+      <div class="summary">You may have heard that OpenAI released its first piece of hardware this week: a $230 mini keyboard. You may not have heard that alongside this “command center for agentic work,” OpenAI also released a ChatGPT basketball. “This basketball comes from ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 推出 ChatGPT 籃球商品，引發外界對其品牌策略的質疑——這是品牌建設還是分心？</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/" target="_blank">How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:02:00 · TechCrunch</div>
+      <div class="summary">Andrew Dai left Google DeepMind knowing visual AI was the frontier he wanted to stake his claim in. He pulled off a whirlwind fundraise that resulted in a more aggressive valuation-to-capital ratio than Thinking Machines, which raised one of the larg...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 DeepMind 研究員創立新創還沒上線產品就先以 3 億美元估值完成 pre-seed 輪，反映 AI 人才與創意在資本市場的高度吸引力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Apple</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/" target="_blank">Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘superintelligence’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:40:00 · TechCrunch</div>
+      <div class="summary">While the rest of the AI industry races to label its work as “AGI” or “superintelligence,” Alexandre LeBrun, the CEO of Yann LeCun’s world model startup, AMI Labs, avoids the terms altogether. Lebrun said in an interview with TechCrunch that the comp...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AMI Labs 創辦人明確拒絕使用 AGI 或超級智慧等行銷術語，反映業界對 AI 能力過度承諾的反思趨勢。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">AMI Labs</span>
+        <span class="tag">Alexandre LeBrun</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">6</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/" target="_blank">Apple Intelligence approved for launch in China with Alibaba and Baidu</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 06:17:59 · TechCrunch</div>
+      <div class="summary">Apple Intelligence, the iPhone maker’s generative AI offering, is coming to China. On Wednesday, Reuters reported that China’s internet content regulator, the Cyberspace Administration of China, approved Apple’s AI services in the country on the back...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">蘋果在中國這個全球最大智慧型手機市場取得監管突破，Qwen 模型獲選為在地合作夥伴，對騰訊、華為等本地競爭對手形成壓力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Apple</span>
+        <span class="tag">Apple Intelligence</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">阿里巴巴</span>
+        <span class="tag">百度</span>
+        <span class="stock-tag">📈 AAPL</span>
+        <span class="stock-tag">📈 BABA</span>
+        <span class="stock-tag">📈 BIDU</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">7</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/" target="_blank">Amid hardware legal battle, OpenAI releases a $230 keyboard for Codex</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 12:41:38 · TechCrunch</div>
+      <div class="summary">OpenAI is officially entering the hardware market with the launch of a $230 light-up keyboard designed to pair with its AI coding assistant, Codex. The Codex Micro, co-designed with specialty keyboard designer Work Louder, is being advertised as a fa...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 跨足硬體領域，230 美元 Codex 鍵盤瞄準開發者族群，代表從純軟體公司轉型為軟硬整合的重大策略轉變。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">8</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 11:04:06 · TechCrunch</div>
+      <div class="summary">Thinking Machines Lab, the AI startup founded by former OpenAI CTO Mira Murati, released its first in-house AI model Wednesday morning, called Inkling. And unlike the flagship models from OpenAI, Anthropic, or Google, it’s open-weight, meaning outsid...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 Meta AI 主管創立 Thinking Machines，首款開放模型 Inkling 劍指 OpenAI 和 Anthropic，開源 AI 競爭持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Thinking Machines</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">9</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/" target="_blank">OpenAI’s first hardware device is reportedly a screenless speaker that can move</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:22:24 · TechCrunch</div>
+      <div class="summary">OpenAI’s first foray into hardware devices is reported to be a mobile smart speaker with integrated AI capabilities that can sync with ChatGPT and provide other home AI services. Bloomberg reported Tuesday that the device — which is still currently u...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 據報正在開發首款硬體裝置為無螢幕可移動揚聲器，市場猜測這是進軍 AI 原生硬體的重大信號。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">10</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/" target="_blank">OpenAI pushes back on Apple trade secret lawsuit</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:07:42 · TechCrunch</div>
+      <div class="summary">OpenAI pushed back Tuesday against allegations made by Apple in a trade secret lawsuit, suggesting the complaint lacks merit. “While we take these allegations seriously, we’re not aware of any evidence that this complaint has merit,” OpenAI said in a...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 反擊蘋果的商業竊密訴訟，拒絕和解立場強硬，雙方法律戰正式升溫，可能牽動雙方未來合作關係。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 AAPL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🧠 AI 模型與研究 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>🧠 AI 模型與研究</h2>
+      <span class="badge">20 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/" target="_blank">Google Vids now lets you star in your own AI videos</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:32:54 · TechCrunch</div>
+      <div class="summary">OpenAI’s Sora may have shut down, but Google apparently thinks there’s still interest in a tool that lets you star in your own AI videos. On Thursday, the tech giant announced an update to Google Vids that will allow you to create a custom digital av...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Google Workspace 整合 AI 影片生成功能，用戶可上傳照片並以 AI 數位分身主演影片，正式進入 AI 生成內容的企業應用競爭。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Google Vids</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/" target="_blank">Roblox launches an AI-powered game-creation feature in its mobile app</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:22:06 · TechCrunch</div>
+      <div class="summary">Roblox announced Thursday a new feature called “Build,” allowing users to design games from their mobile devices using AI. The Build feature lets anyone turn simple text prompts into a basic game without any programming experience. For example, if a ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Roblox 在手機 App 推出 AI 遊戲創作功能，讓一般用戶也能以自然語言生成遊戲內容，降低創作門檻將加速 UGC 生態系統擴張。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Roblox</span>
+        <span class="stock-tag">📈 RBLX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/googles-ai-mode-now-lets-you-link-and-interact-with-select-apps/" target="_blank">Google’s AI Mode now lets you link and interact with select apps</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 09:00:00 · TechCrunch</div>
+      <div class="summary">Google announced on Thursday that it now allows users to link and interact with some of their go-to apps right in AI Mode, the tech giant’s conversational search experience. At launch, supported apps include Instacart, Canva, and YouTube. With this n...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">本篇報導與 AI 產業動態高度相關，建議閱讀原文了解更多細節。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/" target="_blank">Why is OpenAI selling a ChatGPT basketball?</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:31:09 · TechCrunch</div>
+      <div class="summary">You may have heard that OpenAI released its first piece of hardware this week: a $230 mini keyboard. You may not have heard that alongside this “command center for agentic work,” OpenAI also released a ChatGPT basketball. “This basketball comes from ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 推出 ChatGPT 籃球商品，引發外界對其品牌策略的質疑——這是品牌建設還是分心？</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/" target="_blank">How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:02:00 · TechCrunch</div>
+      <div class="summary">Andrew Dai left Google DeepMind knowing visual AI was the frontier he wanted to stake his claim in. He pulled off a whirlwind fundraise that resulted in a more aggressive valuation-to-capital ratio than Thinking Machines, which raised one of the larg...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 DeepMind 研究員創立新創還沒上線產品就先以 3 億美元估值完成 pre-seed 輪，反映 AI 人才與創意在資本市場的高度吸引力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Apple</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">6</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/" target="_blank">Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘superintelligence’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:40:00 · TechCrunch</div>
+      <div class="summary">While the rest of the AI industry races to label its work as “AGI” or “superintelligence,” Alexandre LeBrun, the CEO of Yann LeCun’s world model startup, AMI Labs, avoids the terms altogether. Lebrun said in an interview with TechCrunch that the comp...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AMI Labs 創辦人明確拒絕使用 AGI 或超級智慧等行銷術語，反映業界對 AI 能力過度承諾的反思趨勢。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">AMI Labs</span>
+        <span class="tag">Alexandre LeBrun</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">7</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/" target="_blank">Moonshot’s upcoming Kimi 3 is expected to close the gap with Anthropic’s Opus 4.8</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:26:29 · TechCrunch</div>
+      <div class="summary">The latest iteration of Chinese AI lab Moonshot AI’s Kimi model series is expected to perform at par with or even surpass Anthropic’s Opus 4.8, Financial Times reported, citing anonymous sources. Moonshot’s Kimi K2 models have been received well in t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">中國大模型新創 Moonshot 即將推出 Kimi 3，號稱追平 Anthropic Opus 4.8，中美 AI 模型競爭進入新階段。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">8</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/" target="_blank">Apple Intelligence approved for launch in China with Alibaba and Baidu</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 06:17:59 · TechCrunch</div>
+      <div class="summary">Apple Intelligence, the iPhone maker’s generative AI offering, is coming to China. On Wednesday, Reuters reported that China’s internet content regulator, the Cyberspace Administration of China, approved Apple’s AI services in the country on the back...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">蘋果在中國這個全球最大智慧型手機市場取得監管突破，Qwen 模型獲選為在地合作夥伴，對騰訊、華為等本地競爭對手形成壓力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Apple</span>
+        <span class="tag">Apple Intelligence</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">阿里巴巴</span>
+        <span class="tag">百度</span>
+        <span class="stock-tag">📈 AAPL</span>
+        <span class="stock-tag">📈 BABA</span>
+        <span class="stock-tag">📈 BIDU</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">9</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/" target="_blank">Applied Computing wants to give oil and gas operators an AI model for the entire plant</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 21:00:00 · TechCrunch</div>
+      <div class="summary">Applied Computing, a London-based startup that’s building a foundation AI model for the oil, gas, and petrochemical industry, has raised a $20 million Series A led by engineering giant KBR, with Databricks Ventures participating. Founded in 2023, the...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">傳統油氣產業透過 AI 模型優化整廠運營，代表 AI 正在向重工業滲透，工業 AI 應用場景持續擴大。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Applied Computing</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">10</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/" target="_blank">Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 16:59:44 · TechCrunch</div>
+      <div class="summary">Microsoft appears to be prepping its sales team to get more competitive with the other major players in the AI industry. At an internal meeting on Tuesday, the company’s executives outlined a plan for salespeople to negatively compare AI products fro...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟被爆訓練業務團隊在對客戶說明時貶低 OpenAI 與 Anthropic 的產品，反映雲端 AI 市場的激烈競爭已蔓延至銷售話術層面。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">11</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/" target="_blank">Amid hardware legal battle, OpenAI releases a $230 keyboard for Codex</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 12:41:38 · TechCrunch</div>
+      <div class="summary">OpenAI is officially entering the hardware market with the launch of a $230 light-up keyboard designed to pair with its AI coding assistant, Codex. The Codex Micro, co-designed with specialty keyboard designer Work Louder, is being advertised as a fa...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 跨足硬體領域，230 美元 Codex 鍵盤瞄準開發者族群，代表從純軟體公司轉型為軟硬整合的重大策略轉變。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">12</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 11:04:06 · TechCrunch</div>
+      <div class="summary">Thinking Machines Lab, the AI startup founded by former OpenAI CTO Mira Murati, released its first in-house AI model Wednesday morning, called Inkling. And unlike the flagship models from OpenAI, Anthropic, or Google, it’s open-weight, meaning outsid...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 Meta AI 主管創立 Thinking Machines，首款開放模型 Inkling 劍指 OpenAI 和 Anthropic，開源 AI 競爭持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Thinking Machines</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">13</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/hack-suggests-ai-music-generator-suno-scraped-youtube-for-training-data/" target="_blank">Hack suggests AI music generator Suno scraped YouTube for training data</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 10:00:34 · TechCrunch</div>
+      <div class="summary">The hacker told the publication that they used a supply chain attack in November to access an employee’s credentials, allowing them to then access source code showing how Suno allegedly scraped decades of audio from YouTube Music, Deezer, Genius, sto...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AI 音樂生成器 Suno 被踢爆疑似未經授權竊取 YouTube 影片訓練，版權爭議再掀音樂產業反彈，凸顯生成式 AI 訓練資料合法性的灰色地帶。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Suno</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">14</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-patches-record-number-of-security-vulnerabilities-citing-its-use-of-ai/" target="_blank">Microsoft patches record number of security vulnerabilities, citing its use of AI</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 09:20:18 · TechCrunch</div>
+      <div class="summary">Microsoft released a record number of security patches for Windows, Office, and other tech product lines this week, citing the use of AI to aid the discovery of code vulnerabilities. The technology and cloud giant issued patches for 570 security flaw...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟修補史上最多安全漏洞並特別點名 AI 加速開發是原因之一，顯示 AI 辅助程式碼生成在提升產量之際也帶來新的資安風險。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Microsoft</span>
+        <span class="stock-tag">📈 MSFT</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">15</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/" target="_blank">Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:10:47 · TechCrunch</div>
+      <div class="summary">AI models are becoming ever more capable, but exactly what enterprise adoption will look like remains a big question. In a bid to shape that future, labs like Anthropic and OpenAI have spun up separate businesses dedicated to deploying AI engineers t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Anthropic 聯手私募巨頭 Blackstone 成立落地服務公司，顯示基礎模型商轉瓶頸已從模型能力轉移到實際部署，企業 AI 谘詢與整合商機正式成形。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Blackstone</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 BX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">16</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/reelfuls-ai-turns-your-camera-roll-into-short-form-videos-for-social-media/" target="_blank">Reelful’s AI turns your camera roll into short-form videos for social media</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:00:00 · TechCrunch</div>
+      <div class="summary">A new iOS app called Reelful uses AI to automatically turn photos and video clips from your camera roll into polished TikTok- and Instagram Reels-style videos for social media. Reelful is designed for people who want to create social content, but fin...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Reelful AI 可將使用者手機相簿自動生成短影音剪輯，瞄準社交媒體創作者市場，AI 影片剪輯門檻再度降低。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Reelful</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">17</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/" target="_blank">Indian AI coding startup Emergent becomes a unicorn with $130M Series C</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">Indian AI coding startup Emergent has raised $130 million in a Series C funding round at a $1.5 billion post-money valuation, a five-fold jump in six months. The funding round was led by private equity firm Creaegis. New investors MNI Ventures-Claypo...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">印度 AI 程式碼新創 Emergent 成立僅一年多即晉升獨角獸，估值 13 億美元，反映新興市場 AI 創業生態的快速崛起。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">18</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-researcher-miles-wang-in-talks-to-launch-ai-drug-discovery-startup-valued-at-2b/" target="_blank">OpenAI researcher Miles Wang in talks to launch AI drug discovery startup valued at $2B</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 17:27:04 · TechCrunch</div>
+      <div class="summary">Miles Wang, an OpenAI researcher whose work includes using AI to accelerate scientific and biological discovery, is leaving the ChatGPT maker to launch a new startup focused on developing AI models for drug discovery, according to four people with kn...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 研究員 Miles Wang 洽談創立 AI 藥物探索新創，估值 20 億美元，顯示 AI 在生技製藥領域的商業化應用持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Miles Wang</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">19</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/" target="_blank">OpenAI’s first hardware device is reportedly a screenless speaker that can move</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:22:24 · TechCrunch</div>
+      <div class="summary">OpenAI’s first foray into hardware devices is reported to be a mobile smart speaker with integrated AI capabilities that can sync with ChatGPT and provide other home AI services. Bloomberg reported Tuesday that the device — which is still currently u...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 據報正在開發首款硬體裝置為無螢幕可移動揚聲器，市場猜測這是進軍 AI 原生硬體的重大信號。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">20</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/" target="_blank">OpenAI pushes back on Apple trade secret lawsuit</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:07:42 · TechCrunch</div>
+      <div class="summary">OpenAI pushed back Tuesday against allegations made by Apple in a trade secret lawsuit, suggesting the complaint lacks merit. “While we take these allegations seriously, we’re not aware of any evidence that this complaint has merit,” OpenAI said in a...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 反擊蘋果的商業竊密訴訟，拒絕和解立場強硬，雙方法律戰正式升溫，可能牽動雙方未來合作關係。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 AAPL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🤖 AI 產品與應用 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>🤖 AI 產品與應用</h2>
+      <span class="badge">21 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/" target="_blank">Google Vids now lets you star in your own AI videos</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:32:54 · TechCrunch</div>
+      <div class="summary">OpenAI’s Sora may have shut down, but Google apparently thinks there’s still interest in a tool that lets you star in your own AI videos. On Thursday, the tech giant announced an update to Google Vids that will allow you to create a custom digital av...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Google Workspace 整合 AI 影片生成功能，用戶可上傳照片並以 AI 數位分身主演影片，正式進入 AI 生成內容的企業應用競爭。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Google Vids</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/" target="_blank">Roblox launches an AI-powered game-creation feature in its mobile app</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:22:06 · TechCrunch</div>
+      <div class="summary">Roblox announced Thursday a new feature called “Build,” allowing users to design games from their mobile devices using AI. The Build feature lets anyone turn simple text prompts into a basic game without any programming experience. For example, if a ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Roblox 在手機 App 推出 AI 遊戲創作功能，讓一般用戶也能以自然語言生成遊戲內容，降低創作門檻將加速 UGC 生態系統擴張。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Roblox</span>
+        <span class="stock-tag">📈 RBLX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/googles-ai-mode-now-lets-you-link-and-interact-with-select-apps/" target="_blank">Google’s AI Mode now lets you link and interact with select apps</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 09:00:00 · TechCrunch</div>
+      <div class="summary">Google announced on Thursday that it now allows users to link and interact with some of their go-to apps right in AI Mode, the tech giant’s conversational search experience. At launch, supported apps include Instacart, Canva, and YouTube. With this n...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">本篇報導與 AI 產業動態高度相關，建議閱讀原文了解更多細節。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/" target="_blank">Why is OpenAI selling a ChatGPT basketball?</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:31:09 · TechCrunch</div>
+      <div class="summary">You may have heard that OpenAI released its first piece of hardware this week: a $230 mini keyboard. You may not have heard that alongside this “command center for agentic work,” OpenAI also released a ChatGPT basketball. “This basketball comes from ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 推出 ChatGPT 籃球商品，引發外界對其品牌策略的質疑——這是品牌建設還是分心？</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/" target="_blank">How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:02:00 · TechCrunch</div>
+      <div class="summary">Andrew Dai left Google DeepMind knowing visual AI was the frontier he wanted to stake his claim in. He pulled off a whirlwind fundraise that resulted in a more aggressive valuation-to-capital ratio than Thinking Machines, which raised one of the larg...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 DeepMind 研究員創立新創還沒上線產品就先以 3 億美元估值完成 pre-seed 輪，反映 AI 人才與創意在資本市場的高度吸引力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Apple</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">6</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/" target="_blank">Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘superintelligence’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:40:00 · TechCrunch</div>
+      <div class="summary">While the rest of the AI industry races to label its work as “AGI” or “superintelligence,” Alexandre LeBrun, the CEO of Yann LeCun’s world model startup, AMI Labs, avoids the terms altogether. Lebrun said in an interview with TechCrunch that the comp...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AMI Labs 創辦人明確拒絕使用 AGI 或超級智慧等行銷術語，反映業界對 AI 能力過度承諾的反思趨勢。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">AMI Labs</span>
+        <span class="tag">Alexandre LeBrun</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">7</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/" target="_blank">Moonshot’s upcoming Kimi 3 is expected to close the gap with Anthropic’s Opus 4.8</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:26:29 · TechCrunch</div>
+      <div class="summary">The latest iteration of Chinese AI lab Moonshot AI’s Kimi model series is expected to perform at par with or even surpass Anthropic’s Opus 4.8, Financial Times reported, citing anonymous sources. Moonshot’s Kimi K2 models have been received well in t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">中國大模型新創 Moonshot 即將推出 Kimi 3，號稱追平 Anthropic Opus 4.8，中美 AI 模型競爭進入新階段。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">8</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/" target="_blank">Apple Intelligence approved for launch in China with Alibaba and Baidu</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 06:17:59 · TechCrunch</div>
+      <div class="summary">Apple Intelligence, the iPhone maker’s generative AI offering, is coming to China. On Wednesday, Reuters reported that China’s internet content regulator, the Cyberspace Administration of China, approved Apple’s AI services in the country on the back...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">蘋果在中國這個全球最大智慧型手機市場取得監管突破，Qwen 模型獲選為在地合作夥伴，對騰訊、華為等本地競爭對手形成壓力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Apple</span>
+        <span class="tag">Apple Intelligence</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">阿里巴巴</span>
+        <span class="tag">百度</span>
+        <span class="stock-tag">📈 AAPL</span>
+        <span class="stock-tag">📈 BABA</span>
+        <span class="stock-tag">📈 BIDU</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">9</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/" target="_blank">Applied Computing wants to give oil and gas operators an AI model for the entire plant</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 21:00:00 · TechCrunch</div>
+      <div class="summary">Applied Computing, a London-based startup that’s building a foundation AI model for the oil, gas, and petrochemical industry, has raised a $20 million Series A led by engineering giant KBR, with Databricks Ventures participating. Founded in 2023, the...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">傳統油氣產業透過 AI 模型優化整廠運營，代表 AI 正在向重工業滲透，工業 AI 應用場景持續擴大。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Applied Computing</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">10</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/" target="_blank">Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 16:59:44 · TechCrunch</div>
+      <div class="summary">Microsoft appears to be prepping its sales team to get more competitive with the other major players in the AI industry. At an internal meeting on Tuesday, the company’s executives outlined a plan for salespeople to negatively compare AI products fro...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟被爆訓練業務團隊在對客戶說明時貶低 OpenAI 與 Anthropic 的產品，反映雲端 AI 市場的激烈競爭已蔓延至銷售話術層面。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">11</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/" target="_blank">Amid hardware legal battle, OpenAI releases a $230 keyboard for Codex</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 12:41:38 · TechCrunch</div>
+      <div class="summary">OpenAI is officially entering the hardware market with the launch of a $230 light-up keyboard designed to pair with its AI coding assistant, Codex. The Codex Micro, co-designed with specialty keyboard designer Work Louder, is being advertised as a fa...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 跨足硬體領域，230 美元 Codex 鍵盤瞄準開發者族群，代表從純軟體公司轉型為軟硬整合的重大策略轉變。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">12</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 11:04:06 · TechCrunch</div>
+      <div class="summary">Thinking Machines Lab, the AI startup founded by former OpenAI CTO Mira Murati, released its first in-house AI model Wednesday morning, called Inkling. And unlike the flagship models from OpenAI, Anthropic, or Google, it’s open-weight, meaning outsid...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 Meta AI 主管創立 Thinking Machines，首款開放模型 Inkling 劍指 OpenAI 和 Anthropic，開源 AI 競爭持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Thinking Machines</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">13</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-patches-record-number-of-security-vulnerabilities-citing-its-use-of-ai/" target="_blank">Microsoft patches record number of security vulnerabilities, citing its use of AI</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 09:20:18 · TechCrunch</div>
+      <div class="summary">Microsoft released a record number of security patches for Windows, Office, and other tech product lines this week, citing the use of AI to aid the discovery of code vulnerabilities. The technology and cloud giant issued patches for 570 security flaw...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟修補史上最多安全漏洞並特別點名 AI 加速開發是原因之一，顯示 AI 辅助程式碼生成在提升產量之際也帶來新的資安風險。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Microsoft</span>
+        <span class="stock-tag">📈 MSFT</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">14</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/" target="_blank">Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:10:47 · TechCrunch</div>
+      <div class="summary">AI models are becoming ever more capable, but exactly what enterprise adoption will look like remains a big question. In a bid to shape that future, labs like Anthropic and OpenAI have spun up separate businesses dedicated to deploying AI engineers t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Anthropic 聯手私募巨頭 Blackstone 成立落地服務公司，顯示基礎模型商轉瓶頸已從模型能力轉移到實際部署，企業 AI 谘詢與整合商機正式成形。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Blackstone</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 BX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">15</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/reelfuls-ai-turns-your-camera-roll-into-short-form-videos-for-social-media/" target="_blank">Reelful’s AI turns your camera roll into short-form videos for social media</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:00:00 · TechCrunch</div>
+      <div class="summary">A new iOS app called Reelful uses AI to automatically turn photos and video clips from your camera roll into polished TikTok- and Instagram Reels-style videos for social media. Reelful is designed for people who want to create social content, but fin...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Reelful AI 可將使用者手機相簿自動生成短影音剪輯，瞄準社交媒體創作者市場，AI 影片剪輯門檻再度降低。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Reelful</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">16</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/" target="_blank">Indian AI coding startup Emergent becomes a unicorn with $130M Series C</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">Indian AI coding startup Emergent has raised $130 million in a Series C funding round at a $1.5 billion post-money valuation, a five-fold jump in six months. The funding round was led by private equity firm Creaegis. New investors MNI Ventures-Claypo...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">印度 AI 程式碼新創 Emergent 成立僅一年多即晉升獨角獸，估值 13 億美元，反映新興市場 AI 創業生態的快速崛起。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">17</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/vint-cerf-is-working-on-a-plan-to-unleash-ai-agents-on-the-open-internet/" target="_blank">Vint Cerf is working on a plan to unleash AI agents on the open internet</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">One of the architects of the protocols behind the open internet, Cerf left Google after 20 years last week, but he’s not done thinking about the digital future. Starting today, he’s advising Innovation Labs, an organization trying to create the open ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">網際網路之父 Vint Cerf 投入 AI Agent 身份認證標準化工作，試圖為 Open Internet 上的 AI 代理互動建立信任框架，影響深遠。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Vint Cerf</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">18</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-researcher-miles-wang-in-talks-to-launch-ai-drug-discovery-startup-valued-at-2b/" target="_blank">OpenAI researcher Miles Wang in talks to launch AI drug discovery startup valued at $2B</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 17:27:04 · TechCrunch</div>
+      <div class="summary">Miles Wang, an OpenAI researcher whose work includes using AI to accelerate scientific and biological discovery, is leaving the ChatGPT maker to launch a new startup focused on developing AI models for drug discovery, according to four people with kn...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 研究員 Miles Wang 洽談創立 AI 藥物探索新創，估值 20 億美元，顯示 AI 在生技製藥領域的商業化應用持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Miles Wang</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">19</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/lorde-says-ai-glasses-are-not-sexy/" target="_blank">Lorde says AI glasses are ‘not sexy’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 16:10:02 · TechCrunch</div>
+      <div class="summary">While Kylie Jenner serves as a human billboard for Meta’s AI glasses, pop star Lorde isn’t buying it. During a set at the Mad Cool Festival in Madrid last week, Lorde had some choice words about the new technology, which many security experts have de...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">知名音樂人 Lorde 公開批評 AI 智慧眼鏡「不性感」，反映大眾消費者對當前 AI 硬體裝置設計美學的普遍質疑。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Meta</span>
+        <span class="tag">Lorde</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">20</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/" target="_blank">OpenAI’s first hardware device is reportedly a screenless speaker that can move</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:22:24 · TechCrunch</div>
+      <div class="summary">OpenAI’s first foray into hardware devices is reported to be a mobile smart speaker with integrated AI capabilities that can sync with ChatGPT and provide other home AI services. Bloomberg reported Tuesday that the device — which is still currently u...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 據報正在開發首款硬體裝置為無螢幕可移動揚聲器，市場猜測這是進軍 AI 原生硬體的重大信號。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">21</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/" target="_blank">OpenAI pushes back on Apple trade secret lawsuit</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:07:42 · TechCrunch</div>
+      <div class="summary">OpenAI pushed back Tuesday against allegations made by Apple in a trade secret lawsuit, suggesting the complaint lacks merit. “While we take these allegations seriously, we’re not aware of any evidence that this complaint has merit,” OpenAI said in a...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 反擊蘋果的商業竊密訴訟，拒絕和解立場強硬，雙方法律戰正式升溫，可能牽動雙方未來合作關係。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 AAPL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🏢 企業 AI 動態 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>🏢 企業 AI 動態</h2>
+      <span class="badge">21 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/" target="_blank">Google Vids now lets you star in your own AI videos</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:32:54 · TechCrunch</div>
+      <div class="summary">OpenAI’s Sora may have shut down, but Google apparently thinks there’s still interest in a tool that lets you star in your own AI videos. On Thursday, the tech giant announced an update to Google Vids that will allow you to create a custom digital av...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Google Workspace 整合 AI 影片生成功能，用戶可上傳照片並以 AI 數位分身主演影片，正式進入 AI 生成內容的企業應用競爭。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Google Vids</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/" target="_blank">Roblox launches an AI-powered game-creation feature in its mobile app</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:22:06 · TechCrunch</div>
+      <div class="summary">Roblox announced Thursday a new feature called “Build,” allowing users to design games from their mobile devices using AI. The Build feature lets anyone turn simple text prompts into a basic game without any programming experience. For example, if a ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Roblox 在手機 App 推出 AI 遊戲創作功能，讓一般用戶也能以自然語言生成遊戲內容，降低創作門檻將加速 UGC 生態系統擴張。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Roblox</span>
+        <span class="stock-tag">📈 RBLX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/googles-ai-mode-now-lets-you-link-and-interact-with-select-apps/" target="_blank">Google’s AI Mode now lets you link and interact with select apps</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 09:00:00 · TechCrunch</div>
+      <div class="summary">Google announced on Thursday that it now allows users to link and interact with some of their go-to apps right in AI Mode, the tech giant’s conversational search experience. At launch, supported apps include Instacart, Canva, and YouTube. With this n...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">本篇報導與 AI 產業動態高度相關，建議閱讀原文了解更多細節。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/" target="_blank">Why is OpenAI selling a ChatGPT basketball?</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:31:09 · TechCrunch</div>
+      <div class="summary">You may have heard that OpenAI released its first piece of hardware this week: a $230 mini keyboard. You may not have heard that alongside this “command center for agentic work,” OpenAI also released a ChatGPT basketball. “This basketball comes from ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 推出 ChatGPT 籃球商品，引發外界對其品牌策略的質疑——這是品牌建設還是分心？</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/" target="_blank">How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:02:00 · TechCrunch</div>
+      <div class="summary">Andrew Dai left Google DeepMind knowing visual AI was the frontier he wanted to stake his claim in. He pulled off a whirlwind fundraise that resulted in a more aggressive valuation-to-capital ratio than Thinking Machines, which raised one of the larg...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 DeepMind 研究員創立新創還沒上線產品就先以 3 億美元估值完成 pre-seed 輪，反映 AI 人才與創意在資本市場的高度吸引力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Apple</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">6</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/" target="_blank">Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘superintelligence’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:40:00 · TechCrunch</div>
+      <div class="summary">While the rest of the AI industry races to label its work as “AGI” or “superintelligence,” Alexandre LeBrun, the CEO of Yann LeCun’s world model startup, AMI Labs, avoids the terms altogether. Lebrun said in an interview with TechCrunch that the comp...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AMI Labs 創辦人明確拒絕使用 AGI 或超級智慧等行銷術語，反映業界對 AI 能力過度承諾的反思趨勢。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">AMI Labs</span>
+        <span class="tag">Alexandre LeBrun</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">7</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/" target="_blank">Moonshot’s upcoming Kimi 3 is expected to close the gap with Anthropic’s Opus 4.8</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:26:29 · TechCrunch</div>
+      <div class="summary">The latest iteration of Chinese AI lab Moonshot AI’s Kimi model series is expected to perform at par with or even surpass Anthropic’s Opus 4.8, Financial Times reported, citing anonymous sources. Moonshot’s Kimi K2 models have been received well in t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">中國大模型新創 Moonshot 即將推出 Kimi 3，號稱追平 Anthropic Opus 4.8，中美 AI 模型競爭進入新階段。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">8</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/" target="_blank">Apple Intelligence approved for launch in China with Alibaba and Baidu</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 06:17:59 · TechCrunch</div>
+      <div class="summary">Apple Intelligence, the iPhone maker’s generative AI offering, is coming to China. On Wednesday, Reuters reported that China’s internet content regulator, the Cyberspace Administration of China, approved Apple’s AI services in the country on the back...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">蘋果在中國這個全球最大智慧型手機市場取得監管突破，Qwen 模型獲選為在地合作夥伴，對騰訊、華為等本地競爭對手形成壓力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Apple</span>
+        <span class="tag">Apple Intelligence</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">阿里巴巴</span>
+        <span class="tag">百度</span>
+        <span class="stock-tag">📈 AAPL</span>
+        <span class="stock-tag">📈 BABA</span>
+        <span class="stock-tag">📈 BIDU</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">9</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/" target="_blank">Applied Computing wants to give oil and gas operators an AI model for the entire plant</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 21:00:00 · TechCrunch</div>
+      <div class="summary">Applied Computing, a London-based startup that’s building a foundation AI model for the oil, gas, and petrochemical industry, has raised a $20 million Series A led by engineering giant KBR, with Databricks Ventures participating. Founded in 2023, the...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">傳統油氣產業透過 AI 模型優化整廠運營，代表 AI 正在向重工業滲透，工業 AI 應用場景持續擴大。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Applied Computing</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">10</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/" target="_blank">Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 16:59:44 · TechCrunch</div>
+      <div class="summary">Microsoft appears to be prepping its sales team to get more competitive with the other major players in the AI industry. At an internal meeting on Tuesday, the company’s executives outlined a plan for salespeople to negatively compare AI products fro...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟被爆訓練業務團隊在對客戶說明時貶低 OpenAI 與 Anthropic 的產品，反映雲端 AI 市場的激烈競爭已蔓延至銷售話術層面。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">11</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/" target="_blank">Amid hardware legal battle, OpenAI releases a $230 keyboard for Codex</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 12:41:38 · TechCrunch</div>
+      <div class="summary">OpenAI is officially entering the hardware market with the launch of a $230 light-up keyboard designed to pair with its AI coding assistant, Codex. The Codex Micro, co-designed with specialty keyboard designer Work Louder, is being advertised as a fa...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 跨足硬體領域，230 美元 Codex 鍵盤瞄準開發者族群，代表從純軟體公司轉型為軟硬整合的重大策略轉變。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">12</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 11:04:06 · TechCrunch</div>
+      <div class="summary">Thinking Machines Lab, the AI startup founded by former OpenAI CTO Mira Murati, released its first in-house AI model Wednesday morning, called Inkling. And unlike the flagship models from OpenAI, Anthropic, or Google, it’s open-weight, meaning outsid...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 Meta AI 主管創立 Thinking Machines，首款開放模型 Inkling 劍指 OpenAI 和 Anthropic，開源 AI 競爭持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Thinking Machines</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">13</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/hack-suggests-ai-music-generator-suno-scraped-youtube-for-training-data/" target="_blank">Hack suggests AI music generator Suno scraped YouTube for training data</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 10:00:34 · TechCrunch</div>
+      <div class="summary">The hacker told the publication that they used a supply chain attack in November to access an employee’s credentials, allowing them to then access source code showing how Suno allegedly scraped decades of audio from YouTube Music, Deezer, Genius, sto...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AI 音樂生成器 Suno 被踢爆疑似未經授權竊取 YouTube 影片訓練，版權爭議再掀音樂產業反彈，凸顯生成式 AI 訓練資料合法性的灰色地帶。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Suno</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">14</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-patches-record-number-of-security-vulnerabilities-citing-its-use-of-ai/" target="_blank">Microsoft patches record number of security vulnerabilities, citing its use of AI</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 09:20:18 · TechCrunch</div>
+      <div class="summary">Microsoft released a record number of security patches for Windows, Office, and other tech product lines this week, citing the use of AI to aid the discovery of code vulnerabilities. The technology and cloud giant issued patches for 570 security flaw...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟修補史上最多安全漏洞並特別點名 AI 加速開發是原因之一，顯示 AI 辅助程式碼生成在提升產量之際也帶來新的資安風險。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Microsoft</span>
+        <span class="stock-tag">📈 MSFT</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">15</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/" target="_blank">Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:10:47 · TechCrunch</div>
+      <div class="summary">AI models are becoming ever more capable, but exactly what enterprise adoption will look like remains a big question. In a bid to shape that future, labs like Anthropic and OpenAI have spun up separate businesses dedicated to deploying AI engineers t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Anthropic 聯手私募巨頭 Blackstone 成立落地服務公司，顯示基礎模型商轉瓶頸已從模型能力轉移到實際部署，企業 AI 谘詢與整合商機正式成形。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Blackstone</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 BX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">16</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/" target="_blank">Indian AI coding startup Emergent becomes a unicorn with $130M Series C</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">Indian AI coding startup Emergent has raised $130 million in a Series C funding round at a $1.5 billion post-money valuation, a five-fold jump in six months. The funding round was led by private equity firm Creaegis. New investors MNI Ventures-Claypo...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">印度 AI 程式碼新創 Emergent 成立僅一年多即晉升獨角獸，估值 13 億美元，反映新興市場 AI 創業生態的快速崛起。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">17</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/vint-cerf-is-working-on-a-plan-to-unleash-ai-agents-on-the-open-internet/" target="_blank">Vint Cerf is working on a plan to unleash AI agents on the open internet</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">One of the architects of the protocols behind the open internet, Cerf left Google after 20 years last week, but he’s not done thinking about the digital future. Starting today, he’s advising Innovation Labs, an organization trying to create the open ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">網際網路之父 Vint Cerf 投入 AI Agent 身份認證標準化工作，試圖為 Open Internet 上的 AI 代理互動建立信任框架，影響深遠。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Vint Cerf</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">18</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-researcher-miles-wang-in-talks-to-launch-ai-drug-discovery-startup-valued-at-2b/" target="_blank">OpenAI researcher Miles Wang in talks to launch AI drug discovery startup valued at $2B</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 17:27:04 · TechCrunch</div>
+      <div class="summary">Miles Wang, an OpenAI researcher whose work includes using AI to accelerate scientific and biological discovery, is leaving the ChatGPT maker to launch a new startup focused on developing AI models for drug discovery, according to four people with kn...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 研究員 Miles Wang 洽談創立 AI 藥物探索新創，估值 20 億美元，顯示 AI 在生技製藥領域的商業化應用持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Miles Wang</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">19</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/lorde-says-ai-glasses-are-not-sexy/" target="_blank">Lorde says AI glasses are ‘not sexy’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 16:10:02 · TechCrunch</div>
+      <div class="summary">While Kylie Jenner serves as a human billboard for Meta’s AI glasses, pop star Lorde isn’t buying it. During a set at the Mad Cool Festival in Madrid last week, Lorde had some choice words about the new technology, which many security experts have de...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">知名音樂人 Lorde 公開批評 AI 智慧眼鏡「不性感」，反映大眾消費者對當前 AI 硬體裝置設計美學的普遍質疑。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Meta</span>
+        <span class="tag">Lorde</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">20</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/" target="_blank">OpenAI’s first hardware device is reportedly a screenless speaker that can move</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:22:24 · TechCrunch</div>
+      <div class="summary">OpenAI’s first foray into hardware devices is reported to be a mobile smart speaker with integrated AI capabilities that can sync with ChatGPT and provide other home AI services. Bloomberg reported Tuesday that the device — which is still currently u...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 據報正在開發首款硬體裝置為無螢幕可移動揚聲器，市場猜測這是進軍 AI 原生硬體的重大信號。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">21</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/" target="_blank">OpenAI pushes back on Apple trade secret lawsuit</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:07:42 · TechCrunch</div>
+      <div class="summary">OpenAI pushed back Tuesday against allegations made by Apple in a trade secret lawsuit, suggesting the complaint lacks merit. “While we take these allegations seriously, we’re not aware of any evidence that this complaint has merit,” OpenAI said in a...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 反擊蘋果的商業竊密訴訟，拒絕和解立場強硬，雙方法律戰正式升溫，可能牽動雙方未來合作關係。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 AAPL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 💰 AI 投融資與併購 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>💰 AI 投融資與併購</h2>
+      <span class="badge">14 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/roblox-launches-an-ai-powered-game-creation-feature-in-its-mobile-app/" target="_blank">Roblox launches an AI-powered game-creation feature in its mobile app</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:22:06 · TechCrunch</div>
+      <div class="summary">Roblox announced Thursday a new feature called “Build,” allowing users to design games from their mobile devices using AI. The Build feature lets anyone turn simple text prompts into a basic game without any programming experience. For example, if a ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Roblox 在手機 App 推出 AI 遊戲創作功能，讓一般用戶也能以自然語言生成遊戲內容，降低創作門檻將加速 UGC 生態系統擴張。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Roblox</span>
+        <span class="stock-tag">📈 RBLX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/" target="_blank">Why is OpenAI selling a ChatGPT basketball?</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:31:09 · TechCrunch</div>
+      <div class="summary">You may have heard that OpenAI released its first piece of hardware this week: a $230 mini keyboard. You may not have heard that alongside this “command center for agentic work,” OpenAI also released a ChatGPT basketball. “This basketball comes from ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 推出 ChatGPT 籃球商品，引發外界對其品牌策略的質疑——這是品牌建設還是分心？</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/" target="_blank">How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:02:00 · TechCrunch</div>
+      <div class="summary">Andrew Dai left Google DeepMind knowing visual AI was the frontier he wanted to stake his claim in. He pulled off a whirlwind fundraise that resulted in a more aggressive valuation-to-capital ratio than Thinking Machines, which raised one of the larg...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 DeepMind 研究員創立新創還沒上線產品就先以 3 億美元估值完成 pre-seed 輪，反映 AI 人才與創意在資本市場的高度吸引力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Apple</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/" target="_blank">Moonshot’s upcoming Kimi 3 is expected to close the gap with Anthropic’s Opus 4.8</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:26:29 · TechCrunch</div>
+      <div class="summary">The latest iteration of Chinese AI lab Moonshot AI’s Kimi model series is expected to perform at par with or even surpass Anthropic’s Opus 4.8, Financial Times reported, citing anonymous sources. Moonshot’s Kimi K2 models have been received well in t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">中國大模型新創 Moonshot 即將推出 Kimi 3，號稱追平 Anthropic Opus 4.8，中美 AI 模型競爭進入新階段。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/" target="_blank">Apple Intelligence approved for launch in China with Alibaba and Baidu</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 06:17:59 · TechCrunch</div>
+      <div class="summary">Apple Intelligence, the iPhone maker’s generative AI offering, is coming to China. On Wednesday, Reuters reported that China’s internet content regulator, the Cyberspace Administration of China, approved Apple’s AI services in the country on the back...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">蘋果在中國這個全球最大智慧型手機市場取得監管突破，Qwen 模型獲選為在地合作夥伴，對騰訊、華為等本地競爭對手形成壓力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Apple</span>
+        <span class="tag">Apple Intelligence</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">阿里巴巴</span>
+        <span class="tag">百度</span>
+        <span class="stock-tag">📈 AAPL</span>
+        <span class="stock-tag">📈 BABA</span>
+        <span class="stock-tag">📈 BIDU</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">6</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/" target="_blank">Applied Computing wants to give oil and gas operators an AI model for the entire plant</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 21:00:00 · TechCrunch</div>
+      <div class="summary">Applied Computing, a London-based startup that’s building a foundation AI model for the oil, gas, and petrochemical industry, has raised a $20 million Series A led by engineering giant KBR, with Databricks Ventures participating. Founded in 2023, the...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">傳統油氣產業透過 AI 模型優化整廠運營，代表 AI 正在向重工業滲透，工業 AI 應用場景持續擴大。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Applied Computing</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">7</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/" target="_blank">Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 16:59:44 · TechCrunch</div>
+      <div class="summary">Microsoft appears to be prepping its sales team to get more competitive with the other major players in the AI industry. At an internal meeting on Tuesday, the company’s executives outlined a plan for salespeople to negatively compare AI products fro...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟被爆訓練業務團隊在對客戶說明時貶低 OpenAI 與 Anthropic 的產品，反映雲端 AI 市場的激烈競爭已蔓延至銷售話術層面。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">8</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/" target="_blank">Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 11:04:06 · TechCrunch</div>
+      <div class="summary">Thinking Machines Lab, the AI startup founded by former OpenAI CTO Mira Murati, released its first in-house AI model Wednesday morning, called Inkling. And unlike the flagship models from OpenAI, Anthropic, or Google, it’s open-weight, meaning outsid...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 Meta AI 主管創立 Thinking Machines，首款開放模型 Inkling 劍指 OpenAI 和 Anthropic，開源 AI 競爭持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">Thinking Machines</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">9</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/" target="_blank">Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:10:47 · TechCrunch</div>
+      <div class="summary">AI models are becoming ever more capable, but exactly what enterprise adoption will look like remains a big question. In a bid to shape that future, labs like Anthropic and OpenAI have spun up separate businesses dedicated to deploying AI engineers t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Anthropic 聯手私募巨頭 Blackstone 成立落地服務公司，顯示基礎模型商轉瓶頸已從模型能力轉移到實際部署，企業 AI 谘詢與整合商機正式成形。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Blackstone</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 BX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">10</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/" target="_blank">Indian AI coding startup Emergent becomes a unicorn with $130M Series C</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">Indian AI coding startup Emergent has raised $130 million in a Series C funding round at a $1.5 billion post-money valuation, a five-fold jump in six months. The funding round was led by private equity firm Creaegis. New investors MNI Ventures-Claypo...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">印度 AI 程式碼新創 Emergent 成立僅一年多即晉升獨角獸，估值 13 億美元，反映新興市場 AI 創業生態的快速崛起。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">11</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-researcher-miles-wang-in-talks-to-launch-ai-drug-discovery-startup-valued-at-2b/" target="_blank">OpenAI researcher Miles Wang in talks to launch AI drug discovery startup valued at $2B</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 17:27:04 · TechCrunch</div>
+      <div class="summary">Miles Wang, an OpenAI researcher whose work includes using AI to accelerate scientific and biological discovery, is leaving the ChatGPT maker to launch a new startup focused on developing AI models for drug discovery, according to four people with kn...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 研究員 Miles Wang 洽談創立 AI 藥物探索新創，估值 20 億美元，顯示 AI 在生技製藥領域的商業化應用持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Miles Wang</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">12</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/lorde-says-ai-glasses-are-not-sexy/" target="_blank">Lorde says AI glasses are ‘not sexy’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 16:10:02 · TechCrunch</div>
+      <div class="summary">While Kylie Jenner serves as a human billboard for Meta’s AI glasses, pop star Lorde isn’t buying it. During a set at the Mad Cool Festival in Madrid last week, Lorde had some choice words about the new technology, which many security experts have de...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">知名音樂人 Lorde 公開批評 AI 智慧眼鏡「不性感」，反映大眾消費者對當前 AI 硬體裝置設計美學的普遍質疑。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Meta</span>
+        <span class="tag">Lorde</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">13</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/" target="_blank">OpenAI’s first hardware device is reportedly a screenless speaker that can move</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:22:24 · TechCrunch</div>
+      <div class="summary">OpenAI’s first foray into hardware devices is reported to be a mobile smart speaker with integrated AI capabilities that can sync with ChatGPT and provide other home AI services. Bloomberg reported Tuesday that the device — which is still currently u...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 據報正在開發首款硬體裝置為無螢幕可移動揚聲器，市場猜測這是進軍 AI 原生硬體的重大信號。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">14</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/" target="_blank">OpenAI pushes back on Apple trade secret lawsuit</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:07:42 · TechCrunch</div>
+      <div class="summary">OpenAI pushed back Tuesday against allegations made by Apple in a trade secret lawsuit, suggesting the complaint lacks merit. “While we take these allegations seriously, we’re not aware of any evidence that this complaint has merit,” OpenAI said in a...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 反擊蘋果的商業竊密訴訟，拒絕和解立場強硬，雙方法律戰正式升溫，可能牽動雙方未來合作關係。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 AAPL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🏛️ AI 政策與監管 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>🏛️ AI 政策與監管</h2>
+      <span class="badge">7 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/" target="_blank">Why is OpenAI selling a ChatGPT basketball?</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:31:09 · TechCrunch</div>
+      <div class="summary">You may have heard that OpenAI released its first piece of hardware this week: a $230 mini keyboard. You may not have heard that alongside this “command center for agentic work,” OpenAI also released a ChatGPT basketball. “This basketball comes from ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 推出 ChatGPT 籃球商品，引發外界對其品牌策略的質疑——這是品牌建設還是分心？</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/" target="_blank">Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘superintelligence’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:40:00 · TechCrunch</div>
+      <div class="summary">While the rest of the AI industry races to label its work as “AGI” or “superintelligence,” Alexandre LeBrun, the CEO of Yann LeCun’s world model startup, AMI Labs, avoids the terms altogether. Lebrun said in an interview with TechCrunch that the comp...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AMI Labs 創辦人明確拒絕使用 AGI 或超級智慧等行銷術語，反映業界對 AI 能力過度承諾的反思趨勢。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">AMI Labs</span>
+        <span class="tag">Alexandre LeBrun</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/hack-suggests-ai-music-generator-suno-scraped-youtube-for-training-data/" target="_blank">Hack suggests AI music generator Suno scraped YouTube for training data</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 10:00:34 · TechCrunch</div>
+      <div class="summary">The hacker told the publication that they used a supply chain attack in November to access an employee’s credentials, allowing them to then access source code showing how Suno allegedly scraped decades of audio from YouTube Music, Deezer, Genius, sto...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AI 音樂生成器 Suno 被踢爆疑似未經授權竊取 YouTube 影片訓練，版權爭議再掀音樂產業反彈，凸顯生成式 AI 訓練資料合法性的灰色地帶。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Suno</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-patches-record-number-of-security-vulnerabilities-citing-its-use-of-ai/" target="_blank">Microsoft patches record number of security vulnerabilities, citing its use of AI</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 09:20:18 · TechCrunch</div>
+      <div class="summary">Microsoft released a record number of security patches for Windows, Office, and other tech product lines this week, citing the use of AI to aid the discovery of code vulnerabilities. The technology and cloud giant issued patches for 570 security flaw...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟修補史上最多安全漏洞並特別點名 AI 加速開發是原因之一，顯示 AI 辅助程式碼生成在提升產量之際也帶來新的資安風險。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Microsoft</span>
+        <span class="stock-tag">📈 MSFT</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/" target="_blank">Indian AI coding startup Emergent becomes a unicorn with $130M Series C</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">Indian AI coding startup Emergent has raised $130 million in a Series C funding round at a $1.5 billion post-money valuation, a five-fold jump in six months. The funding round was led by private equity firm Creaegis. New investors MNI Ventures-Claypo...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">印度 AI 程式碼新創 Emergent 成立僅一年多即晉升獨角獸，估值 13 億美元，反映新興市場 AI 創業生態的快速崛起。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">6</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/lorde-says-ai-glasses-are-not-sexy/" target="_blank">Lorde says AI glasses are ‘not sexy’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 16:10:02 · TechCrunch</div>
+      <div class="summary">While Kylie Jenner serves as a human billboard for Meta’s AI glasses, pop star Lorde isn’t buying it. During a set at the Mad Cool Festival in Madrid last week, Lorde had some choice words about the new technology, which many security experts have de...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">知名音樂人 Lorde 公開批評 AI 智慧眼鏡「不性感」，反映大眾消費者對當前 AI 硬體裝置設計美學的普遍質疑。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Meta</span>
+        <span class="tag">Lorde</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">7</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-pushes-back-on-apple-trade-secret-lawsuit/" target="_blank">OpenAI pushes back on Apple trade secret lawsuit</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:07:42 · TechCrunch</div>
+      <div class="summary">OpenAI pushed back Tuesday against allegations made by Apple in a trade secret lawsuit, suggesting the complaint lacks merit. “While we take these allegations seriously, we’re not aware of any evidence that this complaint has merit,” OpenAI said in a...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 反擊蘋果的商業竊密訴訟，拒絕和解立場強硬，雙方法律戰正式升溫，可能牽動雙方未來合作關係。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 AAPL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 👥 AI 人事與組織 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>👥 AI 人事與組織</h2>
+      <span class="badge">13 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/google-vids-now-lets-you-star-in-your-own-ai-videos/" target="_blank">Google Vids now lets you star in your own AI videos</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 11:32:54 · TechCrunch</div>
+      <div class="summary">OpenAI’s Sora may have shut down, but Google apparently thinks there’s still interest in a tool that lets you star in your own AI videos. On Thursday, the tech giant announced an update to Google Vids that will allow you to create a custom digital av...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Google Workspace 整合 AI 影片生成功能，用戶可上傳照片並以 AI 數位分身主演影片，正式進入 AI 生成內容的企業應用競爭。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Google Vids</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/" target="_blank">Why is OpenAI selling a ChatGPT basketball?</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:31:09 · TechCrunch</div>
+      <div class="summary">You may have heard that OpenAI released its first piece of hardware this week: a $230 mini keyboard. You may not have heard that alongside this “command center for agentic work,” OpenAI also released a ChatGPT basketball. “This basketball comes from ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 推出 ChatGPT 籃球商品，引發外界對其品牌策略的質疑——這是品牌建設還是分心？</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/how-a-former-deepmind-researcher-raised-at-a-300m-pre-seed-valuation-before-launching-a-product/" target="_blank">How a former DeepMind researcher raised at a $300M pre-seed valuation before launching a product</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 08:02:00 · TechCrunch</div>
+      <div class="summary">Andrew Dai left Google DeepMind knowing visual AI was the frontier he wanted to stake his claim in. He pulled off a whirlwind fundraise that resulted in a more aggressive valuation-to-capital ratio than Thinking Machines, which raised one of the larg...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">前 DeepMind 研究員創立新創還沒上線產品就先以 3 億美元估值完成 pre-seed 輪，反映 AI 人才與創意在資本市場的高度吸引力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Apple</span>
+        <span class="tag">NVIDIA</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 GOOG</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/" target="_blank">Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘superintelligence’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:40:00 · TechCrunch</div>
+      <div class="summary">While the rest of the AI industry races to label its work as “AGI” or “superintelligence,” Alexandre LeBrun, the CEO of Yann LeCun’s world model startup, AMI Labs, avoids the terms altogether. Lebrun said in an interview with TechCrunch that the comp...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AMI Labs 創辦人明確拒絕使用 AGI 或超級智慧等行銷術語，反映業界對 AI 能力過度承諾的反思趨勢。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">AMI Labs</span>
+        <span class="tag">Alexandre LeBrun</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/" target="_blank">Moonshot’s upcoming Kimi 3 is expected to close the gap with Anthropic’s Opus 4.8</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:26:29 · TechCrunch</div>
+      <div class="summary">The latest iteration of Chinese AI lab Moonshot AI’s Kimi model series is expected to perform at par with or even surpass Anthropic’s Opus 4.8, Financial Times reported, citing anonymous sources. Moonshot’s Kimi K2 models have been received well in t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">中國大模型新創 Moonshot 即將推出 Kimi 3，號稱追平 Anthropic Opus 4.8，中美 AI 模型競爭進入新階段。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">6</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/" target="_blank">Applied Computing wants to give oil and gas operators an AI model for the entire plant</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 21:00:00 · TechCrunch</div>
+      <div class="summary">Applied Computing, a London-based startup that’s building a foundation AI model for the oil, gas, and petrochemical industry, has raised a $20 million Series A led by engineering giant KBR, with Databricks Ventures participating. Founded in 2023, the...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">傳統油氣產業透過 AI 模型優化整廠運營，代表 AI 正在向重工業滲透，工業 AI 應用場景持續擴大。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Applied Computing</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">7</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/" target="_blank">Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 16:59:44 · TechCrunch</div>
+      <div class="summary">Microsoft appears to be prepping its sales team to get more competitive with the other major players in the AI industry. At an internal meeting on Tuesday, the company’s executives outlined a plan for salespeople to negatively compare AI products fro...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">微軟被爆訓練業務團隊在對客戶說明時貶低 OpenAI 與 Anthropic 的產品，反映雲端 AI 市場的激烈競爭已蔓延至銷售話術層面。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Google</span>
+        <span class="tag">Microsoft</span>
+        <span class="tag">Claude</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">8</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/" target="_blank">Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:10:47 · TechCrunch</div>
+      <div class="summary">AI models are becoming ever more capable, but exactly what enterprise adoption will look like remains a big question. In a bid to shape that future, labs like Anthropic and OpenAI have spun up separate businesses dedicated to deploying AI engineers t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Anthropic 聯手私募巨頭 Blackstone 成立落地服務公司，顯示基礎模型商轉瓶頸已從模型能力轉移到實際部署，企業 AI 谘詢與整合商機正式成形。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Blackstone</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 BX</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">9</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/reelfuls-ai-turns-your-camera-roll-into-short-form-videos-for-social-media/" target="_blank">Reelful’s AI turns your camera roll into short-form videos for social media</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 06:00:00 · TechCrunch</div>
+      <div class="summary">A new iOS app called Reelful uses AI to automatically turn photos and video clips from your camera roll into polished TikTok- and Instagram Reels-style videos for social media. Reelful is designed for people who want to create social content, but fin...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">Reelful AI 可將使用者手機相簿自動生成短影音剪輯，瞄準社交媒體創作者市場，AI 影片剪輯門檻再度降低。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Reelful</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">10</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/" target="_blank">Indian AI coding startup Emergent becomes a unicorn with $130M Series C</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">Indian AI coding startup Emergent has raised $130 million in a Series C funding round at a $1.5 billion post-money valuation, a five-fold jump in six months. The funding round was led by private equity firm Creaegis. New investors MNI Ventures-Claypo...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">印度 AI 程式碼新創 Emergent 成立僅一年多即晉升獨角獸，估值 13 億美元，反映新興市場 AI 創業生態的快速崛起。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">11</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/vint-cerf-is-working-on-a-plan-to-unleash-ai-agents-on-the-open-internet/" target="_blank">Vint Cerf is working on a plan to unleash AI agents on the open internet</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">One of the architects of the protocols behind the open internet, Cerf left Google after 20 years last week, but he’s not done thinking about the digital future. Starting today, he’s advising Innovation Labs, an organization trying to create the open ...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">網際網路之父 Vint Cerf 投入 AI Agent 身份認證標準化工作，試圖為 Open Internet 上的 AI 代理互動建立信任框架，影響深遠。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Google</span>
+        <span class="tag">Vint Cerf</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">12</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openai-researcher-miles-wang-in-talks-to-launch-ai-drug-discovery-startup-valued-at-2b/" target="_blank">OpenAI researcher Miles Wang in talks to launch AI drug discovery startup valued at $2B</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 17:27:04 · TechCrunch</div>
+      <div class="summary">Miles Wang, an OpenAI researcher whose work includes using AI to accelerate scientific and biological discovery, is leaving the ChatGPT maker to launch a new startup focused on developing AI models for drug discovery, according to four people with kn...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 研究員 Miles Wang 洽談創立 AI 藥物探索新創，估值 20 億美元，顯示 AI 在生技製藥領域的商業化應用持續升溫。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Google</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Miles Wang</span>
+        <span class="tag">DeepMind</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">13</span>
+        <h3><a href="https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/" target="_blank">OpenAI’s first hardware device is reportedly a screenless speaker that can move</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-14 15:22:24 · TechCrunch</div>
+      <div class="summary">OpenAI’s first foray into hardware devices is reported to be a mobile smart speaker with integrated AI capabilities that can sync with ChatGPT and provide other home AI services. Bloomberg reported Tuesday that the device — which is still currently u...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">OpenAI 據報正在開發首款硬體裝置為無螢幕可移動揚聲器，市場猜測這是進軍 AI 原生硬體的重大信號。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Apple</span>
+        <span class="tag">ChatGPT</span>
+        <span class="stock-tag">📈 MSFT (Azure OpenAI)</span>
+        <span class="stock-tag">📈 GOOG (Gemini)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌍 AI 國際與地緣政治 -->
+  <div class="section">
+    <div class="section-header">
+      <h2>🌍 AI 國際與地緣政治</h2>
+      <span class="badge">5 篇</span>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">1</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/why-ami-labs-alexandre-lebrun-wont-call-his-ai-agi-or-superintelligence/" target="_blank">Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘superintelligence’</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:40:00 · TechCrunch</div>
+      <div class="summary">While the rest of the AI industry races to label its work as “AGI” or “superintelligence,” Alexandre LeBrun, the CEO of Yann LeCun’s world model startup, AMI Labs, avoids the terms altogether. Lebrun said in an interview with TechCrunch that the comp...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">AMI Labs 創辦人明確拒絕使用 AGI 或超級智慧等行銷術語，反映業界對 AI 能力過度承諾的反思趨勢。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">AMI Labs</span>
+        <span class="tag">Alexandre LeBrun</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">2</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/" target="_blank">Moonshot’s upcoming Kimi 3 is expected to close the gap with Anthropic’s Opus 4.8</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 07:26:29 · TechCrunch</div>
+      <div class="summary">The latest iteration of Chinese AI lab Moonshot AI’s Kimi model series is expected to perform at par with or even surpass Anthropic’s Opus 4.8, Financial Times reported, citing anonymous sources. Moonshot’s Kimi K2 models have been received well in t...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">中國大模型新創 Moonshot 即將推出 Kimi 3，號稱追平 Anthropic Opus 4.8，中美 AI 模型競爭進入新階段。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Moonshot AI</span>
+        <span class="stock-tag">📈 GOOG (Anthropic投資方)</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">3</span>
+        <h3><a href="https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/" target="_blank">Apple Intelligence approved for launch in China with Alibaba and Baidu</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-16 06:17:59 · TechCrunch</div>
+      <div class="summary">Apple Intelligence, the iPhone maker’s generative AI offering, is coming to China. On Wednesday, Reuters reported that China’s internet content regulator, the Cyberspace Administration of China, approved Apple’s AI services in the country on the back...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">蘋果在中國這個全球最大智慧型手機市場取得監管突破，Qwen 模型獲選為在地合作夥伴，對騰訊、華為等本地競爭對手形成壓力。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Apple</span>
+        <span class="tag">Apple Intelligence</span>
+        <span class="tag">Qwen</span>
+        <span class="tag">阿里巴巴</span>
+        <span class="tag">百度</span>
+        <span class="stock-tag">📈 AAPL</span>
+        <span class="stock-tag">📈 BABA</span>
+        <span class="stock-tag">📈 BIDU</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">4</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/applied-computing-wants-to-give-oil-and-gas-operators-an-ai-model-for-the-entire-plant/" target="_blank">Applied Computing wants to give oil and gas operators an AI model for the entire plant</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 21:00:00 · TechCrunch</div>
+      <div class="summary">Applied Computing, a London-based startup that’s building a foundation AI model for the oil, gas, and petrochemical industry, has raised a $20 million Series A led by engineering giant KBR, with Databricks Ventures participating. Founded in 2023, the...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">傳統油氣產業透過 AI 模型優化整廠運營，代表 AI 正在向重工業滲透，工業 AI 應用場景持續擴大。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">Applied Computing</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-header">
+        <span class="article-num">5</span>
+        <h3><a href="https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/" target="_blank">Indian AI coding startup Emergent becomes a unicorn with $130M Series C</a></h3>
+      </div>
+      <div class="time">🕐 2026-07-15 05:00:00 · TechCrunch</div>
+      <div class="summary">Indian AI coding startup Emergent has raised $130 million in a Series C funding round at a $1.5 billion post-money valuation, a five-fold jump in six months. The funding round was led by private equity firm Creaegis. New investors MNI Ventures-Claypo...</div>
+      <div class="why">
+        <span class="why-label">🔍 為什麼重要</span>
+        <span class="why-text">印度 AI 程式碼新創 Emergent 成立僅一年多即晉升獨角獸，估值 13 億美元，反映新興市場 AI 創業生態的快速崛起。</span>
+      </div>
+      <div class="meta-row">
+        <span class="tag">OpenAI</span>
+        <span class="tag">Anthropic</span>
+        <span class="tag">Claude</span>
+        <span class="tag">Emergent</span>
+        <span class="tag">Codex</span>
+        <span class="stock-tag">📈 無上市</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOMORROW'S OBSERVATION -->
+  <div class="observation">
+    <h3>🔮 明日觀察</h3>
+    <ul>
+      <li><strong>OpenAI 硬體動向</strong>：230 美元 Codex 鍵盤只是開始，後續與 Jony Ive 的法律戰走向將影響 OpenAI 硬體策略發展。</li>
+      <li><strong>Apple Intelligence 中國落地</strong>：Qwen 獲選為蘋果在中國的 AI 合作模型，阿里巴巴股價可能受到激勵，需觀察實際體驗與用戶接受度。</li>
+      <li><strong>Anthropic Ode 公司</strong>：Anthropic 與 Blackstone 的落地服務合資公司可能於短期內宣布首批企業客戶名單。</li>
+      <li><strong>Suno 版權爭議</strong>：若 YouTube 竊取資料指控屬實，可能引發唱片公司更大的法律行動，也會加速產業對 AI 音樂生成規範的討論。</li>
+      <li><strong>印度 AI 生態</strong>：Emergent 成為獨角獸可能帶動新一波印度 AI 新創募資熱潮，觀察後續估值走向。</li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>由 OpenClaw 自動生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+    <p style="margin-top:10px;">© 2026 acstep · 每日 12:30 台北時間自動更新</p>
+  </footer>
+</div>
+</body>
+</html>

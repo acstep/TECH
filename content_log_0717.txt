@@ -1,0 +1,48 @@
+Fetching content for 22 articles...
+[1/22] Google Vids now lets you star in your own AI videos
+  OK (6 paras, 1810 chars)
+[2/22] Roblox launches an AI-powered game-creation feature in its m
+  OK (11 paras, 2956 chars)
+[3/22] Google’s AI Mode now lets you link and interact with select 
+  OK (8 paras, 2165 chars)
+[4/22] Why is OpenAI selling a ChatGPT basketball?
+  OK (8 paras, 2566 chars)
+[5/22] How a former DeepMind researcher raised at a $300M pre-seed 
+  OK (7 paras, 2421 chars)
+[6/22] Why AMI Labs’ Alexandre LeBrun won’t call his AI ‘AGI’ or ‘s
+  OK (17 paras, 3000 chars)
+[7/22] Moonshot’s upcoming Kimi 3 is expected to close the gap with
+  OK (6 paras, 1394 chars)
+[8/22] Apple Intelligence approved for launch in China with Alibaba
+  OK (7 paras, 1591 chars)
+[9/22] Applied Computing wants to give oil and gas operators an AI 
+  OK (11 paras, 3000 chars)
+[10/22] Microsoft is reportedly training salespeople to talk down Op
+  OK (9 paras, 2536 chars)
+[11/22] Amid hardware legal battle, OpenAI releases a $230 keyboard 
+  OK (9 paras, 2470 chars)
+[12/22] Thinking Machines amps up its bet against one-size-fits-all 
+  OK (17 paras, 3000 chars)
+[13/22] Hack suggests AI music generator Suno scraped YouTube for tr
+  OK (5 paras, 1242 chars)
+[14/22] Microsoft patches record number of security vulnerabilities,
+  OK (6 paras, 1540 chars)
+[15/22] Anthropic, Blackstone bet the next trillion-dollar AI busine
+  OK (21 paras, 3000 chars)
+[16/22] Reelful’s AI turns your camera roll into short-form videos f
+  OK (12 paras, 3000 chars)
+[17/22] Indian AI coding startup Emergent becomes a unicorn with $13
+  OK (13 paras, 3000 chars)
+[18/22] Vint Cerf is working on a plan to unleash AI agents on the o
+  OK (11 paras, 3000 chars)
+[19/22] OpenAI researcher Miles Wang in talks to launch AI drug disc
+  OK (7 paras, 2018 chars)
+[20/22] Lorde says AI glasses are ‘not sexy’
+  OK (8 paras, 2045 chars)
+[21/22] OpenAI’s first hardware device is reportedly a screenless sp
+  OK (10 paras, 2596 chars)
+[22/22] OpenAI pushes back on Apple trade secret lawsuit
+  OK (8 paras, 2334 chars)
+
+Done! Saved 22 articles
+EXIT:0
