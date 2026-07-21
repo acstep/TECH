@@ -1,0 +1,459 @@
+#!/usr/bin/env python3
+import json
+from datetime import datetime, timedelta
+
+DATE = "2026-07-21"
+DATE_DISPLAY = "2026年7月21日"
+REPORT_DATE_UTC = "2026-07-20"  # Most articles are July 20 UTC
+
+articles = json.load(open('/tmp/tc_news_0721_full.json'))
+
+# Categorize each article
+categories = {
+    "💾 AI 晶片與硬體": [],
+    "🧠 AI 模型與研究": [],
+    "🤖 AI 產品與應用": [],
+    "🏢 企業 AI 動態": [],
+    "💰 AI 投融資與併購": [],
+    "🏛️ AI 政策與監管": [],
+    "👥 AI 人事與組織": [],
+    "🌍 AI 國際與地緣政治": [],
+}
+
+def cat_article(cat_key, title_cn, summary, why, entities, stocks, art):
+    return {
+        "title_en": art['title'],
+        "title_cn": title_cn,
+        "url": art['url'],
+        "time": art.get('time', ''),
+        "summary": summary,
+        "why": why,
+        "entities": entities,
+        "stocks": stocks,
+    }
+
+# Article 1: Anthropic $1.5B settlement
+categories["🏛️ AI 政策與監管"].append(cat_article("🏛️ AI 政策與監管",
+    "Anthropic 創下紀錄！15 億美元版權侵權和解案正式核准",
+    "聯邦法官本週一最終核准了 Anthropic 與一群作者及出版商之間的 15 億美元集體訴訟和解案。舊金山聯邦地區法院法官 William Alsup 去年已初步批准這項和解，主因是 Anthropic 被指控非法下載並儲存數百萬本書籍來訓練其 Claude 系列 AI 模型。此案創下 AI 產業史上最大規模的單一侵權和解紀錄，Anthropic 終於可以開始向受害作者與出版商發放賠償。",
+    "此案確立了 AI 訓練資料使用版權內容的法律先例，未來任何 AI 公司若要使用受版權保護的資料訓練模型，都將面臨巨額索賠風險。這是 AI 產業走向合規化的重要轉折點。",
+    "Anthropic、Claude 系列模型、William Alsup 法官、作者集體訴訟團隊",
+    "Anthropic（相關概念股：Alphabet 股價受影響）",
+    articles[0]))
+
+# Article 2: Trump's AI czar resigned
+categories["🏛️ AI 政策與監管"].append(cat_article("🏛️ AI 政策與監管",
+    "上任僅三個月！川普政府 AI 負責人又閃辭",
+    "川普政府新成立的 AI 標準與創新中心（CAISI）主任 Chris Fall 已宣布辭職，距離他今年四月獲任命僅過了三個月。前任 Collin Burns 更慘，上任不到一週就被趕下台，因為他曾任職於 Anthropic，而川普政府與該公司關係緊張。Fall 的辭職原因目前不明，白宮方面也尚未對此發表評論。",
+    "美國政府 AI 政策連續兩任主管迅速下台，顯示政府在 AI 監管方向上存在嚴重內部分歧與不確定性，可能影響美國 AI 監管政策的連續性與執行力。",
+    "Chris Fall、CAISI、Collin Burns、Anthropic、川普政府",
+    "無直接相關個股",
+    articles[1]))
+
+# Article 3: Google new AI chip
+categories["💾 AI 晶片與硬體"].append(cat_article("💾 AI 晶片與硬體",
+    "Google 研發新 AI 晶片「Frozen v2」，目標讓 Gemini 效率提升 6-10 倍",
+    "Alphabet 旗下 Google 正在開發一款代號為「Frozen v2」的新型伺服器 AI 晶片，目標是提升其內部 Gemini 模型的運算效率。根據 The Information 報導，該晶片預計 2028 年發布，功耗效率可比 Google 現有 AI 晶片高出 6 到 10 倍。此計畫顯示 Google 持續推動自研晶片策略，減少對外部供應商（特別是 NVIDIA）的依賴。",
+    "Google 自研晶片將進一步挑戰 NVIDIA 在 AI 硬體市場的主導地位。若 Frozen v2 效能如預期，可能重塑資料中心 AI 推論市場的競爭格局，並加速各大科技公司「晶片自製」的趨勢。",
+    "Alphabet、Google、Frozen v2 晶片、Gemini 模型、NVIDIA、The Information",
+    "Alphabet（GOOGL）、NVIDIA（NVDA）",
+    articles[2]))
+
+# Article 4: MCP protocol update
+categories["🧠 AI 模型與研究"].append(cat_article("🧠 AI 模型與研究",
+    "AI 最重要的協定 MCP 將迎來重大更新，生態系整合更順暢",
+    "模型上下文協定（Model Context Protocol, MCP）是 AI 系統用來安全存取外部資料來源與服務的基礎協定，堪稱 AI 互操作性的「水管工程」。下週 MCP 將發布重大更新，雖對一般使用者不易察覺，但將大幅簡化開發者將 AI 模型與日曆、資料庫、內部工具連結的流程，進一步推動 AI 應用生態系的整合。",
+    "MCP 如同 AI 時代的 USB 標準，一旦標準化並普及，將大幅降低 AI 應用開發的整合成本，加速企業級 AI 工具的採用，對 Anthropic、OpenAI 等公司的生態系策略都有深遠影響。",
+    "MCP（Model Context Protocol）、Anthropic、OpenAI、AI 開發者生態系",
+    "無直接相關個股",
+    articles[3]))
+
+# Article 5: OpenAI scared of open-weight models
+categories["🧠 AI 模型與研究"].append(cat_article("🧠 AI 模型與研究",
+    "OpenAI 高層示警：中國開源模型崛起，美國應正視威脅",
+    "中國 AI 實驗室 Moonshot 推出的 Kimi K3 是目前規模最大的開源大語言模型，其表現引發美國 AI 業界熱議。OpenAI 戰略未來部門主管 Dean W. Ball 撰文指出，開源模型的出現讓美國政府有必要透過監管手段製造「恐懼、不確定性與疑慮」來遏制這些模型，因為開源模型必然會削弱資本投入的動機。他主張美國應正視中國開源 AI 的戰略威脅。",
+    "此議題反映了 AI 產業的核心矛盾：開源與封閉之爭。中國開源模型的崛起可能打破 OpenAI 等公司的收費牆護城河，重新定義全球 AI 競爭格局。",
+    "OpenAI、Moonshot、Kimi K3、Dean W. Ball、中國 AI",
+    "OpenAI（私營）、NVIDIA（NVDA）、Alphabet（GOOGL）",
+    articles[4]))
+
+# Article 6: Adobe camera app
+categories["🤖 AI 產品與應用"].append(cat_article("🤖 AI 產品與應用",
+    "Adobe 實驗相機 App 新增 AI 修圖功能：用大語言模型幫你批評照片",
+    "Adobe 在其實驗性 iOS 相機應用 Project Indigo 中新增一系列 AI 功能。新功能包括利用大語言模型（LLM）為照片提供專業批評與編輯建議，還有進階物件移除、景深生成、不同風格套用等功能。該應用由資深副總裁 Marc Levoy 主導開發，他是 Google Camera App 傳奇人物的背景，其技術功力備受業界矚目。",
+    "Adobe 將生成式 AI 直接整合進拍攝流程，代表 AI 影像處理正從「後製」走向「即時」，未來一般消費者也能獲得過去僅專業攝影師才能做到的 AI 輔助拍攝體驗。",
+    "Adobe、Project Indigo、Marc Levoy、Google Camera App",
+    "Adobe（ADBE）",
+    articles[5]))
+
+# Article 7: YouTube AI slop
+categories["🤖 AI 產品與應用"].append(cat_article("🤖 AI 產品與應用",
+    "YouTube 更新 AI 垃圾內容政策：這三種影片無法營利",
+    "YouTube 進一步收緊 AI 垃圾內容規範，更新了平台內容營利政策。現在有所謂「不真實內容」大類下的三種 AI 生成影片將無法獲得廣告收益，旨在遏止創作者利用 AI 工具大量製作低品質內容來賺取廣告分潤。YouTube 去年已開始限制 AI 內容的收益功能，這次政策更新則更明確地將範圍與後果說清楚。",
+    "此政策顯示平台已意識到 AI 生成內容的商業模式問題。隨著生成式 AI 門檻降低，內容農場式打法將愈來愈難以為繼，這對創作者生態與廣告市場都有深遠影響。",
+    "YouTube、AI slop、內容農場",
+    "Alphabet（GOOGL）、Meta（META）",
+    articles[6]))
+
+# Article 8: Colossal Biosciences
+categories["💰 AI 投融資與併購"].append(cat_article("💰 AI 投融資與併購",
+    "滅絕物種新創 Colossal Biosciences 估值翻倍，擬再募 20-30 億美元",
+    "以「復活」猛獁象和恐狼聞名的生技新創 Colossal Biosciences 傳出正在洽談新一輪募資，估值將一舉升至 200 至 300 億美元，遠高於目前的 102 億美元。據報導，該公司過去一年已開始產生營收，並已向美國政府與阿聯酋提供其保育技術。值得注意的是，公司已孵化出三家子公司，包括專注塑膠分解的 Breaking、計算生物平台 Form Bio（已獲 3,000 萬美元融资）以及 AI 驅動的生物預測模型公司 Astromech（今年三月估值 20 億美元）。",
+    "Colossal 從滅絕動物實驗室转型成多元生技 AI 平台，估值三倍跳漲顯示「AI + 生物學」賽道持續受到資本追捧，也代表非傳統 AI 應用領域正在打開新的估值想像空間。",
+    "Colossal Biosciences、Ben Lamm、猛獁象、Breaking、Form Bio、Astromech",
+    "無直接相關上市個股",
+    articles[7]))
+
+# Article 9: WordPress hackers
+categories["🏛️ AI 政策與監管"].append(cat_article("🏛️ AI 政策與監管",
+    "WordPress 重大安全漏洞遭駭客利用，數千萬網站陷風險",
+    "WordPress 上週修補了兩個重大安全漏洞後，資安公司 Patchstack、Hexastripe 與 WatchTowr 相繼警告：駭客正在野外積極利用這些漏洞入侵脆弱網站。估計受影響網站數以千萬計。漏洞代號 WP2Shell，攻擊者可結合另一個漏洞對目標網站取得完整遠端控制。WordPress 已主動推送自動更新，修復範圍涵蓋 6.9.0 至 6.9.4 版及 7.0.0 至 7.0.1 版。",
+    "此事件顯示開源軟體的安全維護壓力與日俱增，AI 工具的普及也讓自動化攻擊門檻降低，對全球網路基礎設施安全構成更大威脅。",
+    "WordPress、Patchstack、Hexastripe、WatchTowr、WP2Shell",
+    "無直接相關個股",
+    articles[8]))
+
+# Article 10: Infinity $15M
+categories["💰 AI 投融資與併購"].append(cat_article("💰 AI 投融資與併購",
+    "AI 推論新創 Infinity 獲 1,500 萬美元融資，估值 1 億，要做 CUDA 終結者",
+    "AI 基礎設施公司 Infinity 宣布完成 1,500 萬美元融資，估值 1 億美元，投資人包括 Touring Capital、Principal VC 以及 OpenAI 和 Anthropic 的研究人員。Infinity 正在開發能讓各種 AI 晶片（不僅限於 NVIDIA）更高效運行 AI 模型的軟體，目標是打造類似 NVIDIA CUDA 的通用推論函式庫。公司的 AI 研究代理 Ignition 能自動生成、測試並優化低階核心程式碼，幫助非 NVIDIA 晶片也能達到頂尖效能。公司創辦人 Jeremy Nixon 曾是 Google Brain 研究員，也是 AGI House 社群創辦人。",
+    "Infinity 的商業邏輯很清晰：打破 NVIDIA CUDA 的軟體護城河，讓更多硬體可以被 AI 開發者使用。這代表 AI 硬體市場正在從「晶片之爭」進入「軟體棧之爭」，是值得關注的新戰場。",
+    "Infinity、Jeremy Nixon、Google Brain、AGI House、NVIDIA、CUDA、Touring Capital",
+    "NVIDIA（NVDA）、AMD（AMD）",
+    articles[9]))
+
+# Article 11: Natural $30M
+categories["💰 AI 投融資與併購"].append(cat_article("💰 AI 投融資與併購",
+    "AI 代理支付新創 Natural 募 3,000 萬美元，要挑戰 Stripe 構建代理金融基礎設施",
+    "當 AI 代理開始能自動完成複雜任務——找貨運商、比價、發訊息——卻仍然需要人類授權才能付款。Natural 看準這個缺口，宣布完成 3,000 萬美元 A 輪募資，由 Forerunner 領投，估值尚未揭露。公司正在從零開始重新設計支付基礎設施，使其能支援 AI 代理的自主交易需求，而非依賴傳統信用卡或 ACH 的人工程序。公司共同創辦人 Kahlil Lalji 曾創立 YC 支援的銀行新創 Ivella，後被 Earnin 收購。",
+    "「AI 代理經濟」將催生全新的金融基礎設施需求。當數百萬 AI 代理需要自主支付、收款、轉帳，現有金融鐵路根本無法支撐，這是一個價值數千億美元的新興市場。",
+    "Natural、Kahlil Lalji、Eric Wang、Walt Leung、Forerunner、Stripe",
+    "Stripe（私營）；支付相關：Visa（V）、Mastercard（MA）",
+    articles[10]))
+
+# Article 12: Flock Safety
+categories["🤖 AI 產品與應用"].append(cat_article("🤖 AI 產品與應用",
+    "Flock Safety 執行長將登 TechCrunch Disrupt 2026：探討 AI 監控的未來",
+    "監控科技公司 Flock Safety 執行長 Garrett Langley 將在 TechCrunch Disrupt 2026（10 月 13-15 日，舊金山）上發表演講，探討 AI 與監控的交匯點。Flock Safety 以車牌辨識技術起家，現已發展出更廣泛的監控攝影機業務，並透過收購 Aerodome 進軍無人機緊急反應領域。公司最新估值 75 億美元，總融資逾 9.5 億美元。然而，公司也面臨 ACLU 等隱私倡議組織的強烈反彈，部分民眾甚至破壞其監控攝影機。亞馬遜 Ring 近期終止了與 Flock 的合作，洛杉矶警察局也未延長合約。",
+    "Flock Safety 的案例顯示 AI 監控技術在公共安全應用與隱私保護之間存在根本性張力，監管與市場接受度將決定這類技術能否持續擴張。",
+    "Flock Safety、Garrett Langley、ACLU、Aerodome、TechCrunch Disrupt",
+    "Amazon（AMZN）",
+    articles[11]))
+
+# Article 13: StrictlyVC
+categories["👥 AI 人事與組織"].append(cat_article("👥 AI 人事與組織",
+    "StrictlyVC 睽違兩年重返紐約：見證 NYC 新創生態爆發",
+    "知名創投活動 StrictlyVC 將於 9 月 10 日在紐約舉行睽違兩年的實體活動，慶祝紐約新創生態的爆發成長。根據 Tech:NYC 報告，2026 年上半年已有逾 240 家紐約新創募集合計 13 億美元種子輪資金，較去年同期成長。紐約新創整體在半年度已募得 160 億美元，逼近 2025 年全年 191 億美元的水準。活動將邀請 Collaborative Fund 創辦人 Craig Shapiro 與 TechCrunch 主編 Connie Loizos 對談，探討「歸屬感的商業價值」。",
+    "紐約 AI 新創生態的快速崛起代表美國科技投資版圖正在往東海岸擴張，挑戰灣區的傳統科技霸權地位。",
+    "StrictlyVC、TechCrunch、NYC 新創生態、Craig Shapiro、Connie Loizos",
+    "無直接相關個股",
+    articles[12]))
+
+# Article 14: Hugging Face breach
+categories["🌍 AI 國際與地緣政治"].append(cat_article("🌍 AI 國際與地緣政治",
+    "Hugging Face 遭駭！攻擊者利用平台漏洞竊取內部資料集與憑證",
+    "AI 模型與資料集托管平台 Hugging Face 證實，其內部系統遭到駭客入侵，資料集與服務憑證遭到竊取。攻擊者利用上傳至平台之資料集的安全漏洞，在伺服器上執行惡意程式碼並提升權限，進一步取得更廣泛的存取權。Hugging Face 已修復漏洞並輪換被竊憑證，呼籲用戶立即更換平台上儲存的任何 API 金鑰。公司指出，攻擊者疑似為「外部 AI 代理」，在短期沙盒中執行了數千次操作。值得注意的是，公司原希望使用商用前沿模型分析攻擊日誌，卻因該模型的護欄阻擋而失敗，最後靠自家本地 LLM 才完成分析。",
+    "此事件顯示 AI 平台本身也可能成為 AI 輔助攻擊的目標與工具，凸顯 AI 安全領域的新威脅向量：AI 代理已被用於自動化網路入侵行動。",
+    "Hugging Face、AI 代理、網路安全、API 漏洞",
+    "無直接相關上市個股",
+    articles[13]))
+
+# Article 15: Apple vs OpenAI lawsuit
+categories["🏢 企業 AI 動態"].append(cat_article("🏢 企業 AI 動態",
+    "蘋果告 OpenAI 盜用商業機密，會否阻礙後者硬體布局與 IPO 計畫？",
+    "蘋果公司日前對 OpenAI 提起商業機密訴訟，指控 OpenAI 透過不正當手段誘使蘋果員工洩漏機密資訊。訴訟文件聲稱有超過 400 名蘋果前員工現在任職於 OpenAI。OpenAI 回應稱「未發現任何指控有依據的證據」。TechCrunch Equity podcast 主持人預測，此訴訟可能對 OpenAI 進軍硬體領域（與 Jony Ive 合作開發智慧型手機）以及年底可能的 IPO 計畫造成延誤，成為一把牽制 OpenAI 的利器。",
+    "此訴訟時機敏感，正好在 OpenAI 準備 IPO 之際。預計蘋果可能會申請禁制令，進一步干擾 OpenAI 的人才招募與硬體開發進度。",
+    "Apple、OpenAI、Sam Altman、Jony Ive、IPO、智慧型手機",
+    "Apple（AAPL）、OpenAI（私營）",
+    articles[14]))
+
+# Article 16: Nolan calls AI Trojan horse
+categories["🤖 AI 產品與應用"].append(cat_article("🤖 AI 產品與應用",
+    "大導演諾蘭：AI 是每個人都知道希臘人在裡面的木馬",
+    "以《奧迪塞》新版電影創下票房紀錄的奧斯卡導演克里斯多福·諾蘭，在專訪中將 AI 比擬為「明顯的木馬」，表示「每個人都知道希臘人在裡面」。他指出從未見過科技發展如此迅速卻如此被大眾拒絕，尤其年輕人對 AI 影片直接稱之為「AI 垃圾」（AI slop），顯示「這是非常健康的不信任感」。他強調，新技術總會帶來美好的禮物，但也必須抱持懷疑態度來看待，尤其是對提供這些技術的人的動機。",
+    "連好萊塢最具影響力的導演都對 AI 保持高度警惕，這種來自創意產業的懷疑聲浪將持續影響 AI 生成的影視內容監管政策與公眾接受度。",
+    "Christopher Nolan、奧斯卡、《奧迪塞》、AI slop",
+    "無直接相關個股",
+    articles[15]))
+
+# Article 17: Current AI nonprofit
+categories["🌍 AI 國際與地緣政治"].append(cat_article("🌍 AI 國際與地緣政治",
+    "非營利 Current AI 獲法國政府等 4 億美元支持，要建「AI 萬維網」",
+    "非營利組織 Current AI 正在推動建立開放、公共的 AI 基礎設施，目標是打造如同當年網際網路那般對所有人免費開放的 AI 系統。該組織由 Martin Tisné 創辦，的法國政府資助 1 億美元，加上 Ford Foundation、MacArthur Foundation、DeepMind 與 Salesforce 的支持，承諾資金已達 4 億美元。Current AI 已與印度政府 AI 語言部門 Bhashini 合作，開發可在 22 種印度語言離線運行的 AI 設備 Suno Sutra。其 CEO Ayah Bdeir 曾領導 Mozilla AI 策略，也是 STEM 教育公司 littleBits 創辦人。",
+    "Current AI 代表一種新思維：AI 不應由私人巨頭壟斷。這與歐盟 AI 法案的精神相符，若成功將為開發中國家提供對抗 AI 殖民化的工具。",
+    "Current AI、Martin Tisné、Ayah Bdeir、法國政府、Bhashini、Mozilla、DeepMind、Salesforce",
+    "Salesforce（CRM）、DeepMind（隸屬 Alphabet）",
+    articles[16]))
+
+# Article 18: Robotaxi rules battle
+categories["🏛️ AI 政策與監管"].append(cat_article("🏛️ AI 政策與監管",
+    "Uber 與 Waymo 正面交鋒：華府 robotaxi 法規大戰開打",
+    "TechCrunch Mobility 獨家披露，Uber 與 Waymo 兩大公司在華盛頓特區的自動駕駛計程車法規議題上已處於對立立場。Uber 反對一項允許純自動駕駛車輛在 DC 營運的草案，主張此法規會讓 Waymo 取得事實上的壟斷地位，並取代有人駕駛的共享服務司機生計。Uber 主張「混合模式」——要求 robotaxi 必須與有人駕駛車輛在同一平台上營運。業內人士認為「混合模式」立法通過機會不高，但若通過，將使 Waymo 陷入兩難：要么將 robotaxi 放入 Uber 等叫車平台，要么另雇司機操作。",
+    "自動駕駛商業化的最大障礙從來不是技術，而是法規與利益分配。這場華府遊說戰的結果將成全球 robotaxi 法規的重要參照。",
+    "Uber、Waymo、Alphabet、DC Council、robotaxi、Lyft、Tesla",
+    "Uber（UBER）、Lyft（LYFT）、Alphabet（GOOGL）、Tesla（TSLA）",
+    articles[17]))
+
+# Article 19: Netflix $587M Affleck
+categories["🏢 企業 AI 動態"].append(cat_article("🏢 企業 AI 動態",
+    "Netflix 收購班艾佛列克 AI 影視新創 InterPositive，代價曝光：5.87 億美元",
+    "Netflix 在監管文件中首次揭露，今年 3 月收購影帝兼導演班·艾佛列克共同創立的 AI 影視技術新創 InterPositive（當時稱 InterPublic）的實際代價為 5.87 億美元現金。艾佛列克當時表示，他希望藉此「保護人類創造力的力量」。InterPositive 的 AI 工具可在後製階段幫助導演改善素材，包括補拍失敗的鏡頭、替換背景或修正錯誤打光。Netflix 透露，目前已有約 300 部自家作品使用了生成式 AI 技術。",
+    "好萊塢對 AI 製作工具的接受度正在加速。5.87 億美元的收購價在內容產業屬於相當大的投資，代表 Netflix 將 AI 視為影視製作的核心能力而非輔助工具。",
+    "Netflix、Ben Affleck、InterPositive、Generative AI",
+    "Netflix（NFLX）",
+    articles[18]))
+
+# Now build the HTML
+html = f'''<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要 {DATE} | TECH</title>
+<style>
+* {{ box-sizing: border-box; margin: 0; padding: 0; }}
+body {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif; background: #080810; color: #e8e8f0; line-height: 1.7; padding: 20px; min-height: 100vh; }}
+.container {{ max-width: 1200px; margin: 0 auto; }}
+
+/* 頁首 */
+.page-header {{ padding: 40px 30px 30px; background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,255,136,0.06)); border: 1px solid rgba(0,212,255,0.2); border-radius: 20px; margin-bottom: 30px; }}
+.page-header .date {{ color: #00d4ff; font-size: 0.9em; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; }}
+.page-header h1 {{ font-size: 2.4em; font-weight: 900; background: linear-gradient(135deg, #00d4ff, #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }}
+.page-header .stats {{ color: #888; font-size: 0.95em; margin-bottom: 20px; }}
+.page-header .stats span {{ color: #00ff88; font-weight: 700; }}
+.tags {{ display: flex; flex-wrap: wrap; gap: 8px; }}
+.tag {{ background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.25); color: #00d4ff; padding: 4px 12px; border-radius: 20px; font-size: 0.82em; font-weight: 600; }}
+
+/* 三大頭條 */
+.top-stories {{ margin-bottom: 40px; }}
+.top-stories h2 {{ color: #00ff88; font-size: 1.4em; margin-bottom: 16px; }}
+.headline-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }}
+.headline-card {{ background: linear-gradient(135deg, rgba(0,212,255,0.07), rgba(0,255,136,0.04)); border: 1px solid rgba(0,212,255,0.2); border-radius: 14px; padding: 24px; position: relative; overflow: hidden; }}
+.headline-card::before {{ content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d4ff, #00ff88); }}
+.headline-card .rank {{ font-size: 0.75em; color: #00ff88; font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }}
+.headline-card h3 {{ color: #fff; font-size: 1.1em; margin-bottom: 10px; line-height: 1.4; }}
+.headline-card p {{ color: #aaa; font-size: 0.88em; line-height: 1.55; }}
+.headline-card .source {{ color: #00d4ff; font-size: 0.8em; margin-top: 10px; display: block; }}
+
+/* 主題雷達 */
+.radar {{ margin-bottom: 40px; }}
+.radar h2 {{ color: #00d4ff; font-size: 1.4em; margin-bottom: 16px; }}
+.category-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }}
+.category-card {{ background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; }}
+.category-card .icon {{ font-size: 1.6rem; flex-shrink: 0; }}
+.category-card .info .name {{ font-weight: 700; color: #e8e8f0; font-size: 0.95em; }}
+.category-card .info .count {{ color: #00ff88; font-size: 0.8em; margin-top: 2px; }}
+
+/* 新聞卡片 */
+.section-title {{ color: #00d4ff; font-size: 1.3em; margin-bottom: 16px; margin-top: 40px; padding-bottom: 8px; border-bottom: 1px solid rgba(0,212,255,0.15); display: flex; align-items: center; gap: 10px; }}
+.news-card {{ background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 14px; padding: 24px; margin-bottom: 16px; transition: border-color 0.25s; }}
+.news-card:hover {{ border-color: rgba(0,212,255,0.3); }}
+.news-card .card-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }}
+.news-card h3 {{ font-size: 1.05em; color: #fff; line-height: 1.4; flex: 1; }}
+.news-card h3 a {{ color: inherit; text-decoration: none; }}
+.news-card h3 a:hover {{ color: #00d4ff; }}
+.news-card .time {{ color: #666; font-size: 0.8em; white-space: nowrap; flex-shrink: 0; }}
+.news-card .source {{ color: #00d4ff; font-size: 0.8em; margin-bottom: 10px; display: block; }}
+.news-card .source a {{ color: inherit; text-decoration: none; }}
+.news-card .source a:hover {{ text-decoration: underline; }}
+.news-card .summary {{ color: #bbb; font-size: 0.9em; line-height: 1.65; margin-bottom: 12px; }}
+.news-card .meta {{ display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }}
+.news-card .tag-sm {{ background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.2); color: #00ff88; padding: 2px 9px; border-radius: 10px; font-size: 0.75em; font-weight: 600; }}
+.news-card .why {{ background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.12); border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 0.85em; color: #aaa; line-height: 1.55; }}
+.news-card .why strong {{ color: #00d4ff; }}
+.news-card .entities {{ color: #888; font-size: 0.8em; margin-top: 8px; }}
+.news-card .entities strong {{ color: #aaa; }}
+.news-card .stocks {{ color: #ffcc00; font-size: 0.8em; margin-top: 4px; }}
+.news-card .stocks strong {{ color: #ffe066; }}
+
+/* 關鍵詞雲 */
+.keywords {{ margin-bottom: 40px; }}
+.keywords h2 {{ color: #00ff88; font-size: 1.3em; margin-bottom: 14px; }}
+.kw-cloud {{ display: flex; flex-wrap: wrap; gap: 10px; }}
+.kw {{ background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: #aaa; padding: 6px 14px; border-radius: 8px; font-size: 0.85em; }}
+.kw.w {{ background: rgba(0,212,255,0.08); border-color: rgba(0,212,255,0.25); color: #00d4ff; }}
+.kw.g {{ background: rgba(0,255,136,0.06); border-color: rgba(0,255,136,0.2); color: #00ff88; }}
+
+/* 明日觀察 */
+.lookahead {{ margin-bottom: 40px; }}
+.lookahead h2 {{ color: #ffcc00; font-size: 1.3em; margin-bottom: 14px; }}
+.lookahead-box {{ background: rgba(255,204,0,0.04); border: 1px solid rgba(255,204,0,0.15); border-radius: 14px; padding: 24px; color: #ccc; font-size: 0.9em; line-height: 1.8; }}
+.lookahead-box li {{ margin-bottom: 8px; padding-left: 20px; position: relative; }}
+.lookahead-box li::before {{ content: "▸"; position: absolute; left: 0; color: #ffcc00; }}
+
+/* footer */
+footer {{ text-align: center; color: #555; font-size: 0.85em; padding: 30px 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; }}
+footer a {{ color: #00d4ff; text-decoration: none; }}
+
+/* responsive */
+@media (max-width: 768px) {{
+  .headline-grid {{ grid-template-columns: 1fr; }}
+  .page-header {{ padding: 24px 20px; }}
+  .page-header h1 {{ font-size: 1.8em; }}
+}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- 頁首 -->
+<header class="page-header">
+  <div class="date">📅 {DATE_DISPLAY}（台北時間）</div>
+  <h1>🤖 每日 AI 新聞摘要</h1>
+  <div class="stats">共整理 <span>{len(articles)}</span> 則新聞，涵蓋 <span>{sum(1 for v in categories.values() if v)}</span> 個分類</div>
+  <div class="tags">
+    <span class="tag">Anthropic</span>
+    <span class="tag">OpenAI</span>
+    <span class="tag">Google</span>
+    <span class="tag">NVIDIA</span>
+    <span class="tag">AI 監管</span>
+    <span class="tag">AI 投資</span>
+    <span class="tag">AI Agent</span>
+    <span class="tag">機器人計程車</span>
+  </div>
+</header>
+
+<!-- 三大頭條 -->
+<section class="top-stories">
+  <h2>🔥 今日 3 大頭條</h2>
+  <div class="headline-grid">
+'''
+
+# Top 3 headlines (most impactful stories)
+top3 = [
+    (categories["🏛️ AI 政策與監管"][0], "🏛️ AI 政策與監管"),
+    (categories["🏢 企業 AI 動態"][0], "🏢 企業 AI 動態"),
+    (categories["💰 AI 投融資與併購"][0], "💰 AI 投融資與併購"),
+]
+
+for i, (art, cat) in enumerate(top3):
+    dt = art.get('time', '')
+    time_str = dt.replace('T', ' ').replace('-07:00', ' PT') if dt else ''
+    html += f'''    <div class="headline-card">
+      <div class="rank">#{i+1} {cat}</div>
+      <h3><a href="{art['url']}" target="_blank">{art['title_cn']}</a></h3>
+      <p>{art['summary'][:180]}…</p>
+      <span class="source">📰 TechCrunch{(' · ' + time_str) if time_str else ''}</span>
+    </div>
+'''
+
+html += '''  </div>
+</section>
+
+<!-- 主題雷達 -->
+<section class="radar">
+  <h2>📡 主題雷達</h2>
+  <div class="category-grid">
+'''
+
+cat_icons = {
+    "💾 AI 晶片與硬體": "💾",
+    "🧠 AI 模型與研究": "🧠",
+    "🤖 AI 產品與應用": "🤖",
+    "🏢 企業 AI 動態": "🏢",
+    "💰 AI 投融資與併購": "💰",
+    "🏛️ AI 政策與監管": "🏛️",
+    "👥 AI 人事與組織": "👥",
+    "🌍 AI 國際與地緣政治": "🌍",
+}
+
+for cat_name, arts in categories.items():
+    if not arts:
+        continue
+    icon = cat_icons.get(cat_name, "📌")
+    top_title = arts[0]['title_cn'][:28]
+    html += f'''    <div class="category-card">
+      <div class="icon">{icon}</div>
+      <div class="info">
+        <div class="name">{cat_name.replace("💾 ","").replace("🧠 ","").replace("🤖 ","").replace("🏢 ","").replace("💰 ","").replace("🏛️ ","").replace("👥 ","").replace("🌍 ","")}</div>
+        <div class="count">{len(arts)} 則新聞 · {top_title}…</div>
+      </div>
+    </div>
+'''
+
+html += '''  </div>
+</section>
+'''
+
+# News sections by category
+for cat_name, arts in categories.items():
+    if not arts:
+        continue
+    icon = cat_icons.get(cat_name, "📌")
+    html += f'''
+<section>
+  <h2 class="section-title">{icon} {cat_name.replace("💾 ","").replace("🧠 ","").replace("🤖 ","").replace("🏢 ","").replace("💰 ","").replace("🏛️ ","").replace("👥 ","").replace("🌍 ","")}</h2>
+'''
+    for art in arts:
+        dt = art.get('time', '')
+        time_str = dt.replace('T', ' ').replace('-07:00', ' PT') if dt else ''
+        html += f'''  <article class="news-card">
+    <div class="card-header">
+      <h3><a href="{art['url']}" target="_blank">{art['title_cn']}</a></h3>
+      <span class="time">{time_str}</span>
+    </div>
+    <span class="source">📰 <a href="{art['url']}" target="_blank">TechCrunch 原文</a></span>
+    <p class="summary">{art['summary']}</p>
+    <div class="why"><strong>💡 為什麼重要：</strong>{art['why']}</div>
+    <div class="entities"><strong>🏷️ 關鍵主體：</strong>{art['entities']}</div>
+    {('<div class="stocks"><strong>📈 相關概念股：</strong>' + art['stocks'] + '</div>') if art.get('stocks') and art['stocks'] != '無直接相關個股' else ''}
+  </article>
+'''
+    html += '</section>\n'
+
+# Keywords
+keywords = [
+    ("Anthropic", "w"), ("Claude", "w"), ("OpenAI", "w"), ("GPT", "w"), ("Google", "w"),
+    ("Gemini", "w"), ("NVIDIA", "w"), ("Frozen v2", "w"), ("MCP", "w"), ("CUDA", "w"),
+    ("Kimi K3", "g"), ("Moonshot", "g"), ("AI Agent", "g"), ("Natural", "g"),
+    ("Colossal Biosciences", "g"), ("InterPositive", "g"), ("Ben Affleck", "g"),
+    ("Netflix", "g"), ("Apple", "g"), ("OpenAI lawsuit", "g"),
+    ("Hugging Face", "g"), ("WordPress", "g"), ("Uber", "g"), ("Waymo", "g"),
+    ("Flock Safety", "g"), ("Current AI", "g"), ("Infinity", "g"),
+]
+
+html += '''
+<!-- 關鍵詞雲 -->
+<section class="keywords">
+  <h2>🔑 今日關鍵詞彙</h2>
+  <div class="kw-cloud">
+'''
+for kw, cls in keywords:
+    html += f'    <span class="kw {cls}">{kw}</span>\n'
+
+html += '''  </div>
+</section>
+
+<!-- 明日觀察 -->
+<section class="lookahead">
+  <h2>🔮 明日觀察</h2>
+  <div class="lookahead-box">
+    <ul>
+      <li>蘋果與 OpenAI 的訴訟可能出現新進展——若蘋果申請臨時禁制令，OpenAI 的員工招募與硬體開發將立即受到影響</li>
+      <li>Anthropic $15 億和解金開始發放後，可能引發更多版權方對其他 AI 公司提起類似訴訟</li>
+      <li>Google 的「Frozen v2」晶片若進入投產階段，可能影響 NVIDIA H200/B100 系列的市場供需狀況</li>
+      <li>AI 代理支付賽道正在升溫，Natural 的 $3,000 萬融資可能催生更多類似新創獲得關注</li>
+      <li>Uber vs. Waymo 的 DC 法規大戰將進入聽證會階段，Lyft 與 Tesla 也將加入遊說</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>📡 TECH — 每日 AI 新聞中文整理 | 資料來源：TechCrunch<br>
+  <a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI News</a> ·
+  <a href="https://github.com/acstep/TECH" target="_blank">GitHub Repo</a></p>
+</footer>
+
+</div><!-- /container -->
+</body>
+</html>
+'''
+
+with open(f'/home/matt/.openclaw/workspace/TECH/news/{DATE}.html', 'w', encoding='utf-8') as f:
+    f.write(html)
+
+print(f"Generated: /home/matt/.openclaw/workspace/TECH/news/{DATE}.html")
+print(f"Total articles: {len(articles)}")
+for cat, arts in categories.items():
+    if arts:
+        print(f"  {cat}: {len(arts)}")
