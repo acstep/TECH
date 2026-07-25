@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要 2026-07-25｜TECH</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #080810;
+  color: #e8e8f0;
+  line-height: 1.7;
+  padding: 20px;
+  min-height: 100vh;
+}
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+.report-header {
+  background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,255,136,0.06));
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 20px;
+  padding: 36px 40px;
+  margin-bottom: 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.report-header-left { flex: 1; min-width: 240px; }
+.report-date-badge {
+  display: inline-block;
+  background: rgba(0,212,255,0.15);
+  border: 1px solid rgba(0,212,255,0.3);
+  color: #00d4ff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.88em;
+  font-weight: 600;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+.report-header h1 {
+  font-size: 2.2em;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.report-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.report-meta span { color: #aaa; font-size: 0.9em; }
+.report-meta span b { color: #00ff88; }
+.report-keywords {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px 20px;
+  flex: 1.2;
+  min-width: 240px;
+}
+.report-keywords h3 { color: #00d4ff; font-size: 0.85em; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.2);
+  color: #00d4ff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
+/* Top 3 Headlines */
+.top-headlines { margin-bottom: 36px; }
+.section-title {
+  color: #00ff88;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 3px solid #00ff88;
+}
+.headline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.headline-card {
+  background: linear-gradient(135deg, rgba(0,212,255,0.07), rgba(0,255,136,0.04));
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.headline-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+}
+.headline-card:hover { transform: translateY(-3px); border-color: rgba(0,212,255,0.5); box-shadow: 0 8px 30px rgba(0,212,255,0.12); }
+.headline-rank {
+  font-size: 3em;
+  font-weight: 900;
+  color: rgba(0,212,255,0.15);
+  position: absolute;
+  top: 10px; right: 20px;
+  line-height: 1;
+}
+.headline-tag { color: #00ff88; font-size: 0.78em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.headline-title { color: #fff; font-size: 1.15em; font-weight: 700; margin-bottom: 12px; line-height: 1.4; }
+.headline-title a { color: inherit; text-decoration: none; }
+.headline-title a:hover { color: #00d4ff; }
+.headline-summary { color: #aaa; font-size: 0.9em; line-height: 1.6; margin-bottom: 14px; }
+.headline-why { background: rgba(0,0,0,0.2); border-left: 3px solid #00d4ff; padding: 10px 14px; border-radius: 0 8px 8px 0; color: #ccc; font-size: 0.85em; }
+.headline-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-wrap: wrap; gap: 6px; }
+.headline-source { color: #666; font-size: 0.78em; }
+.headline-time { color: #555; font-size: 0.78em; }
+
+/* Category radar */
+.category-radar { margin-bottom: 36px; }
+.category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.cat-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.25s;
+  text-decoration: none;
+  color: inherit;
+}
+.cat-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-2px); }
+.cat-icon { font-size: 1.6em; flex-shrink: 0; }
+.cat-info { flex: 1; }
+.cat-name { color: #e0e0e0; font-size: 0.88em; font-weight: 600; }
+.cat-count { color: #00d4ff; font-size: 0.78em; margin-top: 2px; }
+.cat-arrow { color: #444; font-size: 1.1em; }
+
+/* News sections */
+.news-section { margin-bottom: 40px; }
+.news-group { margin-bottom: 32px; }
+.news-group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.news-group-icon { font-size: 1.2em; }
+.news-group-title { color: #e0e0e0; font-size: 1em; font-weight: 700; }
+.news-group-count { color: #555; font-size: 0.8em; margin-left: auto; }
+.news-list { display: flex; flex-direction: column; gap: 10px; }
+
+/* News card */
+.news-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 20px 22px;
+  transition: all 0.25s;
+}
+.news-card:hover { border-color: rgba(0,212,255,0.2); background: rgba(0,212,255,0.03); }
+.news-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.news-title { color: #e8e8f0; font-size: 0.98em; font-weight: 600; line-height: 1.45; flex: 1; }
+.news-title a { color: inherit; text-decoration: none; }
+.news-title a:hover { color: #00d4ff; }
+.news-time { color: #555; font-size: 0.75em; flex-shrink: 0; margin-top: 2px; }
+.news-summary { color: #999; font-size: 0.88em; line-height: 1.65; margin-bottom: 12px; }
+.news-why { background: rgba(0,0,0,0.2); border-left: 3px solid #00ff88; padding: 8px 12px; border-radius: 0 6px 6px 0; color: #bbb; font-size: 0.82em; margin-bottom: 12px; }
+.news-footer { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.entity-tag { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.18); color: #00d4ff; padding: 2px 9px; border-radius: 10px; font-size: 0.75em; font-weight: 600; }
+.stock-tag { background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.18); color: #00ff88; padding: 2px 9px; border-radius: 10px; font-size: 0.75em; font-weight: 600; }
+.news-link { margin-left: auto; color: #00d4ff; text-decoration: none; font-size: 0.8em; font-weight: 600; white-space: nowrap; }
+.news-link:hover { text-decoration: underline; }
+
+/* Key terms */
+.key-terms { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px 28px; margin-bottom: 40px; }
+.key-terms h3 { color: #00d4ff; margin-bottom: 14px; font-size: 1em; }
+.terms-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.term { background: rgba(0,255,136,0.06); border: 1px solid rgba(0,255,136,0.15); color: #aaa; padding: 5px 12px; border-radius: 8px; font-size: 0.82em; }
+.term b { color: #00ff88; }
+
+/* Tomorrow watch */
+.tomorrow-watch { background: linear-gradient(135deg, rgba(0,255,136,0.06), rgba(0,212,255,0.04)); border: 1px solid rgba(0,255,136,0.2); border-radius: 14px; padding: 24px 28px; margin-bottom: 40px; }
+.tomorrow-watch h3 { color: #00ff88; margin-bottom: 14px; font-size: 1em; }
+.tomorrow-watch ul { list-style: none; }
+.tomorrow-watch li { padding: 6px 0; padding-left: 20px; position: relative; color: #aaa; font-size: 0.9em; }
+.tomorrow-watch li::before { content: "▸"; position: absolute; left: 0; color: #00ff88; }
+
+/* Footer */
+footer { text-align: center; color: #444; font-size: 0.82em; padding: 30px 20px; border-top: 1px solid rgba(255,255,255,0.04); margin-top: 40px; }
+footer a { color: #00d4ff; text-decoration: none; }
+.back-link { display: inline-block; margin-bottom: 16px; color: #00d4ff; text-decoration: none; font-size: 0.88em; }
+
+@media (max-width: 600px) {
+  .report-header { padding: 24px 20px; }
+  .report-header h1 { font-size: 1.7em; }
+  .headline-card { padding: 20px; }
+  .news-card { padding: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="../index.html" class="back-link">← 返回首頁</a>
+
+<!-- Header -->
+<div class="report-header">
+  <div class="report-header-left">
+    <div class="report-date-badge">📅 2026-07-25（六）台北時間</div>
+    <h1>📰 AI 新聞摘要</h1>
+    <div class="report-meta">
+      <span>📊 <b>25</b> 則新聞</span>
+      <span>🏷️ <b>8</b> 個分類</span>
+      <span>⏰ 過去 24 小時</span>
+    </div>
+  </div>
+  <div class="report-keywords">
+    <h3>今日關鍵詞</h3>
+    <div class="tag-cloud">
+      <span class="tag">Opus 5</span>
+      <span class="tag">Prentis</span>
+      <span class="tag">Etched $10.3B</span>
+      <span class="tag">AMD Helios</span>
+      <span class="tag">OpenAI Micro</span>
+      <span class="tag">Cognition/Poke</span>
+      <span class="tag">World $52.5M</span>
+      <span class="tag">Midjourney/Co-Star</span>
+      <span class="tag">Open-weight</span>
+      <span class="tag">Moon GPU</span>
+      <span class="tag">Spear phishing</span>
+      <span class="tag">ChatGPT Voice</span>
+      <span class="tag">Bluesky Attie</span>
+      <span class="tag">Guardrails</span>
+    </div>
+  </div>
+</div>
+
+<!-- Top 3 Headlines -->
+<div class="top-headlines">
+  <h2 class="section-title">🔥 每日 3 大頭條</h2>
+  <div class="headline-grid">
+
+    <div class="headline-card">
+      <div class="headline-rank">01</div>
+      <div class="headline-tag">🏛️ AI 政策與監管</div>
+      <div class="headline-title"><a href="https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/" target="_blank">中美 AI 角力升級：Nvidia、Mistral 等連署反對開放 weight 禁令</a></div>
+      <div class="headline-summary">美國政府考慮制裁中國 AI 公司之際，Hugging Face、Meta、Microsoft、Mistral、Nvidia 等主要 AI 企業連署公開信，呼籲華府勿對開源 weight 模型實施廣泛限制。信中強調「模型蒸餾」是業界通用技術，不應與侵權混為一談，並警告此舉將削弱美國國防安全。專家同時指出，Kimi K3 的進展更可能來自中國自身研發實力，而非單純盜用 Anthropic Fable。</div>
+      <div class="headline-why"><strong>為什麼重要：</strong>此事件顯示美國 AI 政策正站在十字路口——國安焦慮與產業開放之間的拉扯，將直接塑造未來全球 AI 發展格局。若禁令成形，影響的不只是中國公司，整個開源 AI 生態都將受到衝擊。</div>
+      <div class="headline-meta">
+        <span class="headline-source">📰 TechCrunch · Rebecca Bellan</span>
+        <span class="headline-time">2026-07-24 15:51</span>
+      </div>
+    </div>
+
+    <div class="headline-card">
+      <div class="headline-rank">02</div>
+      <div class="headline-tag">💰 AI 投融資</div>
+      <div class="headline-title"><a href="https://techcrunch.com/2026/07/23/ai-chip-startup-etched-defies-skeptics-hits-10-3b-valuation-from-big-name-investors/" target="_blank">AI 晶片新創 Etched 估值翻倍至 103 億美元，7 個月內估值翻 2 倍</a></div>
+      <div class="headline-summary">由三位哈佛輟學生創辦的 Etched 宣布完成 3 億美元 C 輪，由 Sequoia 領投，Andreessen Horowitz、SK Hynix 等參與，估值一舉達到 103 億美元。Etched 專攻 Transformer 推論加速晶片，已獲價值 10 億美元的客戶訂單，並在加州 Milpitas 建立了占地面積 80,000 平方英尺、容量達 10MW 的新資料中心，規模已足以與一線晶片廠商抗衡。</div>
+      <div class="headline-why"><strong>為什麼重要：</strong>在半導體這個 Nvidia 一家獨大的市場，Etched 的崛起代表推論晶片專業化已成為資本認可的方向。若能在 GB200 / GB300 體系外開闢性價比路徑，將威脅 Nvidia 的資料中心霸主地位，同時為 AI 部署成本下降打開可能性。</div>
+      <div class="headline-meta">
+        <span class="headline-source">📰 TechCrunch · Julie Bort</span>
+        <span class="headline-time">2026-07-23 15:00</span>
+      </div>
+    </div>
+
+    <div class="headline-card">
+      <div class="headline-rank">03</div>
+      <div class="headline-tag">🧠 AI 模型與研究</div>
+      <div class="headline-title"><a href="https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/" target="_blank">Anthropic 突發發布 Opus 5：比 Fable 更強且限制更少，價格更親民</a></div>
+      <div class="headline-summary">Anthropic 於週五發布 Opus 5，這是旗下旗艦長文本模型的最新版本。Opus 5 規模小於同期的 Fable 5，但在多項 benchmark 上表現更佳，且擺脫了 Fable 令人困擾的 30 天資料保留政策爭議。安全限制方面，Opus 5 對網路安全任務的限制大幅放寬，並同步推出「Automatic Fallbacks」功能，在安全分類器觸發時自動轉向較弱模型，避免使用者拿到錯誤訊息。</div>
+      <div class="headline-why"><strong>為什麼重要：</strong>Opus 5 的出現填補了 Fable 5 高成本、高限制留下的市場缺口。對企業用戶而言，Opus 5 可能是最具成本效益的高能力模型選擇；「Automatic Fallbacks」的設計也顯示 Anthropic 正在回應資安研究社群對 guardrail 過度限制的批評。</div>
+      <div class="headline-meta">
+        <span class="headline-source">📰 TechCrunch · Russell Brandom</span>
+        <span class="headline-time">2026-07-24 17:00</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Category Radar -->
+<div class="category-radar">
+  <h2 class="section-title">📡 主題雷達</h2>
+  <div class="category-grid">
+    <a class="cat-card" href="#cat-hardware">
+      <div class="cat-icon">💾</div><div class="cat-info"><div class="cat-name">AI 晶片與硬體</div><div class="cat-count">4 則</div></div><div class="cat-arrow">›</div>
+    </a>
+    <a class="cat-card" href="#cat-models">
+      <div class="cat-icon">🧠</div><div class="cat-info"><div class="cat-name">AI 模型與研究</div><div class="cat-count">4 則</div></div><div class="cat-arrow">›</div>
+    </a>
+    <a class="cat-card" href="#cat-products">
+      <div class="cat-icon">🤖</div><div class="cat-info"><div class="cat-name">AI 產品與應用</div><div class="cat-count">5 則</div></div><div class="cat-arrow">›</div>
+    </a>
+    <a class="cat-card" href="#cat-enterprise">
+      <div class="cat-icon">🏢</div><div class="cat-info"><div class="cat-name">企業 AI 動態</div><div class="cat-count">1 則</div></div><div class="cat-arrow">›</div>
+    </a>
+    <a class="cat-card" href="#cat-funding">
+      <div class="cat-icon">💰</div><div class="cat-info"><div class="cat-name">AI 投融資與併購</div><div class="cat-count">5 則</div></div><div class="cat-arrow">›</div>
+    </a>
+    <a class="cat-card" href="#cat-policy">
+      <div class="cat-icon">🏛️</div><div class="cat-info"><div class="cat-name">AI 政策與監管</div><div class="cat-count">2 則</div></div><div class="cat-arrow">›</div>
+    </a>
+    <a class="cat-card" href="#cat-security">
+      <div class="cat-icon">🔐</div><div class="cat-info"><div class="cat-name">AI 安全與倫理</div><div class="cat-count">2 則</div></div><div class="cat-arrow">›</div>
+    </a>
+    <a class="cat-card" href="#cat-international">
+      <div class="cat-icon">🌍</div><div class="cat-info"><div class="cat-name">AI 國際與地緣政治</div><div class="cat-count">2 則</div></div><div class="cat-arrow">›</div>
+    </a>
+  </div>
+</div>
+
+<!-- News Sections -->
+
+<!-- 💾 AI 晶片與硬體 -->
+<div class="news-section" id="cat-hardware">
+  <div class="news-group">
+    <div class="news-group-header">
+      <span class="news-group-icon">💾</span>
+      <span class="news-group-title">AI 晶片與硬體</span>
+      <span class="news-group-count">4 則</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/amd-takes-on-nvidia-with-its-helios-ai-rack-scale-system/" target="_blank">AMD Helios 正式亮相：微軟、Meta、Anthropic 都是客戶，2026 年底前開始出貨</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">AMD 在舊金山舉辦的 Advancing AI 大會上正式發表 Helios 機架級 AI 運算系統，號稱全球效能最高的 AI 機架，由 Lisa Su 親自站台。Helios 已獲微軟、Meta、Oracle、Anthropic、OpenAI 等主要 AI 實驗室青睞，計劃部署千兆瓦等級基礎設施。Lisa Su 同時預測，到 2030 年 AI 加速器市場規模將達 1.4 兆美元，「等於今日整個半導體產業的總產值」。</div>
+        <div class="news-why">AMD 透過 Helios 試圖在 Nvidia Vera Rubin 與 Grace Blackwell 機架系統的市場中搶下一席之地。與 Anthropic 宣布的 2GW 合作協議規模尤其驚人，代表算力基礎設施的軍備競賽仍在持續升溫。</div>
+        <div class="news-footer">
+          <span class="entity-tag">AMD</span>
+          <span class="entity-tag">Lisa Su</span>
+          <span class="entity-tag">Microsoft</span>
+          <span class="entity-tag">Meta</span>
+          <span class="entity-tag">Anthropic</span>
+          <span class="entity-tag">OpenAI</span>
+          <span class="stock-tag">AMD</span>
+          <span class="stock-tag">NVDA</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/amd-takes-on-nvidia-with-its-helios-ai-rack-scale-system/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/ai-chip-startup-etched-defies-skeptics-hits-10-3b-valuation-from-big-name-investors/" target="_blank">AI 晶片新創 Etched 估值翻倍至 103 億美元，Harv ard 輟學生創辦、已獲 10 億美元訂單</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">Etched 由三位哈佛輟學生於 2022 年創辦，專攻 Transformer 推論加速晶片。本輪 3 億美元 C 輪由 Sequoia 領投，Andreessen Horowitz、SK Hynix、Jane Street、Diffusion Capital 參與，估值從 7 個月前的 50 億美元翻升至 103 億美元。Etched 已在台積電完成晶片製造，旗下全系統正在與全球最大 AI 公司進行測試，並在 Milpitas 建立了占地 80,000 平方英尺、容量 10MW 的新園區。</div>
+        <div class="news-why">在半導體這個 Nvidia 高度壟斷的市場，Etched 的成功代表「推論加速專業化」已獲資本認可。若其產品性價比能說服客戶，將為 AI 推論成本下降開闢新路徑，挑戰 Nvidia 在資料中心的霸主地位。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Etched</span>
+          <span class="entity-tag">Sequoia</span>
+          <span class="entity-tag">TSMC</span>
+          <span class="entity-tag">Andreessen Horowitz</span>
+          <span class="stock-tag">NVDA</span>
+          <span class="stock-tag">AMD</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/ai-chip-startup-etched-defies-skeptics-hits-10-3b-valuation-from-big-name-investors/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/nvidia-is-sending-gpus-to-the-moon/" target="_blank">Nvidia Jetson GPU 將登上月球：Lunar Outpost 宣布月球車將使用 Jetson 晶片控制 lidar</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">太空基礎設施新創 Lunar Outpost 宣布，其下一代月球漫遊車將使用 Nvidia Jetson 平台作為核心運算單元，控制車上的 lidar 感測系統。這將是 GPU 首度部署於月球表面。Jetson 並非 Nvidia 最知名的 AI 晶片，但因體積小、功耗低，特別適合需要本地端感知與即時決策的機器人系統。漫遊車預定由 Falcon 9 發射，年底前執行任務。</div>
+        <div class="news-why">Nvidia 的 AI 運算布局已從地表延伸至外太空。Jetson 在月球極端環境（劇烈溫差、宇宙輻射）下的表現，將為未來太空資料中心與太空 AI 奠定基礎，同時為 Nvidia 打開全新應用場景的論述空間。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Nvidia</span>
+          <span class="entity-tag">Jetson</span>
+          <span class="entity-tag">Lunar Outpost</span>
+          <span class="entity-tag">Justin Cyrus</span>
+          <span class="entity-tag">Intuitive Machines</span>
+          <span class="stock-tag">NVDA</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/nvidia-is-sending-gpus-to-the-moon/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/i-tried-out-openais-new-ai-keypad-which-will-be-fun-for-coders-and-slightly-mystifying-to-everyone-else/" target="_blank">OpenAI 首個硬體產品「Micro」評測：230 美元 AI 鍵盤，開發者愛不釋手、非技術使用者一頭霧水</a></div>
+          <span class="news-time">07-25</span>
+        </div>
+        <div class="news-summary">OpenAI 與鍵盤設計品牌 Work Louder 合作推出首款硬體「Micro」，定價 230 美元。這是一款內建 6 個自訂義「agent」按鍵與 6 個命令按鍵的精美小鍵盤，可透過藍牙或 USB 連接電腦，與 ChatGPT 及 Codex 深度整合。特色功能包括語音聽寫——長按按鍵說出需求，鬆開後自動提交。評測者指出，對 ChatGPT 重度用戶來說相當順手，但多數普通使用者可能需要一段時間才能上手，且 Reddit 評價以負面為主，認為性價比不足。</div>
+        <div class="news-why">Micro 的推出代表 OpenAI 正式跨足實體硬體市場，也是對 Apple 智慧家庭產品的潛在佈局。不過，硬體與軟體的整合能力是否能支撐 230 美元的價格，以及與 Apple 的侵權訴訟走向，都將影響 OpenAI 的硬體戰略能否延續。</div>
+        <div class="news-footer">
+          <span class="entity-tag">OpenAI</span>
+          <span class="entity-tag">Micro</span>
+          <span class="entity-tag">Work Louder</span>
+          <span class="entity-tag">ChatGPT</span>
+          <span class="entity-tag">Codex</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/i-tried-out-openais-new-ai-keypad-which-will-be-fun-for-coders-and-slightly-mystifying-to-everyone-else/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 🧠 AI 模型與研究 -->
+<div class="news-section" id="cat-models">
+  <div class="news-group">
+    <div class="news-group-header">
+      <span class="news-group-icon">🧠</span>
+      <span class="news-group-title">AI 模型與研究</span>
+      <span class="news-group-count">4 則</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/" target="_blank">Anthropic 突發 Opus 5：比 Fable 更強、限制更少、價格更親民</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">Anthropic 在 Fable 5 發布僅兩個月後，快速推出 Opus 5。Opus 5 在多項 benchmark 上領先 Fable 5，且不受 Fable 實施的 30 天資料保留政策限制。安全方面，Opus 5 大幅放寬網路安全任務限制（如可搜尋原始碼漏洞），同時推出「Automatic Fallbacks」功能——當安全分類器觸發時，自動將請求路由至較弱模型而非直接回傳錯誤。</div>
+        <div class="news-why">Opus 5 的策略定位明確：填補 Fable 高成本、高限制留下的市場缺口。對在意資料隱私與成本的企業用戶，Opus 5 可能比 Fable 更具吸引力。「Automatic Fallbacks」的設計也顯示 Anthropic 正在回應資安研究社群對 guardrail 過度的批評。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Anthropic</span>
+          <span class="entity-tag">Opus 5</span>
+          <span class="entity-tag">Fable 5</span>
+          <span class="entity-tag">Claude</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/runway-bets-on-ai-model-routing-as-generative-media-gets-crowded/" target="_blank">Runway 推出 AI 模型路由工具，目標成為生成式媒體基礎設施層</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">Runway 發布「Media Router」，這是專為生成式媒體（圖像、影片、音訊）設計的首款 AI 模型路由工具，透過 Runway Dev 開發者平台提供。路由器會根據開發者對品質、速度或成本的最佳化偏好，自動選擇最適合的模型。這項服務反映了生成式媒體模型的爆炸性增長——如今開發者已很難獨立評估所有新模型，路由器則可代為處理這項複雜工作。</div>
+        <div class="news-why">Runway 的策略正在從「最好的 AI 影片模型」轉向「生成式媒體的基礎設施層」。隨著 Gen 5 遲遲未發布、競爭者（Google、ByteDance、阿里巴巴）追趕迅速，路由器成為 Runway 維持市場相關性的替代路徑。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Runway</span>
+          <span class="entity-tag">Media Router</span>
+          <span class="entity-tag">Runway Dev</span>
+          <span class="entity-tag">Generative AI</span>
+          <span class="entity-tag">Adobe</span>
+          <span class="entity-tag">Cloudflare</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/runway-bets-on-ai-model-routing-as-generative-media-gets-crowded/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/experts-say-exploiting-anthropics-fable-isnt-how-kimi-k3-got-so-good/" target="_blank">專家駁白宮：Kimi K3 厲害不是靠盜用 Fable，而是中國自身研發實力</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">白宮科學顧問 Michael Kratsios 指控 Moonshot（Kimi K3 的開發者）透過蒸餾（distillation）盜用 Anthropic 的 Fable 模型。然而多位 AI 專家公開反駁：Fable 7 月 1 日才公開，僅兩週不可能完成如此大規模的蒸餾、訓練與發布。專家認為 Kimi K3 的能力更可能來自強化學習與先前模型的積累，且中國 AI 團隊本身具有很強的研發實力，不應被低估。</div>
+        <div class="news-why">這場爭論涉及「什麼是蒸餾、什麼是合理學習」的定義模糊地帶，也顯示中美 AI 競爭已進入「指控—反駁」的話語戰階段。無論最終結論為何，此事件都將影響美國對中國 AI 的政策走向。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Moonshot AI</span>
+          <span class="entity-tag">Kimi K3</span>
+          <span class="entity-tag">Anthropic</span>
+          <span class="entity-tag">Fable</span>
+          <span class="entity-tag">Michael Kratsios</span>
+          <span class="entity-tag">Braden Hancock</span>
+          <span class="entity-tag">Nathan Lambert</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/experts-say-exploiting-anthropics-fable-isnt-how-kimi-k3-got-so-good/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/how-ai-guardrails-are-impeding-the-work-of-offensive-cybersecurity-researchers/" target="_blank">AI 安全護欄反效果：合法資安研究人員抱怨阻礙工作，反而被迫使用中國開源模型</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">多名前線資安研究人員披露，Anthropic 與 OpenAI 的嚴格 guardrail 正在妨礙合法的網路安全研究——這些研究正是用來尋找漏洞、保護系統的工作。安全專家 Mark Dowd 直言 AI 公司正在「像對待需要保姆的小孩一樣對待客戶」。不少研究人員因此轉向中國開源模型如 GLM，繞過美國模型的限制。Anthropic 已推出「Automatic Fallbacks」功能作為部分回應。</div>
+        <div class="news-why">這揭示了 AI 安全政策中一個根本矛盾：嚴格的輸出限制同時阻止了防守方（合法資安研究）使用工具。隨著 AI 攻擊規模與數量上升，若防守技術持續受限，將形成嚴重的國安漏洞。</div>
+        <div class="news-footer">
+          <span class="entity-tag">OpenAI</span>
+          <span class="entity-tag">Anthropic</span>
+          <span class="entity-tag">Guardrails</span>
+          <span class="entity-tag">GLM</span>
+          <span class="entity-tag">Hugging Face</span>
+          <span class="entity-tag">Mark Dowd</span>
+          <span class="entity-tag">NCC Group</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/how-ai-guardrails-are-impeding-the-work-of-offensive-cybersecurity-researchers/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 🤖 AI 產品與應用 -->
+<div class="news-section" id="cat-products">
+  <div class="news-group">
+    <div class="news-group-header">
+      <span class="news-group-icon">🤖</span>
+      <span class="news-group-title">AI 產品與應用</span>
+      <span class="news-group-count">5 則</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/why-cognition-bought-poke-ai-personality-is-becoming-a-competitive-advantage/" target="_blank">Cognition 收購 Poke：AI 人格化成為競爭優勢，程式助理 Devin 將具備「個性」</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">AI 編碼新創 Cognition 以「低九位數」（約 1-2 億美元）收購 Poke——一家以「像朋友般聊天」為特色的 AI 助理。Poke 允許用戶透過 iMessage、SMS、Telegram 等平台與 AI 互動，過去三個月用戶已交換超過 1 億則訊息。Cognition 计划将 Poke 的对话风格与人格融入 Devin，让编程代理感觉更像同事而非软件。Poke 仍将在今年内保持独立运营。</div>
+        <div class="news-why">此收購顯示 AI 產品差異化已從「模型能力」擴展至「互動體驗」。當底層模型趨同時，「感覺像個好同事」可能成為 AI 助理的新戰場，這對 OpenAI、Anthropic 等以模型性能掛帥的業者是個警訊。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Cognition</span>
+          <span class="entity-tag">Poke</span>
+          <span class="entity-tag">Devin</span>
+          <span class="entity-tag">Marvin von Hagen</span>
+          <span class="entity-tag">SWE-1.7</span>
+          <span class="entity-tag">Apple Messages for Business</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/why-cognition-bought-poke-ai-personality-is-becoming-a-competitive-advantage/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/openais-new-voice-mode-makes-it-to-the-chatgpt-desktop-app/" target="_blank">OpenAI 語音模式登陸 ChatGPT 桌面版：支援多 Agent 協作與螢幕感知</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">OpenAI 正式將 ChatGPT Voice 語音模式引入桌面版應用，採用本月早些時候發布的 GPT-Live 語音模型系列。新功能可同時支援 ChatGPT Work 與 Codex，實現用語音控制多個 AI Agent、執行複雜多步驟任務，並可透過 Appshots 在 macOS 上進行螢幕感知。示範影片展示開發者用一句話就完成「建立執行緒、發送 PR、找出 bug 根源」的組合操作。</div>
+        <div class="news-why">桌面版語音模式的推出將 OpenAI 的 Agent 能力從手機延伸到電腦。隨著 Anthropic 同步升級 Claude 語音模式（支援 Gmail、Calendar、Slack、Notion 等應用），語音 Agent 大戰已全面開打。</div>
+        <div class="news-footer">
+          <span class="entity-tag">OpenAI</span>
+          <span class="entity-tag">ChatGPT Voice</span>
+          <span class="entity-tag">GPT-Live</span>
+          <span class="entity-tag">Codex</span>
+          <span class="entity-tag">ChatGPT Work</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/openais-new-voice-mode-makes-it-to-the-chatgpt-desktop-app/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/openai-makes-chatgpt-health-available-to-all-u-s-users/" target="_blank">OpenAI 開放 ChatGPT Health 給所有美國用戶，每週處理 3 億次健康查詢</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">OpenAI 宣布將 ChatGPT Health 功能擴展至所有美國用戶（18 歲以上），涵蓋免費、Go、Plus 與 Pro 方案。用戶可整合 Apple Health、Function、MyFitnessPal 等健康資料，亦可連接 Epic 與 Oracle Health 病歷系統，以及 One Medical、Function Health 等平台。每週已有 3 億次健康相關查詢在 ChatGPT 上發生，但 OpenAI 仍強調「服務不用於診斷或治療任何健康狀況」。此前一位佛羅里達州牧師已就此功能對 OpenAI 提起訴訟。</div>
+        <div class="news-why">ChatGPT Health 的全面開放代表 AI 醫療應用正式進入大眾市場，但也暴露了責任歸屬的灰色地帶。訴訟結果可能為 AI 健康建議的監管框架樹立重要先例。</div>
+        <div class="news-footer">
+          <span class="entity-tag">OpenAI</span>
+          <span class="entity-tag">ChatGPT Health</span>
+          <span class="entity-tag">Apple Health</span>
+          <span class="entity-tag">Epic</span>
+          <span class="entity-tag">Function Health</span>
+          <span class="entity-tag">GPT 5.6-Luna</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/openai-makes-chatgpt-health-available-to-all-u-s-users/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/blueskys-ai-assistant-attie-expands-into-an-open-social-research-tool/" target="_blank">Bluesky AI 助理 Attie 升級為開放社群研究工具，可查詢 AT Protocol 全網趨勢</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">Bluesky 推出 Attie AI 助理的重大更新，新增「Quests」功能讓用戶能以自然語言提問，研究發生在 Bluesky 以及整個 AT Protocol 生態中的趨勢與話題。用戶可以追蹤特定領域或地區最具影響力的帳號，也可挖掘正在擴散的資訊與趨勢。Bluesky 產品長 Jay Graber 表示：「我們的賭注是，幫助人們理解世界的工具將比製造困惑的工具更有用。」新功能目前處於 Beta 測試階段。</div>
+        <div class="news-why">Bluesky 用 Attie 探索 AI 與社群網路的融合可能。作為一個只有約 4,560 萬註冊用戶的平台，Bluesky 正在以「開放、去中心化」為差異化，與封閉的 Meta / X 競爭，AI 研究工具則可能是下一個成長催化劑。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Bluesky</span>
+          <span class="entity-tag">Attie</span>
+          <span class="entity-tag">AT Protocol</span>
+          <span class="entity-tag">Jay Graber</span>
+          <span class="entity-tag">Toni Schneider</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/blueskys-ai-assistant-attie-expands-into-an-open-social-research-tool/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/anthropic-updates-claude-voice-mode-with-more-capable-models/" target="_blank">Anthropic 升級 Claude 語音模式：支援 Opus / Sonnet / Haiku 三模型，可操控 Gmail 與 Slack</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">Anthropic 更新 Claude 語音模式，新增支援 Opus、Sonnet 與 Haiku 三種模型。用戶現在可以透過語音指令操作 Gmail 安排會議、Slack 回覆訊息、Notion 整理筆記、Canva 設計素材等多款常用應用。這是 Anthropic 在 OpenAI 發布桌面版語音模式前一天所做的回應，顯示兩大實驗室在語音 Agent 領域的競爭正在加速。</div>
+        <div class="news-why">語音 Agent 的落地速度正在加快。Anthropic 選擇讓多個模型都能使用語音能力，而非像 OpenAI 般強調單一旗艦語音模型，代表不同的市場策略——前者強調客製化與靈活性，後者強調一站式旗艦體驗。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Anthropic</span>
+          <span class="entity-tag">Claude</span>
+          <span class="entity-tag">Claude Voice</span>
+          <span class="entity-tag">Opus</span>
+          <span class="entity-tag">Sonnet</span>
+          <span class="entity-tag">Haiku</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/anthropic-updates-claude-voice-mode-with-more-capable-models/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 💰 AI 投融資與併購 -->
+<div class="news-section" id="cat-funding">
+  <div class="news-group">
+    <div class="news-group-header">
+      <span class="news-group-icon">💰</span>
+      <span class="news-group-title">AI 投融資與併購</span>
+      <span class="news-group-count">5 則</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/prentis-new-ai-lab-co-founded-by-reid-hoffman-mark-pincus-in-talks-to-raise-100m/" target="_blank">Prentis：新 AI 實驗室由 Reid Hoffman 與 Mark Pincus 共同創辦，正進行 1 億美元募資談判</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">Prentis 由 Ritankar Das（31 歲、柏克萊最年輕獎章得主）、Reid Hoffman（LinkedIn 共同創辦人）與 Mark Pincus（Zynga 創辦人）共同創辦，正洽談以 10 億美元估值募集 1 億美元。Prentis 專注於「電腦使用模型」——訓練 AI 代理自動化辦公室例行任務，如處理保險理賠、海關退稅等。已簽署總金額達 5,000 萬美元的客戶合約，目標 2026 年 Q3 年化營收達 7,500 萬美元。</div>
+        <div class="news-why">Reid Hoffman 從微軟董事會退出後全力投入 Manas AI 與 Prentis，顯示他對 AI 落地應用的重視。辦公室自動化是明年最具規模化潛力的 AI 應用方向之一，Prentis 若成功將威脅 OpenAI 與 Anthropic 在 Agent 市場的支配地位。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Prentis</span>
+          <span class="entity-tag">Reid Hoffman</span>
+          <span class="entity-tag">Mark Pincus</span>
+          <span class="entity-tag">Ritankar Das</span>
+          <span class="entity-tag">LinkedIn</span>
+          <span class="entity-tag">Zynga</span>
+          <span class="entity-tag">Hive-32B</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/prentis-new-ai-lab-co-founded-by-reid-hoffman-mark-pincus-in-talks-to-raise-100m/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/sam-altmans-biometric-startup-world-raises-52-5-million-via-crypto-sale/" target="_blank">Sam Altman 生技新創 World 透過加密貨幣代幣銷售募集 5,250 萬美元，Pantera Capital 領投</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">World（曾名 Worldcoin）宣布透過 WLD 代幣的 12 個月鎖定期銷售募集 5,250 萬美元，Pantera Capital 領投，Bain Capital Crypto、Susquehanna Crypto、Selini Capital 等參與。資金將流向設於開曼群島的 World Foundation，用於資助 World 網路的擴張。World 透過「Orb」虹膜掃描為用戶建立匿名 World ID，合作夥伴包括 Tinder、Zoom 與 DocuSign，但項目在擴大用戶規模方面仍面臨挑戰，6 月曾進行裁員。</div>
+        <div class="news-why">即便加密貨幣市場情緒仍未完全恢復，World 仍成功以代幣銷售模式募集資金，顯示「人類身份驗證」賽道仍有資金願意支持。但該項目在隱私爭議與用戶採用率停滯之間如何平衡，仍是最大挑戰。</div>
+        <div class="news-footer">
+          <span class="entity-tag">World</span>
+          <span class="entity-tag">Sam Altman</span>
+          <span class="entity-tag">Pantera Capital</span>
+          <span class="entity-tag">Tools for Humanity</span>
+          <span class="entity-tag">Alex Blania</span>
+          <span class="entity-tag">WLD</span>
+          <span class="entity-tag">Worldcoin</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/sam-altmans-biometric-startup-world-raises-52-5-million-via-crypto-sale/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/midjourney-acquired-the-astrology-app-co-star/" target="_blank">Midjourney 收購星座社群 App Co-Star：430 萬月活躍用戶，進軍消費應用市場</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">AI 影像生成公司 Midjourney 宣布收購星座社群應用 Co-Star，收購金額未公開。Co-Star 擁有約 430 萬月活躍用戶，透過 AI 與人工編輯結合提供星座運勢與人格分析。Midjourney 近年積極拓展業務範圍至醫療與 Spa 領域，Co-Star 團隊（24 人）將加入 Midjourney，有望幫助其實現獨立 App 產品的願望。</div>
+        <div class="news-why">Midjourney 從純 AI 影像工具走向多元消費應用的意圖明顯。收購 Co-Star 的真正價值在於引進一支有產品落地經驗的消費級應用團隊，這是 Midjourney 目前最缺乏的能力。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Midjourney</span>
+          <span class="entity-tag">Co-Star</span>
+          <span class="entity-tag">Astrology</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/midjourney-acquired-the-astrology-app-co-star/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/aegisai-founded-by-former-google-security-execs-lands-36m-to-stop-ai-driven-spear-phishing/" target="_blank">前 Google 安全高層創 AegisAI 募集 3,600 萬美元，用 AI Agent 對抗魚叉式釣魚攻擊</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">AegisAI 由前 Google 安全主管 Cy Khormaee 與 Ryan Luo 創辦，專門對抗日益猖獗的 AI 驅動魚叉式釣魚攻擊。傳統基於規則的郵件安全系統攔截率已不足 50%，而 AI 攻擊可快速整合個人資訊（同事專案、最近行程）生成高度客製化的欺騙郵件。AegisAI 的 AI Agent 能像人類一樣分析郵件中的細微異常，包括帶有 CAPTCHA 繞過機制的惡意 PDF 附件。本輪由 Battery Ventures 領投，Accel 與 Foundation Capital 參與，總融资達 4,900 萬美元。</div>
+        <div class="news-why">AI 驅動的社交工程攻擊正在快速成長，傳統郵件安全工具已難以應對。AegisAI 由曾保護 Gmail 的團隊創辦，代表下一代 AI 原生資安公司的崛起，有潛力顛覆 Proofpoint、Mimecast 等老牌資安廠商的市場地位。</div>
+        <div class="news-footer">
+          <span class="entity-tag">AegisAI</span>
+          <span class="entity-tag">Battery Ventures</span>
+          <span class="entity-tag">Cy Khormaee</span>
+          <span class="entity-tag">Ryan Luo</span>
+          <span class="entity-tag">Google</span>
+          <span class="entity-tag">reCAPTCHA</span>
+          <span class="stock-tag">NOW</span>
+          <span class="stock-tag">FTNT</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/aegisai-founded-by-former-google-security-execs-lands-36m-to-stop-ai-driven-spear-phishing/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/anduril-reportedly-in-talks-to-raise-funding-at-100b-valuation-more-than-3x-last-years-mark/" target="_blank">國防科技新創 Anduril 洽談以 1,000 億美元估值募資，較去年翻逾三倍</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">據 Reuters 報導，Palmer Luckey 創辦的國防科技公司 Anduril 正洽談新一輪募資，估值可能達到約 1,000 億美元，較去年同期的估值成長超過三倍。Anduril 以 AI 驅動的軍事系統聞名，涵蓋空中無人機、地面車輛與整合式作戰平台。本輪若成功，將使 Anduril 成為全球估值最高的非上市國防科技公司。</div>
+        <div class="news-why">Anduril 的高估值反映國防 AI 市場的爆炸性成長。AI 正在重塑現代戰爭形態，從智慧武器到自主系統，國防科技已成為與傳統消費 AI 並列的另一起跑點。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Anduril</span>
+          <span class="entity-tag">Palmer Luckey</span>
+          <span class="entity-tag">Reuters</span>
+          <span class="entity-tag">Defense Tech</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/anduril-reportedly-in-talks-to-raise-funding-at-100b-valuation-more-than-3x-last-years-mark/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 🏛️ AI 政策與監管 -->
+<div class="news-section" id="cat-policy">
+  <div class="news-group">
+    <div class="news-group-header">
+      <span class="news-group-icon">🏛️</span>
+      <span class="news-group-title">AI 政策與監管</span>
+      <span class="news-group-count">2 則</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/" target="_blank">美國考慮制裁中國 AI：Nvidia、Mistral、Hugging Face 等連署反對開源模型禁令</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">在白宮考慮禁止中國開源 weight 模型之際，Hugging Face、Meta、Microsoft、Mistral、Nvidia、Replit 等 AI 公司與組織聯合發布公開信，呼籲決策者避免對開源 weight 模型實施「不成熟且廣泛」的限制。公開信強調蒸餾（distillation）是業界通用技術，反對將其與侵權混為一談，並指出「開源模型擴大了防守方的能力，而不是削減它」。值得注意的是，OpenAI、Anthropic、Google DeepMind 均未連署。</div>
+        <div class="news-why">連署名單的缺失（OpenAI、Anthropic 未連署）揭示了產業內部的根本分歧——閉源模型商有經濟動機支持限制開源，而基礎設施商（NVIDIA、Microsoft Azure）則希望模型商品化以拉動硬體需求。這場政策的走向將決定 AI 產業的未來生態。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Nvidia</span>
+          <span class="entity-tag">Mistral</span>
+          <span class="entity-tag">Hugging Face</span>
+          <span class="entity-tag">Meta</span>
+          <span class="entity-tag">Microsoft</span>
+          <span class="entity-tag">Moonshot AI</span>
+          <span class="entity-tag">Kimi</span>
+          <span class="entity-tag">OpenAI</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/india-scrutiny-bitchat/" target="_blank">印度對 Jack Dorsey 的 Bitchat 採取行動，引發言論自由法律辯論</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">Jack Dorsey 創辦的離線訊息應用 Bitchat 在印度因新德里抗議活動期間使用量飆升後，遭印度政府鎖定。Bitchat 設計用於在無網路環境下透過藍牙與 Wi-Fi 進行點對點通訊，特別受到參與抗議的民眾歡迎。此舉引發言論自由與隱私倡議者的強烈批評，認為政府此舉違反國際言論自由標準。</div>
+        <div class="news-why">印度此舉是全球各國政府對去中心化、抗審查通訊工具日益謹慎態度的最新案例。隨著 AI 生成內容與加密通訊工具在政治動盪時期的廣泛使用，各國政府正面臨如何平衡國安與公民自由的難題。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Bitchat</span>
+          <span class="entity-tag">Jack Dorsey</span>
+          <span class="entity-tag">India</span>
+          <span class="entity-tag">Bluesky</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/india-scrutiny-bitchat/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 🔐 AI 安全與倫理 -->
+<div class="news-section" id="cat-security">
+  <div class="news-group">
+    <div class="news-group-header">
+      <span class="news-group-icon">🔐</span>
+      <span class="news-group-title">AI 安全與倫理</span>
+      <span class="news-group-count">2 則</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/how-ai-guardrails-are-impeding-the-work-of-offensive-cybersecurity-researchers/" target="_blank">研究揭露：OpenAI/Anthropic AI 安全護欄阻礙合法資安研究，反助中國開源模型滲透</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">資深滲透測試研究人員披露，OpenAI 的 Trusted Access for Cyber 計畫與 Anthropic 的 Cyber Verification Program（CVP）在內的安全護欄，正在妨礙合法的網路安全研究。多位研究人員表示，他們被導向使用中國開源模型（如 GLM）來繞過這些限制，反而削弱了美國 AI 在資安領域的影響力。Anthropic 推出「Automatic Fallbacks」作為部分回應。</div>
+        <div class="news-why">若合法的資安研究持續受限於 AI 護欄，將形成一個悖論：嚴格的安全政策反而削弱了國家的網路防禦能力。這個問題的解決需要 AI 公司在安全與開放之間找到更好的平衡點。</div>
+        <div class="news-footer">
+          <span class="entity-tag">OpenAI</span>
+          <span class="entity-tag">Anthropic</span>
+          <span class="entity-tag">GLM</span>
+          <span class="entity-tag">Hugging Face</span>
+          <span class="entity-tag">Mark Dowd</span>
+          <span class="entity-tag">Chris Anley</span>
+          <span class="entity-tag">NCC Group</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/how-ai-guardrails-are-impeding-the-work-of-offensive-cybersecurity-researchers/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/experts-say-exploiting-anthropics-fable-isnt-how-kimi-k3-got-so-good/" target="_blank">專家反駁白宮指控：Kimi K3 能力來源是中國自身研發，而非盜用 Anthropic Fable</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">針對白宮指控 Moonshot AI 透過蒸餾技術盜用 Anthropic Fable 模型，多位 AI 研究專家公開反駁：Fable 7 月 1 日才公開，Kimi K3 僅兩週就完成了不可能規模的蒸餾、訓練與發布。專家認為 Kimi K3 更可能來自中國團隊自身的研發實力，加上強化學習與先前模型的長期積累。專家並指出，Moonshot 的創辦人之一是 CMU 博士，團隊本身具有堅強的技術背景。</div>
+        <div class="news-why">無論最終真相為何，這場爭論已將「AI 竊密」的認定標準問題推上風口浪尖。如何區分合理的模型蒸餾與非法盜用，將成為國際 AI 政策協調的核心議題。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Moonshot AI</span>
+          <span class="entity-tag">Kimi K3</span>
+          <span class="entity-tag">Anthropic</span>
+          <span class="entity-tag">Fable</span>
+          <span class="entity-tag">Braden Hancock</span>
+          <span class="entity-tag">Nathan Lambert</span>
+          <span class="entity-tag">Michael Kratsios</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/experts-say-exploiting-anthropics-fable-isnt-how-kimi-k3-got-so-good/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 🌍 AI 國際與地緣政治 -->
+<div class="news-section" id="cat-international">
+  <div class="news-group">
+    <div class="news-group-header">
+      <span class="news-group-icon">🌍</span>
+      <span class="news-group-title">AI 國際與地緣政治</span>
+      <span class="news-group-count">2 則</span>
+    </div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/" target="_blank">中美 AI 競爭升級至模型層級：美考虑全面禁令、中國威脅以牙還牙</a></div>
+          <span class="news-time">07-24</span>
+        </div>
+        <div class="news-summary">白宮考慮對中國 AI 模型實施出口管制與制裁，引發中國商務部「以牙還牙」的回應威脅。Nvidia、Mistral、Hugging Face 等美国公司連署反對廣泛禁令，指出此舉將同時傷害開源生態與美國國防安全。專家指出，若美國實施禁令，將加速中國 AI 自主可控的進程，同時讓中國開源模型在全球市場更具吸引力。</div>
+        <div class="news-why">中美 AI 角力已從半導體設備延伸到模型本身。若禁令成形，全球 AI 版圖將進一步分裂，形成以美國與中國為中心的兩個相對獨立的生態系統，台灣的半導體供應鏈也將受到間接衝擊。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Moonshot AI</span>
+          <span class="entity-tag">Kimi</span>
+          <span class="entity-tag">Nvidia</span>
+          <span class="entity-tag">Mistral</span>
+          <span class="entity-tag">Grace Blackwell</span>
+          <span class="stock-tag">NVDA</span>
+          <span class="stock-tag">TSM</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-card-header">
+          <div class="news-title"><a href="https://techcrunch.com/2026/07/23/nvidia-is-sending-gpus-to-the-moon/" target="_blank">Nvidia Jetson 登月：美國民營月球探索進入 GPU 驅動的自主時代</a></div>
+          <span class="news-time">07-23</span>
+        </div>
+        <div class="news-summary">在 NASA 的商業月球載荷計畫支持下，Lunar Outpost 宣布下一代月球漫遊車將採用 Nvidia Jetson 平台處理 lidar 感知與自主導航。NASA 的目標是 2028 年前讓人類重返月球，這些漫遊車將在人類登月前執行地質測繪與水冰資源探測任務。Jetson 在月球的極端環境下能否穩定運行，將是 NASA 未來載人任務規劃的重要參考。</div>
+        <div class="news-why">Jetson 登月代表 AI 運算正式成為太空基礎設施的一部分。若成功，將為未來月球基地的本地端 AI 運算需求奠定基礎，同時為 Nvidia 打開一個全新的市場敘事。</div>
+        <div class="news-footer">
+          <span class="entity-tag">Nvidia</span>
+          <span class="entity-tag">Jetson</span>
+          <span class="entity-tag">Lunar Outpost</span>
+          <span class="entity-tag">NASA</span>
+          <span class="entity-tag">Intuitive Machines</span>
+          <span class="entity-tag">Firefly Aerospace</span>
+          <span class="stock-tag">NVDA</span>
+          <a class="news-link" href="https://techcrunch.com/2026/07/23/nvidia-is-sending-gpus-to-the-moon/" target="_blank">原文 ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Key Terms -->
+<div class="key-terms">
+  <h3>📝 今日關鍵術語與人物</h3>
+  <div class="terms-grid">
+    <span class="term"><b>Opus 5</b> — Anthropic 旗艦模型新版本，無 30 天資料保留政策</span>
+    <span class="term"><b>Helios</b> — AMD 機架級 AI 運算系統，已獲微軟 / Meta / Anthropic 採用</span>
+    <span class="term"><b>Etched</b> — Transformer 推論晶片新創，估值 103 億美元</span>
+    <span class="term"><b>Prentis</b> — Reid Hoffman 與 Mark Pincus 共同創辦的 AI Lab，估值 10 億美元</span>
+    <span class="term"><b>Poke</b> — AI 人格化助理，Cognition 以 1-2 億美元收購</span>
+    <span class="term"><b>World</b> — Sam Altman 生物特徵驗證項目，募集 5,250 萬美元</span>
+    <span class="term"><b>Co-Star</b> — 星座社群 App，430 萬月活用戶，被 Midjourney 收購</span>
+    <span class="term"><b>Attie</b> — Bluesky AI 助理，升級為開放社群研究工具</span>
+    <span class="term"><b>AegisAI</b> — 前 Google 安全主管創辦，募集 3,600 萬美元反 AI 釣魚</span>
+    <span class="term"><b>Kimi K3</b> — Moonshot 開源模型，被白宮指控侵權</span>
+    <span class="term"><b>Distillation</b> — 模型蒸餾技術，爭議核心</span>
+    <span class="term"><b>Open-weight</b> — 開源模型權重，引發政策角力</span>
+    <span class="term"><b>Jetson</b> — Nvidia 邊緣 AI 晶片，即將登月</span>
+    <span class="term"><b>Automatic Fallbacks</b> — Anthropic 新功能，護欄觸發時自動降級模型</span>
+    <span class="term"><b>Lunar Outpost</b> — 月球漫遊車新創，採用 Jetson</span>
+  </div>
+</div>
+
+<!-- Tomorrow Watch -->
+<div class="tomorrow-watch">
+  <h3>🔮 明日觀察</h3>
+  <ul>
+    <li><strong>OpenAI Micro 鍵盤</strong>正式上市後的首批用戶評測出爐，将檢驗 $230 定價是否獲得市場認可，或只是開發者的玩物</li>
+    <li><strong>美國對中國 AI 制裁政策</strong>可能進一步明朗化，商務部或財政部可能釋出更具體的出口管制或制裁細節</li>
+    <li><strong>Anthropic Opus 5</strong>推出後，企業採用數據與 Fable 5 的用戶遷移情況將是觀察重點</li>
+    <li><strong>Cognition 整合 Poke</strong>的具體規劃可能在未來數週逐步揭露，Devin 2.0 是否具備「人格」將是市場焦點</li>
+    <li><strong>AMD Helios</strong>年底出貨前，Nvidia 可能会有針對性的定價或效能聲明反制</li>
+    <li><strong>Bluesky Attie</strong>的 Beta 測試結果可能揭示 AT Protocol 生態中 AI 應用的新可能</li>
+  </ul>
+</div>
+
+<footer>
+  <p>📅 報告日期：2026-07-25（台北時間）｜資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p style="margin-top:8px;">由 OpenClaw AI 自動生成｜<a href="../index.html">返回首頁</a></p>
+</footer>
+
+</div>
+</body>
+</html>
