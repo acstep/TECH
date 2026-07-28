@@ -1,0 +1,62 @@
+Fetching list: https://techcrunch.com/category/artificial-intelligence/
+  -> 36 articles
+Fetching list: https://techcrunch.com/
+  -> 67 articles
+Fetching list: https://techcrunch.com/tag/ai/
+  -> 30 articles
+Fetching list: https://techcrunch.com/tag/openai/
+  -> 37 articles
+Fetching list: https://techcrunch.com/tag/generative-ai/
+  -> 31 articles
+Fetching list: https://techcrunch.com/tag/chatgpt/
+  -> 35 articles
+Fetching list: https://techcrunch.com/tag/google-deepmind/
+  -> 12 articles
+Fetching list: https://techcrunch.com/tag/anthropic/
+  -> 33 articles
+Fetching list: https://techcrunch.com/tag/machine-learning/
+  -> 7 articles
+Fetching list: https://techcrunch.com/tag/microsoft/
+  -> 36 articles
+Fetching list: https://techcrunch.com/tag/nvidia/
+  -> 33 articles
+
+AI articles from July 27-28: 13
+AI articles from July 26 (backup): 4
+Fetching: Anthropic’s Dario Amodei responds: doesn’t oppose ...
+  OK: Anthropic’s Dario Amodei responds: doesn’t oppose open-weigh
+Fetching: Satya Nadella says companies that trust one AI for...
+  OK: Satya Nadella says companies that trust one AI for everythin
+Fetching: PSA: Your Claude shared chats and Artifacts may ha...
+  OK: PSA: Your Claude shared chats and Artifacts may have ended u
+Fetching: Microsoft launches its first cybersecurity model, ...
+  OK: Microsoft launches its first cybersecurity model, plus a new
+Fetching: OpenAI’s Hugging Face breach has reignited the deb...
+  OK: OpenAI’s Hugging Face breach has reignited the debate over a
+Fetching: Threads users can now chat with Meta AI in their D...
+  OK: Threads users can now chat with Meta AI in their DMs
+Fetching: Google’s AI search is rapidly becoming the default...
+  OK: Google’s AI search is rapidly becoming the default, new data
+Fetching: Power up your AI infrastructure! A first look at t...
+  OK: Power up your AI infrastructure! A first look at the Smart S
+Fetching: Ilya Sutskever’s Safe Superintelligence partners w...
+  OK: Ilya Sutskever’s Safe Superintelligence partners with Nvidia
+Fetching: Enigma raises $71M to make controlling a robot as ...
+  OK: Enigma raises $71M to make controlling a robot as easy as ad
+Fetching: Amazon’s new satellite network for mobile phones c...
+  OK: Amazon’s new satellite network for mobile phones could turn 
+Fetching: Apple sued after alleged App Store crypto scam cos...
+  OK: Apple sued after alleged App Store crypto scam cost users $1
+Fetching: Antares raises $470M to build nuclear reactors for...
+  OK: Antares raises $470M to build nuclear reactors for the US mi
+Fetching: Are brain waves the next unlock for physical AI?...
+  OK: Are brain waves the next unlock for physical AI?
+Fetching: Making sense of the panic over Chinese AI...
+  OK: Making sense of the panic over Chinese AI
+Fetching: Hugging Face CEO calls for ‘radical transparency’ ...
+  OK: Hugging Face CEO calls for ‘radical transparency’ after ‘unp
+Fetching: Can Apple make smart glasses that aren’t a constan...
+  OK: Can Apple make smart glasses that aren’t a constant privacy 
+
+Saved 17 articles to /home/matt/.openclaw/workspace/TECH/news_content_0728.json
+DONE_WITH_FETCH
