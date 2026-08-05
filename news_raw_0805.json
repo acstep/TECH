@@ -1,0 +1,972 @@
+[
+  {
+    "title": "SpaceX has bought $329M worth of Tesla Megapacks so far this year",
+    "link": "https://techcrunch.com/2026/08/04/spacex-has-bought-329m-worth-of-tesla-megapacks-so-far-this-year/",
+    "time": "2026-08-04T14:07:26-07:00"
+  },
+  {
+    "title": "Open-weight AI models are catching up to the frontier. The safety gap remains.",
+    "link": "https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/",
+    "time": "2026-08-04T13:05:26-07:00"
+  },
+  {
+    "title": "Anthropic signs $10B deal with AI cloud startup Volta",
+    "link": "https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/",
+    "time": "2026-08-04T12:48:40-07:00"
+  },
+  {
+    "title": "Meet Wrinkles, an app that uncovers the hidden stories of the places around you",
+    "link": "https://techcrunch.com/2026/08/04/meet-wrinkles-an-ai-app-that-uncovers-the-hidden-stories-of-the-places-around-you/",
+    "time": "2026-08-04T12:34:34-07:00"
+  },
+  {
+    "title": "Nvidia doesn’t mess around: A week after open AI industry group formed, it’s already showing progress",
+    "link": "https://techcrunch.com/2026/08/04/nvidia-doesnt-mess-around-a-week-after-open-ai-industry-group-formed-its-already-showing-progress/",
+    "time": "2026-08-04T12:28:49-07:00"
+  },
+  {
+    "title": "Spotify expands AI remix and covers project with Merlin partnership",
+    "link": "https://techcrunch.com/2026/08/04/spotify-adds-merlin-to-its-ai-music-remix-and-covers-effort/",
+    "time": "2026-08-04T08:50:06-07:00"
+  },
+  {
+    "title": "Texas halts new data centers as governor calls for audits",
+    "link": "https://techcrunch.com/2026/08/04/texas-halts-new-data-centers-as-governor-calls-for-audits/",
+    "time": "2026-08-04T08:42:35-07:00"
+  },
+  {
+    "title": "Elon Musk spends half his time talking robots and AI on Tesla earnings calls",
+    "link": "https://techcrunch.com/2026/08/04/elon-musk-spends-half-his-time-talking-robots-and-ai-on-tesla-earnings-calls/",
+    "time": "2026-08-04T08:20:06-07:00"
+  },
+  {
+    "title": "Apple says more ex-employees may have taken confidential data to OpenAI",
+    "link": "https://techcrunch.com/2026/08/04/apple-says-more-ex-employees-may-have-taken-confidential-data-to-openai/",
+    "time": "2026-08-04T07:03:01-07:00"
+  },
+  {
+    "title": "Is the future of data centers portable? Runware builds a pod to find out",
+    "link": "https://techcrunch.com/2026/08/04/is-the-future-of-data-centers-portable-runware-builds-a-pod-to-find-out/",
+    "time": "2026-08-04T06:00:00-07:00"
+  },
+  {
+    "title": "EON wants to move the data superhighway from ocean fiber to space lasers",
+    "link": "https://techcrunch.com/2026/08/04/eon-wants-to-move-the-data-superhighway-from-ocean-fiber-to-space-lasers/",
+    "time": "2026-08-04T05:00:00-07:00"
+  },
+  {
+    "title": "After killer quarter, Palantir CEO Alex Karp calls AI industry ‘Marxist’",
+    "link": "https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist/",
+    "time": "2026-08-03T16:19:50-07:00"
+  },
+  {
+    "title": "AWS is helping vibe-coding startup Superblocks, and the implications are big",
+    "link": "https://techcrunch.com/2026/08/03/aws-is-helping-vibe-coding-startup-superblocks-and-the-implications-are-big/",
+    "time": "2026-08-03T13:00:00-07:00"
+  },
+  {
+    "title": "Design Arena creators raise $7.9 million to bring taste to AI models",
+    "link": "https://techcrunch.com/2026/08/03/designarena-creators-raise-7-9-million-to-bring-taste-to-ai-models/",
+    "time": "2026-08-03T12:28:57-07:00"
+  },
+  {
+    "title": "Influencers draw backlash for attending OpenAI’s first luxury trip",
+    "link": "https://techcrunch.com/2026/08/03/influencers-draw-backlash-for-attending-openais-first-luxury-trip/",
+    "time": "2026-08-03T12:09:56-07:00"
+  },
+  {
+    "title": "Apple finally fixed Siri. So why does it feel anticlimactic?",
+    "link": "https://techcrunch.com/2026/08/03/apple-finally-fixed-siri-so-why-does-it-feel-anticlimactic/",
+    "time": "2026-08-03T11:43:43-07:00"
+  },
+  {
+    "title": "Congress’ favorite AI tool? ChatGPT",
+    "link": "https://techcrunch.com/2026/08/03/congresss-favorite-ai-tool-chatgpt/",
+    "time": "2026-08-03T09:40:55-07:00"
+  },
+  {
+    "title": "A Marc Benioff-backed startup thinks AI can solve the AI deployment problem",
+    "link": "https://techcrunch.com/2026/08/03/a-marc-benioff-backed-startup-thinks-ai-can-solve-the-ai-deployment-problem/",
+    "time": "2026-08-03T03:00:00-07:00"
+  },
+  {
+    "title": "Sam Altman and AI’s decel debate",
+    "link": "https://techcrunch.com/2026/08/02/sam-altman-and-ais-decel-debate/",
+    "time": "2026-08-02T13:54:22-07:00"
+  },
+  {
+    "title": "Judge denies xAI’s request to block Minnesota ban on ‘nudify’ apps",
+    "link": "https://techcrunch.com/2026/08/01/judge-denies-xais-request-to-block-minnesota-ban-on-nudify-apps/",
+    "time": "2026-08-01T13:26:04-07:00"
+  },
+  {
+    "title": "YouTuber Hank Green says his AI usage is ‘not healthy’",
+    "link": "https://techcrunch.com/2026/08/01/youtuber-hank-green-says-his-ai-usage-is-not-healthy/",
+    "time": "2026-08-01T12:45:45-07:00"
+  },
+  {
+    "title": "Sam Altman is still making the case for parenting via ChatGPT",
+    "link": "https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/",
+    "time": "2026-08-01T10:07:34-07:00"
+  },
+  {
+    "title": "This $9 key physically locks your most addictive apps",
+    "link": "https://techcrunch.com/2026/08/01/this-9-key-physically-locks-your-most-addictive-apps/",
+    "time": "2026-08-01T08:58:17-07:00"
+  },
+  {
+    "title": "OpenAI reportedly finds evidence that more of its agents ran amok",
+    "link": "https://techcrunch.com/2026/07/31/openai-reportedly-finds-evidence-that-more-of-its-agents-ran-amok/",
+    "time": "2026-07-31T15:47:26-07:00"
+  },
+  {
+    "title": "India is starting to pay for apps, not just download them",
+    "link": "https://techcrunch.com/2026/07/31/india-is-starting-to-pay-for-apps-not-just-download-them/",
+    "time": "2026-07-31T14:07:45-07:00"
+  },
+  {
+    "title": "Google nixes its Earth AI feature one day after launch, amid criticism it would spread misinformation",
+    "link": "https://techcrunch.com/2026/07/31/google-nixes-its-earth-ai-feature-one-day-after-launch-amid-criticism-it-would-spread-misinformation/",
+    "time": "2026-07-31T12:47:28-07:00"
+  },
+  {
+    "title": "Snapchat no longer rewards fully AI-generated Spotlight content",
+    "link": "https://techcrunch.com/2026/07/31/snapchat-no-longer-rewards-fully-ai-generated-spotlight-content/",
+    "time": "2026-07-31T09:49:08-07:00"
+  },
+  {
+    "title": "Siri AI could come with a paywall for power users",
+    "link": "https://techcrunch.com/2026/07/31/siri-ai-could-come-with-a-paywall-for-power-users/",
+    "time": "2026-07-31T09:08:18-07:00"
+  },
+  {
+    "title": "SpaceX won’t remove all of xAI’s unpermitted turbines for another year",
+    "link": "https://techcrunch.com/2026/07/31/spacex-wont-remove-all-of-xais-unpermitted-turbines-for-another-year/",
+    "time": "2026-07-31T08:16:17-07:00"
+  },
+  {
+    "title": "Bending Spoons to buy Airtable for $1.28B",
+    "link": "https://techcrunch.com/2026/08/04/bending-spoons-to-buy-airtable-for-1-28b/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Sequoia’s Shaun Maguire leads $1B round for nuclear startup Valar Atomics",
+    "link": "https://techcrunch.com/2026/08/03/sequoias-shaun-maguire-leads-1b-round-for-nuclear-startup-valar-atomics/",
+    "time": "2026-08-03T00:00:00"
+  },
+  {
+    "title": "WhatsApp is testing a new folder for messages from large businesses",
+    "link": "https://techcrunch.com/2026/07/31/whatsapp-is-testing-a-new-folder-for-messages-from-large-businesses/",
+    "time": "2026-07-31T00:00:00"
+  },
+  {
+    "title": "Okta buys AI security startup Permiso — source says for about $200M",
+    "link": "https://techcrunch.com/2026/07/30/okta-buys-ai-security-startup-permiso-source-says-for-about-200m/",
+    "time": "2026-07-30T00:00:00"
+  },
+  {
+    "title": "Claude Opus 5 became downright ruthless when tasked with running a vending machine",
+    "link": "https://techcrunch.com/2026/07/29/claude-opus-5-became-downright-ruthless-when-tasked-with-running-a-vending-machine/",
+    "time": "2026-07-29T00:00:00"
+  },
+  {
+    "title": "SpaceX doubles revenue on Anthropic and Google compute deals, Starlink growth",
+    "link": "https://techcrunch.com/2026/08/04/spacex-doubles-revenues-on-anthropic-and-google-compute-deals-starlink-growth/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Elon Musk repeatedly one-upped his execs on SpaceX’s first earnings call",
+    "link": "https://techcrunch.com/2026/08/04/elon-musk-repeatedly-one-upped-his-execs-on-spacexs-first-earnings-call/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Lucid’s turnaround plan hinges on $1.4B in cash savings, robotaxis",
+    "link": "https://techcrunch.com/2026/08/04/lucids-turnaround-plan-hinges-on-1-4b-in-cash-savings-robotaxis/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Android app developers may be unwittingly sharing their users’ location data with advertisers",
+    "link": "https://techcrunch.com/2026/08/04/android-app-developers-may-be-unwittingly-sharing-their-users-location-data-with-advertisers/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Get a limited-time $100 discount on your Disrupt pass!",
+    "link": "https://techcrunch.com/2026/08/04/take-an-extra-100-off-your-techcrunch-disrupt-2026-pass-this-week-only/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "How to get the best hotel deals for TechCrunch Disrupt 2026",
+    "link": "https://techcrunch.com/2026/08/04/how-to-get-the-best-hotel-deals-for-techcrunch-disrupt-2026/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "The Disrupt Stage's first major speakers have been revealed",
+    "link": "https://techcrunch.com/2026/07/30/techcrunch-disrupt-2026s-biggest-stage-features-leaders-from-amazon-replit-tether-with-much-more-to-come/",
+    "time": "2026-07-30T00:00:00"
+  },
+  {
+    "title": "Introducing the new Smart Money stage",
+    "link": "https://techcrunch.com/2026/07/24/techcrunch-disrupt-2026s-new-smart-money-stage-explores-fintech-payments-ai-and-everything-between/",
+    "time": "2026-07-24T00:00:00"
+  },
+  {
+    "title": "Host a Side Event during TechCrunch Founder Summit Week in Boston",
+    "link": "https://techcrunch.com/2026/08/04/host-a-side-event-during-techcrunch-founder-summit-week-in-boston/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Hackers steal over $130M by exploiting bug in offline hardware wallets",
+    "link": "https://techcrunch.com/2026/08/04/hackers-steal-over-130-million-by-exploiting-bug-in-offline-hardware-wallets/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Who’s legally to blame for Anthropic and OpenAI’s autonomous AI hacks? It’s complicated",
+    "link": "https://techcrunch.com/2026/08/03/whos-legally-to-blame-for-anthropic-and-openais-autonomous-ai-hacks-its-complicated/",
+    "time": "2026-08-03T00:00:00"
+  },
+  {
+    "title": "Apple challenges UK government’s latest demand for iCloud backdoor: report",
+    "link": "https://techcrunch.com/2026/08/03/apple-challenges-uk-governments-latest-demand-for-icloud-backdoor-report/",
+    "time": "2026-08-03T00:00:00"
+  },
+  {
+    "title": "Inside the London hacker house taking a stand against founder burnout",
+    "link": "https://techcrunch.com/2026/08/01/inside-one-london-founder-house-rewriting-the-founder-house-rules/",
+    "time": "2026-08-01T00:00:00"
+  },
+  {
+    "title": "Fresh off its Wiz payout, Index Ventures raises $2B across three funds",
+    "link": "https://techcrunch.com/2026/07/31/fresh-off-its-wiz-payout-index-ventures-raises-2b-across-three-funds/",
+    "time": "2026-07-31T00:00:00"
+  },
+  {
+    "title": "VC-backed startups commit more fraud, and researchers think they know why",
+    "link": "https://techcrunch.com/2026/07/31/vc-backed-startups-commit-more-fraud-and-researchers-think-they-know-why/",
+    "time": "2026-07-31T00:00:00"
+  },
+  {
+    "title": "Smallest.ai raises $13M to build ultra-fast voice AI that sounds genuinely human",
+    "link": "https://techcrunch.com/2026/07/31/smallest-ai-raises-13m-to-build-ultra-fast-voice-ai-that-sounds-genuinely-human/",
+    "time": "2026-07-31T00:00:00"
+  },
+  {
+    "title": "Repeat founder Ryan Williams raises $10M seed for an AI startup for private credit managers",
+    "link": "https://techcrunch.com/2026/07/31/repeat-founder-ryan-williams-raises-10m-seed-for-an-ai-startup-for-private-credit-managers/",
+    "time": "2026-07-31T00:00:00"
+  },
+  {
+    "title": "Inforcer raises $50M to help prepare smaller businesses for a new world of AI and security risks",
+    "link": "https://techcrunch.com/2026/07/30/inforcer-raises-50m-to-help-prepare-smbs-for-a-new-world-of-ai-and-security-risks/",
+    "time": "2026-07-30T00:00:00"
+  },
+  {
+    "title": "TV Time co-founder launches Bingers to revive the beloved TV-tracking app",
+    "link": "https://techcrunch.com/2026/08/04/tv-time-co-founder-launches-bingers-to-revive-the-beloved-tv-tracking-app/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Spotify now has over 300M subscribers",
+    "link": "https://techcrunch.com/2026/08/04/spotify-now-has-over-300m-subscribers/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "Snap CEO sidesteps Specs preorder questions on Q2 earnings call",
+    "link": "https://techcrunch.com/2026/08/03/snap-ceo-sidesteps-specs-pre-order-questions-on-q2-earnings-call/",
+    "time": "2026-08-03T00:00:00"
+  },
+  {
+    "title": "Waymo opens up robotaxi service in Dallas to everyone",
+    "link": "https://techcrunch.com/2026/08/04/waymo-opens-up-robotaxi-service-in-dallas-to-everyone/",
+    "time": "2026-08-04T00:00:00"
+  },
+  {
+    "title": "TechCrunch Mobility: Two roads diverged — for robotaxis",
+    "link": "https://techcrunch.com/2026/08/02/techcrunch-mobility-two-roads-diverged-for-robotaxis/",
+    "time": "2026-08-02T00:00:00"
+  },
+  {
+    "title": "Walmart completes its acquisition of TV advertising company Vibe.co",
+    "link": "https://techcrunch.com/2026/08/04/walmart-completes-its-acquisition-of-tv-advertising-company-vibe-co/",
+    "time": "2026-08-04T08:38:22-07:00"
+  },
+  {
+    "title": "WhatsApp says it is fixing an issue that disabled several accounts",
+    "link": "https://techcrunch.com/2026/08/03/whatsapp-says-it-is-is-fixing-an-issue-that-disabled-several-accounts/",
+    "time": "2026-08-03T10:46:01-07:00"
+  },
+  {
+    "title": "Monday.com is the latest tech company to blame AI for layoffs — here are 20 others",
+    "link": "https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/",
+    "time": "2026-07-25T18:30:00-07:00"
+  },
+  {
+    "title": "Anthropic’s new Claude feature is quietly selling you on AI",
+    "link": "https://techcrunch.com/2026/07/09/anthropics-new-claude-feature-is-quietly-selling-you-on-ai/",
+    "time": "2026-07-09T07:53:09-07:00"
+  },
+  {
+    "title": "Meta wants its AI glasses to seem less creepy. Its AI strategy says otherwise.",
+    "link": "https://techcrunch.com/2026/07/08/meta-wants-its-ai-glasses-to-seem-less-creepy-its-ai-strategy-says-otherwise/",
+    "time": "2026-07-08T10:11:18-07:00"
+  },
+  {
+    "title": "OpenAI releases new voice models for more natural live conversations",
+    "link": "https://techcrunch.com/2026/07/08/openai-releases-new-voice-models-for-more-natural-live-conversations/",
+    "time": "2026-07-08T10:00:00-07:00"
+  },
+  {
+    "title": "Beyond Siri: Here are the practical AI features coming to your iPhone in iOS 27",
+    "link": "https://techcrunch.com/2026/06/21/beyond-siri-here-are-the-practical-ai-features-coming-to-your-iphone-in-ios-27/",
+    "time": "2026-06-21T07:40:28-07:00"
+  },
+  {
+    "title": "Sixty percent of US consumers say ‘AI’ in brand messaging is a turnoff, survey finds",
+    "link": "https://techcrunch.com/2026/06/16/sixty-percent-of-u-s-consumers-say-ai-in-brand-messaging-is-a-turnoff-survey-finds/",
+    "time": "2026-06-16T09:49:44-07:00"
+  },
+  {
+    "title": "The AI layoff wave is becoming a powder keg",
+    "link": "https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/",
+    "time": "2026-06-15T00:25:41-07:00"
+  },
+  {
+    "title": "Supabase doubles valuation to $10B in 8 months",
+    "link": "https://techcrunch.com/2026/06/05/supabase-doubles-valuation-to-10b-in-8-months/",
+    "time": "2026-06-05T09:32:27-07:00"
+  },
+  {
+    "title": "Meta rolls out a new AI creator assistant on Facebook",
+    "link": "https://techcrunch.com/2026/06/04/meta-rolls-out-a-new-ai-creator-assistant-on-facebook/",
+    "time": "2026-06-04T09:32:48-07:00"
+  },
+  {
+    "title": "Instagram is alerting users who were targeted by hackers during AI chatbot attacks",
+    "link": "https://techcrunch.com/2026/06/03/instagram-is-alerting-users-who-were-targeted-by-hackers-during-ai-chatbot-attacks/",
+    "time": "2026-06-03T09:12:06-07:00"
+  },
+  {
+    "title": "Hackers hijacked Instagram accounts by tricking Meta AI support chatbot into granting access",
+    "link": "https://techcrunch.com/2026/06/01/hackers-hijacked-instagram-accounts-by-tricking-meta-ai-support-chatbot-into-granting-access/",
+    "time": "2026-06-01T11:34:32-07:00"
+  },
+  {
+    "title": "Sesame, the conversational AI startup from Oculus founders, launches its iOS app",
+    "link": "https://techcrunch.com/2026/05/28/sesame-the-conversational-ai-startup-from-oculus-founders-launches-its-ios-app/",
+    "time": "2026-05-28T08:35:43-07:00"
+  },
+  {
+    "title": "Why Google’s AI can’t spell Google (or anything else)",
+    "link": "https://techcrunch.com/2026/05/27/why-googles-ai-cant-spell-google-or-anything-else/",
+    "time": "2026-05-27T17:17:41-07:00"
+  },
+  {
+    "title": "I tried Amazon’s Bee wearable and am both intrigued and slightly creeped out",
+    "link": "https://techcrunch.com/2026/05/24/i-tried-amazons-bee-wearable-and-am-both-intrigued-and-slightly-creeped-out/",
+    "time": "2026-05-24T08:00:00-07:00"
+  },
+  {
+    "title": "Ferrari is using IBM’s AI to create F1 superfans",
+    "link": "https://techcrunch.com/2026/05/23/ferrari-is-using-ai-to-create-f1-superfans/",
+    "time": "2026-05-23T08:08:00-07:00"
+  },
+  {
+    "title": "Spotify and Universal Music strike deal allowing fan-made AI covers and remixes",
+    "link": "https://techcrunch.com/2026/05/21/spotify-and-universal-music-strike-deal-allowing-fan-made-ai-covers-and-remixes/",
+    "time": "2026-05-21T12:45:00-07:00"
+  },
+  {
+    "title": "Stilta raises $10.5M from a16z and YC to help companies rediscover the patents they forgot they had",
+    "link": "https://techcrunch.com/2026/05/19/legal-tech-announced-stilta-announces-10m-seed-backed-by-yc-and-a16z-months-after-launch/",
+    "time": "2026-05-19T05:00:00-07:00"
+  },
+  {
+    "title": "AI evaluation startup Braintrust confirms breach, tells every customer to rotate sensitive keys",
+    "link": "https://techcrunch.com/2026/05/06/ai-evaluation-startup-braintrust-confirms-breach-tells-every-customer-to-rotate-sensitive-keys/",
+    "time": "2026-05-06T11:05:41-07:00"
+  },
+  {
+    "title": "BMW i Ventures has a new $300M fund and AI is riding shotgun",
+    "link": "https://techcrunch.com/2026/04/29/bmw-i-ventures-has-a-new-300m-fund-and-ai-is-riding-shotgun/",
+    "time": "2026-04-29T06:10:00-07:00"
+  },
+  {
+    "title": "Cohere acquires, merges with Germany-based startup to create a ‘transatlantic AI powerhouse’",
+    "link": "https://techcrunch.com/2026/04/24/cohere-acquires-merges-with-german-based-startup-to-create-a-transatlantic-ai-powerhouse/",
+    "time": "2026-04-24T14:35:30-07:00"
+  },
+  {
+    "title": "Don’t stop hiring humans — stop hiring the wrong humans, Artisan’s founder says",
+    "link": "https://techcrunch.com/2026/04/23/dont-stop-hiring-humans-stop-hiring-the-wrong-humans-artisans-founder-says/",
+    "time": "2026-04-23T11:49:38-07:00"
+  },
+  {
+    "title": "Esther and Anne Wojcicki back new  healthcare accelerator, fund",
+    "link": "https://techcrunch.com/2026/04/22/esther-and-anne-wojcicki-back-new-healthcare-accelerator-fund/",
+    "time": "2026-04-22T07:00:00-07:00"
+  },
+  {
+    "title": "It’s not just one thing — it’s another thing",
+    "link": "https://techcrunch.com/2026/04/20/ai-writing-its-not-just-this-its-that-barrons/",
+    "time": "2026-04-20T12:37:07-07:00"
+  },
+  {
+    "title": "Anthropic says its own AI models breached three companies during security tests",
+    "link": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/",
+    "time": "2026-07-30T18:06:54-07:00"
+  },
+  {
+    "title": "In the Hugging Face breach, OpenAI’s hacker was noisy and fast — but not unstoppable",
+    "link": "https://techcrunch.com/2026/07/30/in-the-hugging-face-breach-openais-hacker-was-noisy-and-fast-but-not-unstoppable/",
+    "time": "2026-07-30T07:48:32-07:00"
+  },
+  {
+    "title": "Microsoft is openly competing with OpenAI, Anthropic more than ever",
+    "link": "https://techcrunch.com/2026/07/29/microsoft-is-openly-competing-with-openai-anthropic-more-than-ever/",
+    "time": "2026-07-29T17:21:06-07:00"
+  },
+  {
+    "title": "Microsoft logs $3.2B from Anthropic investment, but OpenAI was a mixed bag",
+    "link": "https://techcrunch.com/2026/07/29/microsoft-logs-3-2b-from-anthropic-investment-but-openai-was-a-mixed-bag/",
+    "time": "2026-07-29T15:46:03-07:00"
+  },
+  {
+    "title": "Thinking Machines co-founder Lilian Weng left the company citing health reasons, then joined OpenAI",
+    "link": "https://techcrunch.com/2026/07/29/thinking-machines-co-founder-lilian-weng-left-the-company-citing-health-reasons-then-joined-openai/",
+    "time": "2026-07-29T14:07:48-07:00"
+  },
+  {
+    "title": "The Hugging Face break-in explained",
+    "link": "https://techcrunch.com/2026/07/29/the-hugging-face-ai-break-in-as-told-through-an-increasingly-committed-bear-metaphor/",
+    "time": "2026-07-29T12:44:49-07:00"
+  },
+  {
+    "title": "OpenAI’s Hugging Face breach has reignited the debate over alignment and control",
+    "link": "https://techcrunch.com/2026/07/27/openais-hugging-face-breach-has-reignited-the-debate-over-alignment-and-control/",
+    "time": "2026-07-27T10:28:42-07:00"
+  },
+  {
+    "title": "Ilya Sutskever’s Safe Superintelligence partners with Nvidia to scale its AI research",
+    "link": "https://techcrunch.com/2026/07/27/ilya-sutskevers-safe-superintelligence-partners-with-nvidia-to-scale-its-ai-research/",
+    "time": "2026-07-27T08:01:50-07:00"
+  },
+  {
+    "title": "Making sense of the panic over Chinese AI",
+    "link": "https://techcrunch.com/2026/07/26/making-sense-of-the-panic-over-chinese-ai/",
+    "time": "2026-07-26T12:40:57-07:00"
+  },
+  {
+    "title": "Hugging Face CEO calls for ‘radical transparency’ after ‘unprecedented’ OpenAI hack",
+    "link": "https://techcrunch.com/2026/07/26/hugging-face-ceo-calls-for-radical-transparency-after-unprecedented-openai-hack/",
+    "time": "2026-07-26T09:33:13-07:00"
+  },
+  {
+    "title": "I tried out OpenAI’s new AI keypad — which will be fun for some coders and slightly mystifying to everyone else",
+    "link": "https://techcrunch.com/2026/07/24/i-tried-out-openais-new-ai-keypad-which-will-be-fun-for-coders-and-slightly-mystifying-to-everyone-else/",
+    "time": "2026-07-24T17:23:11-07:00"
+  },
+  {
+    "title": "As US weighs response to Chinese AI, industry urges against broad open-weight restrictions",
+    "link": "https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/",
+    "time": "2026-07-24T08:51:49-07:00"
+  },
+  {
+    "title": "OpenAI’s new voice mode makes it to the ChatGPT desktop app",
+    "link": "https://techcrunch.com/2026/07/24/openais-new-voice-mode-makes-it-to-the-chatgpt-desktop-app/",
+    "time": "2026-07-24T06:36:42-07:00"
+  },
+  {
+    "title": "AMD takes on Nvidia with its Helios AI rack-scale system",
+    "link": "https://techcrunch.com/2026/07/23/amd-takes-on-nvidia-with-its-helios-ai-rack-scale-system/",
+    "time": "2026-07-23T13:33:02-07:00"
+  },
+  {
+    "title": "OpenAI makes ChatGPT Health available to all US users",
+    "link": "https://techcrunch.com/2026/07/23/openai-makes-chatgpt-health-available-to-all-u-s-users/",
+    "time": "2026-07-23T10:00:00-07:00"
+  },
+  {
+    "title": "How OpenAI’s human mistake led to the AI-powered hack on Hugging Face",
+    "link": "https://techcrunch.com/2026/07/22/how-an-openais-human-mistake-led-to-the-ai-powered-hack-on-hugging-face/",
+    "time": "2026-07-22T12:11:46-07:00"
+  },
+  {
+    "title": "OpenAI’s AI spending spree has ballooned to $750B",
+    "link": "https://techcrunch.com/2026/07/22/openais-ai-spending-spree-has-ballooned-to-750b/",
+    "time": "2026-07-22T09:13:30-07:00"
+  },
+  {
+    "title": "The Anthropic-Physical Intelligence rumor roiling AI Twitter",
+    "link": "https://techcrunch.com/2026/07/21/the-anthropic-physical-intelligence-rumor-roiling-ai-twitter/",
+    "time": "2026-07-21T20:20:57-07:00"
+  },
+  {
+    "title": "OpenAI says Hugging Face was breached by its pre-release models",
+    "link": "https://techcrunch.com/2026/07/21/openai-says-hugging-face-was-breached-by-its-pre-release-models/",
+    "time": "2026-07-21T13:56:55-07:00"
+  },
+  {
+    "title": "OpenAI is scared of open-weight models. Should the US be?",
+    "link": "https://techcrunch.com/2026/07/20/openai-is-scared-of-open-weight-models-should-the-us-be/",
+    "time": "2026-07-20T12:33:25-07:00"
+  },
+  {
+    "title": "Can an Apple lawsuit derail OpenAI’s hardware plans?",
+    "link": "https://techcrunch.com/2026/07/19/can-an-apple-lawsuit-derail-openais-hardware-plans/",
+    "time": "2026-07-19T12:24:45-07:00"
+  },
+  {
+    "title": "Why is OpenAI selling a ChatGPT basketball?",
+    "link": "https://techcrunch.com/2026/07/16/why-is-openai-selling-a-chatgpt-basketball/",
+    "time": "2026-07-16T08:31:09-07:00"
+  },
+  {
+    "title": "Google will now disclose which ads are made with AI",
+    "link": "https://techcrunch.com/2026/07/09/google-will-now-disclose-which-ads-are-made-with-ai/",
+    "time": "2026-07-09T11:40:51-07:00"
+  },
+  {
+    "title": "Instagram users: Here’s how to stop Meta’s AI from using your photos",
+    "link": "https://techcrunch.com/2026/07/09/how-to-stop-metas-ai-image-generator-from-using-your-instagram-photos/",
+    "time": "2026-07-09T10:56:47-07:00"
+  },
+  {
+    "title": "Gemini’s personalized AI image generation is now free for US users",
+    "link": "https://techcrunch.com/2026/06/29/geminis-personalized-ai-image-generation-is-now-free-for-u-s-users/",
+    "time": "2026-06-29T13:12:59-07:00"
+  },
+  {
+    "title": "Pixi’s new iOS app turns text messages into interactive AR experiences",
+    "link": "https://techcrunch.com/2026/06/18/pixis-new-ios-app-turns-text-messages-into-interactive-ar-experiences/",
+    "time": "2026-06-18T05:00:00-07:00"
+  },
+  {
+    "title": "Meta’s new ‘AI Mode’ on Facebook pulls from public info across its platforms",
+    "link": "https://techcrunch.com/2026/06/15/metas-new-ai-mode-on-facebook-pulls-from-public-info-across-its-platforms/",
+    "time": "2026-06-15T11:30:58-07:00"
+  },
+  {
+    "title": "Deezer’s new tool can identify AI music from Spotify, Apple Music, and others",
+    "link": "https://techcrunch.com/2026/06/11/deezers-new-tool-can-identify-ai-music-from-spotify-apple-music-and-others/",
+    "time": "2026-06-11T09:36:20-07:00"
+  },
+  {
+    "title": "Amazon’s new Alexa+ powered feature can generate podcast episodes",
+    "link": "https://techcrunch.com/2026/05/18/amazons-new-alexa-powered-feature-can-generate-podcast-episodes/",
+    "time": "2026-05-18T07:56:47-07:00"
+  },
+  {
+    "title": "Etsy launches its app within ChatGPT as it continues its AI push",
+    "link": "https://techcrunch.com/2026/05/05/etsy-launches-its-app-within-chatgpt-as-it-continues-its-ai-push/",
+    "time": "2026-05-05T08:31:37-07:00"
+  },
+  {
+    "title": "Google’s Gemini AI assistant is hitting the road in millions of vehicles",
+    "link": "https://techcrunch.com/2026/04/30/googles-gemini-ai-assistant-is-hitting-the-road-in-millions-of-vehicles/",
+    "time": "2026-04-30T10:46:54-07:00"
+  },
+  {
+    "title": "Google Maps is about to get a big dose of AI",
+    "link": "https://techcrunch.com/2026/04/22/google-maps-is-about-to-get-a-big-dose-of-ai/",
+    "time": "2026-04-22T05:00:00-07:00"
+  },
+  {
+    "title": "AI Dungeon maker Latitude unveils Voyage, a platform for creating AI-powered RPGs",
+    "link": "https://techcrunch.com/2026/04/21/voyage-is-an-ai-rpg-platform-for-creating-custom-gaming-worlds-with-ai-generated-npc-interactions/",
+    "time": "2026-04-21T09:00:00-07:00"
+  },
+  {
+    "title": "Exclusive: Runway launches $10M fund, Builders program to support early-stage AI startups",
+    "link": "https://techcrunch.com/2026/03/31/exclusive-runway-launches-10m-fund-builders-program-to-support-early-stage-ai-startups/",
+    "time": "2026-03-31T07:00:00-07:00"
+  },
+  {
+    "title": "Peacock expands into AI-driven video, mobile-first live sports, and gaming",
+    "link": "https://techcrunch.com/2026/03/13/peacock-expands-into-ai-driven-video-mobile-first-live-sports-and-gaming/",
+    "time": "2026-03-13T07:00:00-07:00"
+  },
+  {
+    "title": "Netflix may have paid $600 million for Ben Affleck’s AI startup",
+    "link": "https://techcrunch.com/2026/03/11/netflix-may-have-paid-600-million-for-ben-afflecks-ai-startup/",
+    "time": "2026-03-11T15:00:05-07:00"
+  },
+  {
+    "title": "ChatGPT can now create interactive visuals to help you understand math and science concepts",
+    "link": "https://techcrunch.com/2026/03/10/chatgpt-can-now-create-interactive-visuals-to-help-you-understand-math-and-science-concepts/",
+    "time": "2026-03-10T10:51:25-07:00"
+  },
+  {
+    "title": "Netflix buys Ben Affleck’s AI filmmaking company InterPositive",
+    "link": "https://techcrunch.com/2026/03/05/netflix-buys-ben-afflecks-ai-filmmaking-company-interpositive/",
+    "time": "2026-03-05T08:19:57-08:00"
+  },
+  {
+    "title": "Spotify says its best developers haven’t written a line of code since December, thanks to AI",
+    "link": "https://techcrunch.com/2026/02/12/spotify-says-its-best-developers-havent-written-a-line-of-code-since-december-thanks-to-ai/",
+    "time": "2026-02-12T10:30:12-08:00"
+  },
+  {
+    "title": "Amazon to begin testing AI tools for film and TV production next month",
+    "link": "https://techcrunch.com/2026/02/04/amazon-to-begin-testing-ai-tools-for-film-and-tv-production-next-month/",
+    "time": "2026-02-04T13:26:43-08:00"
+  },
+  {
+    "title": "Roblox’s 4D creation feature is now available in open beta",
+    "link": "https://techcrunch.com/2026/02/04/robloxs-4d-creation-feature-is-now-available-in-open-beta/",
+    "time": "2026-02-04T09:00:00-08:00"
+  },
+  {
+    "title": "Firefox will soon let you block all of its generative AI features",
+    "link": "https://techcrunch.com/2026/02/02/firefox-will-soon-let-you-block-all-of-its-generative-ai-features/",
+    "time": "2026-02-02T10:34:45-08:00"
+  },
+  {
+    "title": "Node-based design tool Flora raises $42M from Redpoint Ventures",
+    "link": "https://techcrunch.com/2026/01/27/node-based-design-tool-flora-raises-42m-from-redpoint-ventures/",
+    "time": "2026-01-27T06:00:00-08:00"
+  },
+  {
+    "title": "Slackbot is an AI agent now",
+    "link": "https://techcrunch.com/2026/01/13/slackbot-is-an-ai-agent-now/",
+    "time": "2026-01-13T05:00:00-08:00"
+  },
+  {
+    "title": "Google Classroom’s new tool uses Gemini to transform lessons into podcast episodes",
+    "link": "https://techcrunch.com/2026/01/07/google-classrooms-new-tool-uses-gemini-to-transform-lessons-into-podcast-episodes/",
+    "time": "2026-01-07T09:55:35-08:00"
+  },
+  {
+    "title": "OpenAI’s first hardware device is reportedly a screenless speaker that can move",
+    "link": "https://techcrunch.com/2026/07/14/openais-first-hardware-device-is-reportedly-a-screenless-speaker-that-can-move/",
+    "time": "2026-07-14T15:22:24-07:00"
+  },
+  {
+    "title": "OpenAI bets on families as ChatGPT goes deeper into households",
+    "link": "https://techcrunch.com/2026/07/11/openai-bets-on-families-as-chatgpt-goes-deeper-into-households/",
+    "time": "2026-07-11T07:13:00-07:00"
+  },
+  {
+    "title": "OpenAI launches its new family of models with GPT-5.6",
+    "link": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
+    "time": "2026-07-09T15:24:24-07:00"
+  },
+  {
+    "title": "New York Times says OpenAI hid evidence in ChatGPT copyright trial",
+    "link": "https://techcrunch.com/2026/07/09/new-york-times-says-openai-hid-evidence-in-chatgpt-copyright-trial/",
+    "time": "2026-07-09T12:05:58-07:00"
+  },
+  {
+    "title": "SpaceXAI releases Grok 4.5, which Elon describes as an ‘Opus-class model’",
+    "link": "https://techcrunch.com/2026/07/08/spacexai-releases-grok-4-5-which-elon-describes-as-an-opus-class-model/",
+    "time": "2026-07-08T12:30:16-07:00"
+  },
+  {
+    "title": "Anthropic’s Claude is winning over paid consumers, a market owned by ChatGPT",
+    "link": "https://techcrunch.com/2026/06/25/anthropics-claude-is-winning-over-paid-consumers-a-market-owned-by-chatgpt/",
+    "time": "2026-06-25T10:38:27-07:00"
+  },
+  {
+    "title": "Only 16 percent of Americans think AI will have a positive impact on society, a new study shows",
+    "link": "https://techcrunch.com/2026/06/17/only-16-percent-of-americans-think-ai-will-have-a-positive-impact-on-society-a-new-study-shows/",
+    "time": "2026-06-17T10:00:01-07:00"
+  },
+  {
+    "title": "ChatGPT’s market share slips below 50% for first time",
+    "link": "https://techcrunch.com/2026/06/16/chatgpts-market-share-slips-below-50-for-first-time/",
+    "time": "2026-06-16T03:30:00-07:00"
+  },
+  {
+    "title": "OpenAI is still working on that ‘super app’",
+    "link": "https://techcrunch.com/2026/06/07/openai-is-still-working-on-that-super-app/",
+    "time": "2026-06-07T09:23:22-07:00"
+  },
+  {
+    "title": "Florida sues OpenAI, Sam Altman, in first-of-its-kind lawsuit over violent incidents",
+    "link": "https://techcrunch.com/2026/06/01/florida-sues-openai-sam-altman-in-first-of-its-kind-lawsuit-over-violent-incidents/",
+    "time": "2026-06-01T13:03:40-07:00"
+  },
+  {
+    "title": "OpenAI claims it solved an 80-year-old math problem — for real this time",
+    "link": "https://techcrunch.com/2026/05/20/openai-claims-it-solved-an-80-year-old-math-problem-for-real-this-time/",
+    "time": "2026-05-20T13:28:27-07:00"
+  },
+  {
+    "title": "OpenAI co-founder Greg Brockman takes charge of product strategy",
+    "link": "https://techcrunch.com/2026/05/16/openai-co-founder-greg-brockman-reportedly-takes-charge-of-product-strategy/",
+    "time": "2026-05-16T08:33:33-07:00"
+  },
+  {
+    "title": "OpenAI launches ChatGPT for personal finance, will let you connect bank accounts",
+    "link": "https://techcrunch.com/2026/05/15/openai-launches-chatgpt-for-personal-finance-will-let-you-connect-bank-accounts/",
+    "time": "2026-05-15T09:00:00-07:00"
+  },
+  {
+    "title": "OpenAI says Codex is coming to your phone",
+    "link": "https://techcrunch.com/2026/05/14/openai-says-codex-is-coming-to-your-phone/",
+    "time": "2026-05-14T13:58:55-07:00"
+  },
+  {
+    "title": "OpenAI introduces new ‘Trusted Contact’ safeguard for cases of possible self-harm",
+    "link": "https://techcrunch.com/2026/05/07/openai-introduces-new-trusted-contact-safeguard-for-cases-of-possible-self-harm/",
+    "time": "2026-05-07T13:20:20-07:00"
+  },
+  {
+    "title": "OpenAI releases GPT-5.5 Instant, a new default model for ChatGPT",
+    "link": "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/",
+    "time": "2026-05-05T10:00:00-07:00"
+  },
+  {
+    "title": "Image AI models now drive app growth, beating chatbot upgrades",
+    "link": "https://techcrunch.com/2026/05/04/image-ai-models-now-drive-app-growth-beating-chatbot-upgrades/",
+    "time": "2026-05-04T12:12:49-07:00"
+  },
+  {
+    "title": "ChatGPT Images 2.0 is a hit in India, but not a big winner elsewhere, yet",
+    "link": "https://techcrunch.com/2026/04/30/chatgpt-images-2-0-is-a-hit-in-india-but-not-a-big-winner-elsewhere-yet/",
+    "time": "2026-04-30T19:00:00-07:00"
+  },
+  {
+    "title": "OpenAI announces new advanced security for ChatGPT accounts, including a partnership with Yubico",
+    "link": "https://techcrunch.com/2026/04/30/openai-announces-new-advanced-security-for-chatgpt-accounts-including-a-partnership-with-yubico/",
+    "time": "2026-04-30T11:20:03-07:00"
+  },
+  {
+    "title": "OpenAI releases GPT-5.5, bringing company one step closer to an AI ‘super app’",
+    "link": "https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/",
+    "time": "2026-04-23T11:29:29-07:00"
+  },
+  {
+    "title": "Agile Robots becomes the latest robotics company to partner with Google DeepMind",
+    "link": "https://techcrunch.com/2026/03/24/agile-robots-becomes-the-latest-robotics-company-to-partner-with-google-deepmind/",
+    "time": "2026-03-24T05:05:00-07:00"
+  },
+  {
+    "title": "Music generator ProducerAI joins Google Labs",
+    "link": "https://techcrunch.com/2026/02/24/music-generator-producerai-joins-google-labs/",
+    "time": "2026-02-24T08:57:21-08:00"
+  },
+  {
+    "title": "I built marshmallow castles in Google’s new AI-world generator",
+    "link": "https://techcrunch.com/2026/01/29/i-built-marshmallow-castles-in-googles-new-ai-world-generator-project-genie/",
+    "time": "2026-01-29T09:29:11-08:00"
+  },
+  {
+    "title": "Google snags team behind AI voice startup Hume AI",
+    "link": "https://techcrunch.com/2026/01/22/google-reportedly-snags-up-team-behind-ai-voice-startup-hume-ai/",
+    "time": "2026-01-22T07:12:51-08:00"
+  },
+  {
+    "title": "Boston Dynamics’ next-gen humanoid robot will have Google DeepMind DNA",
+    "link": "https://techcrunch.com/2026/01/05/boston-dynamicss-next-gen-humanoid-robot-will-have-google-deepmind-dna/",
+    "time": "2026-01-05T13:55:55-08:00"
+  },
+  {
+    "title": "AI hedge fund Situational Awareness may have sold its public portfolio, but it still has its Anthropic shares",
+    "link": "https://techcrunch.com/2026/07/30/ai-hedge-fund-situational-awareness-may-have-sold-its-public-portfolio-but-it-still-has-its-anthropic-shares/",
+    "time": "2026-07-30T16:25:58-07:00"
+  },
+  {
+    "title": "Judge says Trump admin still lacks evidence for Anthropic ‘supply-chain risk’ label",
+    "link": "https://techcrunch.com/2026/07/30/judge-says-trump-admin-still-lacks-evidence-for-anthropic-supply-chain-risk-label/",
+    "time": "2026-07-30T13:26:38-07:00"
+  },
+  {
+    "title": "Anthropic’s Dario Amodei responds: doesn’t oppose open-weight models, but fears Chinese AI",
+    "link": "https://techcrunch.com/2026/07/27/anthropics-dario-amodei-responds-doesnt-oppose-open-weight-models-but-fears-chinese-ai/",
+    "time": "2026-07-27T17:13:33-07:00"
+  },
+  {
+    "title": "PSA: Your Claude shared chats and Artifacts may have ended up on Google",
+    "link": "https://techcrunch.com/2026/07/27/psa-your-claude-shared-chats-and-artifacts-may-have-ended-up-on-google/",
+    "time": "2026-07-27T13:19:42-07:00"
+  },
+  {
+    "title": "Anthropic launches Opus 5",
+    "link": "https://techcrunch.com/2026/07/24/anthropic-launches-opus-5/",
+    "time": "2026-07-24T10:00:00-07:00"
+  },
+  {
+    "title": "Anthropic updates Claude voice mode with more capable models",
+    "link": "https://techcrunch.com/2026/07/23/anthropic-updates-claude-voice-mode-with-more-capable-models/",
+    "time": "2026-07-23T12:00:00-07:00"
+  },
+  {
+    "title": "Experts say exploiting Anthropic’s Fable isn’t how Kimi K3 got so good",
+    "link": "https://techcrunch.com/2026/07/23/experts-say-exploiting-anthropics-fable-isnt-how-kimi-k3-got-so-good/",
+    "time": "2026-07-23T04:00:00-07:00"
+  },
+  {
+    "title": "Treasury threatens sanctions after White House claims Moonshot distilled Anthropic’s Fable",
+    "link": "https://techcrunch.com/2026/07/22/treasury-threatens-sanctions-after-white-house-claims-moonshot-distilled-anthropics-fable/",
+    "time": "2026-07-22T13:49:03-07:00"
+  },
+  {
+    "title": "Anthropic’s landmark $1.5B copyright settlement is approved",
+    "link": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+    "time": "2026-07-20T17:12:24-07:00"
+  },
+  {
+    "title": "Moonshot’s upcoming Kimi 3 is expected to close the gap with Anthropic’s Opus 4.8",
+    "link": "https://techcrunch.com/2026/07/16/moonshots-upcoming-kimi-3-is-expected-to-close-the-gap-with-anthropics-opus-4-8/",
+    "time": "2026-07-16T07:26:29-07:00"
+  },
+  {
+    "title": "Why Greylock capped its new fund at $1.5B when it says it could have raised more",
+    "link": "https://techcrunch.com/2026/07/15/why-greylock-capped-its-new-fund-at-1-5b-when-it-says-it-could-have-raised-more/",
+    "time": "2026-07-15T17:20:42-07:00"
+  },
+  {
+    "title": "Microsoft is reportedly training salespeople to talk down OpenAI and Anthropic",
+    "link": "https://techcrunch.com/2026/07/15/microsoft-is-reportedly-training-salespeople-to-talk-down-openai-and-anthropic/",
+    "time": "2026-07-15T16:59:44-07:00"
+  },
+  {
+    "title": "Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models",
+    "link": "https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/",
+    "time": "2026-07-15T06:10:47-07:00"
+  },
+  {
+    "title": "Anthropic’s newest ad is creeping people out",
+    "link": "https://techcrunch.com/2026/07/14/anthropics-newest-ad-is-creeping-people-out/",
+    "time": "2026-07-14T12:41:27-07:00"
+  },
+  {
+    "title": "Anthropic starts localizing Claude pricing for India, its biggest market after the US",
+    "link": "https://techcrunch.com/2026/07/13/anthropic-starts-localizing-claude-pricing-for-india-its-biggest-market-after-the-us/",
+    "time": "2026-07-13T08:34:59-07:00"
+  },
+  {
+    "title": "Elon Musk praises Mythos/Fable, promises not to ‘cut off’ Anthropic",
+    "link": "https://techcrunch.com/2026/07/09/elon-musk-praises-mythos-fable-promises-not-to-cut-off-anthropic/",
+    "time": "2026-07-09T14:57:42-07:00"
+  },
+  {
+    "title": "Meta enters the crowded AI coding battle with Muse Spark 1.1",
+    "link": "https://techcrunch.com/2026/07/09/meta-enters-the-crowded-ai-coding-battle-with-muse-spark-1-1/",
+    "time": "2026-07-09T12:40:45-07:00"
+  },
+  {
+    "title": "Nvidia is sending GPUs to the moon",
+    "link": "https://techcrunch.com/2026/07/23/nvidia-is-sending-gpus-to-the-moon/",
+    "time": "2026-07-23T08:00:00-07:00"
+  },
+  {
+    "title": "Google is working on a new AI chip designed to make Gemini more efficient",
+    "link": "https://techcrunch.com/2026/07/20/google-is-working-on-a-new-ai-chip-designed-to-make-gemini-more-efficient/",
+    "time": "2026-07-20T14:21:15-07:00"
+  },
+  {
+    "title": "Inference startup Infinity raises $15M from Touring Capital, OpenAI and Anthropic researchers",
+    "link": "https://techcrunch.com/2026/07/20/inference-startup-infinity-raises-15m-from-touring-capital-openai-and-athropic-researchers/",
+    "time": "2026-07-20T08:15:00-07:00"
+  },
+  {
+    "title": "What to watch for after Jensen Huang’s Japan visit",
+    "link": "https://techcrunch.com/2026/07/19/what-to-watch-for-after-jensen-huangs-japan-visit/",
+    "time": "2026-07-19T14:16:07-07:00"
+  },
+  {
+    "title": "Paris-based AI voice startup Gradium raises $100M seed, backed by Nvidia",
+    "link": "https://techcrunch.com/2026/07/09/paris-based-ai-voice-startup-gradium-raises-100m-seed-backed-by-nvidia/",
+    "time": "2026-07-09T11:34:35-07:00"
+  },
+  {
+    "title": "Nvidia is a victim of the compute marketplace it created",
+    "link": "https://techcrunch.com/2026/07/09/nvidia-is-a-victim-of-the-compute-marketplace-it-created/",
+    "time": "2026-07-09T10:06:11-07:00"
+  },
+  {
+    "title": "Anthropic is discussing a new custom chip with Samsung",
+    "link": "https://techcrunch.com/2026/07/02/anthropic-is-discussing-a-new-custom-chip-with-samsung/",
+    "time": "2026-07-02T11:31:09-07:00"
+  },
+  {
+    "title": "Why Wall Street thinks US memory maker Micron is the next Nvidia",
+    "link": "https://techcrunch.com/2026/06/28/why-wall-street-thinks-us-memory-maker-micron-is-the-next-nvidia/",
+    "time": "2026-06-28T08:00:00-07:00"
+  },
+  {
+    "title": "Nvidia wants to cut data center water use, but that’s not the same as fixing AI’s water problem",
+    "link": "https://techcrunch.com/2026/06/22/nvidia-wants-to-cut-data-center-water-use-but-thats-not-the-same-as-fixing-ais-water-problem/",
+    "time": "2026-06-22T13:08:15-07:00"
+  },
+  {
+    "title": "Amazon hopes to challenge Nvidia more directly by selling its AI chips",
+    "link": "https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/",
+    "time": "2026-06-18T11:22:13-07:00"
+  },
+  {
+    "title": "Nvidia chases $200B CPU market with AI agent PCs from Microsoft, Dell, and HP",
+    "link": "https://techcrunch.com/2026/06/01/nvidia-chases-200b-cpu-market-with-ai-agent-pcs-from-microsoft-dell-and-hp/",
+    "time": "2026-06-01T14:35:00-07:00"
+  },
+  {
+    "title": "After Nvidia’s $20B not-acqui-hire, AI chip startup Groq reportedly raising $650M",
+    "link": "https://techcrunch.com/2026/05/29/after-nvidias-20b-not-acqui-hire-ai-chip-startup-groq-reportedly-raising-650m/",
+    "time": "2026-05-29T10:27:13-07:00"
+  },
+  {
+    "title": "Jensen Huang says he’s found a ‘brand new’ $200B market for Nvidia",
+    "link": "https://techcrunch.com/2026/05/20/jensen-huang-says-hes-found-a-brand-new-200b-market-for-nvidia/",
+    "time": "2026-05-20T17:28:31-07:00"
+  },
+  {
+    "title": "Nvidia posts another record quarter, reveals $43B of holdings in startups",
+    "link": "https://techcrunch.com/2026/05/20/nvidia-posts-another-record-quarter-reveals-43-billion-of-holdings-in-startups/",
+    "time": "2026-05-20T15:03:51-07:00"
+  },
+  {
+    "title": "Ransomware hackers claim breach at Foxconn, a major electronics manufacturer for Apple, Google, and Nvidia",
+    "link": "https://techcrunch.com/2026/05/13/ransomware-hackers-claim-breach-at-foxconn-a-major-electronics-manufacturer-for-apple-google-and-nvidia/",
+    "time": "2026-05-13T08:39:37-07:00"
+  },
+  {
+    "title": "Nvidia has already committed $40B to equity AI deals this year",
+    "link": "https://techcrunch.com/2026/05/09/nvidia-has-already-committed-40b-to-equity-ai-deals-this-year/",
+    "time": "2026-05-09T07:43:30-07:00"
+  },
+  {
+    "title": "ASML CEO Christophe Fouquet on his company’s monopoly: no one is coming for us",
+    "link": "https://techcrunch.com/2026/05/05/asml-ceo-christophe-fouquet-no-one-is-coming-for-us/",
+    "time": "2026-05-05T13:06:40-07:00"
+  },
+  {
+    "title": "ElevenLabs lists BlackRock, Jamie Foxx, and Eva Longoria as new investors",
+    "link": "https://techcrunch.com/2026/05/05/elevenlabs-lists-blackrock-jamie-foxx-and-eva-longoria-as-new-investors/",
+    "time": "2026-05-05T07:20:50-07:00"
+  },
+  {
+    "title": "As workers worry about AI, Nvidia’s Jensen Huang says AI is ‘creating an enormous number of jobs’",
+    "link": "https://techcrunch.com/2026/05/04/as-workers-worry-about-ai-nvidias-jensen-huang-says-ai-is-creating-an-enormous-number-of-jobs/",
+    "time": "2026-05-04T20:31:54-07:00"
+  },
+  {
+    "title": "Pentagon inks deals with Nvidia, Microsoft, and AWS to deploy AI on classified networks",
+    "link": "https://techcrunch.com/2026/05/01/pentagon-inks-deals-with-nvidia-microsoft-and-aws-to-deploy-ai-on-classified-networks/",
+    "time": "2026-05-01T09:02:36-07:00"
+  },
+  {
+    "title": "Legal AI startup Legora hits $5.6B valuation and its battle with Harvey just got hotter",
+    "link": "https://techcrunch.com/2026/04/30/legal-ai-startup-legora-hits-5-6-valuation-and-its-battle-with-harvey-just-got-hotter/",
+    "time": "2026-04-30T13:14:47-07:00"
+  },
+  {
+    "title": "Google Cloud launches two new AI chips to compete with Nvidia",
+    "link": "https://techcrunch.com/2026/04/22/google-cloud-next-new-tpu-ai-chips-compete-with-nvidia/",
+    "time": "2026-04-22T11:39:27-07:00"
+  },
+  {
+    "title": "Uber and Nuro begin testing premium robotaxi service in San Francisco",
+    "link": "https://techcrunch.com/2026/04/13/uber-nuro-san-francisco-testing-premium-robotaxi-service/",
+    "time": "2026-04-13T14:11:58-07:00"
+  },
+  {
+    "title": "Malaysia is reportedly shutting down Balaji Srinivasan’s Network School",
+    "link": "https://techcrunch.com/2026/08/02/malaysia-is-reportedly-shutting-down-balaji-srinivasans-network-school/",
+    "time": "2026-08-02T00:00:00"
+  },
+  {
+    "title": "DoorDash is building its own drone delivery business",
+    "link": "https://techcrunch.com/2026/07/29/doordash-is-building-its-own-drone-delivery-business/",
+    "time": "2026-07-29T00:00:00"
+  }
+]

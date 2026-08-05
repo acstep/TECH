@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要 2026年8月5日（台北時間） | TechCrunch 中文</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #080810; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+.header { text-align: center; padding: 40px 20px; border-bottom: 1px solid #1a1a2e; margin-bottom: 30px; }
+.header h1 { font-size: 2rem; color: #00d4ff; margin-bottom: 10px; }
+.header .meta { color: #888; font-size: 0.9rem; }
+.header .stats { display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+.header .stat { text-align: center; }
+.header .stat .num { font-size: 2rem; font-weight: bold; color: #00ff88; }
+.header .stat .label { font-size: 0.8rem; color: #888; }
+
+/* Keywords cloud */
+.keywords { background: #0d0d1a; border-radius: 12px; padding: 20px; margin-bottom: 30px; border: 1px solid #1a1a2e; }
+.keywords h3 { color: #00d4ff; margin-bottom: 15px; font-size: 1rem; }
+.kw-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.kw { background: #1a1a2e; color: #00ff88; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; }
+
+/* Top 3 headlines */
+.top3-section { margin-bottom: 40px; }
+.top3-section h2 { color: #00d4ff; margin-bottom: 20px; font-size: 1.3rem; border-left: 4px solid #00d4ff; padding-left: 12px; }
+.top3-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.top-card { background: linear-gradient(135deg, #0d0d1a, #1a1a2e); border: 1px solid #00d4ff33; border-radius: 16px; padding: 24px; position: relative; overflow: hidden; }
+.top-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #00d4ff, #00ff88); }
+.top-card .rank { font-size: 3rem; font-weight: 900; color: #00d4ff22; position: absolute; top: 10px; right: 20px; }
+.top-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 12px; line-height: 1.4; }
+.top-card h3 a { color: #fff; text-decoration: none; }
+.top-card h3 a:hover { color: #00d4ff; }
+.top-card .why { color: #00ff88; font-size: 0.85rem; margin-top: 10px; padding-top: 10px; border-top: 1px solid #1a1a2e; }
+
+/* Category radar */
+.radar-section { margin-bottom: 40px; }
+.radar-section h2 { color: #00d4ff; margin-bottom: 20px; font-size: 1.3rem; border-left: 4px solid #00d4ff; padding-left: 12px; }
+.radar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.radar-card { background: #0d0d1a; border: 1px solid #1a1a2e; border-radius: 12px; padding: 16px; }
+.radar-card .cat-name { font-size: 0.9rem; font-weight: bold; color: #00d4ff; margin-bottom: 5px; }
+.radar-card .count { color: #00ff88; font-size: 1.5rem; font-weight: 700; }
+.radar-card .sample { color: #888; font-size: 0.75rem; margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* News section */
+.news-section { margin-bottom: 40px; }
+.news-section h2 { color: #00d4ff; margin-bottom: 20px; font-size: 1.3rem; border-left: 4px solid #00d4ff; padding-left: 12px; }
+.news-group { margin-bottom: 30px; }
+.news-group h3 { color: #fff; margin-bottom: 15px; font-size: 1rem; background: #0d0d1a; padding: 10px 15px; border-radius: 8px; border-left: 3px solid #00ff88; }
+.news-list { display: flex; flex-direction: column; gap: 12px; }
+.news-card { background: #0d0d1a; border: 1px solid #1a1a2e; border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
+.news-card:hover { border-color: #00d4ff44; }
+.news-card .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 10px; }
+.news-card h4 { flex: 1; }
+.news-card h4 a { color: #fff; text-decoration: none; font-size: 0.95rem; }
+.news-card h4 a:hover { color: #00d4ff; }
+.news-card .time { color: #555; font-size: 0.75rem; white-space: nowrap; }
+.news-card .summary { color: #aaa; font-size: 0.85rem; margin-bottom: 10px; line-height: 1.6; }
+.news-card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.news-card .tag { background: #1a1a2e; color: #00d4ff; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; }
+.news-card .why { background: #0a0a14; border-left: 3px solid #00ff88; padding: 10px 12px; border-radius: 0 8px 8px 0; margin-top: 10px; }
+.news-card .why .label { color: #00ff88; font-size: 0.75rem; font-weight: bold; margin-bottom: 4px; }
+.news-card .why p { color: #bbb; font-size: 0.8rem; }
+.news-card .entities { color: #888; font-size: 0.75rem; margin-top: 8px; }
+.news-card .entities span { color: #00d4ff; }
+.news-card .stocks { color: #888; font-size: 0.75rem; margin-top: 5px; }
+.news-card .stocks span { color: #00ff88; }
+
+/* Tomorrow watch */
+.tomorrow { background: linear-gradient(135deg, #0d0d1a, #0a1a10); border: 1px solid #00ff8844; border-radius: 16px; padding: 24px; margin-bottom: 30px; }
+.tomorrow h2 { color: #00ff88; margin-bottom: 15px; font-size: 1.1rem; }
+.tomorrow ul { list-style: none; }
+.tomorrow li { color: #bbb; font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #1a1a2e; }
+.tomorrow li:last-child { border-bottom: none; }
+.tomorrow li::before { content: '→ '; color: #00d4ff; }
+
+/* Footer */
+.footer { text-align: center; padding: 30px; color: #555; font-size: 0.8rem; border-top: 1px solid #1a1a2e; margin-top: 30px; }
+.footer a { color: #00d4ff; text-decoration: none; }
+
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.5rem; }
+  .top3-grid { grid-template-columns: 1fr; }
+  .container { padding: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>🤖 AI 新聞摘要</h1>
+  <div class="meta">2026年8月5日（台北時間） | 資料來源：TechCrunch</div>
+  <div class="stats">
+    <div class="stat"><div class="num">28</div><div class="label">則新聞</div></div>
+    <div class="stat"><div class="num">8</div><div class="label">個分類</div></div>
+    <div class="stat"><div class="num">8</div><div class="label">個主題</div></div>
+  </div>
+</div>
+
+<!-- Keywords Cloud -->
+<div class="keywords">
+  <h3>📌 今日關鍵詞</h3>
+  <div class="kw-cloud">
+    <span class="kw">GLM-5.2</span>
+    <span class="kw">Z.ai</span>
+    <span class="kw">Volta</span>
+    <span class="kw">Bitdeer</span>
+    <span class="kw">Nvidia Vera Rubin</span>
+    <span class="kw">Open Secure AI Alliance</span>
+    <span class="kw">OSAA</span>
+    <span class="kw">SpaceX</span>
+    <span class="kw">xAI</span>
+    <span class="kw">Palantir</span>
+    <span class="kw">Alex Karp</span>
+    <span class="kw">OpenAI</span>
+    <span class="kw">Anthropic</span>
+    <span class="kw">ChatGPT</span>
+    <span class="kw">Siri AI</span>
+    <span class="kw">Apple</span>
+    <span class="kw">AWS</span>
+    <span class="kw">Superblocks</span>
+    <span class="kw">Spotify</span>
+    <span class="kw">Merlin</span>
+    <span class="kw">Design Arena</span>
+    <span class="kw">Runware</span>
+    <span class="kw">Sonic Inference Pod</span>
+    <span class="kw">Texas</span>
+    <span class="kw">Greg Abbott</span>
+    <span class="kw">Airtable</span>
+    <span class="kw">Bending Spoons</span>
+    <span class="kw">Valar Atomics</span>
+    <span class="kw">Waymo</span>
+    <span class="kw">Lucid Motors</span>
+    <span class="kw">Hugging Face</span>
+    <span class="kw">SaferAI</span>
+    <span class="kw">OpenAI GPT-5.6 Sol</span>
+    <span class="kw">Claude Opus 4.7</span>
+    <span class="kw">Elon Musk</span>
+    <span class="kw">Sam Altman</span>
+    <span class="kw">Dario Amodei</span>
+    <span class="kw">Jensen Huang</span>
+    <span class="kw">ChatGPT Work</span>
+    <span class="kw">iOS 27</span>
+  </div>
+</div>
+
+<!-- Top 3 Headlines -->
+<div class="top3-section">
+  <h2>🔥 每日 3 大頭條</h2>
+  <div class="top3-grid">
+    <div class="top-card">
+      <div class="rank">#1</div>
+      <h3><a href="https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/" target="_blank">Open-weight AI models are catching up to the frontier. The safety gap remains.</a></h3>
+      <div class="why">💡 中國開源模型 GLM-5.2 能力直逼 OpenAI/Claude 前段班，但安全防護嚴重不足，引發開源 AI 治理危機。</div>
+    </div>
+    <div class="top-card">
+      <div class="rank">#2</div>
+      <h3><a href="https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/" target="_blank">Anthropic signs $10B deal with AI cloud startup Volta</a></h3>
+      <div class="why">💡 Anthropic 與雲端新創 Volta 簽下 6 年 100 億美元算力大單，顯示 AI 實驗室的算力軍備競賽持續升溫。</div>
+    </div>
+    <div class="top-card">
+      <div class="rank">#3</div>
+      <h3><a href="https://techcrunch.com/2026/08/04/nvidia-doesnt-mess-around-a-week-after-open-ai-industry-group-formed-its-already-showing-progress/" target="_blank">Nvidia doesn’t mess around: A week after open AI industry group formed, it’s already showing progress</a></h3>
+      <div class="why">💡 Nvidia 號召 120 家企業成立 Open Secure AI Alliance，一週內提出首份 AI 安全建議，顯示產業自律加速。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Category Radar -->
+<div class="radar-section">
+  <h2>📊 主題雷達</h2>
+  <div class="radar-grid">
+    <div class="radar-card">
+      <div class="cat-name">💾 AI 晶片與硬體</div>
+      <div class="count">6 則</div>
+      <div class="sample">Anthropic signs $10B deal with AI cloud startup Vo…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🧠 AI 模型與研究</div>
+      <div class="count">1 則</div>
+      <div class="sample">Open-weight AI models are catching up to the front…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🤖 AI 產品與應用</div>
+      <div class="count">7 則</div>
+      <div class="sample">Spotify expands AI remix and covers project with M…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🏢 企業 AI 動態</div>
+      <div class="count">7 則</div>
+      <div class="sample">Elon Musk spends half his time talking robots and …</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">💰 AI 投融資與併購</div>
+      <div class="count">7 則</div>
+      <div class="sample">Anthropic signs $10B deal with AI cloud startup Vo…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🏛️ AI 政策與監管</div>
+      <div class="count">5 則</div>
+      <div class="sample">Texas halts new data centers as governor calls for…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">👥 AI 人事與組織</div>
+      <div class="count">2 則</div>
+      <div class="sample">Influencers draw backlash for attending OpenAI’s f…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🌍 AI 國際與地緣政治</div>
+      <div class="count">2 則</div>
+      <div class="sample">Open-weight AI models are catching up to the front…</div>
+    </div>
+  </div>
+</div>
+
+<!-- Full News List -->
+<div class="news-section">
+  <h2>📰 完整新聞清單</h2>
+
+  <div class="news-group">
+    <h3>💾 AI 晶片與硬體（6 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/" target="_blank">Anthropic signs $10B deal with AI cloud startup Volta</a></h4>
+        <span class="time">2026-08-04T12:48</span>
+      </div>
+      <p class="summary">Anthropic has been on a cloud partnership spree in recent months, and its latest move is reportedly a $10 billion deal with AI cloud startup Volta. Bloomberg originally reported that Volta, founded earlier this year, will provide cloud compute to the Claude maker over a six-year period.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Anthropic 擴大雲端合作，6 年 100 億美元大單顯示 AI 實驗室對算力的飢渴競爭。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Volta</span>、<span>Bitdeer</span>、<span>SpaceX</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Nvidia (NVDA)</span>、<span>NVIDIA (NVDA)</span>、<span>Amazon (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/nvidia-doesnt-mess-around-a-week-after-open-ai-industry-group-formed-its-already-showing-progress/" target="_blank">Nvidia doesn’t mess around: A week after open AI industry group formed, it’s already showing progress</a></h4>
+        <span class="time">2026-08-04T12:28</span>
+      </div>
+      <p class="summary">The week-old Open Secure AI Alliance (OSAA), an industry group spearheaded by Nvidia that has already grown to over 120 companies, has developed a cutely named working group, the Shared AI Findings Exchange, or SAFE.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Open Secure AI Alliance（OSAA）</span>、<span>Linux Foundation</span>、<span>OpenAI</span>、<span>Hugging Face</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>Amazon (AMZN)</span>、<span>Microsoft (MSFT)</span>、<span>Nvidia (NVDA)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/texas-halts-new-data-centers-as-governor-calls-for-audits/" target="_blank">Texas halts new data centers as governor calls for audits</a></h4>
+        <span class="time">2026-08-04T08:42</span>
+      </div>
+      <p class="summary">Tech companies and developers have been scouring the U.S. for places to build data centers, and they’ve been drawn to Texas’ loose regulations and seemingly abundant power supply. Only Virginia hosts more data centers than Texas. But even Texas can be pushed to the brink.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>德州暫停新資料中心審計，顯示 AI 基礎設施擴張已觸及電網與監管瓶頸。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>德州</span>、<span>Greg Abbott（德州州長）</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/is-the-future-of-data-centers-portable-runware-builds-a-pod-to-find-out/" target="_blank">Is the future of data centers portable? Runware builds a pod to find out</a></h4>
+        <span class="time">2026-08-04T06:00</span>
+      </div>
+      <p class="summary">On Tuesday, AI infrastructure company Runware announced the launch of its own modular data center called Sonic Inference Pod. Designed as a single transportable unit, the Pod represents a more flexible kind of compute that can sit alongside hyperscalers’ massive data center projects.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>模組化 AI 推論艙挑戰大型資料中心剛性建造模式，反應市場對彈性算力的需求。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>SpaceX</span>、<span>Runware</span>、<span>Sonic Inference Pod</span>、<span>OpenAI</span>、<span>Intelligence</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/sequoias-shaun-maguire-leads-1b-round-for-nuclear-startup-valar-atomics/" target="_blank">Sequoia’s Shaun Maguire leads $1B round for nuclear startup Valar Atomics</a></h4>
+        <span class="time">2026-08-03T00:00</span>
+      </div>
+      <p class="summary">Valar Atomics confirmed the whisperings that it was raising a giant round led by Sequoia on Monday. The startup’s founder and CEO Isaiah Taylor announced that the company has raised $1 billion in equity, with Sequoia partner Shaun Maguire joining its board, and that it also secured a $200 million line of credit from Erebor and other banks.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Valar Atomics</span>、<span>Sequoia Capital</span></div>
+      <div class="stocks">相關概念股：<span>Nvidia (NVDA)</span>、<span>NVIDIA (NVDA)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/spacex-doubles-revenues-on-anthropic-and-google-compute-deals-starlink-growth/" target="_blank">SpaceX doubles revenue on Anthropic and Google compute deals, Starlink growth</a></h4>
+        <span class="time">2026-08-04T00:00</span>
+      </div>
+      <p class="summary">SpaceX doubled its revenue compared to last year, in large part thanks to the growth of its Starlink satellite internet service and deals it struck to rent out computing power to Anthropic and Google, the company revealed in its first quarterly earnings since going public.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>SpaceX 營收翻倍，AI 算力租賃與 Starlink 為主要引擎，反映 Elon Musk 生態系整合深度。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>SpaceX</span>、<span>xAI</span>、<span>OpenAI</span>、<span>Elon Musk</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>Amazon (AMZN)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🧠 AI 模型與研究（1 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/" target="_blank">Open-weight AI models are catching up to the frontier. The safety gap remains.</a></h4>
+        <span class="time">2026-08-04T13:05</span>
+      </div>
+      <p class="summary">As policymakers debate how to govern increasingly powerful AI systems like OpenAI’s GPT-5.6 Sol and Anthropic’s Mythos, a Chinese open-weight model has narrowed the gap with the industry’s leaders.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>中國開源模型 GLM-5.2 能力直逼前段班，但安全防護幾乎缺席，暴露開源模型治理缺口。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>GLM-5.2</span>、<span>Z.ai</span>、<span>SaferAI</span>、<span>Henry Papadatos（SaferAI 執行總監）</span>、<span>xAI</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>DeepMind (GOOGL)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🤖 AI 產品與應用（7 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/spotify-adds-merlin-to-its-ai-music-remix-and-covers-effort/" target="_blank">Spotify expands AI remix and covers project with Merlin partnership</a></h4>
+        <span class="time">2026-08-04T08:50</span>
+      </div>
+      <p class="summary">During its second-quarter earnings call on Tuesday, Spotify again teased the upcoming release of a new product that will allow music fans to leverage AI to make covers and remixes of artists’ music, with the artists’ consent.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Spotify AI 混音與重製工具擴大合作獨立唱片，音樂產業與 AI 的授權戰局持續演變。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Spotify</span>、<span>Merlin</span>、<span>Universal Music Group</span></div>
+      <div class="stocks">相關概念股：<span>Spotify (SPOT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/aws-is-helping-vibe-coding-startup-superblocks-and-the-implications-are-big/" target="_blank">AWS is helping vibe-coding startup Superblocks, and the implications are big</a></h4>
+        <span class="time">2026-08-03T13:00</span>
+      </div>
+      <p class="summary">Vibe-coding startup Superblocks announced a multiyear joint marketing agreement with Amazon Web Services (AWS) that enables its tool to be embedded within the private clouds of AWS customers.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Amazon Web Services（AWS）</span>、<span>Superblocks</span></div>
+      <div class="stocks">相關概念股：<span>Amazon (AMZN)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/designarena-creators-raise-7-9-million-to-bring-taste-to-ai-models/" target="_blank">Design Arena creators raise $7.9 million to bring taste to AI models</a></h4>
+        <span class="time">2026-08-03T12:28</span>
+      </div>
+      <p class="summary">As co-founder Grace Li tells it, her company started a few weeks before graduation in 2025, with a handful of college friends trying to make their AI game engine work.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Design Arena 以人類品味評估填補 AI 模型改進缺口，ARR 已達 6000 萬美元。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>ChatGPT</span>、<span>Design Arena</span>、<span>Intelligence</span>、<span>Grace Li（Intelligence 共同創辦人）</span>、<span>Hugging Face</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/apple-finally-fixed-siri-so-why-does-it-feel-anticlimactic/" target="_blank">Apple finally fixed Siri. So why does it feel anticlimactic?</a></h4>
+        <span class="time">2026-08-03T11:43</span>
+      </div>
+      <p class="summary">After rounds of delays, Siri AI arrived in the consumer beta build of iOS 27, launched in July. The AI assistant now does what Apple promised: It understands your personal context, taps into broad world knowledge to answer your questions, and surfaces relevant information stored on your iPhone. And yet, the arrival feels somewhat anticlimactic.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Siri AI 終於上線但已失去領先優勢，Apple AI 策略落後同業的代價浮現。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Apple</span>、<span>Siri AI</span>、<span>Google Gemini</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span>、<span>Google (GOOGL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/02/sam-altman-and-ais-decel-debate/" target="_blank">Sam Altman and AI’s decel debate</a></h4>
+        <span class="time">2026-08-02T13:54</span>
+      </div>
+      <p class="summary">Listen on Apple Podcasts Listen on Spotify OpenAI CEO Sam Altman recently said that it may be time to “pace the rate of AI development” so that society can “harden around some of these new capability levels.” On the latest episode of TechCrunch’s Equity podcast, Kirsten Korosec, Sean O’Kane, and I d...</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Sam Altman 持續倡議 AI 減速論，反映產業內部對發展速度的深刻分歧。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Apple</span>、<span>OpenAI</span>、<span>Spotify</span>、<span>Hugging Face</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span>、<span>Meta (META)</span>、<span>Spotify (SPOT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/lucids-turnaround-plan-hinges-on-1-4b-in-cash-savings-robotaxis/" target="_blank">Lucid’s turnaround plan hinges on $1.4B in cash savings, robotaxis</a></h4>
+        <span class="time">2026-08-04T00:00</span>
+      </div>
+      <p class="summary">Lucid Motors said Tuesday that its “operational reset” will focus on $1.4 billion in cash reductions along with three other “must win” and potential money-making priorities that include robotaxis, its factory in Saudi Arabia, and launching a mid-sized electric vehicle.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Lucid Motors</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Lucid (LCID)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/waymo-opens-up-robotaxi-service-in-dallas-to-everyone/" target="_blank">Waymo opens up robotaxi service in Dallas to everyone</a></h4>
+        <span class="time">2026-08-04T00:00</span>
+      </div>
+      <p class="summary">Autonomous car maker Waymo has dropped the waitlist for its robotaxi service in Dallas, opening it up to all residents and visitors. This is the latest step in the Alphabet-owned company’s bid to scale its self-driving technology across Europe, the United Kingdom, and the United States.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Waymo 開放達拉斯全域無人計程車服務，為商業化規模化重要里程碑。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>德州</span>、<span>Waymo</span></div>
+      <div class="stocks">相關概念股：<span>Alphabet (GOOGL)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🏢 企業 AI 動態（7 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/elon-musk-spends-half-his-time-talking-robots-and-ai-on-tesla-earnings-calls/" target="_blank">Elon Musk spends half his time talking robots and AI on Tesla earnings calls</a></h4>
+        <span class="time">2026-08-04T08:20</span>
+      </div>
+      <p class="summary">Elon Musk wants you to believe Tesla is no longer a car company, even if it’s still shaped like one. The company shipped nearly half a million cars last quarter and made 70% of its money from car sales.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>馬斯克在 Tesla 法說會上近半時間談論 AI 與機器人，顯示 Tesla 核心業務關注度正在質變。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Intelligence</span>、<span>Elon Musk</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Tesla (TSLA)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/after-killer-quarter-palantir-ceo-alex-karp-calls-ai-industry-marxist/" target="_blank">After killer quarter, Palantir CEO Alex Karp calls AI industry ‘Marxist’</a></h4>
+        <span class="time">2026-08-03T16:19</span>
+      </div>
+      <p class="summary">Palantir CEO Alex Karp on Monday once again warned that AI frontier labs are too untrustworthy for enterprises. The CEO, who famously studied philosophy and earned a PhD in social theory, implied in Palantir’s quarterly shareholder letter that these were the kinds of capitalists who gave rise to Marxist socialism.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Palantir 單季盈利 10 億美元，Alex Karp 公開抨擊 AI 業界「馬克思主義」，反映企業 AI 市場分歧加劇。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Palantir</span>、<span>Alex Karp（Palantir CEO）</span>、<span>OpenAI</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Palantir (PLTR)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/aws-is-helping-vibe-coding-startup-superblocks-and-the-implications-are-big/" target="_blank">AWS is helping vibe-coding startup Superblocks, and the implications are big</a></h4>
+        <span class="time">2026-08-03T13:00</span>
+      </div>
+      <p class="summary">Vibe-coding startup Superblocks announced a multiyear joint marketing agreement with Amazon Web Services (AWS) that enables its tool to be embedded within the private clouds of AWS customers.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Amazon Web Services（AWS）</span>、<span>Superblocks</span></div>
+      <div class="stocks">相關概念股：<span>Amazon (AMZN)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/congresss-favorite-ai-tool-chatgpt/" target="_blank">Congress’ favorite AI tool? ChatGPT</a></h4>
+        <span class="time">2026-08-03T09:40</span>
+      </div>
+      <p class="summary">OpenAI’s ChatGPT is Congress’ AI tool of choice so far in terms of money spent, according to a report from CNBC. OpenAI received roughly 90% of all spending on AI tools by House offices, committees, and institutional accounts during the year ending in March 31, per House disbursement records.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>美國國會 ChatGPT 使用佔 AI 支出 90%，顯示生成式 AI 在政府機構已廣泛滲透。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>OpenAI</span>、<span>ChatGPT</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/" target="_blank">Sam Altman is still making the case for parenting via ChatGPT</a></h4>
+        <span class="time">2026-08-01T10:07</span>
+      </div>
+      <p class="summary">OpenAI CEO Sam Altman seemed excited to share what he called a “cool use case” on Friday, posting that parents could “connect your family calendars and explain your kids’ interests” to the company’s new product ChatGPT Work, then “every morning for the drive to school, have it make a podcast that ta...</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Sam Altman 持續倡議 AI 減速論，反映產業內部對發展速度的深刻分歧。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>OpenAI</span>、<span>ChatGPT</span>、<span>Amazon Web Services（AWS）</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Meta (META)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/spacex-doubles-revenues-on-anthropic-and-google-compute-deals-starlink-growth/" target="_blank">SpaceX doubles revenue on Anthropic and Google compute deals, Starlink growth</a></h4>
+        <span class="time">2026-08-04T00:00</span>
+      </div>
+      <p class="summary">SpaceX doubled its revenue compared to last year, in large part thanks to the growth of its Starlink satellite internet service and deals it struck to rent out computing power to Anthropic and Google, the company revealed in its first quarterly earnings since going public.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>SpaceX 營收翻倍，AI 算力租賃與 Starlink 為主要引擎，反映 Elon Musk 生態系整合深度。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>SpaceX</span>、<span>xAI</span>、<span>OpenAI</span>、<span>Elon Musk</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>Amazon (AMZN)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/whos-legally-to-blame-for-anthropic-and-openais-autonomous-ai-hacks-its-complicated/" target="_blank">Who’s legally to blame for Anthropic and OpenAI’s autonomous AI hacks? It’s complicated</a></h4>
+        <span class="time">2026-08-03T00:00</span>
+      </div>
+      <p class="summary">Can autonomous AI agents be sued or prosecuted for hacking? It’s no longer a question for sci-fi movies. It’s a question human lawyers and judges may soon have to grapple with. Under current U.S. hacking laws, a human can face criminal charges for breaking into someone else’s computer without permission.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Apple</span>、<span>OpenAI</span>、<span>Amazon Web Services（AWS）</span>、<span>Hugging Face</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>💰 AI 投融資與併購（7 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/anthropic-signs-10-billion-deal-with-ai-cloud-startup-volta/" target="_blank">Anthropic signs $10B deal with AI cloud startup Volta</a></h4>
+        <span class="time">2026-08-04T12:48</span>
+      </div>
+      <p class="summary">Anthropic has been on a cloud partnership spree in recent months, and its latest move is reportedly a $10 billion deal with AI cloud startup Volta. Bloomberg originally reported that Volta, founded earlier this year, will provide cloud compute to the Claude maker over a six-year period.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Anthropic 擴大雲端合作，6 年 100 億美元大單顯示 AI 實驗室對算力的飢渴競爭。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Volta</span>、<span>Bitdeer</span>、<span>SpaceX</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Nvidia (NVDA)</span>、<span>NVIDIA (NVDA)</span>、<span>Amazon (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/designarena-creators-raise-7-9-million-to-bring-taste-to-ai-models/" target="_blank">Design Arena creators raise $7.9 million to bring taste to AI models</a></h4>
+        <span class="time">2026-08-03T12:28</span>
+      </div>
+      <p class="summary">As co-founder Grace Li tells it, her company started a few weeks before graduation in 2025, with a handful of college friends trying to make their AI game engine work.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Design Arena 以人類品味評估填補 AI 模型改進缺口，ARR 已達 6000 萬美元。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>ChatGPT</span>、<span>Design Arena</span>、<span>Intelligence</span>、<span>Grace Li（Intelligence 共同創辦人）</span>、<span>Hugging Face</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/a-marc-benioff-backed-startup-thinks-ai-can-solve-the-ai-deployment-problem/" target="_blank">A Marc Benioff-backed startup thinks AI can solve the AI deployment problem</a></h4>
+        <span class="time">2026-08-03T03:00</span>
+      </div>
+      <p class="summary">It’s so hard for big businesses to get AI tools working reliably that whole new organizations of forward-deployed engineers or FDEs — specialists who drop into a company to get its AI systems up and running — are springing up to help them.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Sam Altman（OpenAI CEO）</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/bending-spoons-to-buy-airtable-for-1-28b/" target="_blank">Bending Spoons to buy Airtable for $1.28B</a></h4>
+        <span class="time">2026-08-04T00:00</span>
+      </div>
+      <p class="summary">In its first acquisition since going public last month, Bending Spoons on Tuesday said that it has agreed to buy spreadsheet and database startup Airtable for $1.28 billion in cash. Founded in 2013, Airtable has so far raised more than $1.4 billion over multiple funding rounds.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Bending Spoons 以 12.8 億美元收購 Airtable，顯示 SaaS 工具整合趨勢加速。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Airtable</span>、<span>Bending Spoons</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/sequoias-shaun-maguire-leads-1b-round-for-nuclear-startup-valar-atomics/" target="_blank">Sequoia’s Shaun Maguire leads $1B round for nuclear startup Valar Atomics</a></h4>
+        <span class="time">2026-08-03T00:00</span>
+      </div>
+      <p class="summary">Valar Atomics confirmed the whisperings that it was raising a giant round led by Sequoia on Monday. The startup’s founder and CEO Isaiah Taylor announced that the company has raised $1 billion in equity, with Sequoia partner Shaun Maguire joining its board, and that it also secured a $200 million line of credit from Erebor and other banks.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Valar Atomics</span>、<span>Sequoia Capital</span></div>
+      <div class="stocks">相關概念股：<span>Nvidia (NVDA)</span>、<span>NVIDIA (NVDA)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/01/inside-one-london-founder-house-rewriting-the-founder-house-rules/" target="_blank">Inside the London hacker house taking a stand against founder burnout</a></h4>
+        <span class="time">2026-08-01T00:00</span>
+      </div>
+      <p class="summary">Six twentysomethings in East London have built what they say is the anti-San Francisco hacker house. The goal is a “holistic improvement in life,” rather than “12 weeks, Demo Day is coming,” Rowan Aldean, 26, explained. Intrigued, I spent an afternoon visiting the house, meeting its residents, and doing a vibe check.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Intelligence</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>DeepMind (GOOGL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/02/techcrunch-mobility-two-roads-diverged-for-robotaxis/" target="_blank">TechCrunch Mobility: Two roads diverged — for robotaxis</a></h4>
+        <span class="time">2026-08-02T00:00</span>
+      </div>
+      <p class="summary">Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, the role AI is playing in it.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Waymo</span>、<span>Lucid Motors</span>、<span>Elon Musk</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Lucid (LCID)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🏛️ AI 政策與監管（5 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/texas-halts-new-data-centers-as-governor-calls-for-audits/" target="_blank">Texas halts new data centers as governor calls for audits</a></h4>
+        <span class="time">2026-08-04T08:42</span>
+      </div>
+      <p class="summary">Tech companies and developers have been scouring the U.S. for places to build data centers, and they’ve been drawn to Texas’ loose regulations and seemingly abundant power supply. Only Virginia hosts more data centers than Texas. But even Texas can be pushed to the brink.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>德州暫停新資料中心審計，顯示 AI 基礎設施擴張已觸及電網與監管瓶頸。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>德州</span>、<span>Greg Abbott（德州州長）</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/apple-says-more-ex-employees-may-have-taken-confidential-data-to-openai/" target="_blank">Apple says more ex-employees may have taken confidential data to OpenAI</a></h4>
+        <span class="time">2026-08-04T07:03</span>
+      </div>
+      <p class="summary">Apple is now seeking a preliminary injunction in its trade secrets case against OpenAI, which aims to stop the AI model maker from moving forward with developing an AI device or other products based on Apple’s technology. The iPhone maker also claims that more of its former employees may be involved with the trade secrets theft.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Apple 擴大指控 OpenAI 挖角竊密，突顯 AI 人才戰與智財權界線的緊張關係。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Apple</span>、<span>OpenAI</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/congresss-favorite-ai-tool-chatgpt/" target="_blank">Congress’ favorite AI tool? ChatGPT</a></h4>
+        <span class="time">2026-08-03T09:40</span>
+      </div>
+      <p class="summary">OpenAI’s ChatGPT is Congress’ AI tool of choice so far in terms of money spent, according to a report from CNBC. OpenAI received roughly 90% of all spending on AI tools by House offices, committees, and institutional accounts during the year ending in March 31, per House disbursement records.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>美國國會 ChatGPT 使用佔 AI 支出 90%，顯示生成式 AI 在政府機構已廣泛滲透。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>OpenAI</span>、<span>ChatGPT</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/01/judge-denies-xais-request-to-block-minnesota-ban-on-nudify-apps/" target="_blank">Judge denies xAI’s request to block Minnesota ban on ‘nudify’ apps</a></h4>
+        <span class="time">2026-08-01T13:26</span>
+      </div>
+      <p class="summary">Despite a lawsuit from xAI, a Minnesota ban on apps that allow users to “nudify” images can move forward, according to NBC News. U.S. District Judge Donovan Frank’s ruling focused as much on the timing of xAI’s lawsuit as on the substance of the law itself.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>法院拒絕封鎖「nudify」禁令，顯示 AI 濫用監管已在州層級展開執法。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>SpaceX</span>、<span>xAI</span>、<span>Amazon Web Services（AWS）</span>、<span>Elon Musk</span>、<span>明尼蘇達州</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/apple-challenges-uk-governments-latest-demand-for-icloud-backdoor-report/" target="_blank">Apple challenges UK government’s latest demand for iCloud backdoor: report</a></h4>
+        <span class="time">2026-08-03T00:00</span>
+      </div>
+      <p class="summary">Apple is challenging another legal demand by the U.K. government to access the encrypted data of its users in the country, according to Financial Times.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Apple 挑戰英國國安局要求 iCloud 後門，數位主權與加密之爭延燒至 AI 時代。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Apple</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>👥 AI 人事與組織（2 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/03/influencers-draw-backlash-for-attending-openais-first-luxury-trip/" target="_blank">Influencers draw backlash for attending OpenAI’s first luxury trip</a></h4>
+        <span class="time">2026-08-03T12:09</span>
+      </div>
+      <p class="summary">OpenAI’s first-ever influencer brand trip is sparking online backlash as tensions over the use of AI continue.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>OpenAI 首次網紅行銷trip 引發反彈，顯示 AI 企業品牌塑造策略正受公眾檢視。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>OpenAI</span>、<span>ChatGPT</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Microsoft (MSFT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/01/youtuber-hank-green-says-his-ai-usage-is-not-healthy/" target="_blank">YouTuber Hank Green says his AI usage is ‘not healthy’</a></h4>
+        <span class="time">2026-08-01T12:45</span>
+      </div>
+      <p class="summary">Hank Green, a novelist, comedian, and YouTuber with 3.2 million subscribers, recently apologized to his audience for his growing reliance on AI chatbots.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>ChatGPT</span>、<span>Sam Altman（OpenAI CEO）</span>、<span>Hank Green（YouTuber）</span></div>
+      <div class="stocks">相關概念股：<span>Uber (UBER)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🌍 AI 國際與地緣政治（2 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/" target="_blank">Open-weight AI models are catching up to the frontier. The safety gap remains.</a></h4>
+        <span class="time">2026-08-04T13:05</span>
+      </div>
+      <p class="summary">As policymakers debate how to govern increasingly powerful AI systems like OpenAI’s GPT-5.6 Sol and Anthropic’s Mythos, a Chinese open-weight model has narrowed the gap with the industry’s leaders.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>中國開源模型 GLM-5.2 能力直逼前段班，但安全防護幾乎缺席，暴露開源模型治理缺口。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>GLM-5.2</span>、<span>Z.ai</span>、<span>SaferAI</span>、<span>Henry Papadatos（SaferAI 執行總監）</span>、<span>xAI</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>DeepMind (GOOGL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/04/nvidia-doesnt-mess-around-a-week-after-open-ai-industry-group-formed-its-already-showing-progress/" target="_blank">Nvidia doesn’t mess around: A week after open AI industry group formed, it’s already showing progress</a></h4>
+        <span class="time">2026-08-04T12:28</span>
+      </div>
+      <p class="summary">The week-old Open Secure AI Alliance (OSAA), an industry group spearheaded by Nvidia that has already grown to over 120 companies, has developed a cutely named working group, the Shared AI Findings Exchange, or SAFE.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Open Secure AI Alliance（OSAA）</span>、<span>Linux Foundation</span>、<span>OpenAI</span>、<span>Hugging Face</span>、<span>Sam Altman（OpenAI CEO）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>Amazon (AMZN)</span>、<span>Microsoft (MSFT)</span>、<span>Nvidia (NVDA)</span></div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tomorrow Watch -->
+<div class="tomorrow">
+  <h2>🔮 明日觀察</h2>
+  <ul>
+    <li>GLM-5.2 安全報告可能引發美國政府對中國開源模型的新一波政策討論</li>
+    <li>Anthropic 算力擴張新聞可能帶動雲端基礎建設類股（NVIDIA、AMD）持續走高</li>
+    <li>Apple vs OpenAI 官司預計有新進展，雙方攻防持續升級</li>
+    <li>Nvidia OSAA 安全聯盟可能吸引更多企業加入，抗衡 Anthropic 缺席的疑慮</li>
+    <li>Texas 資料中心審計結果出爐，可能影響其他州跟進監管 AI 基礎設施</li>
+    <li>ChatGPT 在國會的廣泛使用可能引發新一波政府 AI 採購政策辯論</li>
+    <li>Palantir 季報後續效應：Alex Karp 的「馬克思主義」言論是否影響企業夥伴關係</li>
+    <li>Siri AI 正式版（iOS 27）發布時間臨近，Apple AI 生態系能見度將提升</li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>AI 新聞摘要 {date_display} | 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p>由 OpenClaw AI 自動編譯 | <a href="https://github.com/acstep/TECH" target="_blank">GitHub Repo</a></p>
+</div>
+
+</div><!-- container -->
+</body>
+</html>
