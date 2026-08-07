@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要 2026-08-07 | TECH</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: #080810;
+  color: #e8e8f0;
+  line-height: 1.7;
+  padding: 20px;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+
+/* Header */
+.back-bar { margin-bottom: 24px; }
+.back-bar a { color: #00d4ff; text-decoration: none; font-size: 0.9em; }
+.back-bar a:hover { text-decoration: underline; }
+
+header { margin-bottom: 32px; }
+.report-date { color: #00d4ff; font-size: 0.9em; font-weight: 600; margin-bottom: 8px; }
+h1 { font-size: 2.2em; font-weight: 900; color: #fff; margin-bottom: 8px; }
+.report-meta { color: #888; font-size: 0.85em; margin-bottom: 20px; }
+.report-meta span { margin-right: 16px; }
+.keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.kw { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.25); color: #00d4ff; padding: 3px 10px; border-radius: 20px; font-size: 0.78em; }
+
+/* Top 3 headlines */
+.top-headlines { margin-bottom: 40px; }
+.top-headlines h2 { color: #00ff88; font-size: 1.4em; margin-bottom: 16px; }
+.hl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 768px) { .hl-grid { grid-template-columns: 1fr; } }
+.hl-card {
+  background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,212,255,0.05));
+  border: 1px solid rgba(0,255,136,0.2);
+  border-radius: 14px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.hl-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #00d4ff, #00ff88); }
+.hl-rank { font-size: 0.75em; color: #00ff88; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.hl-title { color: #fff; font-size: 1.05em; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+.hl-title a { color: #fff; text-decoration: none; }
+.hl-title a:hover { color: #00d4ff; }
+.hl-summary { color: #aaa; font-size: 0.88em; line-height: 1.55; }
+.hl-tag { display: inline-block; background: rgba(0,212,255,0.15); color: #00d4ff; font-size: 0.72em; padding: 2px 8px; border-radius: 4px; margin-top: 10px; }
+
+/* Category sections */
+.section { margin-bottom: 40px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.section-icon { font-size: 1.3em; }
+.section-title { color: #fff; font-size: 1.2em; font-weight: 700; }
+.section-count { background: rgba(0,255,136,0.15); color: #00ff88; font-size: 0.75em; padding: 2px 8px; border-radius: 10px; margin-left: auto; }
+
+/* News cards */
+.news-list { display: flex; flex-direction: column; gap: 12px; }
+.news-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: all 0.25s;
+}
+.news-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-2px); }
+.news-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+.news-title { font-size: 1em; font-weight: 600; color: #fff; flex: 1; }
+.news-title a { color: #fff; text-decoration: none; }
+.news-title a:hover { color: #00d4ff; }
+.news-meta { font-size: 0.75em; color: #666; white-space: nowrap; margin-top: 2px; }
+.news-summary { color: #aaa; font-size: 0.9em; line-height: 1.6; margin-bottom: 10px; }
+.news-why { background: rgba(0,255,136,0.06); border-left: 3px solid #00ff88; padding: 8px 12px; border-radius: 0 8px 8px 0; margin-bottom: 10px; }
+.news-why-label { color: #00ff88; font-size: 0.72em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+.news-why-text { color: #ccc; font-size: 0.85em; }
+.news-footer { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tag { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); color: #00d4ff; font-size: 0.72em; padding: 2px 8px; border-radius: 4px; }
+.stock { background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.25); color: #00ff88; font-size: 0.72em; padding: 2px 8px; border-radius: 4px; }
+
+/* Tomorrow */
+.tomorrow { background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,255,136,0.05)); border: 1px solid rgba(0,212,255,0.2); border-radius: 16px; padding: 28px; margin-bottom: 40px; }
+.tomorrow h2 { color: #00d4ff; font-size: 1.3em; margin-bottom: 14px; }
+.tomorrow ul { list-style: none; }
+.tomorrow li { padding: 6px 0; padding-left: 20px; position: relative; color: #ccc; font-size: 0.92em; }
+.tomorrow li::before { content: "▸"; position: absolute; left: 0; color: #00ff88; }
+
+/* Footer */
+footer { text-align: center; color: #555; font-size: 0.85em; padding: 30px 20px; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
+footer a { color: #00d4ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="back-bar">
+  <a href="../index.html">← 返回首頁</a>
+</div>
+
+<header>
+  <div class="report-date">📅 2026-08-07（台北時間）</div>
+  <h1>📰 每日 AI 新聞摘要</h1>
+  <div class="report-meta">
+    <span>📊 20 則新聞</span>
+    <span>🏷️ 8 個分類</span>
+    <span>🕐 過去 24 小時</span>
+  </div>
+  <div class="keywords">
+    <span class="kw">ChatGPT</span>
+    <span class="kw">OpenAI</span>
+    <span class="kw">Anthropic</span>
+    <span class="kw">Jeff Dean</span>
+    <span class="kw">Google Maps</span>
+    <span class="kw">Meta Muse</span>
+    <span class="kw">Suno</span>
+    <span class="kw">Terafab</span>
+    <span class="kw">Discovery Loop</span>
+    <span class="kw">Ditto</span>
+    <span class="kw">Naïve</span>
+    <span class="kw">Omilia</span>
+  </div>
+</header>
+
+<!-- TOP 3 HEADLINES -->
+<div class="top-headlines">
+  <h2>🔥 每日 3 大頭條</h2>
+  <div class="hl-grid">
+    <div class="hl-card">
+      <div class="hl-rank">#1 頭條</div>
+      <div class="hl-title"><a href="https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/" target="_blank">Jeff Dean 等 Google 頂尖科學家出走，創辦 Discovery Loop 進軍科研 AI</a></div>
+      <div class="hl-summary">Google 傳奇人物 Jeff Dean、Sanjay Ghemawat、Quoc Le、Oriol Vinyals 集體出走，創辦 Discovery Loop，目標以 AI 递归自我改進加速科學發現。這支「全明星」團隊已獲 Radical Ventures 與 Khosla Ventures 領投，Alphabet 也參與其中。</div>
+      <span class="hl-tag">👥 人事與組織</span>
+    </div>
+    <div class="hl-card">
+      <div class="hl-rank">#2 頭條</div>
+      <div class="hl-title"><a href="https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/" target="_blank">ChatGPT 免費版開放無限文字聊天，邁向 10 億週活躍用戶里程碑</a></div>
+      <div class="hl-summary">OpenAI 宣布 ChatGPT 免費與 Go 用戶即日起可享有無限文字對話，並新增「Think」按鈕應對複雜問題。GPT-5.6 Luna 為新版預設模型，號稱事實錯誤率較 GPT-5.5 大幅降低 62%。Plus 與 Pro 用戶則獲得更緊湊答案的 GPT-5.6 Sol 模型。</div>
+      <span class="hl-tag">🤖 產品與應用</span>
+    </div>
+    <div class="hl-card">
+      <div class="hl-rank">#3 頭條</div>
+      <div class="hl-title"><a href="https://techcrunch.com/2026/08/06/tesla-and-spacex-will-invest-16-8b-to-start-building-terafab-chip-factory-in-texas/" target="_blank">Tesla 與 SpaceX 宣布投資 168 億美元在德州興建 Terafab 晶片廠</a></div>
+      <div class="hl-summary">Musk 的兩家公司聯手在德州 Grimes County 興建全球最大半導體廠房，面積超過 1 億平方英尺，初期投資 168 億美元，遠期規劃總投資達 1,190 億美元。Intel 已宣布參與合作，該廠將為 Optimus 機器人、Cybercab 自駕計程車及太空資料中心生產專用 AI 晶片。</div>
+      <span class="hl-tag">💾 晶片與硬體</span>
+    </div>
+  </div>
+</div>
+
+<!-- 💾 AI 晶片與硬體 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">💾</span>
+    <span class="section-title">AI 晶片與硬體</span>
+    <span class="section-count">3 則</span>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/tesla-and-spacex-will-invest-16-8b-to-start-building-terafab-chip-factory-in-texas/" target="_blank">Tesla 與 SpaceX 宣布投資 168 億美元在德州興建 Terafab 晶片廠</a></div>
+        <div class="news-meta">Aug 6 · Lucas Ropek</div>
+      </div>
+      <div class="news-summary">Elon Musk 旗下 Tesla 與 SpaceX 共同宣布在德州 Grimes County 興建超大型 AI 晶片製造廠「Terafab」，佔地超過 1 億平方英尺。初期投資 1 億 6,800 萬美元，SpaceX 揭露的整體規劃金額更高達 1,190 億美元。Intel 已證實參與合作，該廠將整合製造、封裝、測試於一體，生產 Optimus 機器人、Cybercab 自駕計程車及太空資料中心專用晶片。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">這是 AI 基礎設施軍備競賽的重大升級。Terafab 旨在打造從訓練到推論的完全垂直整合，減少對台積電等代工廠的依賴。1 億平方英尺規模超越目前所有已知半導體廠，顯示 AI 晶片需求已進入下一個量級。</div></div>
+      <div class="news-footer">
+        <span class="tag">Tesla</span><span class="tag">SpaceX</span><span class="tag">Intel</span><span class="tag">Elon Musk</span>
+        <span class="stock">NVDA</span><span class="stock">INTC</span><span class="stock">TSM</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/anthropic-is-hiring-an-ai-chip-design-team/" target="_blank">Anthropic 正式成立自研 AI 晶片團隊，擺脫輝達依賴</a></div>
+        <div class="news-meta">Aug 5 · Ivan Mehta</div>
+      </div>
+      <div class="news-summary">Anthropic 確認正在招募晶片設計工程師，目標打造自研 AI 推論晶片。Anthropic 已與 AWS、Google、Nvidia、AMD 簽署算力合約，但需求飆升使自有晶片成為戰略必要。上月報導指出 Anthropic 正與三星洽談代工合作。繼 OpenAI 推出 Jalapeño 晶片、Google TPU、Meta MTIA 後，Anthropic 加入自研晶片行列。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">AI 公司自研晶片已成趨勢，可降低對 Nvidia 的依賴並優化推論成本。Anthropic 若成功自研，將大幅提升毛利率，並在算力談判中擁有更多話語權。此趨勢對台積電、先進封裝供應鏈為長期利多。</div></div>
+      <div class="news-footer">
+        <span class="tag">Anthropic</span><span class="tag">三星</span><span class="tag">自研晶片</span>
+        <span class="stock">NVDA</span><span class="stock">AMD</span><span class="stock">Samsung</span><span class="stock">TSM</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/macpaw-taps-liquid-ai-to-offer-on-device-inference-to-devs-building-for-its-app-store/" target="_blank">MacPaw 聯手 Liquid AI 在 SetApp 提供端側 AI 推論服務</a></div>
+        <div class="news-meta">Aug 5 · Ivan Mehta</div>
+      </div>
+      <div class="news-summary">烏克蘭開發商 MacPaw 與 Liquid AI 合作，在旗下訂閱制 App Store（SetApp）推出本地端 AI 推論架構「Elix」，讓開發者能在用戶裝置上直接執行 AI 模型，完全不需雲端。Liquid AI 宣稱其模型架構針對硬體最佳化，隱私與離線運行為主要賣點。MacPaw 同時計劃試行基於點數的定價模式。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">端側 AI 推論可在無網路環境下運行，隱私性佳且無雲端成本。Liquid AI 以獨特架構切入高效能本地推論市場，挑戰 Apple 的 CoreML 生态。若定價模式成功，可能成為 App 分發的下一個變現途徑。</div></div>
+      <div class="news-footer">
+        <span class="tag">Liquid AI</span><span class="tag">MacPaw</span><span class="tag">端側 AI</span><span class="tag">SetApp</span>
+        <span class="stock">AAPL</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🧠 AI 模型與研究 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🧠</span>
+    <span class="section-title">AI 模型與研究</span>
+    <span class="section-count">2 則</span>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/meta-launches-muse-code-an-ai-agent-for-large-code-bases/" target="_blank">Meta 推出 Muse Code：可同時並行構建 6 個功能的 AI 程式碼代理</a></div>
+        <div class="news-meta">Aug 5 · Ivan Mehta</div>
+      </div>
+      <div class="news-summary">Meta 發布 Muse Code，這是一款終端機程式碼代理，可自動完成大型程式碼庫中的完整軟體工程任務，包括規劃、撰寫、驗證結果。該工具由 Meta 的 Muse Spark 模型驅動，遇到大型任務時會自動分叉多個子代理並行處理。Mark Zuckerberg 透露，測試中 Muse Code 同時建構遊戲的 6 個功能且無衝突。Alexandr Wang 稱其成本顯著低於 OpenAI Codex 與 Anthropic Claude Code。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">Meta 以低成本程式碼代理切入開發者工具市場，挑戰 OpenAI 與 Anthropic 的霸主地位。若成本優勢屬實，將加速企業採用 AI 編碼工具的普及，並壓縮整個市場的利潤空間。</div></div>
+      <div class="news-footer">
+        <span class="tag">Meta</span><span class="tag">Muse Code</span><span class="tag">AI Agent</span><span class="tag">程式碼</span>
+        <span class="stock">META</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/" target="_blank">Mirendil 簽署 1 億美元以上 Google Cloud 合約，推進递归自我改進 AI</a></div>
+        <div class="news-meta">Aug 6 · Rebecca Bellan</div>
+      </div>
+      <div class="news-summary">Anthropic 前員工創立的 AI 新創 Mirendil 與 Google Cloud 達成逾 1 億美元多年期合作協議，獲取 TPU 與 Nvidia GPU 存取權，以及受管的訓練叢集。Mirendil 目標是打造递归自我改進（RSI）AI 系統，讓 AI 能像人類科學家一樣不斷在醫學、生物、 材料等領域自我強化。公司共同創辦人 Behnam Neyshabur 表示此技術可讓 AI 持續朝阿茲海默症研究等目標推進。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">RSI 是 AI 發展的下一個前沿，被視為接近 AGI 的路徑之一。Mirendil 的 1 億美元級別算力合約顯示 RSI 軍備競賽已進入實際建設階段，同時鞏固了 Google Cloud 在 AI 基礎設施市場的競爭力。</div></div>
+      <div class="news-footer">
+        <span class="tag">Mirendil</span><span class="tag">Google Cloud</span><span class="tag">递归自我改進</span><span class="tag">RSI</span>
+        <span class="stock">GOOGL</span><span class="stock">NVDA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🤖 AI 產品與應用 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🤖</span>
+    <span class="section-title">AI 產品與應用</span>
+    <span class="section-count">6 則</span>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/" target="_blank">OpenAI 智慧音箱設計曝光：甜甜圈造型、逾 300 美元、2027 年發售</a></div>
+        <div class="news-meta">Aug 6 · Lucas Ropek</div>
+      </div>
+      <div class="news-summary">Bloomberg 報導 OpenAI 與 Jony Ive 的 LoveFrom 工作室合作開發的首款硬體裝置為「甜甜圈」形狀的智慧音箱，採用金屬機身搭配活動部件，預計 2027 年上市，售價 300 至 400 美元。與 Jony Ive 的合作被定位為 ChatGPT 的「賽體化身」，可讓用戶在家中不同空間攜帶使用。然而智慧音箱市場過去盈利困難，Amazon Alexa 即為案例。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">OpenAI 首度進軍消費級硬體，為 ChatGPT 的日常滲透開闢新戰場。與 Apple 傳奇設計師 Jony Ive 合作顯示雙方對產品工藝的高度期望。但定價與市場接受度將是最大考驗。</div></div>
+      <div class="news-footer">
+        <span class="tag">OpenAI</span><span class="tag">Jony Ive</span><span class="tag">硬體</span><span class="tag">智慧音箱</span>
+        <span class="stock">AAPL</span><span class="stock">AMZN</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/" target="_blank">ChatGPT 免費版開放無限文字聊天，Think 按鈕同步上線</a></div>
+        <div class="news-meta">Aug 6 · Ivan Mehta</div>
+      </div>
+      <div class="news-summary">OpenAI 宣布 ChatGPT 免費用戶與 Go 用戶即日起可享有無限文字對話（過去有額度限制），並新增「Think」按鈕讓用戶選擇更高推理能力處理複雜問題。GPT-5.6 Luna 為新版預設模型，替代 GPT-5.5；Plus 與 Pro 用戶則獲得升級版 GPT-5.6 Sol，號稱答案更緊湊且事實錯誤率較舊版降低 62-68%。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">移除免費額度限制是 OpenAI 加速用戶成長的戰略之舉。ChatGPT 近期剛突破每週 10 億活躍用戶里程碑，此更新將進一步擴大用戶基數並鞏固市場領先地位。</div></div>
+      <div class="news-footer">
+        <span class="tag">OpenAI</span><span class="tag">ChatGPT</span><span class="tag">GPT-5.6</span><span class="tag">免費</span>
+        <span class="stock">MSFT</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/google-maps-adds-agentic-features-including-food-ordering-and-hotel-bookings/" target="_blank">Google Maps 新增代理功能：可直接訂餐、訂飯店、查演唱會票</a></div>
+        <div class="news-meta">Aug 6 · Aisha Malik</div>
+      </div>
+      <div class="news-summary">Google Maps 的「Ask Maps」功能新增多項代理能力：用戶可用自然語言語音下單餐飲（透過 Square、Toast、Uber Eats）、比較飯店價格並連結預訂、查詢演唱會並直接購票。系統並整合 Personal Intelligence，可存取 Gmail 與 Google Calendar 提供個人化建議，例如「我從溫哥華航班幾點落地？」Google 同時推出對話記憶功能，讓用戶可延續之前的規劃。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">Google Maps 正從單純導航工具轉型為「任務完成代理」，直接威脅 OpenTable、Booking.com 等平台。若滲透率足夠高，將重塑本地商務與旅遊的流量分配。</div></div>
+      <div class="news-footer">
+        <span class="tag">Google</span><span class="tag">Google Maps</span><span class="tag">AI Agent</span><span class="tag">本地商務</span>
+        <span class="stock">GOOGL</span><span class="stock">UBER</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/gen-z-dating-apps-like-ditto-ditch-swiping-in-favor-of-ai-matchmaking/" target="_blank">Gen Z 交友 App Ditto 放棄滑卡，以 AI 配對取代「地獄式聊天」</a></div>
+        <div class="news-meta">Aug 6 · Amanda Silberling</div>
+      </div>
+      <div class="news-summary">由柏克萊大學生創立的 Ditto 放棄傳統滑卡機制，改由 AI 每週三晚間 7 點自動為用戶配對對象並安排約會時間地點。用戶報名後與 AI 聊天機器人來回互動建立人格檔案，演算法根據價值觀而非只是興趣愛好進行配對。Ditto 已獲 920 萬美元種子輪投資（Gradient、Peak XV 等），吸引 15 萬用戶報名，約會轉換率約 20%。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">AI 配對代表交友 App 從「展示櫥窗」進化到「教父角色」。 Ditto 的模式大幅減少用戶時間成本，若規模化成功，將威脅 Tinder、Hinge 的市場主導地位，並展示 AI 在社交網路的實際落地價值。</div></div>
+      <div class="news-footer">
+        <span class="tag">Ditto</span><span class="tag">AI 交友</span><span class="tag">Gen Z</span><span class="tag">Match Group</span>
+        <span class="stock">MTCH</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/hark-previews-its-browser-use-agent-for-completing-tasks/" target="_blank">Hark 推出瀏覽器代理 Handoff：無需 API 即可操作任意網站完成任務</a></div>
+        <div class="news-meta">Aug 5 · Ivan Mehta</div>
+      </div>
+      <div class="news-summary">Hark 發布 Handoff 代理，號稱可流暢操作任何無 API 的網站，包括 Target、Walmart、OpenTable、LinkedIn 等。代理透過理解網站視覺結構與佈局來點擊按鈕或輸入資訊，而非依賴底層代碼。用戶可下指令如「幫我訂一束花」，代理即會自動完成任務。Hark 號稱比 GPT-5.5 與 Opus 4.8 更快且成本更低，已開放 waitlist，預計夏末正式發布。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">瀏覽器代理是 AI Agent 落地最直接的應用場景之一，可自動化電子商務、預訂、研究等日常任務。若 Hark 的成本與速度優勢屬實，將成為 AI Agent 普及的重要推手。</div></div>
+      <div class="news-footer">
+        <span class="tag">Hark</span><span class="tag">Browser Agent</span><span class="tag">自動化</span><span class="tag">AI Agent</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/techcrunch-disrupt-2026s-real-world-ai-stage-features-robots-automated-factories-and-extinct-animals/" target="_blank">TechCrunch Disrupt 2026 推出實體 AI 舞台：機器人、核融合工廠、滅絕物種復活</a></div>
+        <div class="news-meta">Aug 5 · TechCrunch Events</div>
+      </div>
+      <div class="news-summary">TechCrunch Disrupt 2026（10 月 13-15 日，舊金山）新增「Real World AI Stage」，聚焦 AI 與實體世界的交集，包括：Shield AI 談軍事航空 AI 安全、Colossal Biosciences 執行長談滅絕物種復活與 AI 角色、FieldAI 探討邊緣 AI 部署、MBRYONICS 與 Bedrock Robotics 談原型到規模化量產。報名截止日前可享 100 美元優惠。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">此舞台顯示 AI 已從純軟體應用走向實體部署，包括國防、太空、機器人、醫療與生物科學。實體 AI 的硬體基礎設施需求將創造新的投資與併購機會。</div></div>
+      <div class="news-footer">
+        <span class="tag">TechCrunch Disrupt</span><span class="tag">機器人</span><span class="tag">生物科技</span><span class="tag">邊緣 AI</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🏢 企業 AI 動態 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏢</span>
+    <span class="section-title">企業 AI 動態</span>
+    <span class="section-count">1 則</span>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/shopify-says-ai-search-is-driving-more-traffic-and-sales-not-replacing-google/" target="_blank">Shopify：AI 搜尋帶來更多流量而非取代 Google，Q2 營收成長 36%</a></div>
+        <div class="news-meta">Aug 5 · Sarah Perez</div>
+      </div>
+      <div class="news-summary">Shopify 執行長 Harley Finkelstein 在 Q2 財報電話會議表示，AI 搜尋已成為電商流量成長的主要引擎，而非如媒體擔憂的流量小偷。AI 推薦流量較去年同期成長 3 倍，75% 的 AI 成交發生在非前 100 大類別（長尾品類）。傳統搜尋仍佔 3 分之 1 的店鋪流量且持續成長。Finkelstein 指出，AI Agent 理解用戶意圖而非關鍵字，因此轉換率更高，50% 的 AI 流量直接落地商品頁而非首頁。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">AI 搜尋對電商的影響比預期更加正向且複雜：它不是流量轉移而是流量創造。Shopify 已建立連接 Claude、ChatGPT、Perplexity 等的 AI 工具連接器，成為電商 AI 入口的野心明確。</div></div>
+      <div class="news-footer">
+        <span class="tag">Shopify</span><span class="tag">電商</span><span class="tag">AI 搜尋</span><span class="tag">財報</span>
+        <span class="stock">SHOP</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 💰 AI 投融資與併購 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">💰</span>
+    <span class="section-title">AI 投融資與併購</span>
+    <span class="section-count">6 則</span>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/" target="_blank">Naïve 融資 2,850 萬美元：用 API 讓 AI Agent 自動完成公司設立與運營</a></div>
+        <div class="news-meta">Aug 6 · Ram Iyer</div>
+      </div>
+      <div class="news-summary">Naïve 提供一套 API，可讓開發者透過 Cursor、Claude Code、Codex 等工具自動完成公司設立的全流程（支付、郵件、電話號碼、雲端基礎設施、公司註冊），已獲 30,000 開發者採用。CEO Sean Dorje 表示客戶用它運行「無人類」AI 自動化機構、製作 TikTok 頻道甚至出租車行。該公司 6 個月內 ARR 成長 10 倍至低雙位數百萬美元。本輪由 Nexus Venture Partners 領投，Y Combinator、Zetta、Liquid 2 等跟投，總融資達 3,200 萬美元。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">「全 AI 公司」概念正在從實驗走向商業化。Naïve 的 Vibe Coding 模式代表未來創業門檻的徹底瓦解，任何人只要有創意和 API 金鑰即可在極短時間內創建並運營一家公司。</div></div>
+      <div class="news-footer">
+        <span class="tag">Naïve</span><span class="tag">AI Agent</span><span class="tag">創業自動化</span><span class="tag">Vibe Coding</span>
+        <span class="stock">Y Combinator</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/" target="_blank">Mirendil 獲逾 1 億美元 Google Cloud 算力合約</a></div>
+        <div class="news-meta">Aug 6 · Rebecca Bellan</div>
+      </div>
+      <div class="news-summary">AI 新創 Mirendil（Anthropic 前員工創立）與 Google Cloud 達成逾 1 億美元多年期合作協議，用於推进递归自我改進（RSI）AI 研究。這是近期 Google Cloud 與 AI 新創簽署的最大規模算力合約之一。Mirendil 共同創辦人 Behnam Neyshabur 表示，RSI 可讓 AI 持續自我改進，最終實現人類科學家水平的發現能力。公司成立於 2026 年中，估值已達 10 億美元。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">算力合約已成為 AI 新創實力的象徵。Mirendil 的億元級合約顯示 RSI 已不是理論概念，而是有實際資金投入的建設階段，並鞏固了 Google 在 AI 基礎設施市場的話語權。</div></div>
+      <div class="news-footer">
+        <span class="tag">Mirendil</span><span class="tag">Google Cloud</span><span class="tag">算力合約</span><span class="tag">RSI</span>
+        <span class="stock">GOOGL</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/ex-spotify-employees-raise-10m-to-bring-the-ai-behind-its-recommendations-to-e-commerce/" target="_blank">Spotify 前員工創辦 Malachyte，以音樂推薦 AI 技術進軍電商</a></div>
+        <div class="news-meta">Aug 6 · Lauren Forristal</div>
+      </div>
+      <div class="news-summary">三位 Spotify 前員工 Sidd Motwani、Ian Anderson、Shivaditya Sinha 共同創辦 Malachyte，獲得 1,000 萬美元種子輪（Bessemer Venture Partners 與 Gradient 共同領投）。他們將 Spotify 的向量推薦系統改造為電商用的「雙頭向量 AI」，可預測用戶當下意圖與長期偏好，即時調整商品排序，無需登入或歷史紀錄即可在單次瀏覽中建立精準模型。已與 Fun.com 合作，2026 年 6 月起供 Shopify 商戶使用。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">Spotify 的推薦系統是其核心競爭力之一。將此技術遷移到電商，代表推薦 AI 的適用範圍大幅擴展，並可能顛覆現有電商搜尋與推薦的技術棧。</div></div>
+      <div class="news-footer">
+        <span class="tag">Malachyte</span><span class="tag">Spotify</span><span class="tag">電商推薦</span><span class="tag">向量 AI</span>
+        <span class="stock">SPOT</span><span class="stock">SHOP</span><span class="stock">Bessemer</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/omilia-raises-67m-to-scale-its-customer-support-platform/" target="_blank">Omilia 融资 6,700 萬美元，用多層 AI 工具征戰客服市場</a></div>
+        <div class="news-meta">Aug 6 · Ivan Mehta</div>
+      </div>
+      <div class="news-summary">總部位於雅典的 Omilia 宣布完成 6,700 萬美元 B 輪（Expedition Growth Capital 領投），專注於客戶服務自動化。不同於 Sierra、Decagon 等純 LLM 方案，Omilia 採用「多種工具」策略：簡單查詢用規則引擎，複雜問題才動用大型語言模型，聲稱可為客戶與自身均實現更佳單位經濟。客戶涵蓋 Capital One、Discover、RBC、Taco Bell（逾 1,000 家門市）等，年度經常性收入達 6,000 萬美元，較 2020 年成長 10 倍。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">Omilia 的「正確工具打正確仗」哲學挑戰了「萬能 LLM」的假設，為客服 AI 的商業可行性提供新思路。在多家 VC 資助的昂貴 AI 客服新創中，Omilia 的利潤率模型可能更具長期競爭力。</div></div>
+      <div class="news-footer">
+        <span class="tag">Omilia</span><span class="tag">客服 AI</span><span class="tag">Sierra</span><span class="tag">Decagon</span>
+        <span class="stock">Capital One</span><span class="stock">Yum! Brands</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/ai-makes-weather-prediction-better-can-windborne-make-it-lucrative/" target="_blank">WindBorne 融资 3,700 萬美元：以氣象氣球收集獨家資料，AI 預報超越官方機構</a></div>
+        <div class="news-meta">Aug 5 · Tim Fernholz</div>
+      </div>
+      <div class="news-summary">WindBorne Systems 宣布完成 3,700 萬美元 B 輪（Khosla Ventures 與 Galvanize 共同領投），估值 2.5 億美元。公司營運全球最長飛行氣象氣球網路（20 個發射點、600 個氣球同時在空），可在颱風眼等偏遠地區收集獨家資料，用於訓練 AI 天氣預測模型。已獲美國國家氣象局、美國空軍、海軍採用。目標將天氣預測 AI 商業化至對沖基金以外的更廣泛私人市場。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">天氣預測 AI 是 AI 落地實體世界的最佳案例之一。WindBorne 的「行星神經系統」證明垂直領域資料是 AI 的核心護城河，而非僅靠模型本身。</div></div>
+      <div class="news-footer">
+        <span class="tag">WindBorne</span><span class="tag">天氣 AI</span><span class="tag">IoT</span><span class="tag">氣象預測</span>
+        <span class="stock">Khosla Ventures</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/defense-tech-hadrian-raises-1-37b-at-8b-valuation/" target="_blank">國防科技 Hadrian 融资 13.7 億美元，估值近 80 億美元建自動化國防製造廠</a></div>
+        <div class="news-meta">Aug 6 · Julie Bort</div>
+      </div>
+      <div class="news-summary">Hadrian 宣布完成 13.7 億美元 D 輪，估值 78.7 億美元，投資方包括 Founders Fund、Andreessen Horowitz、CapitalG（Google）、Lux Capital、Apollo 等知名機構。Hadrian 不製造武器，而是建造高度自動化的製造工廠，為潛艦、國防載具等大規模量產零件。2026 年 3 月在阿拉巴馬州設立第 4 座工廠，為哥倫比亞級與維吉尼亞級潛艦零件，該合約價值 24 億美元。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">國防科技已成為 AI 創投最熱門的類別之一，Hadrian 的高估值顯示投資人對「AI + 製造」的長期信心。其自動化軍火供應鏈概念在台海、南海緊張局勢下格外具戰略意涵。</div></div>
+      <div class="news-footer">
+        <span class="tag">Hadrian</span><span class="tag">國防科技</span><span class="tag">自動化製造</span><span class="tag">國防工業</span>
+        <span class="stock">a16z</span><span class="stock">Founders Fund</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🏛️ AI 政策與監管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <span class="section-title">AI 政策與監管</span>
+    <span class="section-count">2 則</span>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/openai-says-apples-own-security-practices-undermine-its-trade-secrets-case/" target="_blank">OpenAI 反擊 Apple 訴訟：指控蘋果資安措施混亂，否認竊取商業機密</a></div>
+        <div class="news-meta">Aug 6 · Sarah Perez</div>
+      </div>
+      <div class="news-summary">Apple 起訴 OpenAI 竊取商業機密後，OpenAI 提交動議要求撤案，並揭露 Apple 自身資安與離職員工管理混亂的諸多細節。OpenAI 指出 Apple 允許員工使用個人 iCloud 處理公務，且員工離職後仍可持續存取公司資料長達數月。OpenAI 並提交簡訊記錄顯示 Apple 主管在離職員工離開後仍登入其個人 iCloud 協助轉移檔案。OpenAI 律師指 Apple 此訴訟旨在扼制其在 AI 硬體領域的創新。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">這場訴訟不只是商業機密糾紛，更是 Apple 與 OpenAI 在 AI 時代話語權之爭。雙方各自揭露的內部資安問題可能促使整個產業重新審視員工資料存取與雲端帳號的管理規範。</div></div>
+      <div class="news-footer">
+        <span class="tag">Apple</span><span class="tag">OpenAI</span><span class="tag">商業機密</span><span class="tag">訴訟</span>
+        <span class="stock">AAPL</span>
+      </div>
+    </div>
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/06/amid-legal-battles-suno-says-it-will-start-watermarking-songs/" target="_blank">Suno 宣布音訊浮水印计划：在法律戰中回應侵權指控</a></div>
+        <div class="news-meta">Aug 6 · Ivan Mehta</div>
+      </div>
+      <div class="news-summary">面對 UMG、Sony Music、RIAA 的版權侵權訴訟，以及德國法院裁決 Suno 違反 GEMA 版權規定，Suno 執行長 Mikey Shulman 宣布將在平台上實施音訊浮水印與指紋辨識，防止用戶將 AI 生成音樂上傳至其他串流平台冒充原創。同時與歌詞供應商 Musixmatch 簽署 Sentinel 系統合作協議，並更新社群守則禁止「冒充真實人類表演」與「未經授權使用他人聲音或肖像」。此前 Suno 遭駭，5,530 萬用戶資料外洩。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">Suno 的浮水印計畫是 AI 音樂產業應對版權爭議的首次大規模回應。若成功實施，將為整個 AI 生成內容產業建立重要的透明度標準，並可能成為監管談判的參照案例。</div></div>
+      <div class="news-footer">
+        <span class="tag">Suno</span><span class="tag">浮水印</span><span class="tag">版權</span><span class="tag">AI 音樂</span><span class="tag">UMG</span>
+        <span class="stock">UMG</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 👥 AI 人事與組織 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">👥</span>
+    <span class="section-title">AI 人事與組織</span>
+    <span class="section-count">1 則</span>
+  </div>
+  <div class="news-list">
+    <div class="news-card">
+      <div class="news-header">
+        <div class="news-title"><a href="https://techcrunch.com/2026/08/05/jeff-dean-and-other-top-ai-researchers-are-leaving-google-to-launch-their-own-startup/" target="_blank">Jeff Dean 等 Google 頂尖 AI 科學家集體出走，創辦 Discovery Loop</a></div>
+        <div class="news-meta">Aug 5 · Lucas Ropek</div>
+      </div>
+      <div class="news-summary">Google 第 30 號員工、傳奇工程師 Jeff Dean 將與 Google Brain 創始成員 Quoc Le、Google DeepMind 資深科學家 Oriol Vinyals、資深工程師 Sanjay Ghemawat 共同創辦 Discovery Loop，這是一家公益公司（PBC），目標以递归自我改進 AI 加速科學發現。Dean 表示 AI 可同時進行數千個實驗，大幅提升科研速度與品質。Alphabet 是初期投資者之一，Radical Ventures 與 Khosla Ventures 共同領投，Kleiner Perkins、Lightspeed、Doerr Capital 等跟投。</div>
+      <div class="news-why"><div class="news-why-label">為什麼重要</div><div class="news-why-text">Jeff Dean 是 Google AI 的靈魂人物，他的離開對 Google 打擊深遠。Discovery Loop 的「全明星」陣容顯示 AI for Science 已從學術概念進入產業化階段，並獲得頂級 VC 與 Google 自身的雙重認可。</div></div>
+      <div class="news-footer">
+        <span class="tag">Jeff Dean</span><span class="tag">Google</span><span class="tag">Discovery Loop</span><span class="tag">人事</span><span class="tag">AI for Science</span>
+        <span class="stock">GOOGL</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 明日觀察 -->
+<div class="tomorrow">
+  <h2>🔮 明日觀察</h2>
+  <ul>
+    <li><strong>Discovery Loop 效應：</strong>Jeff Dean 出走可能引發 Google AI 人才流失連鎖反應，預計陸續會有更多 Google 頂尖研究者宣布新動向</li>
+    <li><strong>Terafab 環評爭議：</strong>德州 Grimes County 居民對稅收減免與水資源使用的反彈可能升級，當地監管聽證會後續值得關注</li>
+    <li><strong>Apple vs OpenAI 訴訟：</strong>法院可能對 Apple 的加快調查請求作出裁決，額外離職員工的證詞可能持續流出</li>
+    <li><strong>Suno 浮水印技術：</strong>Suno 宣布使用 SynthID 或類似技術後，業界將觀察浮水印的抗破解能力與實際效果</li>
+    <li><strong>AI 客服市场竞争：</strong>Omilia 的「正確工具」策略若被驗證，可能促使 Sierra、Decagon 重新評估其純 LLM 路線</li>
+  </ul>
+</div>
+
+<footer>
+  <p>📰 由 OpenClaw 自動生成 · 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p style="margin-top:8px;">生成時間：2026-08-07 台北時間 13:06 · <a href="https://github.com/acstep/TECH" target="_blank">GitHub Repo</a></p>
+</footer>
+
+</div>
+</body>
+</html>
