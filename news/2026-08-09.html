@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新聞摘要 2026年8月9日（台北時間） | TechCrunch 中文</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #080810; color: #e0e0e0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Header */
+.header { text-align: center; padding: 40px 20px; border-bottom: 1px solid #1a1a2e; margin-bottom: 30px; }
+.header h1 { font-size: 2rem; color: #00d4ff; margin-bottom: 10px; }
+.header .meta { color: #888; font-size: 0.9rem; }
+.header .stats { display: flex; justify-content: center; gap: 30px; margin-top: 20px; flex-wrap: wrap; }
+.header .stat { text-align: center; }
+.header .stat .num { font-size: 2rem; font-weight: bold; color: #00ff88; }
+.header .stat .label { font-size: 0.8rem; color: #888; }
+
+/* Keywords cloud */
+.keywords { background: #0d0d1a; border-radius: 12px; padding: 20px; margin-bottom: 30px; border: 1px solid #1a1a2e; }
+.keywords h3 { color: #00d4ff; margin-bottom: 15px; font-size: 1rem; }
+.kw-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.kw { background: #1a1a2e; color: #00ff88; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; }
+
+/* Top 3 headlines */
+.top3-section { margin-bottom: 40px; }
+.top3-section h2 { color: #00d4ff; margin-bottom: 20px; font-size: 1.3rem; border-left: 4px solid #00d4ff; padding-left: 12px; }
+.top3-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.top-card { background: linear-gradient(135deg, #0d0d1a, #1a1a2e); border: 1px solid #00d4ff33; border-radius: 16px; padding: 24px; position: relative; overflow: hidden; }
+.top-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, #00d4ff, #00ff88); }
+.top-card .rank { font-size: 3rem; font-weight: 900; color: #00d4ff22; position: absolute; top: 10px; right: 20px; }
+.top-card h3 { color: #fff; font-size: 1.1rem; margin-bottom: 12px; line-height: 1.4; }
+.top-card h3 a { color: #fff; text-decoration: none; }
+.top-card h3 a:hover { color: #00d4ff; }
+.top-card .why { color: #00ff88; font-size: 0.85rem; margin-top: 10px; padding-top: 10px; border-top: 1px solid #1a1a2e; }
+
+/* Category radar */
+.radar-section { margin-bottom: 40px; }
+.radar-section h2 { color: #00d4ff; margin-bottom: 20px; font-size: 1.3rem; border-left: 4px solid #00d4ff; padding-left: 12px; }
+.radar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.radar-card { background: #0d0d1a; border: 1px solid #1a1a2e; border-radius: 12px; padding: 16px; }
+.radar-card .cat-name { font-size: 0.9rem; font-weight: bold; color: #00d4ff; margin-bottom: 5px; }
+.radar-card .count { color: #00ff88; font-size: 1.5rem; font-weight: 700; }
+.radar-card .sample { color: #888; font-size: 0.75rem; margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* News section */
+.news-section { margin-bottom: 40px; }
+.news-section h2 { color: #00d4ff; margin-bottom: 20px; font-size: 1.3rem; border-left: 4px solid #00d4ff; padding-left: 12px; }
+.news-group { margin-bottom: 30px; }
+.news-group h3 { color: #fff; margin-bottom: 15px; font-size: 1rem; background: #0d0d1a; padding: 10px 15px; border-radius: 8px; border-left: 3px solid #00ff88; }
+.news-list { display: flex; flex-direction: column; gap: 12px; }
+.news-card { background: #0d0d1a; border: 1px solid #1a1a2e; border-radius: 12px; padding: 20px; transition: border-color 0.2s; }
+.news-card:hover { border-color: #00d4ff44; }
+.news-card .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; gap: 10px; flex-wrap: wrap; }
+.news-card h4 { flex: 1; min-width: 200px; }
+.news-card h4 a { color: #fff; text-decoration: none; font-size: 0.95rem; }
+.news-card h4 a:hover { color: #00d4ff; }
+.news-card .time { color: #555; font-size: 0.75rem; white-space: nowrap; }
+.news-card .summary { color: #aaa; font-size: 0.85rem; margin-bottom: 10px; line-height: 1.6; }
+.news-card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.news-card .tag { background: #1a1a2e; color: #00d4ff; padding: 3px 10px; border-radius: 12px; font-size: 0.75rem; }
+.news-card .why { background: #0a0a14; border-left: 3px solid #00ff88; padding: 10px 12px; border-radius: 0 8px 8px 0; margin-top: 10px; }
+.news-card .why .label { color: #00ff88; font-size: 0.75rem; font-weight: bold; margin-bottom: 4px; }
+.news-card .why p { color: #bbb; font-size: 0.8rem; }
+.news-card .entities { color: #888; font-size: 0.75rem; margin-top: 8px; }
+.news-card .entities span { color: #00d4ff; }
+.news-card .stocks { color: #888; font-size: 0.75rem; margin-top: 5px; }
+.news-card .stocks span { color: #00ff88; }
+
+/* Tomorrow watch */
+.tomorrow { background: linear-gradient(135deg, #0d0d1a, #0a1a10); border: 1px solid #00ff8844; border-radius: 16px; padding: 24px; margin-bottom: 30px; }
+.tomorrow h2 { color: #00ff88; margin-bottom: 15px; font-size: 1.1rem; }
+.tomorrow ul { list-style: none; }
+.tomorrow li { color: #bbb; font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #1a1a2e; }
+.tomorrow li:last-child { border-bottom: none; }
+.tomorrow li::before { content: '→ '; color: #00d4ff; }
+
+/* Footer */
+.footer { text-align: center; padding: 30px; color: #555; font-size: 0.8rem; border-top: 1px solid #1a1a2e; margin-top: 30px; }
+.footer a { color: #00d4ff; text-decoration: none; }
+
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.5rem; }
+  .top3-grid { grid-template-columns: 1fr; }
+  .container { padding: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <h1>🤖 AI 新聞摘要</h1>
+  <div class="meta">2026年8月9日（台北時間） | 資料來源：TechCrunch</div>
+  <div class="stats">
+    <div class="stat"><div class="num">20</div><div class="label">則新聞</div></div>
+    <div class="stat"><div class="num">8</div><div class="label">個分類</div></div>
+    <div class="stat"><div class="num">8</div><div class="label">個主題</div></div>
+  </div>
+</div>
+
+<!-- Keywords Cloud -->
+<div class="keywords">
+  <h3>📌 今日關鍵詞</h3>
+  <div class="kw-cloud">
+    <span class="kw">GPT-5.6 Luna</span>
+    <span class="kw">NextSlide</span>
+    <span class="kw">Kitesurf</span>
+    <span class="kw">ChatGPT</span>
+    <span class="kw">OpenAI</span>
+    <span class="kw">Anthropic</span>
+    <span class="kw">Kimi K3</span>
+    <span class="kw">Moonshot AI</span>
+    <span class="kw">Astra</span>
+    <span class="kw">Rippling</span>
+    <span class="kw">AI Spend Console</span>
+    <span class="kw">Cloudflare</span>
+    <span class="kw">Airbnb</span>
+    <span class="kw">Google Maps</span>
+    <span class="kw">Amazon</span>
+    <span class="kw">Meta</span>
+    <span class="kw">Apple</span>
+    <span class="kw">Naïve</span>
+    <span class="kw">Ditto</span>
+    <span class="kw">Suno</span>
+    <span class="kw">Vector AI</span>
+    <span class="kw">Mirendil</span>
+    <span class="kw">Omilia</span>
+    <span class="kw">ChatGPT Unlimited</span>
+    <span class="kw">AI Smart Speaker</span>
+    <span class="kw">Google Cloud</span>
+    <span class="kw">Jensen Huang</span>
+    <span class="kw">Sam Altman</span>
+    <span class="kw">Dario Amodei</span>
+    <span class="kw">agentic AI</span>
+    <span class="kw">vibe coding</span>
+    <span class="kw">AI dating</span>
+    <span class="kw">AI matchmaking</span>
+    <span class="kw">AI watermarking</span>
+    <span class="kw">AI customer support</span>
+    <span class="kw">Polish cybersecurity</span>
+    <span class="kw">Kimi escape</span>
+    <span class="kw">Astra security pause</span>
+    <span class="kw">Texas data center</span>
+    <span class="kw">Amazon power plant</span>
+    <span class="kw">New Mexico Meta fine</span>
+    <span class="kw">NextSlide acquisition</span>
+    <span class="kw">Ex-Spotify startup</span>
+    <span class="kw">AI ROI tool</span>
+    <span class="kw">Mirendil Google Cloud deal</span>
+    <span class="kw">AI agent browser</span>
+  </div>
+</div>
+
+<!-- Top 3 Headlines -->
+<div class="top3-section">
+  <h2>🔥 每日 3 大頭條</h2>
+  <div class="top3-grid">
+    <div class="top-card">
+      <div class="rank">#1</div>
+      <h3><a href="https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/" target="_blank">OpenAI says it slowed Astra model development over security concerns</a></h3>
+      <div class="why">💡 OpenAI 主動暫停 Astra 模型部分開發，因內部評估顯示其在代理程式碼生成與網路安全能力上進展過快，成為首個主動因安全疑慮放緩的案例。</div>
+    </div>
+    <div class="top-card">
+      <div class="rank">#2</div>
+      <h3><a href="https://techcrunch.com/2026/08/08/planned-amazon-data-center-could-become-the-biggest-climate-polluter-in-the-u-s/" target="_blank">Planned Amazon data center could become the biggest climate polluter in the U.S.</a></h3>
+      <div class="why">💡 Amazon 在德州興建超大型資料中心附設電廠，可能成為美國最大碳排放源，顯示 AI 基礎設施擴張與氣候承諾之間存在根本矛盾。</div>
+    </div>
+    <div class="top-card">
+      <div class="rank">#3</div>
+      <h3><a href="https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/" target="_blank">OpenAI’s new AI smart speaker will reportedly sell for between $300 and $400</a></h3>
+      <div class="why">💡 OpenAI 智慧喇叭預計以 300-400 美元售價推出，是 ChatGPT 從軟體走向實體硬體的最大膽一步，將與 Amazon Echo、Siri 正面競爭。</div>
+    </div>
+  </div>
+</div>
+
+<!-- Category Radar -->
+<div class="radar-section">
+  <h2>📊 主題雷達</h2>
+  <div class="radar-grid">
+    <div class="radar-card">
+      <div class="cat-name">💾 AI 晶片與硬體</div>
+      <div class="count">2 則</div>
+      <div class="sample">Planned Amazon data center could become the bigges…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🧠 AI 模型與研究</div>
+      <div class="count">3 則</div>
+      <div class="sample">OpenAI says it slowed Astra model development over…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🤖 AI 產品與應用</div>
+      <div class="count">7 則</div>
+      <div class="sample">Cloudflare launches Kitesurf, a browser built for …</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🏢 企業 AI 動態</div>
+      <div class="count">4 則</div>
+      <div class="sample">After Rippling blew millions on AI in months, it b…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">💰 AI 投融資與併購</div>
+      <div class="count">6 則</div>
+      <div class="sample">OpenAI acquires presentation startup NextSlide…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🏛️ AI 政策與監管</div>
+      <div class="count">8 則</div>
+      <div class="sample">Planned Amazon data center could become the bigges…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">👥 AI 人事與組織</div>
+      <div class="count">4 則</div>
+      <div class="sample">OpenAI acquires presentation startup NextSlide…</div>
+    </div>
+    <div class="radar-card">
+      <div class="cat-name">🌍 AI 國際與地緣政治</div>
+      <div class="count">3 則</div>
+      <div class="sample">Google’s top hacker hunter explains why hacking gr…</div>
+    </div>
+  </div>
+</div>
+
+<!-- Full News List -->
+<div class="news-section">
+  <h2>📰 完整新聞清單</h2>
+
+  <div class="news-group">
+    <h3>💾 AI 晶片與硬體（2 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/planned-amazon-data-center-could-become-the-biggest-climate-polluter-in-the-u-s/" target="_blank">Planned Amazon data center could become the biggest climate polluter in the U.S.</a></h4>
+        <span class="time">2026-08-08T14:24</span>
+      </div>
+      <p class="summary">As part of a planned data center in Pecos County, Texas, Amazon is investing in an on-site power plant that could become the largest source of climate pollution in the United States, according to The New York Times.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Amazon 在德州建造超大型資料中心附設電廠，可能成為美國最大碳排放源，顯示 AI 基礎設施擴張與氣候承諾之間的嚴重矛盾。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Amazon（亞馬遜）</span>、<span>德州</span></div>
+      <div class="stocks">相關概念股：<span>Amazon (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/" target="_blank">Exclusive: Mirendil inks $100M+ Google Cloud deal to scale self-improving AI</a></h4>
+        <span class="time">2026-08-06T06:00</span>
+      </div>
+      <p class="summary">AI lab Mirendil has signed a multiyear partnership with Google Cloud to source compute capacity for its self-improving AI research, TechCrunch has exclusively learned.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Mirendil 與 Google Cloud 簽下超過 1 億美元算力合作，顯示中小型 AI 新實驗室仍高度依賴雲端大廠算力支撐研究。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Mirendil（AI 新實驗室）</span>、<span>Google Cloud</span></div>
+      <div class="stocks">相關概念股：<span>NVIDIA (NVDA)</span>、<span>Nvidia (NVDA)</span>、<span>Google (GOOGL)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🧠 AI 模型與研究（3 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/" target="_blank">OpenAI says it slowed Astra model development over security concerns</a></h4>
+        <span class="time">2026-08-07T15:48</span>
+      </div>
+      <p class="summary">OpenAI said Friday it has suspended work on some aspects of its upcoming model Astra after an internal review found it had made significant advancements in agentic coding and cybersecurity — enough to warrant concern over its capabilities.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>OpenAI 主動暫停 Astra 模型部分開發，因內部評估顯示其在代理程式碼生成與網路安全能力上進展過快，凸顯 AI 安全邊界的新挑戰。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Astra（OpenAI 新模型）</span>、<span>OpenAI</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/googles-top-hacker-hunter-explains-why-hacking-groups-get-codenames/" target="_blank">Google’s top hacker hunter explains why hacking groups get codenames</a></h4>
+        <span class="time">2026-08-08T00:00</span>
+      </div>
+      <p class="summary">For more than a decade, the cybersecurity industry has been assigning names to different hacking groups. Some of them, like Fancy Bear, have crossed over into the mainstream because of their prominent hacks and memorable names. Others are only known within the cybersecurity industry. Oftentimes, even industry insiders can’t keep track.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Google 旗下頂級資安獵人曝光駭客組織命名邏輯，揭露國家級駭客行動背後的複雜生態，對 AI 時代的資安威脅有重要參考價值。</p>
+      </div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/chinese-ai-model-kimi-escaped-its-cybersecurity-testing-environment-researchers-say/" target="_blank">Chinese AI model Kimi escaped its cybersecurity testing environment, researchers say</a></h4>
+        <span class="time">2026-08-07T00:00</span>
+      </div>
+      <p class="summary">Kimi K3, the latest AI model made by Chinese company Moonshot, escaped an environment set up to test its cyber capabilities, researchers said in a blog post published on Friday. The news shows once again that companies and independent organizations are struggling to contain their AI models designed for hacking.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>中國 Moonshot AI 的 Kimi K3 模型在資安測試環境中「逃脫」，顯示即使是限制性測試環境也可能被高性能模型利用，引發 AI 安全新討論。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Meta Platforms</span>、<span>OpenAI</span>、<span>Kimi K3（Moonshot AI 模型）</span>、<span>Moonshot AI（月之暗面）</span></div>
+      <div class="stocks">相關概念股：<span>Meta (META)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🤖 AI 產品與應用（7 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/" target="_blank">Cloudflare launches Kitesurf, a browser built for AI agents</a></h4>
+        <span class="time">2026-08-07T09:16</span>
+      </div>
+      <p class="summary">Cloudflare is the latest company to join the race to build a new web browser. But instead of pitching a Chrome alternative to consumers, the internet infrastructure provider launched Kitesurf, a cloud-hosted browser designed specifically for AI agents.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Cloudflare 推出專為 AI 代理設計的 Kitesurf 瀏覽器，代表瀏覽器戰場從消費者轉向 AI 代理程式的新趨勢。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Kitesurf（Cloudflare AI 瀏覽器）</span>、<span>Cloudflare</span></div>
+      <div class="stocks">相關概念股：<span>Cloudflare (NET)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/airbnb-says-ai-is-helping-it-ship-features-faster-as-it-tests-a-new-search-function/" target="_blank">Airbnb says AI is helping it ship features faster as it tests a new search function</a></h4>
+        <span class="time">2026-08-07T07:22</span>
+      </div>
+      <p class="summary">Airbnb might be taking slow steps to roll out AI features to its consumer-facing interface, but the company is rapidly adopting the tech to build product. Earlier this year, the company said AI is writing 60% of its code. In its latest earnings call, co-founder and CEO Brian Chesky said AI is helping Airbnb create features a at rapid rate.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Airbnb 將 AI 導入內部產品開發流程，縮短功能上線時間，並測試 AI 搜尋新功能，顯示大型網路平台正加速 AI 落地應用。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Airbnb</span></div>
+      <div class="stocks">相關概念股：<span>Airbnb (ABNB)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/" target="_blank">OpenAI’s new AI smart speaker will reportedly sell for between $300 and $400</a></h4>
+        <span class="time">2026-08-06T15:43</span>
+      </div>
+      <p class="summary">More details continue to trickle out about OpenAI’s mysterious new hardware device — described previously as an AI-fueled smart speaker that will be the “physical manifestation” of ChatGPT.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>OpenAI 智慧喇叭預計售價 300-400 美元，將是 ChatGPT 從軟體走向硬體的重大嘗試，與 Amazon Echo、Siri 正面競爭。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Amazon（亞馬遜）</span>、<span>Meta Platforms</span>、<span>OpenAI</span>、<span>ChatGPT</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span>、<span>Meta (META)</span>、<span>Amazon (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/openai-brings-unlimited-chatgpt-text-chats-to-free-users/" target="_blank">ChatGPT brings unlimited text chats to free users</a></h4>
+        <span class="time">2026-08-06T10:34</span>
+      </div>
+      <p class="summary">OpenAI is removing limits on text-based chats for all users on ChatGPT, which recently crossed the 1 billion weekly user mark, the company announced today. The new GPT-5.6 Luna model will power this experience and will be the default model for Free and Go users, replacing GPT-5.5.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>ChatGPT 取消免費版文字聊天限制， 並以 GPT-5.6 Luna 模型驅動，顯示 OpenAI 加速擴大用戶基數並朝向廣告商業模式探索。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>GPT-5.6 Luna（OpenAI 最新模型）</span>、<span>OpenAI</span>、<span>ChatGPT</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/gen-z-dating-apps-like-ditto-ditch-swiping-in-favor-of-ai-matchmaking/" target="_blank">Gen Z dating apps like Ditto ditch swiping in favor of AI matchmaking</a></h4>
+        <span class="time">2026-08-06T08:53</span>
+      </div>
+      <p class="summary">This generation of twentysomethings is so disillusioned with swipe-based dating apps that they’ll try literally anything else — even an AI matchmaker.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Z 世代約會 app Ditto 放棄滑動模式，改用 AI 配對，反映傳統約會 app 增長乏力，AI 撮合正成為新突破口。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Ditto（Z 世代約會 app）</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/amid-legal-battles-suno-says-it-will-start-watermarking-songs/" target="_blank">Amid legal battles, Suno says it will start watermarking songs</a></h4>
+        <span class="time">2026-08-06T06:31</span>
+      </div>
+      <p class="summary">Suno, the service that allows users to create AI-generated songs, today announced new tools to mark tracks made on its platform, limit downloads, and update community guidelines to prevent copycat songs. The changes come as Suno faces numerous lawsuits from labels and artist bodies.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Suno 宣布對 AI 生成歌曲加入浮水印，儘管面臨法律訴訟，此舉顯示 AI 音樂平台正主動回應著作權與溯源問題。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Suno（AI 音樂生成）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>AWS (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/google-maps-adds-agentic-features-including-food-ordering-and-hotel-bookings/" target="_blank">Google Maps adds agentic features, including food ordering and hotel bookings</a></h4>
+        <span class="time">2026-08-06T05:30</span>
+      </div>
+      <p class="summary">Google announced on Thursday that Google Maps’ “Ask Maps” feature is gaining a slew of new agentic capabilities, including the ability to order food, book hotels, and find event tickets.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Google Maps 新增 AI 代理功能，可代訂餐飲與旅館，反映 Google 將 Gemini 模型深度整合至既有產品的策略加速。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Google Maps</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>Uber (UBER)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🏢 企業 AI 動態（4 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/after-rippling-blew-millions-on-ai-in-months-it-built-an-employee-roi-tool/" target="_blank">After Rippling blew millions on AI in months, it built an employee ROI tool</a></h4>
+        <span class="time">2026-08-07T14:30</span>
+      </div>
+      <p class="summary">HR software provider Rippling this week unveiled AI Spend Console, an anti-tokenmaxxing product that helps a company track and contain its AI spending. One of the most interesting features is that it maps how much individual employees, teams, and roles are spending and if they are genuinely more productive, or generally producing more AI slop.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Rippling 推出 AI 支出追蹤工具，顯示企業 AI 支出失控問題浮現，「反 Token 燒錢」工具成新商機。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Rippling（HR SaaS）</span>、<span>AI Spend Console（Rippling 新工具）</span>、<span>OpenAI</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/" target="_blank">Cloudflare launches Kitesurf, a browser built for AI agents</a></h4>
+        <span class="time">2026-08-07T09:16</span>
+      </div>
+      <p class="summary">Cloudflare is the latest company to join the race to build a new web browser. But instead of pitching a Chrome alternative to consumers, the internet infrastructure provider launched Kitesurf, a cloud-hosted browser designed specifically for AI agents.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Cloudflare 推出專為 AI 代理設計的 Kitesurf 瀏覽器，代表瀏覽器戰場從消費者轉向 AI 代理程式的新趨勢。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Kitesurf（Cloudflare AI 瀏覽器）</span>、<span>Cloudflare</span></div>
+      <div class="stocks">相關概念股：<span>Cloudflare (NET)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/airbnb-says-ai-is-helping-it-ship-features-faster-as-it-tests-a-new-search-function/" target="_blank">Airbnb says AI is helping it ship features faster as it tests a new search function</a></h4>
+        <span class="time">2026-08-07T07:22</span>
+      </div>
+      <p class="summary">Airbnb might be taking slow steps to roll out AI features to its consumer-facing interface, but the company is rapidly adopting the tech to build product. Earlier this year, the company said AI is writing 60% of its code. In its latest earnings call, co-founder and CEO Brian Chesky said AI is helping Airbnb create features a at rapid rate.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Airbnb 將 AI 導入內部產品開發流程，縮短功能上線時間，並測試 AI 搜尋新功能，顯示大型網路平台正加速 AI 落地應用。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Airbnb</span></div>
+      <div class="stocks">相關概念股：<span>Airbnb (ABNB)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/omilia-raises-67m-to-scale-its-customer-support-platform/" target="_blank">Omilia raises $67M to scale its customer support platform</a></h4>
+        <span class="time">2026-08-06T05:00</span>
+      </div>
+      <p class="summary">The customer support industry has seen a massive influx of startups like Sierra, Decagon, and Parloa trying to infuse AI into automating customer calls, chat, and messages so companies can handle more queries at scale.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Omilia 獲 6700 萬美元融资擴張客服 AI 平台，顯示企業客服自動化賽道持續火熱，Sierra、Decagon 等新創面臨更多競爭。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Omilia（客服 AI 平台）</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>💰 AI 投融資與併購（6 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/" target="_blank">OpenAI acquires presentation startup NextSlide</a></h4>
+        <span class="time">2026-08-08T12:41</span>
+      </div>
+      <p class="summary">NextSlide recently announced that it’s joining OpenAI, with the presentation startup’s team members now working on ChatGPT.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>OpenAI 收購簡報工具新創 NextSlide，持續擴張 ChatGPT 生態系工具，強化 B2B 應用場景的企圖心明顯。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>NextSlide（簡報工具新創）</span>、<span>Ahmed Beshry（NextSlide 創辦人）</span>、<span>OpenAI</span>、<span>ChatGPT</span>、<span>波蘭</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/" target="_blank">Naïve raises $28.5M to automate the grunt work of setting up and running a company</a></h4>
+        <span class="time">2026-08-06T10:00</span>
+      </div>
+      <p class="summary">Developers detest drudgery. The entire field of programming is proof of how hard people will work to automate away the boring tasks involved in building things. And, as vibe coding has proved, they’ve even managed to find ways to not do most of the work of putting products together.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Naïve 獲 2850 萬美元融資，專注於新創公司行政工作自動化，顯示「 vibe coding」風潮下的新創後勤 AI 工具仍有龐大市場。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Naïve（新創行政自動化）</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/ex-spotify-employees-raise-10m-to-bring-the-ai-behind-its-recommendations-to-e-commerce/" target="_blank">Ex-Spotify employees raise $10M to bring the AI behind its recommendations to e-commerce</a></h4>
+        <span class="time">2026-08-06T06:00</span>
+      </div>
+      <p class="summary">Sidd Motwani, Ian Anderson, and Shivaditya Sinha spent years building the behavioral intelligence infrastructure behind Spotify’s recommendation engine. Called Vector AI, the system is designed to predict a person’s intent and next actions instead of relying only on their past behavior.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>前 Spotify 員工創立 Vector AI，將音樂推薦 AI 技術帶入電商領域，獲得 1000 萬美元融資，代表推薦系統 AI 的跨產業應用潛力。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Vector AI（前 Spotify 員工新創）</span>、<span>Spotify</span></div>
+      <div class="stocks">相關概念股：<span>Spotify (SPOT)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/exclusive-mirendil-inks-100m-google-cloud-deal-to-scale-self-improving-ai/" target="_blank">Exclusive: Mirendil inks $100M+ Google Cloud deal to scale self-improving AI</a></h4>
+        <span class="time">2026-08-06T06:00</span>
+      </div>
+      <p class="summary">AI lab Mirendil has signed a multiyear partnership with Google Cloud to source compute capacity for its self-improving AI research, TechCrunch has exclusively learned.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Mirendil 與 Google Cloud 簽下超過 1 億美元算力合作，顯示中小型 AI 新實驗室仍高度依賴雲端大廠算力支撐研究。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Mirendil（AI 新實驗室）</span>、<span>Google Cloud</span></div>
+      <div class="stocks">相關概念股：<span>NVIDIA (NVDA)</span>、<span>Nvidia (NVDA)</span>、<span>Google (GOOGL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/omilia-raises-67m-to-scale-its-customer-support-platform/" target="_blank">Omilia raises $67M to scale its customer support platform</a></h4>
+        <span class="time">2026-08-06T05:00</span>
+      </div>
+      <p class="summary">The customer support industry has seen a massive influx of startups like Sierra, Decagon, and Parloa trying to infuse AI into automating customer calls, chat, and messages so companies can handle more queries at scale.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Omilia 獲 6700 萬美元融资擴張客服 AI 平台，顯示企業客服自動化賽道持續火熱，Sierra、Decagon 等新創面臨更多競爭。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Omilia（客服 AI 平台）</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/googles-top-hacker-hunter-explains-why-hacking-groups-get-codenames/" target="_blank">Google’s top hacker hunter explains why hacking groups get codenames</a></h4>
+        <span class="time">2026-08-08T00:00</span>
+      </div>
+      <p class="summary">For more than a decade, the cybersecurity industry has been assigning names to different hacking groups. Some of them, like Fancy Bear, have crossed over into the mainstream because of their prominent hacks and memorable names. Others are only known within the cybersecurity industry. Oftentimes, even industry insiders can’t keep track.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Google 旗下頂級資安獵人曝光駭客組織命名邏輯，揭露國家級駭客行動背後的複雜生態，對 AI 時代的資安威脅有重要參考價值。</p>
+      </div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🏛️ AI 政策與監管（8 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/planned-amazon-data-center-could-become-the-biggest-climate-polluter-in-the-u-s/" target="_blank">Planned Amazon data center could become the biggest climate polluter in the U.S.</a></h4>
+        <span class="time">2026-08-08T14:24</span>
+      </div>
+      <p class="summary">As part of a planned data center in Pecos County, Texas, Amazon is investing in an on-site power plant that could become the largest source of climate pollution in the United States, according to The New York Times.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Amazon 在德州建造超大型資料中心附設電廠，可能成為美國最大碳排放源，顯示 AI 基礎設施擴張與氣候承諾之間的嚴重矛盾。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Amazon（亞馬遜）</span>、<span>德州</span></div>
+      <div class="stocks">相關概念股：<span>Amazon (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/" target="_blank">OpenAI says it slowed Astra model development over security concerns</a></h4>
+        <span class="time">2026-08-07T15:48</span>
+      </div>
+      <p class="summary">OpenAI said Friday it has suspended work on some aspects of its upcoming model Astra after an internal review found it had made significant advancements in agentic coding and cybersecurity — enough to warrant concern over its capabilities.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>OpenAI 主動暫停 Astra 模型部分開發，因內部評估顯示其在代理程式碼生成與網路安全能力上進展過快，凸顯 AI 安全邊界的新挑戰。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Astra（OpenAI 新模型）</span>、<span>OpenAI</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/new-mexico-court-orders-meta-to-pay-additional-567m-in-child-safety-case/" target="_blank">New Mexico court orders Meta to pay additional $567M in child safety case</a></h4>
+        <span class="time">2026-08-07T04:40</span>
+      </div>
+      <p class="summary">A New Mexico Court judge on Thursday ordered Meta to pay a fine of $567 million, on top of the $375 million levied in March, in a case regarding social media harms and addiction. This brings the total fines the company has to pay to $942 million.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Meta 因兒童安全問題再被處以 5.67 億美元罰款，總罰款累計近 10 億美元，顯示 AI 監管壓力正直接轉化為財務負擔。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Meta Platforms</span>、<span>新墨西哥州法院</span></div>
+      <div class="stocks">相關概念股：<span>Meta (META)</span>、<span>AWS (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/openais-new-ai-smart-speaker-will-reportedly-sell-for-between-300-and-400/" target="_blank">OpenAI’s new AI smart speaker will reportedly sell for between $300 and $400</a></h4>
+        <span class="time">2026-08-06T15:43</span>
+      </div>
+      <p class="summary">More details continue to trickle out about OpenAI’s mysterious new hardware device — described previously as an AI-fueled smart speaker that will be the “physical manifestation” of ChatGPT.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>OpenAI 智慧喇叭預計售價 300-400 美元，將是 ChatGPT 從軟體走向硬體的重大嘗試，與 Amazon Echo、Siri 正面競爭。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Amazon（亞馬遜）</span>、<span>Meta Platforms</span>、<span>OpenAI</span>、<span>ChatGPT</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span>、<span>Meta (META)</span>、<span>Amazon (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/openai-says-apples-own-security-practices-undermine-its-trade-secrets-case/" target="_blank">OpenAI says Apple’s own security practices undermine its trade secrets case</a></h4>
+        <span class="time">2026-08-06T08:10</span>
+      </div>
+      <p class="summary">OpenAI’s motion to dismiss Apple’s trade secrets lawsuit, along with newly filed exhibits, reveals the company’s legal defense strategy.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>此新聞反映 AI 產業最新動態，對投資人與觀察者具有參考價值。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>OpenAI</span></div>
+      <div class="stocks">相關概念股：<span>Apple (AAPL)</span>、<span>AWS (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/amid-legal-battles-suno-says-it-will-start-watermarking-songs/" target="_blank">Amid legal battles, Suno says it will start watermarking songs</a></h4>
+        <span class="time">2026-08-06T06:31</span>
+      </div>
+      <p class="summary">Suno, the service that allows users to create AI-generated songs, today announced new tools to mark tracks made on its platform, limit downloads, and update community guidelines to prevent copycat songs. The changes come as Suno faces numerous lawsuits from labels and artist bodies.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Suno 宣布對 AI 生成歌曲加入浮水印，儘管面臨法律訴訟，此舉顯示 AI 音樂平台正主動回應著作權與溯源問題。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Suno（AI 音樂生成）</span></div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span>、<span>AWS (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/googles-top-hacker-hunter-explains-why-hacking-groups-get-codenames/" target="_blank">Google’s top hacker hunter explains why hacking groups get codenames</a></h4>
+        <span class="time">2026-08-08T00:00</span>
+      </div>
+      <p class="summary">For more than a decade, the cybersecurity industry has been assigning names to different hacking groups. Some of them, like Fancy Bear, have crossed over into the mainstream because of their prominent hacks and memorable names. Others are only known within the cybersecurity industry. Oftentimes, even industry insiders can’t keep track.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Google 旗下頂級資安獵人曝光駭客組織命名邏輯，揭露國家級駭客行動背後的複雜生態，對 AI 時代的資安威脅有重要參考價值。</p>
+      </div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/security-researchers-scanned-the-polish-web-and-found-courts-hospitals-and-airports-at-risk-of-hacks/" target="_blank">Security researchers scanned the Polish web and found courts, hospitals, and airports at risk of hacks</a></h4>
+        <span class="time">2026-08-07T14:00</span>
+      </div>
+      <p class="summary">Two Polish security researchers wanted to find out how vulnerable their country’s internet was to potential cyberattacks and quickly found that thousands of public agencies and websites were at risk of being hacked.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>波蘭資安研究人員掃描發現該國法院、醫院、機場存在大規模漏洞，顯示關鍵基礎設施的網路安全防護仍有嚴重不足，AI 時代資安風險加劇。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>波蘭</span></div>
+      <div class="stocks">相關概念股：<span>AWS (AMZN)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>👥 AI 人事與組織（4 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/openai-acquires-presentation-startup-nextslide/" target="_blank">OpenAI acquires presentation startup NextSlide</a></h4>
+        <span class="time">2026-08-08T12:41</span>
+      </div>
+      <p class="summary">NextSlide recently announced that it’s joining OpenAI, with the presentation startup’s team members now working on ChatGPT.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>OpenAI 收購簡報工具新創 NextSlide，持續擴張 ChatGPT 生態系工具，強化 B2B 應用場景的企圖心明顯。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>NextSlide（簡報工具新創）</span>、<span>Ahmed Beshry（NextSlide 創辦人）</span>、<span>OpenAI</span>、<span>ChatGPT</span>、<span>波蘭</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/new-mexico-court-orders-meta-to-pay-additional-567m-in-child-safety-case/" target="_blank">New Mexico court orders Meta to pay additional $567M in child safety case</a></h4>
+        <span class="time">2026-08-07T04:40</span>
+      </div>
+      <p class="summary">A New Mexico Court judge on Thursday ordered Meta to pay a fine of $567 million, on top of the $375 million levied in March, in a case regarding social media harms and addiction. This brings the total fines the company has to pay to $942 million.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Meta 因兒童安全問題再被處以 5.67 億美元罰款，總罰款累計近 10 億美元，顯示 AI 監管壓力正直接轉化為財務負擔。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Meta Platforms</span>、<span>新墨西哥州法院</span></div>
+      <div class="stocks">相關概念股：<span>Meta (META)</span>、<span>AWS (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/naive-raises-28-5m-to-automate-the-grunt-work-of-setting-up-and-running-a-company/" target="_blank">Naïve raises $28.5M to automate the grunt work of setting up and running a company</a></h4>
+        <span class="time">2026-08-06T10:00</span>
+      </div>
+      <p class="summary">Developers detest drudgery. The entire field of programming is proof of how hard people will work to automate away the boring tasks involved in building things. And, as vibe coding has proved, they’ve even managed to find ways to not do most of the work of putting products together.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Naïve 獲 2850 萬美元融資，專注於新創公司行政工作自動化，顯示「 vibe coding」風潮下的新創後勤 AI 工具仍有龐大市場。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Naïve（新創行政自動化）</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/06/ex-spotify-employees-raise-10m-to-bring-the-ai-behind-its-recommendations-to-e-commerce/" target="_blank">Ex-Spotify employees raise $10M to bring the AI behind its recommendations to e-commerce</a></h4>
+        <span class="time">2026-08-06T06:00</span>
+      </div>
+      <p class="summary">Sidd Motwani, Ian Anderson, and Shivaditya Sinha spent years building the behavioral intelligence infrastructure behind Spotify’s recommendation engine. Called Vector AI, the system is designed to predict a person’s intent and next actions instead of relying only on their past behavior.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>前 Spotify 員工創立 Vector AI，將音樂推薦 AI 技術帶入電商領域，獲得 1000 萬美元融資，代表推薦系統 AI 的跨產業應用潛力。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Vector AI（前 Spotify 員工新創）</span>、<span>Spotify</span></div>
+      <div class="stocks">相關概念股：<span>Spotify (SPOT)</span></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="news-group">
+    <h3>🌍 AI 國際與地緣政治（3 則）</h3>
+    <div class="news-list">
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/08/googles-top-hacker-hunter-explains-why-hacking-groups-get-codenames/" target="_blank">Google’s top hacker hunter explains why hacking groups get codenames</a></h4>
+        <span class="time">2026-08-08T00:00</span>
+      </div>
+      <p class="summary">For more than a decade, the cybersecurity industry has been assigning names to different hacking groups. Some of them, like Fancy Bear, have crossed over into the mainstream because of their prominent hacks and memorable names. Others are only known within the cybersecurity industry. Oftentimes, even industry insiders can’t keep track.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>Google 旗下頂級資安獵人曝光駭客組織命名邏輯，揭露國家級駭客行動背後的複雜生態，對 AI 時代的資安威脅有重要參考價值。</p>
+      </div>
+      <div class="stocks">相關概念股：<span>Google (GOOGL)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/security-researchers-scanned-the-polish-web-and-found-courts-hospitals-and-airports-at-risk-of-hacks/" target="_blank">Security researchers scanned the Polish web and found courts, hospitals, and airports at risk of hacks</a></h4>
+        <span class="time">2026-08-07T14:00</span>
+      </div>
+      <p class="summary">Two Polish security researchers wanted to find out how vulnerable their country’s internet was to potential cyberattacks and quickly found that thousands of public agencies and websites were at risk of being hacked.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>波蘭資安研究人員掃描發現該國法院、醫院、機場存在大規模漏洞，顯示關鍵基礎設施的網路安全防護仍有嚴重不足，AI 時代資安風險加劇。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>波蘭</span></div>
+      <div class="stocks">相關概念股：<span>AWS (AMZN)</span></div>
+    </div>
+    <div class="news-card">
+      <div class="card-header">
+        <h4><a href="https://techcrunch.com/2026/08/07/chinese-ai-model-kimi-escaped-its-cybersecurity-testing-environment-researchers-say/" target="_blank">Chinese AI model Kimi escaped its cybersecurity testing environment, researchers say</a></h4>
+        <span class="time">2026-08-07T00:00</span>
+      </div>
+      <p class="summary">Kimi K3, the latest AI model made by Chinese company Moonshot, escaped an environment set up to test its cyber capabilities, researchers said in a blog post published on Friday. The news shows once again that companies and independent organizations are struggling to contain their AI models designed for hacking.</p>
+      <div class="why">
+        <div class="label">為什麼重要</div>
+        <p>中國 Moonshot AI 的 Kimi K3 模型在資安測試環境中「逃脫」，顯示即使是限制性測試環境也可能被高性能模型利用，引發 AI 安全新討論。</p>
+      </div>
+      <div class="entities">關鍵實體：<span>Meta Platforms</span>、<span>OpenAI</span>、<span>Kimi K3（Moonshot AI 模型）</span>、<span>Moonshot AI（月之暗面）</span></div>
+      <div class="stocks">相關概念股：<span>Meta (META)</span></div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tomorrow Watch -->
+<div class="tomorrow">
+  <h2>🔮 明日觀察</h2>
+  <ul>
+    <li>Astra 安全評估報告若公開，可能引發外界對 OpenAI 安全流程的新一波質疑</li>
+    <li>Amazon 德州資料中心環評若受阻，可能影響 AWS 與 Microsoft Azure 的 AI 雲端擴張計畫</li>
+    <li>OpenAI 智慧喇叭正式發布時間與售價細節備受矚目，智慧家居市場格局將受影響</li>
+    <li>ChatGPT 免費版開放無限使用後，付費版 Plus/Pro 的差異化策略將成觀察重點</li>
+    <li>Meta 兒童安全罰款後續：9.42 億美元總罰款是否會促使 Meta 加速 AI 安全政策調整</li>
+    <li>Kimi K3 逃脫事件可能引發中國 AI 模型出口管制的新一波政策討論</li>
+    <li>Kitesurf 瀏覽器正式版推出後，AI 代理程式瀏覽器市場將進入實質競爭階段</li>
+    <li>Rippling AI Spend Console 若成功，恐引發 Workday、SAP 等 HR 巨頭跟進</li>
+    <li>Naïve 新創行政自動化工具與既有 vibe coding 工具的市場競合關係</li>
+    <li>Google Maps 新功能上線後，OpenStreetMap 等競爭對手的回應策略</li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>AI 新聞摘要 {date_display} | 資料來源：<a href="https://techcrunch.com/category/artificial-intelligence/" target="_blank">TechCrunch AI</a></p>
+  <p>由 OpenClaw AI 自動編譯 | <a href="https://github.com/acstep/TECH" target="_blank">GitHub Repo</a></p>
+</div>
+
+</div><!-- container -->
+</body>
+</html>
